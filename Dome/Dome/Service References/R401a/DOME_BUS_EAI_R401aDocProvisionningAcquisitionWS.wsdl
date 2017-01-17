@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://webservices.partner.dome.fr/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS" targetNamespace="http://webservices.partner.dome.fr/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://webservices.partner.dome.fr/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="addDocument" type="tns:addDocument" />
+      <xs:element name="addDocumentResponse" type="tns:addDocumentResponse" />
+      <xs:complexType name="addDocument">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AddDocumentInput" type="tns:addDocumentInputDto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="addDocumentInputDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeDto">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="DOME_documentsList" type="tns:addDocumentInnerDto" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="domeDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DOME_header" type="tns:domeHeaderDto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="addDocumentInnerDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DOME_document" type="tns:documentDto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="documentDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="benefprofileId" type="xs:int" />
+          <xs:element minOccurs="0" name="structureprofileId" type="xs:int" />
+          <xs:element minOccurs="0" name="documentTypeCode" type="xs:string" />
+          <xs:element minOccurs="0" name="documentPeriod" type="xs:string" />
+          <xs:element minOccurs="0" name="documentIdMetier" type="xs:string" />
+          <xs:element minOccurs="0" name="factureMontantTotalTTC" type="xs:int" />
+          <xs:element minOccurs="0" name="factureNumero" type="xs:string" />
+          <xs:element minOccurs="0" name="documentContentId" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="domeHeaderDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeCommonDto">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="deviceType" type="xs:int" />
+              <xs:element minOccurs="0" name="langue" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="domeCommonDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="version" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="addDocumentResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="domeResponseDto" type="tns:addDocumentResponseDto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="addDocumentResponseDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeResponseDto">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="documentIds" nillable="true" type="xs:int" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="domeResponseDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DOME_header" type="tns:domeResponseHeaderDto" />
+          <xs:element minOccurs="0" name="statusId" type="xs:int" />
+          <xs:element minOccurs="0" name="statusUserMessage" type="xs:string" />
+          <xs:element minOccurs="0" name="statusErrorMessage" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="domeResponseHeaderDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeCommonDto">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="addDocumentResponse">
+    <wsdl:part name="parameters" element="tns:addDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="addDocument">
+    <wsdl:part name="parameters" element="tns:addDocument" />
+  </wsdl:message>
+  <wsdl:portType name="DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS">
+    <wsdl:operation name="addDocument">
+      <wsdl:input name="addDocument" message="tns:addDocument" />
+      <wsdl:output name="addDocumentResponse" message="tns:addDocumentResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DOME_BUS_EAI_R401aDocProvisionningAcquisitionWSSoapBinding" type="tns:DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="addDocument">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="addDocument">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="addDocumentResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS">
+    <wsdl:port name="AddDocumentWebServiceImplPort" binding="tns:DOME_BUS_EAI_R401aDocProvisionningAcquisitionWSSoapBinding">
+      <soap:address location="http://159.122.2.36/soap/DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

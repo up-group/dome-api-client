@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://webservices.partner.dome.fr/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="DOME_BUS_EAI_R525linkIntervenantToBenefWS" targetNamespace="http://webservices.partner.dome.fr/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://webservices.partner.dome.fr/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="linkIntervenantToBenef" type="tns:linkIntervenantToBenef" />
+      <xs:element name="linkIntervenantToBenefResponse" type="tns:linkIntervenantToBenefResponse" />
+      <xs:complexType name="linkIntervenantToBenef">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="linkIntervenantToBenefDto" type="tns:linkIntervenantToBenefDto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="linkIntervenantToBenefDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeDto">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="benefProfileId" type="xs:int" />
+              <xs:element minOccurs="0" name="intervenantProfileId" type="xs:int" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="domeDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DOME_header" type="tns:domeHeaderDto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="domeHeaderDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeCommonDto">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="deviceType" type="xs:int" />
+              <xs:element minOccurs="0" name="langue" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="domeCommonDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="version" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="linkIntervenantToBenefResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="linkIntervenantToBenefResponse" type="tns:linkIntervenantToBenefResponseDto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="linkIntervenantToBenefResponseDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeResponseDto">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="domeResponseDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DOME_header" type="tns:domeResponseHeaderDto" />
+          <xs:element minOccurs="0" name="statusId" type="xs:int" />
+          <xs:element minOccurs="0" name="statusUserMessage" type="xs:string" />
+          <xs:element minOccurs="0" name="statusErrorMessage" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="domeResponseHeaderDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeCommonDto">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="linkIntervenantToBenef">
+    <wsdl:part name="parameters" element="tns:linkIntervenantToBenef" />
+  </wsdl:message>
+  <wsdl:message name="linkIntervenantToBenefResponse">
+    <wsdl:part name="parameters" element="tns:linkIntervenantToBenefResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DOME_BUS_EAI_R525linkIntervenantToBenefWS">
+    <wsdl:operation name="linkIntervenantToBenef">
+      <wsdl:input name="linkIntervenantToBenef" message="tns:linkIntervenantToBenef" />
+      <wsdl:output name="linkIntervenantToBenefResponse" message="tns:linkIntervenantToBenefResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DOME_BUS_EAI_R525linkIntervenantToBenefWSSoapBinding" type="tns:DOME_BUS_EAI_R525linkIntervenantToBenefWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="linkIntervenantToBenef">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="linkIntervenantToBenef">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="linkIntervenantToBenefResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DOME_BUS_EAI_R525linkIntervenantToBenefWS">
+    <wsdl:port name="LinkIntervenantToBenefWebServiceImplPort" binding="tns:DOME_BUS_EAI_R525linkIntervenantToBenefWSSoapBinding">
+      <soap:address location="http://159.122.2.36/soap/DOME_BUS_EAI_R525linkIntervenantToBenefWS" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

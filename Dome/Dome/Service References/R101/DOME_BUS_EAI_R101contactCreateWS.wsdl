@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://webservices.partner.dome.fr/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="DOME_BUS_EAI_R101contactCreateWS" targetNamespace="http://webservices.partner.dome.fr/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://webservices.partner.dome.fr/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="createContact" type="tns:createContact" />
+      <xs:element name="createContactResponse" type="tns:createContactResponse" />
+      <xs:complexType name="createContact">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="createContactDto" type="tns:createContactDto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="createContactDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeDto">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="benefProfileId" type="xs:int" />
+              <xs:element minOccurs="0" name="DOME_contactCreate" type="tns:createContactInnerDto" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="domeDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DOME_header" type="tns:domeHeaderDto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="createContactInnerDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="contactCivilityId" type="xs:int" />
+          <xs:element minOccurs="0" name="contactFirstName" type="xs:string" />
+          <xs:element minOccurs="0" name="contactLastName" type="xs:string" />
+          <xs:element minOccurs="0" name="contactSocietyName" type="xs:string" />
+          <xs:element minOccurs="0" name="contactPhoneNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="contactMobilePhoneNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="contactEmail1" type="xs:string" />
+          <xs:element minOccurs="0" name="contactEmail2" type="xs:string" />
+          <xs:element minOccurs="0" name="contactBirthDate" type="xs:date" />
+          <xs:element minOccurs="0" name="contactRoadType" type="xs:string" />
+          <xs:element minOccurs="0" name="contactRoadName" type="xs:string" />
+          <xs:element minOccurs="0" name="contactRoadNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="contactPostBox" type="xs:string" />
+          <xs:element minOccurs="0" name="contactLieuDit" type="xs:string" />
+          <xs:element minOccurs="0" name="contactAddressComp1" type="xs:string" />
+          <xs:element minOccurs="0" name="contactAddressComp2" type="xs:string" />
+          <xs:element minOccurs="0" name="contactCedex" type="xs:string" />
+          <xs:element minOccurs="0" name="contactPersonCityZipCode" type="xs:string" />
+          <xs:element minOccurs="0" name="contactCityName" type="xs:string" />
+          <xs:element minOccurs="0" name="contactJob" type="xs:string" />
+          <xs:element minOccurs="0" name="contactPhoto" type="xs:int" />
+          <xs:element minOccurs="0" name="contactAlias" type="xs:string" />
+          <xs:element minOccurs="0" name="contactCategoryId" type="xs:int" />
+          <xs:element minOccurs="0" name="contactRelationShipId" type="xs:int" />
+          <xs:element minOccurs="0" name="contactProId" type="xs:int" />
+          <xs:element minOccurs="0" name="contactComment" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="domeHeaderDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeCommonDto">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="deviceType" type="xs:int" />
+              <xs:element minOccurs="0" name="langue" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="domeCommonDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="version" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="createContactResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="createContactResponse" type="tns:createContactResponseDto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="createContactResponseDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeResponseDto">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="contactId" type="xs:int" />
+              <xs:element minOccurs="0" name="doublonContactId" type="xs:int" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="domeResponseDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DOME_header" type="tns:domeResponseHeaderDto" />
+          <xs:element minOccurs="0" name="statusId" type="xs:int" />
+          <xs:element minOccurs="0" name="statusUserMessage" type="xs:string" />
+          <xs:element minOccurs="0" name="statusErrorMessage" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="domeResponseHeaderDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeCommonDto">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="createContactResponse">
+    <wsdl:part name="parameters" element="tns:createContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="createContact">
+    <wsdl:part name="parameters" element="tns:createContact" />
+  </wsdl:message>
+  <wsdl:portType name="DOME_BUS_EAI_R101contactCreateWS">
+    <wsdl:operation name="createContact">
+      <wsdl:input name="createContact" message="tns:createContact" />
+      <wsdl:output name="createContactResponse" message="tns:createContactResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DOME_BUS_EAI_R101contactCreateWSSoapBinding" type="tns:DOME_BUS_EAI_R101contactCreateWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="createContact">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="createContact">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="createContactResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DOME_BUS_EAI_R101contactCreateWS">
+    <wsdl:port name="CreateContactWebServiceImplPort" binding="tns:DOME_BUS_EAI_R101contactCreateWSSoapBinding">
+      <soap:address location="http://159.122.2.36/soap/DOME_BUS_EAI_R101contactCreateWS" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

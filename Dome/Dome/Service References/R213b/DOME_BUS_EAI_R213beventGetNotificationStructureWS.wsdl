@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://webservices.partner.dome.fr/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="DOME_BUS_EAI_R213beventGetNotificationStructureWS" targetNamespace="http://webservices.partner.dome.fr/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://webservices.partner.dome.fr/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getNotifications" type="tns:getNotifications" />
+      <xs:element name="getNotificationsResponse" type="tns:getNotificationsResponse" />
+      <xs:complexType name="getNotifications">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="eventGetNotificationStructureDto" type="tns:eventGetNotificationStructureDto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="eventGetNotificationStructureDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeDto">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="structureProfileId" type="xs:int" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="domeDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DOME_header" type="tns:domeHeaderDto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="domeHeaderDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeCommonDto">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="deviceType" type="xs:int" />
+              <xs:element minOccurs="0" name="langue" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="domeCommonDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="version" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getNotificationsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="eventGetNotificationStructureResponse" type="tns:eventGetNotificationStructureResponseDto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="eventGetNotificationStructureResponseDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeResponseDto">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="DOME_updateQuieryList" type="tns:updateQueryNotificationStructureDto" />
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="DOME_vacancyList" type="tns:vacancyNotificationStructureDto" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="domeResponseDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DOME_header" type="tns:domeResponseHeaderDto" />
+          <xs:element minOccurs="0" name="statusId" type="xs:int" />
+          <xs:element minOccurs="0" name="statusUserMessage" type="xs:string" />
+          <xs:element minOccurs="0" name="statusErrorMessage" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updateQueryNotificationStructureDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="benefProfileId" type="xs:int" />
+          <xs:element minOccurs="0" name="eventProIdMetier" type="xs:int" />
+          <xs:element minOccurs="0" name="eventTimeStart" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="eventTimeEnd" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="commentaire" type="xs:string" />
+          <xs:element minOccurs="0" name="motif" type="xs:string" />
+          <xs:element minOccurs="0" name="eventNotifProfileId" type="xs:int" />
+          <xs:element minOccurs="0" name="eventNotifProfileName" type="xs:string" />
+          <xs:element minOccurs="0" name="eventNotifDateTime" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="vacancyNotificationStructureDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="benefProfileId" type="xs:int" />
+          <xs:element minOccurs="0" name="missingTimeStart" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="missingTimeEnd" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="commentaire" type="xs:string" />
+          <xs:element minOccurs="0" name="motif" type="xs:string" />
+          <xs:element minOccurs="0" name="notifVacancyProfileId" type="xs:int" />
+          <xs:element minOccurs="0" name="notifVacancyProfileName" type="xs:string" />
+          <xs:element minOccurs="0" name="eventNotifDateTime" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="domeResponseHeaderDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeCommonDto">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getNotifications">
+    <wsdl:part name="parameters" element="tns:getNotifications" />
+  </wsdl:message>
+  <wsdl:message name="getNotificationsResponse">
+    <wsdl:part name="parameters" element="tns:getNotificationsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DOME_BUS_EAI_R213beventGetNotificationStructureWS">
+    <wsdl:operation name="getNotifications">
+      <wsdl:input name="getNotifications" message="tns:getNotifications" />
+      <wsdl:output name="getNotificationsResponse" message="tns:getNotificationsResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DOME_BUS_EAI_R213beventGetNotificationStructureWSSoapBinding" type="tns:DOME_BUS_EAI_R213beventGetNotificationStructureWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getNotifications">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getNotifications">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getNotificationsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DOME_BUS_EAI_R213beventGetNotificationStructureWS">
+    <wsdl:port name="EventGetNotificationStructureWebServiceImplPort" binding="tns:DOME_BUS_EAI_R213beventGetNotificationStructureWSSoapBinding">
+      <soap:address location="http://159.122.2.36/soap/DOME_BUS_EAI_R213beventGetNotificationStructureWS" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

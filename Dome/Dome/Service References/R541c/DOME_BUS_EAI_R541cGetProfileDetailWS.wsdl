@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://webservices.partner.dome.fr/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="DOME_BUS_EAI_R541cGetProfileDetailWS" targetNamespace="http://webservices.partner.dome.fr/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://webservices.partner.dome.fr/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="profileDetails" type="tns:profileDetails" />
+      <xs:element name="profileDetailsResponse" type="tns:profileDetailsResponse" />
+      <xs:complexType name="profileDetails">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="updateReferentDto" type="tns:profileDetailDto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="profileDetailDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeDto">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="profileId" type="xs:int" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="domeDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DOME_header" type="tns:domeHeaderDto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="domeHeaderDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeCommonDto">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="deviceType" type="xs:int" />
+              <xs:element minOccurs="0" name="langue" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="domeCommonDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="version" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="profileDetailsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="profileDetailResponse" type="tns:profileDetailResponseDto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="profileDetailResponseDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeResponseDto">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="DOME_profileDetail" type="tns:profilDetailInfoDto" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="domeResponseDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DOME_header" type="tns:domeResponseHeaderDto" />
+          <xs:element minOccurs="0" name="statusId" type="xs:int" />
+          <xs:element minOccurs="0" name="statusUserMessage" type="xs:string" />
+          <xs:element minOccurs="0" name="statusErrorMessage" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="profilDetailInfoDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="profileId" type="xs:int" />
+          <xs:element minOccurs="0" name="accountId" type="xs:int" />
+          <xs:element minOccurs="0" name="creationDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="creationProfileId" type="xs:int" />
+          <xs:element minOccurs="0" name="updateDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="updateProfileId" type="xs:int" />
+          <xs:element minOccurs="0" name="avatarFileId" type="xs:int" />
+          <xs:element minOccurs="0" name="profileRPPS" type="xs:string" />
+          <xs:element minOccurs="0" name="typeProfileConstanteId" type="xs:int" />
+          <xs:element minOccurs="0" name="DOME_profileParentData" type="tns:parentProfileDetailDto" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DOME_profileEnfantList" type="tns:childProfileDto" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DOME_structurePrestationList" type="tns:structurePrestationDto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="parentProfileDetailDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="profileId" type="xs:int" />
+          <xs:element minOccurs="0" name="profileName" type="xs:string" />
+          <xs:element minOccurs="0" name="typeProfileConstanteId" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DOME_profileLinkBenefProList" type="tns:linkBenefProListDto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="linkBenefProListDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="profileBeneficiaryId" type="xs:int" />
+          <xs:element minOccurs="0" name="profileBeneficiaryName" type="xs:string" />
+          <xs:element minOccurs="0" name="profileProId" type="xs:int" />
+          <xs:element minOccurs="0" name="profileProName" type="xs:string" />
+          <xs:element minOccurs="0" name="creationDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="creationProfileId" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="childProfileDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="profileId" type="xs:int" />
+          <xs:element minOccurs="0" name="profileName" type="xs:string" />
+          <xs:element minOccurs="0" name="typeProfileConstanteId" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="structurePrestationDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="typePrestationConstanteId" type="xs:int" />
+          <xs:element minOccurs="0" name="typeServiceStatutConstanteId" type="xs:int" />
+          <xs:element minOccurs="0" name="creationDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="creationProfileId" type="xs:int" />
+          <xs:element minOccurs="0" name="updateDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="updateProfileId" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="domeResponseHeaderDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeCommonDto">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="profileDetailsResponse">
+    <wsdl:part name="parameters" element="tns:profileDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="profileDetails">
+    <wsdl:part name="parameters" element="tns:profileDetails" />
+  </wsdl:message>
+  <wsdl:portType name="DOME_BUS_EAI_R541cGetProfileDetailWS">
+    <wsdl:operation name="profileDetails">
+      <wsdl:input name="profileDetails" message="tns:profileDetails" />
+      <wsdl:output name="profileDetailsResponse" message="tns:profileDetailsResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DOME_BUS_EAI_R541cGetProfileDetailWSSoapBinding" type="tns:DOME_BUS_EAI_R541cGetProfileDetailWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="profileDetails">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="profileDetails">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="profileDetailsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DOME_BUS_EAI_R541cGetProfileDetailWS">
+    <wsdl:port name="DetailProfileWebServiceImplPort" binding="tns:DOME_BUS_EAI_R541cGetProfileDetailWSSoapBinding">
+      <soap:address location="http://159.122.2.36/soap/DOME_BUS_EAI_R541cGetProfileDetailWS" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
