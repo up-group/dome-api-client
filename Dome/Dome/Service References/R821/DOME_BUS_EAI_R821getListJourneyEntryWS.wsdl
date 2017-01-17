@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://webservices.partner.dome.fr/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="DOME_BUS_EAI_R821getListJourneyEntryWS" targetNamespace="http://webservices.partner.dome.fr/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://webservices.partner.dome.fr/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getListCourseEntry" type="tns:getListCourseEntry" />
+      <xs:element name="getListCourseEntryResponse" type="tns:getListCourseEntryResponse" />
+      <xs:complexType name="getListCourseEntry">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="getListCourseEntry" type="tns:getListCourseEntryDto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getListCourseEntryDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeDto">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="benefProfileId" type="xs:int" />
+              <xs:element minOccurs="0" name="nbParcours" type="xs:int" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="domeDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DOME_header" type="tns:domeHeaderDto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="domeHeaderDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeCommonDto">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="deviceType" type="xs:int" />
+              <xs:element minOccurs="0" name="langue" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="domeCommonDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="version" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getListCourseEntryResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="getListCourseEntryResponse" type="tns:getListCourseEntryResponseDto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getListCourseEntryResponseDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeResponseDto">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="DOME_parcoursPatientList" type="tns:courseEntryListItemDto" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="domeResponseDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DOME_header" type="tns:domeResponseHeaderDto" />
+          <xs:element minOccurs="0" name="statusId" type="xs:int" />
+          <xs:element minOccurs="0" name="statusUserMessage" type="xs:string" />
+          <xs:element minOccurs="0" name="statusErrorMessage" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="courseEntryListItemDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="parcoursPatientId" type="xs:int" />
+          <xs:element minOccurs="0" name="eventDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="sensParcoursId" type="xs:int" />
+          <xs:element minOccurs="0" name="structureName" type="xs:string" />
+          <xs:element minOccurs="0" name="structureCityZipCode" type="xs:int" />
+          <xs:element minOccurs="0" name="structureCityName" type="xs:string" />
+          <xs:element minOccurs="0" name="structureServiceId" type="xs:int" />
+          <xs:element minOccurs="0" name="admissionTypeId" type="xs:int" />
+          <xs:element minOccurs="0" name="parcoursPatientCreationProfileId" type="xs:int" />
+          <xs:element minOccurs="0" name="parcoursPatientCreatorName" type="xs:string" />
+          <xs:element minOccurs="0" name="parcoursPatientCreationDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="domeResponseHeaderDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeCommonDto">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getListCourseEntry">
+    <wsdl:part name="parameters" element="tns:getListCourseEntry" />
+  </wsdl:message>
+  <wsdl:message name="getListCourseEntryResponse">
+    <wsdl:part name="parameters" element="tns:getListCourseEntryResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DOME_BUS_EAI_R821getListJourneyEntryWS">
+    <wsdl:operation name="getListCourseEntry">
+      <wsdl:input name="getListCourseEntry" message="tns:getListCourseEntry" />
+      <wsdl:output name="getListCourseEntryResponse" message="tns:getListCourseEntryResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DOME_BUS_EAI_R821getListJourneyEntryWSSoapBinding" type="tns:DOME_BUS_EAI_R821getListJourneyEntryWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getListCourseEntry">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getListCourseEntry">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getListCourseEntryResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DOME_BUS_EAI_R821getListJourneyEntryWS">
+    <wsdl:port name="GetListCourseEntryWebServiceImplPort" binding="tns:DOME_BUS_EAI_R821getListJourneyEntryWSSoapBinding">
+      <soap:address location="http://159.122.2.36/soap/DOME_BUS_EAI_R821getListJourneyEntryWS" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

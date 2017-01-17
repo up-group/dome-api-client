@@ -8,23 +8,24 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dome.R221 {
+namespace Dome.R221s {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://webservices.partner.dome.fr/", ConfigurationName="R221.DOME_BUS_EAI_R221eventUpdateWS")]
-    public interface DOME_BUS_EAI_R221eventUpdateWS {
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://webservices.partner.dome.fr/", ConfigurationName="R221s.DOME_BUS_EAI_R221eventUpdateStateWS")]
+    public interface DOME_BUS_EAI_R221eventUpdateStateWS {
         
-        // CODEGEN: Parameter 'updateEventResponse' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        // CODEGEN: Parameter 'eventUpdateStateResponse' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeResponseDto))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeCommonDto))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="updateEventResponse")]
-        Dome.R221.updateEventResponse updateEvent(Dome.R221.updateEvent request);
+        [return: System.ServiceModel.MessageParameterAttribute(Name="eventUpdateStateResponse")]
+        Dome.R221s.updateEventStateResponse updateEventState(Dome.R221s.updateEventState request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<Dome.R221.updateEventResponse> updateEventAsync(Dome.R221.updateEvent request);
+        System.Threading.Tasks.Task<Dome.R221s.updateEventStateResponse> updateEventStateAsync(Dome.R221s.updateEventState request);
     }
     
     /// <remarks/>
@@ -33,15 +34,13 @@ namespace Dome.R221 {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://webservices.partner.dome.fr/")]
-    public partial class eventUpdateDto : domeDto {
+    public partial class eventUpdateStateDto : domeDto {
         
-        private eventDataUpdateDto dOME_eventDatasUpdateField;
-        
-        private eventContactFilterDto[] dOME_eventContactListField;
+        private eventUpdateStateInnerDto[] dOME_eventDatasUpdateField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public eventDataUpdateDto DOME_eventDatasUpdate {
+        [System.Xml.Serialization.XmlElementAttribute("DOME_eventDatasUpdate", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public eventUpdateStateInnerDto[] DOME_eventDatasUpdate {
             get {
                 return this.dOME_eventDatasUpdateField;
             }
@@ -50,18 +49,6 @@ namespace Dome.R221 {
                 this.RaisePropertyChanged("DOME_eventDatasUpdate");
             }
         }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("DOME_eventContactList", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public eventContactFilterDto[] DOME_eventContactList {
-            get {
-                return this.dOME_eventContactListField;
-            }
-            set {
-                this.dOME_eventContactListField = value;
-                this.RaisePropertyChanged("DOME_eventContactList");
-            }
-        }
     }
     
     /// <remarks/>
@@ -70,45 +57,11 @@ namespace Dome.R221 {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://webservices.partner.dome.fr/")]
-    public partial class eventDataUpdateDto : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class eventUpdateStateInnerDto : object, System.ComponentModel.INotifyPropertyChanged {
         
         private int eventIdField;
         
         private bool eventIdFieldSpecified;
-        
-        private string eventTitleField;
-        
-        private int eventCategoryIdField;
-        
-        private bool eventCategoryIdFieldSpecified;
-        
-        private string eventDescriptionField;
-        
-        private System.DateTime eventTimeStartField;
-        
-        private bool eventTimeStartFieldSpecified;
-        
-        private System.DateTime eventTimeEndField;
-        
-        private bool eventTimeEndFieldSpecified;
-        
-        private int eventAlarmTimeField;
-        
-        private bool eventAlarmTimeFieldSpecified;
-        
-        private string eventCommentField;
-        
-        private int eventPeriodicityField;
-        
-        private bool eventPeriodicityFieldSpecified;
-        
-        private System.DateTime eventRecurrenceEndField;
-        
-        private bool eventRecurrenceEndFieldSpecified;
-        
-        private int intervenantProfileIDField;
-        
-        private bool intervenantProfileIDFieldSpecified;
         
         private int eventStateField;
         
@@ -140,210 +93,6 @@ namespace Dome.R221 {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public string eventTitle {
-            get {
-                return this.eventTitleField;
-            }
-            set {
-                this.eventTitleField = value;
-                this.RaisePropertyChanged("eventTitle");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public int eventCategoryId {
-            get {
-                return this.eventCategoryIdField;
-            }
-            set {
-                this.eventCategoryIdField = value;
-                this.RaisePropertyChanged("eventCategoryId");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool eventCategoryIdSpecified {
-            get {
-                return this.eventCategoryIdFieldSpecified;
-            }
-            set {
-                this.eventCategoryIdFieldSpecified = value;
-                this.RaisePropertyChanged("eventCategoryIdSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public string eventDescription {
-            get {
-                return this.eventDescriptionField;
-            }
-            set {
-                this.eventDescriptionField = value;
-                this.RaisePropertyChanged("eventDescription");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-        public System.DateTime eventTimeStart {
-            get {
-                return this.eventTimeStartField;
-            }
-            set {
-                this.eventTimeStartField = value;
-                this.RaisePropertyChanged("eventTimeStart");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool eventTimeStartSpecified {
-            get {
-                return this.eventTimeStartFieldSpecified;
-            }
-            set {
-                this.eventTimeStartFieldSpecified = value;
-                this.RaisePropertyChanged("eventTimeStartSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-        public System.DateTime eventTimeEnd {
-            get {
-                return this.eventTimeEndField;
-            }
-            set {
-                this.eventTimeEndField = value;
-                this.RaisePropertyChanged("eventTimeEnd");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool eventTimeEndSpecified {
-            get {
-                return this.eventTimeEndFieldSpecified;
-            }
-            set {
-                this.eventTimeEndFieldSpecified = value;
-                this.RaisePropertyChanged("eventTimeEndSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
-        public int eventAlarmTime {
-            get {
-                return this.eventAlarmTimeField;
-            }
-            set {
-                this.eventAlarmTimeField = value;
-                this.RaisePropertyChanged("eventAlarmTime");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool eventAlarmTimeSpecified {
-            get {
-                return this.eventAlarmTimeFieldSpecified;
-            }
-            set {
-                this.eventAlarmTimeFieldSpecified = value;
-                this.RaisePropertyChanged("eventAlarmTimeSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
-        public string eventComment {
-            get {
-                return this.eventCommentField;
-            }
-            set {
-                this.eventCommentField = value;
-                this.RaisePropertyChanged("eventComment");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
-        public int eventPeriodicity {
-            get {
-                return this.eventPeriodicityField;
-            }
-            set {
-                this.eventPeriodicityField = value;
-                this.RaisePropertyChanged("eventPeriodicity");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool eventPeriodicitySpecified {
-            get {
-                return this.eventPeriodicityFieldSpecified;
-            }
-            set {
-                this.eventPeriodicityFieldSpecified = value;
-                this.RaisePropertyChanged("eventPeriodicitySpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, DataType="date", Order=9)]
-        public System.DateTime eventRecurrenceEnd {
-            get {
-                return this.eventRecurrenceEndField;
-            }
-            set {
-                this.eventRecurrenceEndField = value;
-                this.RaisePropertyChanged("eventRecurrenceEnd");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool eventRecurrenceEndSpecified {
-            get {
-                return this.eventRecurrenceEndFieldSpecified;
-            }
-            set {
-                this.eventRecurrenceEndFieldSpecified = value;
-                this.RaisePropertyChanged("eventRecurrenceEndSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
-        public int intervenantProfileID {
-            get {
-                return this.intervenantProfileIDField;
-            }
-            set {
-                this.intervenantProfileIDField = value;
-                this.RaisePropertyChanged("intervenantProfileID");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool intervenantProfileIDSpecified {
-            get {
-                return this.intervenantProfileIDFieldSpecified;
-            }
-            set {
-                this.intervenantProfileIDFieldSpecified = value;
-                this.RaisePropertyChanged("intervenantProfileIDSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=11)]
         public int eventState {
             get {
                 return this.eventStateField;
@@ -377,6 +126,7 @@ namespace Dome.R221 {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(eventUpdateStateResponseDto))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -592,48 +342,11 @@ namespace Dome.R221 {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://webservices.partner.dome.fr/")]
-    public partial class eventContactFilterDto : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private int contactIdField;
-        
-        private bool contactIdFieldSpecified;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public int contactId {
-            get {
-                return this.contactIdField;
-            }
-            set {
-                this.contactIdField = value;
-                this.RaisePropertyChanged("contactId");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool contactIdSpecified {
-            get {
-                return this.contactIdFieldSpecified;
-            }
-            set {
-                this.contactIdFieldSpecified = value;
-                this.RaisePropertyChanged("contactIdSpecified");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
+    public partial class eventUpdateStateResponseDto : domeResponseDto {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(eventUpdateDto))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(eventUpdateStateDto))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -668,87 +381,87 @@ namespace Dome.R221 {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="updateEvent", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class updateEvent {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="updateEventState", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
+    public partial class updateEventState {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public Dome.R221.eventUpdateDto arg0;
+        public Dome.R221s.eventUpdateStateDto eventUpdateStateDto;
         
-        public updateEvent() {
+        public updateEventState() {
         }
         
-        public updateEvent(Dome.R221.eventUpdateDto arg0) {
-            this.arg0 = arg0;
+        public updateEventState(Dome.R221s.eventUpdateStateDto eventUpdateStateDto) {
+            this.eventUpdateStateDto = eventUpdateStateDto;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="updateEventResponse", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class updateEventResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="updateEventStateResponse", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
+    public partial class updateEventStateResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="updateEventResponse", Namespace="http://webservices.partner.dome.fr/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public Dome.R221.domeResponseDto updateEventResponse1;
+        public Dome.R221s.eventUpdateStateResponseDto eventUpdateStateResponse;
         
-        public updateEventResponse() {
+        public updateEventStateResponse() {
         }
         
-        public updateEventResponse(Dome.R221.domeResponseDto updateEventResponse1) {
-            this.updateEventResponse1 = updateEventResponse1;
+        public updateEventStateResponse(Dome.R221s.eventUpdateStateResponseDto eventUpdateStateResponse) {
+            this.eventUpdateStateResponse = eventUpdateStateResponse;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DOME_BUS_EAI_R221eventUpdateWSChannel : Dome.R221.DOME_BUS_EAI_R221eventUpdateWS, System.ServiceModel.IClientChannel {
+    public interface DOME_BUS_EAI_R221eventUpdateStateWSChannel : Dome.R221s.DOME_BUS_EAI_R221eventUpdateStateWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DOME_BUS_EAI_R221eventUpdateWSClient : System.ServiceModel.ClientBase<Dome.R221.DOME_BUS_EAI_R221eventUpdateWS>, Dome.R221.DOME_BUS_EAI_R221eventUpdateWS {
+    public partial class DOME_BUS_EAI_R221eventUpdateStateWSClient : System.ServiceModel.ClientBase<Dome.R221s.DOME_BUS_EAI_R221eventUpdateStateWS>, Dome.R221s.DOME_BUS_EAI_R221eventUpdateStateWS {
         
-        public DOME_BUS_EAI_R221eventUpdateWSClient() {
+        public DOME_BUS_EAI_R221eventUpdateStateWSClient() {
         }
         
-        public DOME_BUS_EAI_R221eventUpdateWSClient(string endpointConfigurationName) : 
+        public DOME_BUS_EAI_R221eventUpdateStateWSClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public DOME_BUS_EAI_R221eventUpdateWSClient(string endpointConfigurationName, string remoteAddress) : 
+        public DOME_BUS_EAI_R221eventUpdateStateWSClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public DOME_BUS_EAI_R221eventUpdateWSClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public DOME_BUS_EAI_R221eventUpdateStateWSClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public DOME_BUS_EAI_R221eventUpdateWSClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public DOME_BUS_EAI_R221eventUpdateStateWSClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Dome.R221.updateEventResponse Dome.R221.DOME_BUS_EAI_R221eventUpdateWS.updateEvent(Dome.R221.updateEvent request) {
-            return base.Channel.updateEvent(request);
+        Dome.R221s.updateEventStateResponse Dome.R221s.DOME_BUS_EAI_R221eventUpdateStateWS.updateEventState(Dome.R221s.updateEventState request) {
+            return base.Channel.updateEventState(request);
         }
         
-        public Dome.R221.domeResponseDto updateEvent(Dome.R221.eventUpdateDto arg0) {
-            Dome.R221.updateEvent inValue = new Dome.R221.updateEvent();
-            inValue.arg0 = arg0;
-            Dome.R221.updateEventResponse retVal = ((Dome.R221.DOME_BUS_EAI_R221eventUpdateWS)(this)).updateEvent(inValue);
-            return retVal.updateEventResponse1;
+        public Dome.R221s.eventUpdateStateResponseDto updateEventState(Dome.R221s.eventUpdateStateDto eventUpdateStateDto) {
+            Dome.R221s.updateEventState inValue = new Dome.R221s.updateEventState();
+            inValue.eventUpdateStateDto = eventUpdateStateDto;
+            Dome.R221s.updateEventStateResponse retVal = ((Dome.R221s.DOME_BUS_EAI_R221eventUpdateStateWS)(this)).updateEventState(inValue);
+            return retVal.eventUpdateStateResponse;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Dome.R221.updateEventResponse> Dome.R221.DOME_BUS_EAI_R221eventUpdateWS.updateEventAsync(Dome.R221.updateEvent request) {
-            return base.Channel.updateEventAsync(request);
+        System.Threading.Tasks.Task<Dome.R221s.updateEventStateResponse> Dome.R221s.DOME_BUS_EAI_R221eventUpdateStateWS.updateEventStateAsync(Dome.R221s.updateEventState request) {
+            return base.Channel.updateEventStateAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Dome.R221.updateEventResponse> updateEventAsync(Dome.R221.eventUpdateDto arg0) {
-            Dome.R221.updateEvent inValue = new Dome.R221.updateEvent();
-            inValue.arg0 = arg0;
-            return ((Dome.R221.DOME_BUS_EAI_R221eventUpdateWS)(this)).updateEventAsync(inValue);
+        public System.Threading.Tasks.Task<Dome.R221s.updateEventStateResponse> updateEventStateAsync(Dome.R221s.eventUpdateStateDto eventUpdateStateDto) {
+            Dome.R221s.updateEventState inValue = new Dome.R221s.updateEventState();
+            inValue.eventUpdateStateDto = eventUpdateStateDto;
+            return ((Dome.R221s.DOME_BUS_EAI_R221eventUpdateStateWS)(this)).updateEventStateAsync(inValue);
         }
     }
 }
