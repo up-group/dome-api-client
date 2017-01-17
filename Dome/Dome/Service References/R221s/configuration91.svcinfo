@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="Wu4Nr9lZHmv3siDjufsbqB1p7JU=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="kzujWs09oEuCwgIiKOosMGwZlho=">
   <bindingConfigurations>
-    <bindingConfiguration bindingType="basicHttpBinding" name="DOME_BUS_EAI_R221eventUpdateWSSoapBinding">
+    <bindingConfiguration bindingType="basicHttpBinding" name="DOME_BUS_EAI_R221eventUpdateStateWSSoapBinding">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>DOME_BUS_EAI_R221eventUpdateWSSoapBinding</serializedValue>
+          <serializedValue>DOME_BUS_EAI_R221eventUpdateStateWSSoapBinding</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="ModifyEventWebServiceImplPort" contract="R221.DOME_BUS_EAI_R221eventUpdateWS" bindingType="basicHttpBinding" address="http://159.122.2.36/soap/DOME_BUS_EAI_R221eventUpdateWS" bindingConfiguration="DOME_BUS_EAI_R221eventUpdateWSSoapBinding">
+    <endpoint name="EventUpdateStateWebServiceImplPort" contract="R221s.DOME_BUS_EAI_R221eventUpdateStateWS" bindingType="basicHttpBinding" address="http://159.122.2.36/soap/DOME_BUS_EAI_R221eventUpdateStateWS" bindingConfiguration="DOME_BUS_EAI_R221eventUpdateStateWSSoapBinding">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://159.122.2.36/soap/DOME_BUS_EAI_R221eventUpdateWS</serializedValue>
+          <serializedValue>http://159.122.2.36/soap/DOME_BUS_EAI_R221eventUpdateStateWS</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -124,10 +124,10 @@
           <serializedValue>basicHttpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>DOME_BUS_EAI_R221eventUpdateWSSoapBinding</serializedValue>
+          <serializedValue>DOME_BUS_EAI_R221eventUpdateStateWSSoapBinding</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>R221.DOME_BUS_EAI_R221eventUpdateWS</serializedValue>
+          <serializedValue>R221s.DOME_BUS_EAI_R221eventUpdateStateWS</serializedValue>
         </property>
         <property path="/headers" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.AddressHeaderCollectionElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.AddressHeaderCollectionElement</serializedValue>
@@ -187,7 +187,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>ModifyEventWebServiceImplPort</serializedValue>
+          <serializedValue>EventUpdateStateWebServiceImplPort</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a92176c3-9ea0-48d5-b1d3-fd36b0a165f3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4f48396c-d4ad-4276-993c-f3125575cf09" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,10 +19,10 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://159.122.2.36/soap/DOME_BUS_EAI_R221eventUpdateWS?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://159.122.2.36/soap/DOME_BUS_EAI_R833aSetDetailAGGIRWS?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="DOME_BUS_EAI_R221eventUpdateWS.wsdl" MetadataType="Wsdl" ID="4fb7a91e-d033-432a-8037-810639f23b0b" SourceId="1" SourceUrl="http://159.122.2.36/soap/DOME_BUS_EAI_R221eventUpdateWS?wsdl" />
+    <MetadataFile FileName="DOME_BUS_EAI_R833aSetDetailAGGIRWS.wsdl" MetadataType="Wsdl" ID="c11e4a22-0218-44de-9421-76aba943ecd6" SourceId="1" SourceUrl="http://159.122.2.36/soap/DOME_BUS_EAI_R833aSetDetailAGGIRWS?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

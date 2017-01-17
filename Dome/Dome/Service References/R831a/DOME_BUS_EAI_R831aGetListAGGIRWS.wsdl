@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://webservices.partner.dome.fr/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="DOME_BUS_EAI_R831aGetListAGGIRWS" targetNamespace="http://webservices.partner.dome.fr/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://webservices.partner.dome.fr/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getListAGGIR" type="tns:getListAGGIR" />
+      <xs:element name="getListAGGIRResponse" type="tns:getListAGGIRResponse" />
+      <xs:complexType name="getListAGGIR">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:getListAGGIRDto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getListAGGIRDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeDto">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="benefProfileId" type="xs:int" />
+              <xs:element minOccurs="0" name="nbHistoric" type="xs:int" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="domeDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DOME_header" type="tns:domeHeaderDto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="domeHeaderDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeCommonDto">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="deviceType" type="xs:int" />
+              <xs:element minOccurs="0" name="langue" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="domeCommonDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="version" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getListAGGIRResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:getListAGGIRResponseDto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getListAGGIRResponseDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeResponseDto">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="DOME_medAGGIR" type="tns:aggirListItemDto" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="domeResponseDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DOME_header" type="tns:domeResponseHeaderDto" />
+          <xs:element minOccurs="0" name="statusId" type="xs:int" />
+          <xs:element minOccurs="0" name="statusUserMessage" type="xs:string" />
+          <xs:element minOccurs="0" name="statusErrorMessage" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="aggirListItemDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AGGIRGridId" type="xs:int" />
+          <xs:element minOccurs="0" name="structureProfileId" type="xs:int" />
+          <xs:element minOccurs="0" name="structureProfileStructureName" type="xs:string" />
+          <xs:element minOccurs="0" name="AGGIREvaluationDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="AGGIRCreationProfileId" type="xs:int" />
+          <xs:element minOccurs="0" name="AGGIRCreatorName" type="xs:string" />
+          <xs:element minOccurs="0" name="AGGIRCreationDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="AGGIRCreatorEntityName" type="xs:string" />
+          <xs:element minOccurs="0" name="AGGIREvaluatorName" type="xs:string" />
+          <xs:element minOccurs="0" name="AGGIRCode" type="xs:int" />
+          <xs:element minOccurs="0" name="AGGIRCoherence" type="xs:int" />
+          <xs:element minOccurs="0" name="AGGIROrientation" type="xs:int" />
+          <xs:element minOccurs="0" name="AGGIRToilette" type="xs:int" />
+          <xs:element minOccurs="0" name="AGGIRHabillage" type="xs:int" />
+          <xs:element minOccurs="0" name="AGGIRAlimentation" type="xs:int" />
+          <xs:element minOccurs="0" name="AGGIRElimination" type="xs:int" />
+          <xs:element minOccurs="0" name="AGGIRTransferts" type="xs:int" />
+          <xs:element minOccurs="0" name="AGGIRDeplacInt" type="xs:int" />
+          <xs:element minOccurs="0" name="AGGIRDeplacExt" type="xs:int" />
+          <xs:element minOccurs="0" name="AGGIRAlerter" type="xs:int" />
+          <xs:element minOccurs="0" name="AGGIRGestion" type="xs:int" />
+          <xs:element minOccurs="0" name="AGGIRCuisine" type="xs:int" />
+          <xs:element minOccurs="0" name="AGGIRMenage" type="xs:int" />
+          <xs:element minOccurs="0" name="AGGIRTransport" type="xs:int" />
+          <xs:element minOccurs="0" name="AGGIRSuiviTraitement" type="xs:int" />
+          <xs:element minOccurs="0" name="AGGIRTempsLibre" type="xs:int" />
+          <xs:element minOccurs="0" name="AGGIRAchats" type="xs:int" />
+          <xs:element minOccurs="0" name="AGGIRComment" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="domeResponseHeaderDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeCommonDto">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getListAGGIRResponse">
+    <wsdl:part name="parameters" element="tns:getListAGGIRResponse" />
+  </wsdl:message>
+  <wsdl:message name="getListAGGIR">
+    <wsdl:part name="parameters" element="tns:getListAGGIR" />
+  </wsdl:message>
+  <wsdl:portType name="DOME_BUS_EAI_R831aGetListAGGIRWS">
+    <wsdl:operation name="getListAGGIR">
+      <wsdl:input name="getListAGGIR" message="tns:getListAGGIR" />
+      <wsdl:output name="getListAGGIRResponse" message="tns:getListAGGIRResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DOME_BUS_EAI_R831aGetListAGGIRWSSoapBinding" type="tns:DOME_BUS_EAI_R831aGetListAGGIRWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getListAGGIR">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getListAGGIR">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getListAGGIRResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DOME_BUS_EAI_R831aGetListAGGIRWS">
+    <wsdl:port name="GetListAGGIRWebServiceImplPort" binding="tns:DOME_BUS_EAI_R831aGetListAGGIRWSSoapBinding">
+      <soap:address location="http://159.122.2.36/soap/DOME_BUS_EAI_R831aGetListAGGIRWS" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
