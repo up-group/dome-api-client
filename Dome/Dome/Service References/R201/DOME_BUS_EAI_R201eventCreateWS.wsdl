@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://webservices.partner.dome.fr/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="DOME_BUS_EAI_R201eventCreateWS" targetNamespace="http://webservices.partner.dome.fr/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://webservices.partner.dome.fr/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="createEvent" type="tns:createEvent" />
+      <xs:element name="createEventResponse" type="tns:createEventResponse" />
+      <xs:complexType name="createEvent">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="createEventDto" type="tns:createEventDto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="createEventDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeDto">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="DOME_eventCreate" type="tns:createEventInnerDto" />
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="DOME_eventContactList" type="tns:createEventContactDto" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="domeDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DOME_header" type="tns:domeHeaderDto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="createEventInnerDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="eventCategoryId" type="xs:int" />
+          <xs:element minOccurs="0" name="eventTitle" type="xs:string" />
+          <xs:element minOccurs="0" name="eventDescription" type="xs:string" />
+          <xs:element minOccurs="0" name="eventTimeStart" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="eventTimeEnd" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="eventAlarm" type="xs:int" />
+          <xs:element minOccurs="0" name="eventComment" type="xs:string" />
+          <xs:element minOccurs="0" name="eventPeriodicity" type="xs:int" />
+          <xs:element minOccurs="0" name="eventRecurrenceEnd" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="benefProfileId" type="xs:int" />
+          <xs:element minOccurs="0" name="eventProIdMetier" type="xs:int" />
+          <xs:element minOccurs="0" name="intervenantProfileID" type="xs:int" />
+          <xs:element minOccurs="0" name="eventState" type="xs:int" />
+          <xs:element minOccurs="0" name="eventService" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="createEventContactDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="contactId" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="domeHeaderDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeCommonDto">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="deviceType" type="xs:int" />
+              <xs:element minOccurs="0" name="langue" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="domeCommonDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="version" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="createEventResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="createEventResponse" type="tns:createEventResponseDto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="createEventResponseDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeResponseDto">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="eventId" type="xs:int" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="domeResponseDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DOME_header" type="tns:domeResponseHeaderDto" />
+          <xs:element minOccurs="0" name="statusId" type="xs:int" />
+          <xs:element minOccurs="0" name="statusUserMessage" type="xs:string" />
+          <xs:element minOccurs="0" name="statusErrorMessage" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="domeResponseHeaderDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeCommonDto">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="createEvent">
+    <wsdl:part name="parameters" element="tns:createEvent" />
+  </wsdl:message>
+  <wsdl:message name="createEventResponse">
+    <wsdl:part name="parameters" element="tns:createEventResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DOME_BUS_EAI_R201eventCreateWS">
+    <wsdl:operation name="createEvent">
+      <wsdl:input name="createEvent" message="tns:createEvent" />
+      <wsdl:output name="createEventResponse" message="tns:createEventResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DOME_BUS_EAI_R201eventCreateWSSoapBinding" type="tns:DOME_BUS_EAI_R201eventCreateWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="createEvent">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="createEvent">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="createEventResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DOME_BUS_EAI_R201eventCreateWS">
+    <wsdl:port name="CreateEventWebServiceImplPort" binding="tns:DOME_BUS_EAI_R201eventCreateWSSoapBinding">
+      <soap:address location="http://159.122.2.36/soap/DOME_BUS_EAI_R201eventCreateWS" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://webservices.partner.dome.fr/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="DOME_BUS_EAI_R541bGetProfileListWS" targetNamespace="http://webservices.partner.dome.fr/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://webservices.partner.dome.fr/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getProfileListWS" type="tns:getProfileListWS" />
+      <xs:element name="getProfileListWSResponse" type="tns:getProfileListWSResponse" />
+      <xs:complexType name="getProfileListWS">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:authentificationInputDto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="authentificationInputDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeDto">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="accountId" type="xs:int" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="domeDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DOME_header" type="tns:domeHeaderDto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="domeHeaderDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeCommonDto">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="deviceType" type="xs:int" />
+              <xs:element minOccurs="0" name="langue" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="domeCommonDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="version" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getProfileListWSResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authentificationResponse" type="tns:authentificationResponseDto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="authentificationResponseDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeResponseDto">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="FirstConnexion" type="xs:boolean" />
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="DOME_profileList" type="tns:profileDto" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="domeResponseDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DOME_header" type="tns:domeResponseHeaderDto" />
+          <xs:element minOccurs="0" name="statusId" type="xs:int" />
+          <xs:element minOccurs="0" name="statusUserMessage" type="xs:string" />
+          <xs:element minOccurs="0" name="statusErrorMessage" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="profileDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="profileId" type="xs:int" />
+          <xs:element minOccurs="0" name="parentProfileId" type="xs:int" />
+          <xs:element minOccurs="0" name="typeStateConstanteId" type="xs:int" />
+          <xs:element minOccurs="0" name="typeProfileConstanteId" type="xs:int" />
+          <xs:element minOccurs="0" name="creationDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="creationProfileId" type="xs:int" />
+          <xs:element minOccurs="0" name="DOME_personData" type="tns:personDataDto" />
+          <xs:element minOccurs="0" name="DOME_societyData" type="tns:societyDataDto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="personDataDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="personFirstName" type="xs:string" />
+          <xs:element minOccurs="0" name="personLastName" type="xs:string" />
+          <xs:element minOccurs="0" name="personPhoneNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="personMobileNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="personRoadType" type="xs:string" />
+          <xs:element minOccurs="0" name="personRoadName" type="xs:string" />
+          <xs:element minOccurs="0" name="personRoadNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="personPostBox" type="xs:string" />
+          <xs:element minOccurs="0" name="personLieuDit" type="xs:string" />
+          <xs:element minOccurs="0" name="personAddressComp1" type="xs:string" />
+          <xs:element minOccurs="0" name="personAddressComp2" type="xs:string" />
+          <xs:element minOccurs="0" name="personCedex" type="xs:string" />
+          <xs:element minOccurs="0" name="personCityZipCode" type="xs:string" />
+          <xs:element minOccurs="0" name="personCityName" type="xs:string" />
+          <xs:element minOccurs="0" name="personEmail" type="xs:string" />
+          <xs:element minOccurs="0" name="personBirthDate" type="xs:date" />
+          <xs:element minOccurs="0" name="personBirthName" type="xs:string" />
+          <xs:element minOccurs="0" name="personINSC" type="xs:string" />
+          <xs:element minOccurs="0" name="personINSA" type="xs:string" />
+          <xs:element minOccurs="0" name="personCreationDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="personCreationProfileId" type="xs:int" />
+          <xs:element minOccurs="0" name="personUpdateDate" type="xs:string" />
+          <xs:element minOccurs="0" name="personUpdateProfileId" type="xs:int" />
+          <xs:element minOccurs="0" name="typeCivilityConstanteId" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="societyDataDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="societyName" type="xs:string" />
+          <xs:element minOccurs="0" name="societyRoadType" type="xs:string" />
+          <xs:element minOccurs="0" name="societyRoadName" type="xs:string" />
+          <xs:element minOccurs="0" name="societyRoadNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="societyPostBox" type="xs:string" />
+          <xs:element minOccurs="0" name="societyLieuDit" type="xs:string" />
+          <xs:element minOccurs="0" name="societyAddressComp1" type="xs:string" />
+          <xs:element minOccurs="0" name="societyAddressComp2" type="xs:string" />
+          <xs:element minOccurs="0" name="societyCedex" type="xs:string" />
+          <xs:element minOccurs="0" name="societyCityZipCode" type="xs:string" />
+          <xs:element minOccurs="0" name="societyCityName" type="xs:string" />
+          <xs:element minOccurs="0" name="societyPhoneNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="societyEmail" type="xs:string" />
+          <xs:element minOccurs="0" name="societyManagerLastName" type="xs:string" />
+          <xs:element minOccurs="0" name="societyManagerFirstName" type="xs:string" />
+          <xs:element minOccurs="0" name="societyURL" type="xs:string" />
+          <xs:element minOccurs="0" name="societyLatitude" type="xs:string" />
+          <xs:element minOccurs="0" name="societyLongitude" type="xs:string" />
+          <xs:element minOccurs="0" name="societyCreationDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="societyCreationProfileId" type="xs:int" />
+          <xs:element minOccurs="0" name="societyUpdateDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="societyUpdateProfileId" type="xs:int" />
+          <xs:element minOccurs="0" name="typeSocietyConstanteId" type="xs:int" />
+          <xs:element minOccurs="0" name="typeCivilityManagerConstanteId" type="xs:int" />
+          <xs:element minOccurs="0" name="societySIREN" type="xs:string" />
+          <xs:element minOccurs="0" name="societySIRET" type="xs:string" />
+          <xs:element minOccurs="0" name="societyFINESS" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="domeResponseHeaderDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeCommonDto">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getProfileListWS">
+    <wsdl:part name="parameters" element="tns:getProfileListWS" />
+  </wsdl:message>
+  <wsdl:message name="getProfileListWSResponse">
+    <wsdl:part name="parameters" element="tns:getProfileListWSResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DOME_BUS_EAI_R541bGetProfileListWS">
+    <wsdl:operation name="getProfileListWS">
+      <wsdl:input name="getProfileListWS" message="tns:getProfileListWS" />
+      <wsdl:output name="getProfileListWSResponse" message="tns:getProfileListWSResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DOME_BUS_EAI_R541bGetProfileListWSSoapBinding" type="tns:DOME_BUS_EAI_R541bGetProfileListWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getProfileListWS">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getProfileListWS">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getProfileListWSResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DOME_BUS_EAI_R541bGetProfileListWS">
+    <wsdl:port name="AuthentificationWebServiceImplPort" binding="tns:DOME_BUS_EAI_R541bGetProfileListWSSoapBinding">
+      <soap:address location="http://159.122.2.36/soap/DOME_BUS_EAI_R541bGetProfileListWS" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

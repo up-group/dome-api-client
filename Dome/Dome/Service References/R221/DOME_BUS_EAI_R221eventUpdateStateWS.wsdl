@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://webservices.partner.dome.fr/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="DOME_BUS_EAI_R221eventUpdateStateWS" targetNamespace="http://webservices.partner.dome.fr/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://webservices.partner.dome.fr/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="updateEventState" type="tns:updateEventState" />
+      <xs:element name="updateEventStateResponse" type="tns:updateEventStateResponse" />
+      <xs:complexType name="updateEventState">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="eventUpdateStateDto" type="tns:eventUpdateStateDto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="eventUpdateStateDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeDto">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="DOME_eventDatasUpdate" type="tns:eventUpdateStateInnerDto" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="domeDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DOME_header" type="tns:domeHeaderDto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="eventUpdateStateInnerDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="eventId" type="xs:int" />
+          <xs:element minOccurs="0" name="eventState" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="domeHeaderDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeCommonDto">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="deviceType" type="xs:int" />
+              <xs:element minOccurs="0" name="langue" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="domeCommonDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="version" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updateEventStateResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="eventUpdateStateResponse" type="tns:eventUpdateStateResponseDto" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="eventUpdateStateResponseDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeResponseDto">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="domeResponseDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DOME_header" type="tns:domeResponseHeaderDto" />
+          <xs:element minOccurs="0" name="statusId" type="xs:int" />
+          <xs:element minOccurs="0" name="statusUserMessage" type="xs:string" />
+          <xs:element minOccurs="0" name="statusErrorMessage" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="domeResponseHeaderDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeCommonDto">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="updateEventStateResponse">
+    <wsdl:part name="parameters" element="tns:updateEventStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateEventState">
+    <wsdl:part name="parameters" element="tns:updateEventState" />
+  </wsdl:message>
+  <wsdl:portType name="DOME_BUS_EAI_R221eventUpdateStateWS">
+    <wsdl:operation name="updateEventState">
+      <wsdl:input name="updateEventState" message="tns:updateEventState" />
+      <wsdl:output name="updateEventStateResponse" message="tns:updateEventStateResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DOME_BUS_EAI_R221eventUpdateStateWSSoapBinding" type="tns:DOME_BUS_EAI_R221eventUpdateStateWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="updateEventState">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="updateEventState">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateEventStateResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DOME_BUS_EAI_R221eventUpdateStateWS">
+    <wsdl:port name="EventUpdateStateWebServiceImplPort" binding="tns:DOME_BUS_EAI_R221eventUpdateStateWSSoapBinding">
+      <soap:address location="http://159.122.2.36/soap/DOME_BUS_EAI_R221eventUpdateStateWS" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
