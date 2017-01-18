@@ -93,8 +93,8 @@ namespace Dome
                 accountId = accountId,
                 DOME_header = new R541b.domeHeaderDto()
                 {
-                    date = AuthentificationHelper.auth.DOME_header.date,
-                    version = AuthentificationHelper.auth.DOME_header.version,
+                    date = AuthentificationHelper.Instance.auth.DOME_header.date.Value,
+                    version = AuthentificationHelper.Instance.auth.DOME_header.version,
 
                 }
             };
@@ -121,13 +121,13 @@ namespace Dome
             {
 
                 DOME_createPerson = CreatePersonInnerDto,
-
                 DOME_header = new R511.domeHeaderDto()
                 {
+                    langue = "fr",
+                    deviceTypeSpecified = false,
                     dateSpecified = true,
-                    date = AuthentificationHelper.auth.DOME_header.date,
-                    version = AuthentificationHelper.auth.DOME_header.version,
-
+                    date = AuthentificationHelper.Instance.auth.DOME_header.date.Value,
+                    version = AuthentificationHelper.Instance.auth.DOME_header.version,
                 }
             };
 
@@ -201,11 +201,11 @@ namespace Dome
             var authentificationInputDto = new authentificationInputDto()
             {
                 accountIdSpecified = true,
-                accountId = 102,
+                accountId = 40,
                 DOME_header = new R541b.domeHeaderDto()
                 {
-                    date = AuthentificationHelper.auth.DOME_header.date,
-                    version = AuthentificationHelper.auth.DOME_header.version,
+                    date = AuthentificationHelper.Instance.auth.DOME_header.date.Value,
+                    version = AuthentificationHelper.Instance.auth.DOME_header.version,
                 }
             };
             var data = DomeCallHelper.call2<DOME_BUS_EAI_R541bGetProfileListWSClient, DOME_BUS_EAI_R541bGetProfileListWS, authentificationResponseDto>(
@@ -219,94 +219,94 @@ namespace Dome
 
 
 
-        public void createProfile()
-        {
-            var createProfileDto = new createProfileDto()
-            {
-                accountId = (int)AuthentificationHelper.auth.account_id,
-                accountIdSpecified = AuthentificationHelper.auth.account_idSpecified,
+        //public void createProfile()
+        //{
+        //    var createProfileDto = new createProfileDto()
+        //    {
+        //        accountId = (int)AuthentificationHelper.auth.account_id,
+        //        accountIdSpecified = AuthentificationHelper.auth.account_idSpecified,
 
 
-                DOME_header = new R521.domeHeaderDto()
-                {
-                    date = AuthentificationHelper.auth.DOME_header.date,
-                    //dateSpecified = result2.DOME_header.dateSpecified,
-                    version = AuthentificationHelper.auth.DOME_header.version,
+        //        DOME_header = new R521.domeHeaderDto()
+        //        {
+        //            date = AuthentificationHelper.auth.DOME_header.date,
+        //            //dateSpecified = result2.DOME_header.dateSpecified,
+        //            version = AuthentificationHelper.auth.DOME_header.version,
 
-                }
-            };
+        //        }
+        //    };
 
-            var data = DomeCallHelper.call2<DOME_BUS_EAI_R521createProfileWSClient, DOME_BUS_EAI_R521createProfileWS, createProfileResponseDto>(
-                (x) => { return x.createProfile(createProfileDto); }
-                );
+        //    var data = DomeCallHelper.call2<DOME_BUS_EAI_R521createProfileWSClient, DOME_BUS_EAI_R521createProfileWS, createProfileResponseDto>(
+        //        (x) => { return x.createProfile(createProfileDto); }
+        //        );
 
-            //var url = @"http://159.122.2.36/soap/DOME_BUS_EAI_R521createProfileWS";
-            //var binding = new BasicHttpBinding();
-            //var endpoint = new EndpointAddress(url);
-            //var client = new DOME_BUS_EAI_R521createProfileWSClient(binding, endpoint);
+        //    //var url = @"http://159.122.2.36/soap/DOME_BUS_EAI_R521createProfileWS";
+        //    //var binding = new BasicHttpBinding();
+        //    //var endpoint = new EndpointAddress(url);
+        //    //var client = new DOME_BUS_EAI_R521createProfileWSClient(binding, endpoint);
 
-            //using (new OperationContextScope(client.InnerChannel))
-            //{
-            //    HttpRequestMessageProperty request = new HttpRequestMessageProperty();
-            //    request.Headers["Authorization"] = "Bearer " + AuthentificationHelper.Token;
+        //    //using (new OperationContextScope(client.InnerChannel))
+        //    //{
+        //    //    HttpRequestMessageProperty request = new HttpRequestMessageProperty();
+        //    //    request.Headers["Authorization"] = "Bearer " + AuthentificationHelper.Token;
 
-            //    OperationContext.Current.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = request;
-
-
-            //    var data = new createProfileDto()
-            //    {
-            //        accountId = (int)AuthentificationHelper.auth.account_id,
-            //        accountIdSpecified = AuthentificationHelper.auth.account_idSpecified,
+        //    //    OperationContext.Current.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = request;
 
 
-            //        DOME_header = new R521.domeHeaderDto()
-            //        {
-            //            date = AuthentificationHelper.auth.DOME_header.date,
-            //            //dateSpecified = result2.DOME_header.dateSpecified,
-            //            version = AuthentificationHelper.auth.DOME_header.version,
-
-            //        }
-            //    };
-
-            //    var result = client.createProfile(data);
-            //    var hy = 0;
-            //}
-        }
+        //    //    var data = new createProfileDto()
+        //    //    {
+        //    //        accountId = (int)AuthentificationHelper.auth.account_id,
+        //    //        accountIdSpecified = AuthentificationHelper.auth.account_idSpecified,
 
 
-        public void getNot()
-        {
+        //    //        DOME_header = new R521.domeHeaderDto()
+        //    //        {
+        //    //            date = AuthentificationHelper.auth.DOME_header.date,
+        //    //            //dateSpecified = result2.DOME_header.dateSpecified,
+        //    //            version = AuthentificationHelper.auth.DOME_header.version,
 
-            var url = @"http://159.122.2.36/soap/DOME_BUS_EAI_R213beventGetNotificationStructureWS";
-            var binding = new BasicHttpBinding();
-            var endpoint = new EndpointAddress(url);
-            var client = new DOME_BUS_EAI_R213beventGetNotificationStructureWSClient(binding, endpoint);
+        //    //        }
+        //    //    };
 
-            using (new OperationContextScope(client.InnerChannel))
-            {
-                HttpRequestMessageProperty request = new HttpRequestMessageProperty();
-                request.Headers["Authorization"] = "Bearer " + AuthentificationHelper.auth.token;
-
-                OperationContext.Current.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = request;
+        //    //    var result = client.createProfile(data);
+        //    //    var hy = 0;
+        //    //}
+        //}
 
 
-                var data = new eventGetNotificationStructureDto()
-                {
-                    structureProfileIdSpecified = true,
-                    structureProfileId = 102,
+        //public void getNot()
+        //{
 
-                    DOME_header = new R213b.domeHeaderDto()
-                    {
-                        date = AuthentificationHelper.auth.DOME_header.date,
-                        //dateSpecified = result2.DOME_header.dateSpecified,
-                        version = AuthentificationHelper.auth.DOME_header.version,
-                    }
-                };
+        //    var url = @"http://159.122.2.36/soap/DOME_BUS_EAI_R213beventGetNotificationStructureWS";
+        //    var binding = new BasicHttpBinding();
+        //    var endpoint = new EndpointAddress(url);
+        //    var client = new DOME_BUS_EAI_R213beventGetNotificationStructureWSClient(binding, endpoint);
 
-                var result = client.getNotifications(data);
-                var hy = 0;
-            }
-        }
+        //    using (new OperationContextScope(client.InnerChannel))
+        //    {
+        //        HttpRequestMessageProperty request = new HttpRequestMessageProperty();
+        //        request.Headers["Authorization"] = "Bearer " + AuthentificationHelper.auth.token;
+
+        //        OperationContext.Current.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = request;
+
+
+        //        var data = new eventGetNotificationStructureDto()
+        //        {
+        //            structureProfileIdSpecified = true,
+        //            structureProfileId = 102,
+
+        //            DOME_header = new R213b.domeHeaderDto()
+        //            {
+        //                date = AuthentificationHelper.auth.DOME_header.date,
+        //                //dateSpecified = result2.DOME_header.dateSpecified,
+        //                version = AuthentificationHelper.auth.DOME_header.version,
+        //            }
+        //        };
+
+        //        var result = client.getNotifications(data);
+        //        var hy = 0;
+        //    }
+        //}
 
     }
 

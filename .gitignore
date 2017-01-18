@@ -241,3 +241,5 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 /Dome/Dome/ConstHelper.cs
+/Dome/Dome.Test/App.config
+/Dome/DomeConsole/App.config

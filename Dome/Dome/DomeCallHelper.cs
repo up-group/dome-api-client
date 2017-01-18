@@ -23,7 +23,7 @@ namespace Dome
             {
 
                 HttpRequestMessageProperty request = new HttpRequestMessageProperty();
-                request.Headers["Authorization"] = "Bearer " + AuthentificationHelper.auth.token;
+                request.Headers["Authorization"] = "Bearer " + AuthentificationHelper.Instance.auth.token;
 
                 OperationContext.Current.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = request;
                 var data = test(client);
