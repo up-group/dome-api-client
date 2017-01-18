@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dome", "Dome\Dome.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomeConsole", "DomeConsole\DomeConsole.csproj", "{B2632D6E-014D-4D83-8CAD-0385DD41B653}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dome.Test", "Dome.Test\Dome.Test.csproj", "{01A7F3E0-F64E-435C-9A8E-6ED4D0499164}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B2632D6E-014D-4D83-8CAD-0385DD41B653}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2632D6E-014D-4D83-8CAD-0385DD41B653}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2632D6E-014D-4D83-8CAD-0385DD41B653}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01A7F3E0-F64E-435C-9A8E-6ED4D0499164}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01A7F3E0-F64E-435C-9A8E-6ED4D0499164}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01A7F3E0-F64E-435C-9A8E-6ED4D0499164}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01A7F3E0-F64E-435C-9A8E-6ED4D0499164}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

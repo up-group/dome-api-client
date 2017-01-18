@@ -42,7 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthentificationHelper.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="ConstHelper.cs" />
+    <Compile Include="DomeCallHelper.cs" />
+    <Compile Include="Entourage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\Authentification\Reference.cs">
       <AutoGen>True</AutoGen>
