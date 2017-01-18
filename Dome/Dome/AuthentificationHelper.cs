@@ -30,9 +30,9 @@ namespace Dome
         {
 
             var binding = new BasicHttpBinding();
-            var endpoint = new EndpointAddress(ConstHelper.urlbase + "/oauth-soap/DOME_BUS_EAI_R001loginWS");
+            var endpoint = new EndpointAddress(settings.urlbase + "/oauth-soap/DOME_BUS_EAI_R001loginWS");
             var client = new DOME_BUS_EAI_R001loginWSClient(binding, endpoint);
-            _auth = client.login(new userInfoDto { username = ConstHelper.username, password = CreateMD5(ConstHelper.password).ToLower() });
+            _auth = client.login(new userInfoDto { username = settings.username, password = CreateMD5(settings.password).ToLower() });
 
         }
 

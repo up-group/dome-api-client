@@ -12,11 +12,10 @@ using System;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Text;
+using System.Configuration;
 
 namespace Dome
 {
-
-
 
     public static class DomeCall
     {

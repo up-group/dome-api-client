@@ -43,8 +43,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuthentificationHelper.cs" />
-    <Compile Include="Class1.cs" />
-    <Compile Include="ConstHelper.cs" />
     <Compile Include="DomeCallHelper.cs" />
     <Compile Include="Entourage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -178,6 +176,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="settings.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
