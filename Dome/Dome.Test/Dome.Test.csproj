@@ -51,8 +51,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="AggirTests.cs" />
     <Compile Include="AuthTests.cs" />
     <Compile Include="DomeTests.cs" />
+    <Compile Include="EventsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

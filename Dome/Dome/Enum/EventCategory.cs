@@ -13,4 +13,10 @@ namespace Dome.Enum
         EvenementFamillial = 13,
         InterventionPrevue = 14
     }
+
+    public enum EventState
+    {
+        Planifie = 0,
+        Realise = 1
+    }
 }
