@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://webservices.partner.dome.fr/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="DOME_BUS_EAI_R824deleteJourneyEntryWS" targetNamespace="http://webservices.partner.dome.fr/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://webservices.partner.dome.fr/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="DOME_BUS_EAI_R231eventDeleteWS" targetNamespace="http://webservices.partner.dome.fr/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xs:schema elementFormDefault="unqualified" targetNamespace="http://webservices.partner.dome.fr/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-      <xs:element name="deleteCourseEntry" type="tns:deleteCourseEntry" />
-      <xs:element name="deleteCourseEntryResponse" type="tns:deleteCourseEntryResponse" />
-      <xs:complexType name="deleteCourseEntry">
+      <xs:element name="deleteEvent" type="tns:deleteEvent" />
+      <xs:element name="deleteEventResponse" type="tns:deleteEventResponse" />
+      <xs:complexType name="deleteEvent">
         <xs:sequence>
-          <xs:element minOccurs="0" name="deleteCourseEntry" type="tns:deleteCourseEntryDto" />
+          <xs:element minOccurs="0" name="deleteEventDto" type="tns:deleteEventDto" />
         </xs:sequence>
       </xs:complexType>
-      <xs:complexType name="deleteCourseEntryDto">
+      <xs:complexType name="deleteEventDto">
         <xs:complexContent mixed="false">
           <xs:extension base="tns:domeDto">
             <xs:sequence>
-              <xs:element minOccurs="0" name="benefProfileId" type="xs:int" />
-              <xs:element minOccurs="0" name="parcoursPatientId" type="xs:int" />
+              <xs:element minOccurs="0" name="eventId" type="xs:int" />
+              <xs:element minOccurs="0" name="eventDeleteProfileId" type="xs:int" />
+              <xs:element minOccurs="0" name="eventDeleteProfileName" type="xs:string" />
+              <xs:element minOccurs="0" name="eventDeleteNextOccurrences" type="xs:boolean" />
             </xs:sequence>
           </xs:extension>
         </xs:complexContent>
@@ -40,9 +42,9 @@
           <xs:element minOccurs="0" name="version" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
-      <xs:complexType name="deleteCourseEntryResponse">
+      <xs:complexType name="deleteEventResponse">
         <xs:sequence>
-          <xs:element minOccurs="0" name="deleteCourseEntry" type="tns:domeResponseDto" />
+          <xs:element minOccurs="0" name="deleteEventResponse" type="tns:domeResponseDto" />
         </xs:sequence>
       </xs:complexType>
       <xs:complexType name="domeResponseDto">
@@ -62,33 +64,33 @@
       </xs:complexType>
     </xs:schema>
   </wsdl:types>
-  <wsdl:message name="deleteCourseEntryResponse">
-    <wsdl:part name="parameters" element="tns:deleteCourseEntryResponse" />
+  <wsdl:message name="deleteEvent">
+    <wsdl:part name="parameters" element="tns:deleteEvent" />
   </wsdl:message>
-  <wsdl:message name="deleteCourseEntry">
-    <wsdl:part name="parameters" element="tns:deleteCourseEntry" />
+  <wsdl:message name="deleteEventResponse">
+    <wsdl:part name="parameters" element="tns:deleteEventResponse" />
   </wsdl:message>
-  <wsdl:portType name="DOME_BUS_EAI_R824deleteJourneyEntryWS">
-    <wsdl:operation name="deleteCourseEntry">
-      <wsdl:input name="deleteCourseEntry" message="tns:deleteCourseEntry" />
-      <wsdl:output name="deleteCourseEntryResponse" message="tns:deleteCourseEntryResponse" />
+  <wsdl:portType name="DOME_BUS_EAI_R231eventDeleteWS">
+    <wsdl:operation name="deleteEvent">
+      <wsdl:input name="deleteEvent" message="tns:deleteEvent" />
+      <wsdl:output name="deleteEventResponse" message="tns:deleteEventResponse" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="DOME_BUS_EAI_R824deleteJourneyEntryWSSoapBinding" type="tns:DOME_BUS_EAI_R824deleteJourneyEntryWS">
+  <wsdl:binding name="DOME_BUS_EAI_R231eventDeleteWSSoapBinding" type="tns:DOME_BUS_EAI_R231eventDeleteWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="deleteCourseEntry">
+    <wsdl:operation name="deleteEvent">
       <soap:operation soapAction="" style="document" />
-      <wsdl:input name="deleteCourseEntry">
+      <wsdl:input name="deleteEvent">
         <soap:body use="literal" />
       </wsdl:input>
-      <wsdl:output name="deleteCourseEntryResponse">
+      <wsdl:output name="deleteEventResponse">
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="DOME_BUS_EAI_R824deleteJourneyEntryWS">
-    <wsdl:port name="DeleteCourseEntryWebServiceImplPort" binding="tns:DOME_BUS_EAI_R824deleteJourneyEntryWSSoapBinding">
-      <soap:address location="http://159.122.2.36/soap/DOME_BUS_EAI_R824deleteJourneyEntryWS" />
+  <wsdl:service name="DOME_BUS_EAI_R231eventDeleteWS">
+    <wsdl:port name="DeleteEventWebServiceImplPort" binding="tns:DOME_BUS_EAI_R231eventDeleteWSSoapBinding">
+      <soap:address location="http://localhost:8080/dome-partner/soap/DOME_BUS_EAI_R231eventDeleteWS" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

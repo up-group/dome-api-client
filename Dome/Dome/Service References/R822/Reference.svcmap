@@ -19,10 +19,10 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://159.122.2.36/soap/DOME_BUS_EAI_R822getDetailJourneyEntryWS?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://dev.mondome.fr/soap/DOME_BUS_EAI_R822getDetailJourneyEntryWS?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="DOME_BUS_EAI_R822getDetailJourneyEntryWS.wsdl" MetadataType="Wsdl" ID="df6e3d8f-8310-4d48-81de-b51c086e3c44" SourceId="1" SourceUrl="http://159.122.2.36/soap/DOME_BUS_EAI_R822getDetailJourneyEntryWS?wsdl" />
+    <MetadataFile FileName="DOME_BUS_EAI_R822getDetailJourneyEntryWS1.wsdl" MetadataType="Wsdl" ID="15b8dff5-6db5-4179-a400-3b8d3f2054e6" SourceId="1" SourceUrl="http://dev.mondome.fr/soap/DOME_BUS_EAI_R822getDetailJourneyEntryWS?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

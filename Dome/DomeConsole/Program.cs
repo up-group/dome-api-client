@@ -7,6 +7,7 @@ using Dome.R511;
 
 using System.Configuration;
 using Dome;
+using Dome.Enum;
 
 namespace DomeConsole
 {
@@ -64,10 +65,12 @@ namespace DomeConsole
 
 
 
+            var a = DomeCall.createPerson(data);
 
 
+            //var t = DomeCall.GetProfileList(40);
 
-            var t = DomeCall.GetProfileList(40);
+           // var a = DomeCall.profileDetails(15);
 
 
 

@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://webservices.partner.dome.fr/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="DOME_BUS_EAI_R543bSwitchReferentWS" targetNamespace="http://webservices.partner.dome.fr/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://webservices.partner.dome.fr/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="DOME_BUS_EAI_R532selectProfileWS" targetNamespace="http://webservices.partner.dome.fr/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xs:schema elementFormDefault="unqualified" targetNamespace="http://webservices.partner.dome.fr/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-      <xs:element name="updatereferent" type="tns:updatereferent" />
-      <xs:element name="updatereferentResponse" type="tns:updatereferentResponse" />
-      <xs:complexType name="updatereferent">
+      <xs:element name="selectProfile" type="tns:selectProfile" />
+      <xs:element name="selectProfileResponse" type="tns:selectProfileResponse" />
+      <xs:complexType name="selectProfile">
         <xs:sequence>
-          <xs:element minOccurs="0" name="updateReferentDto" type="tns:updateReferentDto" />
+          <xs:element minOccurs="0" name="selectProfileDto" type="tns:selectProfileDto" />
         </xs:sequence>
       </xs:complexType>
-      <xs:complexType name="updateReferentDto">
+      <xs:complexType name="selectProfileDto">
         <xs:complexContent mixed="false">
           <xs:extension base="tns:domeDto">
             <xs:sequence>
-              <xs:element minOccurs="0" name="benefProfileId" type="xs:int" />
-              <xs:element minOccurs="0" name="newReferentProfileId" type="xs:int" />
+              <xs:element minOccurs="0" name="profileId" type="xs:int" />
             </xs:sequence>
           </xs:extension>
         </xs:complexContent>
@@ -40,10 +39,17 @@
           <xs:element minOccurs="0" name="version" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
-      <xs:complexType name="updatereferentResponse">
+      <xs:complexType name="selectProfileResponse">
         <xs:sequence>
-          <xs:element minOccurs="0" name="domeResponse" type="tns:domeResponseDto" />
+          <xs:element minOccurs="0" name="selectProfileResponse" type="tns:selectProfileResponseDto" />
         </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="selectProfileResponseDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeResponseDto">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
       </xs:complexType>
       <xs:complexType name="domeResponseDto">
         <xs:sequence>
@@ -62,33 +68,33 @@
       </xs:complexType>
     </xs:schema>
   </wsdl:types>
-  <wsdl:message name="updatereferent">
-    <wsdl:part name="parameters" element="tns:updatereferent" />
+  <wsdl:message name="selectProfileResponse">
+    <wsdl:part name="parameters" element="tns:selectProfileResponse" />
   </wsdl:message>
-  <wsdl:message name="updatereferentResponse">
-    <wsdl:part name="parameters" element="tns:updatereferentResponse" />
+  <wsdl:message name="selectProfile">
+    <wsdl:part name="parameters" element="tns:selectProfile" />
   </wsdl:message>
-  <wsdl:portType name="DOME_BUS_EAI_R543bSwitchReferentWS">
-    <wsdl:operation name="updatereferent">
-      <wsdl:input name="updatereferent" message="tns:updatereferent" />
-      <wsdl:output name="updatereferentResponse" message="tns:updatereferentResponse" />
+  <wsdl:portType name="DOME_BUS_EAI_R532selectProfileWS">
+    <wsdl:operation name="selectProfile">
+      <wsdl:input name="selectProfile" message="tns:selectProfile" />
+      <wsdl:output name="selectProfileResponse" message="tns:selectProfileResponse" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="DOME_BUS_EAI_R543bSwitchReferentWSSoapBinding" type="tns:DOME_BUS_EAI_R543bSwitchReferentWS">
+  <wsdl:binding name="DOME_BUS_EAI_R532selectProfileWSSoapBinding" type="tns:DOME_BUS_EAI_R532selectProfileWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="updatereferent">
+    <wsdl:operation name="selectProfile">
       <soap:operation soapAction="" style="document" />
-      <wsdl:input name="updatereferent">
+      <wsdl:input name="selectProfile">
         <soap:body use="literal" />
       </wsdl:input>
-      <wsdl:output name="updatereferentResponse">
+      <wsdl:output name="selectProfileResponse">
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="DOME_BUS_EAI_R543bSwitchReferentWS">
-    <wsdl:port name="ReferentWebServiceImplPort" binding="tns:DOME_BUS_EAI_R543bSwitchReferentWSSoapBinding">
-      <soap:address location="http://159.122.2.36/soap/DOME_BUS_EAI_R543bSwitchReferentWS" />
+  <wsdl:service name="DOME_BUS_EAI_R532selectProfileWS">
+    <wsdl:port name="SelectProfilePartnerWebServiceImplPort" binding="tns:DOME_BUS_EAI_R532selectProfileWSSoapBinding">
+      <soap:address location="http://localhost:8080/dome-partner/soap/DOME_BUS_EAI_R532selectProfileWS" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

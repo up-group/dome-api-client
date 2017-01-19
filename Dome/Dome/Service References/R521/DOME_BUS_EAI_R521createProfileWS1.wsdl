@@ -1,20 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://webservices.partner.dome.fr/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="DOME_BUS_EAI_R590getMultimediaFile" targetNamespace="http://webservices.partner.dome.fr/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://webservices.partner.dome.fr/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="DOME_BUS_EAI_R521createProfileWS" targetNamespace="http://webservices.partner.dome.fr/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xs:schema elementFormDefault="unqualified" targetNamespace="http://webservices.partner.dome.fr/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-      <xs:element name="uploadFileWs" type="tns:uploadFileWs" />
-      <xs:element name="uploadFileWsResponse" type="tns:uploadFileWsResponse" />
-      <xs:complexType name="uploadFileWs">
+      <xs:element name="createProfile" type="tns:createProfile" />
+      <xs:element name="createProfileResponse" type="tns:createProfileResponse" />
+      <xs:complexType name="createProfile">
         <xs:sequence>
-          <xs:element minOccurs="0" name="arg0" type="tns:uploadFileWSDto" />
+          <xs:element minOccurs="0" name="profileDto" type="tns:createProfileDto" />
         </xs:sequence>
       </xs:complexType>
-      <xs:complexType name="uploadFileWSDto">
+      <xs:complexType name="createProfileDto">
         <xs:complexContent mixed="false">
           <xs:extension base="tns:domeDto">
             <xs:sequence>
-              <xs:element minOccurs="0" name="fileName" type="xs:string" />
-              <xs:element minOccurs="0" name="file" type="xs:string" />
+              <xs:element minOccurs="0" name="accountId" type="xs:int" />
+              <xs:element minOccurs="0" name="profileCibleType" type="xs:int" />
+              <xs:element minOccurs="0" name="profileParentId" type="xs:int" />
+              <xs:element minOccurs="0" name="profileAvatar" type="xs:int" />
+              <xs:element minOccurs="0" name="personSocietyRole" type="xs:int" />
+              <xs:element minOccurs="0" name="personIdMetier" type="xs:string" />
+              <xs:element minOccurs="0" name="prestationListId" type="xs:string" />
+              <xs:element minOccurs="0" name="profileSpecialCriteria" type="xs:string" />
+              <xs:element minOccurs="0" name="profileSectoring" type="xs:string" />
             </xs:sequence>
           </xs:extension>
         </xs:complexContent>
@@ -40,16 +47,16 @@
           <xs:element minOccurs="0" name="version" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
-      <xs:complexType name="uploadFileWsResponse">
+      <xs:complexType name="createProfileResponse">
         <xs:sequence>
-          <xs:element minOccurs="0" name="createdMediaResponse" type="tns:createdMediaResponseDto" />
+          <xs:element minOccurs="0" name="createProfileResponse" type="tns:createProfileResponseDto" />
         </xs:sequence>
       </xs:complexType>
-      <xs:complexType name="createdMediaResponseDto">
+      <xs:complexType name="createProfileResponseDto">
         <xs:complexContent mixed="false">
           <xs:extension base="tns:domeResponseDto">
             <xs:sequence>
-              <xs:element minOccurs="0" name="fileId" type="xs:int" />
+              <xs:element minOccurs="0" name="profileId" type="xs:int" />
             </xs:sequence>
           </xs:extension>
         </xs:complexContent>
@@ -71,33 +78,33 @@
       </xs:complexType>
     </xs:schema>
   </wsdl:types>
-  <wsdl:message name="uploadFileWsResponse">
-    <wsdl:part name="parameters" element="tns:uploadFileWsResponse" />
+  <wsdl:message name="createProfile">
+    <wsdl:part name="parameters" element="tns:createProfile" />
   </wsdl:message>
-  <wsdl:message name="uploadFileWs">
-    <wsdl:part name="parameters" element="tns:uploadFileWs" />
+  <wsdl:message name="createProfileResponse">
+    <wsdl:part name="parameters" element="tns:createProfileResponse" />
   </wsdl:message>
-  <wsdl:portType name="DOME_BUS_EAI_R590getMultimediaFile">
-    <wsdl:operation name="uploadFileWs">
-      <wsdl:input name="uploadFileWs" message="tns:uploadFileWs" />
-      <wsdl:output name="uploadFileWsResponse" message="tns:uploadFileWsResponse" />
+  <wsdl:portType name="DOME_BUS_EAI_R521createProfileWS">
+    <wsdl:operation name="createProfile">
+      <wsdl:input name="createProfile" message="tns:createProfile" />
+      <wsdl:output name="createProfileResponse" message="tns:createProfileResponse" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="DOME_BUS_EAI_R590getMultimediaFileSoapBinding" type="tns:DOME_BUS_EAI_R590getMultimediaFile">
+  <wsdl:binding name="DOME_BUS_EAI_R521createProfileWSSoapBinding" type="tns:DOME_BUS_EAI_R521createProfileWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="uploadFileWs">
+    <wsdl:operation name="createProfile">
       <soap:operation soapAction="" style="document" />
-      <wsdl:input name="uploadFileWs">
+      <wsdl:input name="createProfile">
         <soap:body use="literal" />
       </wsdl:input>
-      <wsdl:output name="uploadFileWsResponse">
+      <wsdl:output name="createProfileResponse">
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="DOME_BUS_EAI_R590getMultimediaFile">
-    <wsdl:port name="UploadWebSoapServiceImplPort" binding="tns:DOME_BUS_EAI_R590getMultimediaFileSoapBinding">
-      <soap:address location="http://159.122.2.36/soap/DOME_BUS_EAI_R590getMultimediaFile" />
+  <wsdl:service name="DOME_BUS_EAI_R521createProfileWS">
+    <wsdl:port name="CreateProfileWebServiceImplPort" binding="tns:DOME_BUS_EAI_R521createProfileWSSoapBinding">
+      <soap:address location="http://localhost:8080/dome-partner/soap/DOME_BUS_EAI_R521createProfileWS" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

@@ -113,7 +113,7 @@
   </wsdl:binding>
   <wsdl:service name="DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS">
     <wsdl:port name="AddDocumentWebServiceImplPort" binding="tns:DOME_BUS_EAI_R401aDocProvisionningAcquisitionWSSoapBinding">
-      <soap:address location="http://159.122.2.36/soap/DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS" />
+      <soap:address location="http://localhost:8080/dome-partner/soap/DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="VXvHUwXfAdAZx02Rr3AjgpZGl/k=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="OH0tgg0cmcLvzR64sLCtzwgzDYg=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="DOME_BUS_EAI_R511createPersonWSSoapBinding">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="CreatePersonWebServiceImplPort" contract="R511.DOME_BUS_EAI_R511createPersonWS" bindingType="basicHttpBinding" address="http://159.122.2.36/soap/DOME_BUS_EAI_R511createPersonWS" bindingConfiguration="DOME_BUS_EAI_R511createPersonWSSoapBinding">
+    <endpoint name="CreatePersonWebServiceImplPort" contract="R511.DOME_BUS_EAI_R511createPersonWS" bindingType="basicHttpBinding" address="http://localhost:8080/dome-partner/soap/DOME_BUS_EAI_R511createPersonWS" bindingConfiguration="DOME_BUS_EAI_R511createPersonWSSoapBinding">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://159.122.2.36/soap/DOME_BUS_EAI_R511createPersonWS</serializedValue>
+          <serializedValue>http://localhost:8080/dome-partner/soap/DOME_BUS_EAI_R511createPersonWS</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

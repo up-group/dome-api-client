@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Configuration;
 using Dome.R511;
 using Dome.R521;
+using Dome.Enum;
 
 namespace Dome.Test
 {

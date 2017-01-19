@@ -19,10 +19,10 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://159.122.2.36/soap/DOME_BUS_EAI_R525linkIntervenantToBenefWS?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://dev.mondome.fr/soap/DOME_BUS_EAI_R525linkIntervenantToBenefWS?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="DOME_BUS_EAI_R525linkIntervenantToBenefWS.wsdl" MetadataType="Wsdl" ID="20caafcb-08fe-49e0-966f-41adbc71efff" SourceId="1" SourceUrl="http://159.122.2.36/soap/DOME_BUS_EAI_R525linkIntervenantToBenefWS?wsdl" />
+    <MetadataFile FileName="DOME_BUS_EAI_R525linkIntervenantToBenefWS1.wsdl" MetadataType="Wsdl" ID="c55f4473-d7c5-44b4-9f19-759bb6f3343d" SourceId="1" SourceUrl="http://dev.mondome.fr/soap/DOME_BUS_EAI_R525linkIntervenantToBenefWS?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

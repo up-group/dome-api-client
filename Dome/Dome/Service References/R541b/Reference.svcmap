@@ -19,10 +19,10 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://159.122.2.36/soap/DOME_BUS_EAI_R541bGetProfileListWS?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://dev.mondome.fr/soap/DOME_BUS_EAI_R541bGetProfileListWS?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="DOME_BUS_EAI_R541bGetProfileListWS.wsdl" MetadataType="Wsdl" ID="f672e0dc-7156-4610-bcfb-01b7d4c3dbc8" SourceId="1" SourceUrl="http://159.122.2.36/soap/DOME_BUS_EAI_R541bGetProfileListWS?wsdl" />
+    <MetadataFile FileName="DOME_BUS_EAI_R541bGetProfileListWS1.wsdl" MetadataType="Wsdl" ID="a2ff8d65-e190-4fa2-82a4-8cdc7398ffbc" SourceId="1" SourceUrl="http://dev.mondome.fr/soap/DOME_BUS_EAI_R541bGetProfileListWS?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

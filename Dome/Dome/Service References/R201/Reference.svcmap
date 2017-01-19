@@ -19,10 +19,10 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://159.122.2.36/soap/DOME_BUS_EAI_R201eventCreateWS?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://dev.mondome.fr/soap/DOME_BUS_EAI_R201eventCreateWS?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="DOME_BUS_EAI_R201eventCreateWS.wsdl" MetadataType="Wsdl" ID="dd6c4bb6-89d2-40e5-86a6-32f262a5b4a5" SourceId="1" SourceUrl="http://159.122.2.36/soap/DOME_BUS_EAI_R201eventCreateWS?wsdl" />
+    <MetadataFile FileName="DOME_BUS_EAI_R201eventCreateWS1.wsdl" MetadataType="Wsdl" ID="e206d14f-f511-4061-aaa9-882d819f79f9" SourceId="1" SourceUrl="http://dev.mondome.fr/soap/DOME_BUS_EAI_R201eventCreateWS?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

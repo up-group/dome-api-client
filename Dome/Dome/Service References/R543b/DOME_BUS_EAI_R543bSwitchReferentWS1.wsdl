@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://webservices.partner.dome.fr/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="DOME_BUS_EAI_R231eventDeleteWS" targetNamespace="http://webservices.partner.dome.fr/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://webservices.partner.dome.fr/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="DOME_BUS_EAI_R543bSwitchReferentWS" targetNamespace="http://webservices.partner.dome.fr/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xs:schema elementFormDefault="unqualified" targetNamespace="http://webservices.partner.dome.fr/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-      <xs:element name="deleteEvent" type="tns:deleteEvent" />
-      <xs:element name="deleteEventResponse" type="tns:deleteEventResponse" />
-      <xs:complexType name="deleteEvent">
+      <xs:element name="updatereferent" type="tns:updatereferent" />
+      <xs:element name="updatereferentResponse" type="tns:updatereferentResponse" />
+      <xs:complexType name="updatereferent">
         <xs:sequence>
-          <xs:element minOccurs="0" name="deleteEventDto" type="tns:deleteEventDto" />
+          <xs:element minOccurs="0" name="updateReferentDto" type="tns:updateReferentDto" />
         </xs:sequence>
       </xs:complexType>
-      <xs:complexType name="deleteEventDto">
+      <xs:complexType name="updateReferentDto">
         <xs:complexContent mixed="false">
           <xs:extension base="tns:domeDto">
             <xs:sequence>
-              <xs:element minOccurs="0" name="eventId" type="xs:int" />
-              <xs:element minOccurs="0" name="eventDeleteProfileId" type="xs:int" />
-              <xs:element minOccurs="0" name="eventDeleteProfileName" type="xs:string" />
-              <xs:element minOccurs="0" name="eventDeleteNextOccurrences" type="xs:boolean" />
+              <xs:element minOccurs="0" name="benefProfileId" type="xs:int" />
+              <xs:element minOccurs="0" name="newReferentProfileId" type="xs:int" />
             </xs:sequence>
           </xs:extension>
         </xs:complexContent>
@@ -42,9 +40,9 @@
           <xs:element minOccurs="0" name="version" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
-      <xs:complexType name="deleteEventResponse">
+      <xs:complexType name="updatereferentResponse">
         <xs:sequence>
-          <xs:element minOccurs="0" name="deleteEventResponse" type="tns:domeResponseDto" />
+          <xs:element minOccurs="0" name="domeResponse" type="tns:domeResponseDto" />
         </xs:sequence>
       </xs:complexType>
       <xs:complexType name="domeResponseDto">
@@ -64,33 +62,33 @@
       </xs:complexType>
     </xs:schema>
   </wsdl:types>
-  <wsdl:message name="deleteEvent">
-    <wsdl:part name="parameters" element="tns:deleteEvent" />
+  <wsdl:message name="updatereferent">
+    <wsdl:part name="parameters" element="tns:updatereferent" />
   </wsdl:message>
-  <wsdl:message name="deleteEventResponse">
-    <wsdl:part name="parameters" element="tns:deleteEventResponse" />
+  <wsdl:message name="updatereferentResponse">
+    <wsdl:part name="parameters" element="tns:updatereferentResponse" />
   </wsdl:message>
-  <wsdl:portType name="DOME_BUS_EAI_R231eventDeleteWS">
-    <wsdl:operation name="deleteEvent">
-      <wsdl:input name="deleteEvent" message="tns:deleteEvent" />
-      <wsdl:output name="deleteEventResponse" message="tns:deleteEventResponse" />
+  <wsdl:portType name="DOME_BUS_EAI_R543bSwitchReferentWS">
+    <wsdl:operation name="updatereferent">
+      <wsdl:input name="updatereferent" message="tns:updatereferent" />
+      <wsdl:output name="updatereferentResponse" message="tns:updatereferentResponse" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="DOME_BUS_EAI_R231eventDeleteWSSoapBinding" type="tns:DOME_BUS_EAI_R231eventDeleteWS">
+  <wsdl:binding name="DOME_BUS_EAI_R543bSwitchReferentWSSoapBinding" type="tns:DOME_BUS_EAI_R543bSwitchReferentWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="deleteEvent">
+    <wsdl:operation name="updatereferent">
       <soap:operation soapAction="" style="document" />
-      <wsdl:input name="deleteEvent">
+      <wsdl:input name="updatereferent">
         <soap:body use="literal" />
       </wsdl:input>
-      <wsdl:output name="deleteEventResponse">
+      <wsdl:output name="updatereferentResponse">
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="DOME_BUS_EAI_R231eventDeleteWS">
-    <wsdl:port name="DeleteEventWebServiceImplPort" binding="tns:DOME_BUS_EAI_R231eventDeleteWSSoapBinding">
-      <soap:address location="http://159.122.2.36/soap/DOME_BUS_EAI_R231eventDeleteWS" />
+  <wsdl:service name="DOME_BUS_EAI_R543bSwitchReferentWS">
+    <wsdl:port name="ReferentWebServiceImplPort" binding="tns:DOME_BUS_EAI_R543bSwitchReferentWSSoapBinding">
+      <soap:address location="http://localhost:8080/dome-partner/soap/DOME_BUS_EAI_R543bSwitchReferentWS" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
