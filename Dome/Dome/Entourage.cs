@@ -124,7 +124,8 @@ namespace Dome
                 DOME_header = new R511.domeHeaderDto()
                 {
                     langue = "fr",
-                    deviceTypeSpecified = false,
+                    deviceTypeSpecified = true,
+                    deviceType = 5,
                     dateSpecified = true,
                     date = AuthentificationHelper.Instance.auth.DOME_header.date.Value,
                     version = AuthentificationHelper.Instance.auth.DOME_header.version,
