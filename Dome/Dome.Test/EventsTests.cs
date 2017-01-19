@@ -12,6 +12,8 @@ namespace Dome.Test
     [TestClass]
     public class EventsTests
     {
+        private int createdEventId = 0;
+
         [ClassInitialize()]
         public static void ClassInit(TestContext context)
         {
@@ -39,16 +41,20 @@ namespace Dome.Test
 
             createEventResponseDto res = DomeCall.createEvent(e);
             Assert.IsTrue(res.statusId == 0);
+
+            createdEventId = res.eventId;
         }
 
         [TestMethod]
         public void UpdateEventShouldSucceed()
         {
+            Assert.IsTrue(createdEventId > 0);
+
             eventUpdateDto e = new eventUpdateDto()
             {
                 DOME_eventDatasUpdate = new eventDataUpdateDto()
                 {
-                    eventId = 15,
+                    eventId = createdEventId,
                     eventCategoryId = (int)EventCategory.RendezVous,
                     eventTitle = "TEST MODIF EVENT",
                     eventTimeStart = DateTime.Now.AddHours(1),
@@ -63,9 +69,11 @@ namespace Dome.Test
         [TestMethod]
         public void UpdateEventStateShouldSucceed()
         {
+            Assert.IsTrue(createdEventId > 0);
+
             var update = new eventUpdateStateInnerDto
             {
-                eventId = 15,
+                eventId = createdEventId,
                 eventState = (int)EventState.Realise
             };
             eventUpdateStateDto e = new eventUpdateStateDto()
@@ -83,9 +91,11 @@ namespace Dome.Test
         [TestMethod]
         public void DeleteEventShouldSucceed()
         {
+            Assert.IsTrue(createdEventId > 0);
+
             deleteEventDto e = new deleteEventDto()
             {
-                eventId = 15,
+                eventId = createdEventId,
             };
 
             R231.domeResponseDto res = DomeCall.deleteEvent(e);
