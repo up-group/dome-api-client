@@ -3,7 +3,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Configuration;
 using Dome.R511;
 using Dome.R521;
-using Dome.R830a;
 using Dome.R542a;
 using Dome.Enum;
 
@@ -18,40 +17,14 @@ namespace Dome.Test
             settings.password = ConfigurationManager.AppSettings["password"];
             settings.urlbase = ConfigurationManager.AppSettings["urlbase"];
             settings.username = ConfigurationManager.AppSettings["username"];
-        }
 
-        #region Auth
-        [TestMethod]
-        public void AuthentificationShouldSucceed()
-        {
             AuthentificationHelper.Instance.connect(settings.username, settings.password);
-
-            Assert.IsTrue(AuthentificationHelper.Instance.isConnected);
-            Assert.IsFalse(String.IsNullOrWhiteSpace(AuthentificationHelper.Instance.auth.token));
         }
-
-        [TestMethod]
-        public void AuthentificationShouldFail()
-        {
-            string username = "toto";
-            string password = "tata";
-
-            AuthentificationHelper.Instance.connect(username, password);
-
-            Assert.IsFalse(AuthentificationHelper.Instance.isConnected);
-            Assert.IsTrue(String.IsNullOrWhiteSpace(AuthentificationHelper.Instance.auth.token));
-        }
-        #endregion
 
         #region Person
         [TestMethod]
         public void CreationPersonShouldSucceed()
         {
-            AuthentificationHelper.Instance.connect(settings.username, settings.password);
-
-            Assert.IsTrue(AuthentificationHelper.Instance.isConnected);
-            Assert.IsFalse(String.IsNullOrWhiteSpace(AuthentificationHelper.Instance.auth.token));
-
             R511.CreatePersonInnerDto person = new R511.CreatePersonInnerDto()
             {
                 personBirthDate = new DateTime(1988, 2, 8),
@@ -76,11 +49,6 @@ namespace Dome.Test
         [TestMethod]
         public void UpdatePersonShouldSucceed()
         {
-            AuthentificationHelper.Instance.connect(settings.username, settings.password);
-
-            Assert.IsTrue(AuthentificationHelper.Instance.isConnected);
-            Assert.IsFalse(String.IsNullOrWhiteSpace(AuthentificationHelper.Instance.auth.token));
-
             UpdatePersonDto person = new UpdatePersonDto()
             {
                 accountId = 15,
@@ -111,11 +79,6 @@ namespace Dome.Test
         [TestMethod]
         public void CreationPatientShouldSucceed()
         {
-            AuthentificationHelper.Instance.connect(settings.username, settings.password);
-
-            Assert.IsTrue(AuthentificationHelper.Instance.isConnected);
-            Assert.IsFalse(String.IsNullOrWhiteSpace(AuthentificationHelper.Instance.auth.token));
-
             R511.CreatePersonInnerDto person = new R511.CreatePersonInnerDto()
             {
                 personAddressComp1 = "63 avenue lacassagne",
@@ -166,11 +129,6 @@ namespace Dome.Test
         [TestMethod]
         public void CreationEntourageShouldSucceed()
         {
-            AuthentificationHelper.Instance.connect(settings.username, settings.password);
-
-            Assert.IsTrue(AuthentificationHelper.Instance.isConnected);
-            Assert.IsFalse(String.IsNullOrWhiteSpace(AuthentificationHelper.Instance.auth.token));
-
             R511.CreatePersonInnerDto person = new R511.CreatePersonInnerDto()
             {
                 personAddressComp1 = "63 avenue lacassagne",
@@ -221,11 +179,6 @@ namespace Dome.Test
         [TestMethod]
         public void CreationSalarieShouldSucceed()
         {
-            AuthentificationHelper.Instance.connect(settings.username, settings.password);
-
-            Assert.IsTrue(AuthentificationHelper.Instance.isConnected);
-            Assert.IsFalse(String.IsNullOrWhiteSpace(AuthentificationHelper.Instance.auth.token));
-
             R511.CreatePersonInnerDto person = new R511.CreatePersonInnerDto()
             {
                 personAddressComp1 = "63 avenue lacassagne",
@@ -276,11 +229,6 @@ namespace Dome.Test
         [TestMethod]
         public void CreationStructureShouldSucceed()
         {
-            AuthentificationHelper.Instance.connect(settings.username, settings.password);
-
-            Assert.IsTrue(AuthentificationHelper.Instance.isConnected);
-            Assert.IsFalse(String.IsNullOrWhiteSpace(AuthentificationHelper.Instance.auth.token));
-
             R511.CreatePersonInnerDto person = new R511.CreatePersonInnerDto()
             {
                 personAddressComp1 = "63 avenue lacassagne",
@@ -327,52 +275,5 @@ namespace Dome.Test
 
             Assert.IsTrue(res.statusId == 0);
         }
-
-        #region AGGIR
-        [TestMethod]
-        public void CreationGrilleAGGIRShouldSucceed()
-        {
-            AuthentificationHelper.Instance.connect(settings.username, settings.password);
-
-            Assert.IsTrue(AuthentificationHelper.Instance.isConnected);
-            Assert.IsFalse(String.IsNullOrWhiteSpace(AuthentificationHelper.Instance.auth.token));
-
-            addNewAGGIRDto aggir = new addNewAGGIRDto()
-            {
-                benefProfileIdSpecified = true,
-                benefProfileId = 15,
-                DOME_medAGGIR = new addNewAggirInnerDto()
-                {
-                    AGGIREvaluationDate = DateTime.Now.Date,
-                    AGGIRCreationProfileId = 40,
-                    AGGIRCreatorName = "moi",
-                    AGGIRCreationDate = DateTime.Now.Date,
-                    AGGIRCreatorEntityName = "Structure",
-                    AGGIRCode = 1,
-                    AGGIRCoherence = 1,
-                    AGGIROrientation = 1,
-                    AGGIRToilette = 1,
-                    AGGIRHabillage = 1,
-                    AGGIRAlimentation = 1,
-                    AGGIRElimination = 1,
-                    AGGIRTransferts = 1,
-                    AGGIRDeplacInt = 1,
-                    AGGIRDeplacExt = 1,
-                    AGGIRAlerter = 1,
-                    AGGIRGestion = 1,
-                    AGGIRCuisine = 1,
-                    AGGIRMenage = 1,
-                    AGGIRTransport = 1,
-                    AGGIRSuiviTraitement = 1,
-                    AGGIRTempsLibre = 1,
-                    AGGIRAchats = 1,
-                }
-            };
-
-            addNewAGGIRResponseDto resp = DomeCall.addNewAGGIR(aggir);
-
-            Assert.IsTrue(resp.statusId == 0);
-        }
-        #endregion
     }
 }
