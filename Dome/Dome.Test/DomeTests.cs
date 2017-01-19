@@ -5,6 +5,7 @@ using Dome.R511;
 using Dome.R521;
 using Dome.R830a;
 using Dome.R542a;
+using Dome.Enum;
 
 namespace Dome.Test
 {
