@@ -46,35 +46,21 @@ namespace Dome.Test
             Assert.IsTrue(AuthentificationHelper.Instance.isConnected);
             Assert.IsFalse(String.IsNullOrWhiteSpace(AuthentificationHelper.Instance.auth.token));
 
-            var person = new CreatePersonInnerDto()
+            CreatePersonInnerDto person = new CreatePersonInnerDto()
             {
-                personAddressComp1 = "63 avenue lacassagne",
-                personAddressComp2 = "",
-                personBirthDate = new DateTime(1993, 9, 16),
+                personBirthDate = new DateTime(1988, 2, 8),
                 personBirthDateSpecified = true,
-                personBirthName = "",
-                personCedex = "",
+                personBirthName = "person",
                 personCityName = "Lyon",
                 personCityZipCode = "69001",
                 personCivilityId = (int)civilite.Monsieur,
                 personCivilityIdSpecified = true,
-                personComment = "personne test",
-                personEmail1 = "test@test.fr",
-                personEmail2 = "",
                 personFirstName = "person",
-                personINSC = "",
-                personINSA = "",
-                personJob = "",
                 personLastName = "person",
-                personLieuDit = "",
-                personMobilePhoneNumber = "",
-                personNIR = "",
-                personPhoneNumber = "",
-                personPostBox = "",
+                personMobilePhoneNumber = "0601020304",
+                personPhoneNumber = "0401020304",
                 personRoadName = "rue lalala",
-                personRoadType = "",
-                personRoadNumber = "",
-                personRPPS = ""
+                personRoadNumber = "1337",
             };
 
             CreatePersonResponseDto resp = DomeCall.createPerson(person);
@@ -89,7 +75,7 @@ namespace Dome.Test
             Assert.IsTrue(AuthentificationHelper.Instance.isConnected);
             Assert.IsFalse(String.IsNullOrWhiteSpace(AuthentificationHelper.Instance.auth.token));
 
-            var person = new CreatePersonInnerDto()
+            CreatePersonInnerDto person = new CreatePersonInnerDto()
             {
                 personAddressComp1 = "63 avenue lacassagne",
                 personAddressComp2 = "",
@@ -131,9 +117,9 @@ namespace Dome.Test
                 profileCibleTypeSpecified = true
             };
 
-            /*var res = DomeCall.createProfile(profile);
+            var res = DomeCall.createProfile(profile);
 
-            Assert.IsTrue(res.statusId == 0);*/
+            Assert.IsTrue(res.statusId == 0);
         }
 
         [TestMethod]
@@ -144,7 +130,7 @@ namespace Dome.Test
             Assert.IsTrue(AuthentificationHelper.Instance.isConnected);
             Assert.IsFalse(String.IsNullOrWhiteSpace(AuthentificationHelper.Instance.auth.token));
 
-            var person = new CreatePersonInnerDto()
+            CreatePersonInnerDto person = new CreatePersonInnerDto()
             {
                 personAddressComp1 = "63 avenue lacassagne",
                 personAddressComp2 = "",
@@ -186,9 +172,9 @@ namespace Dome.Test
                 profileCibleTypeSpecified = true
             };
 
-            /*var res = DomeCall.createProfile(profile);
+            var res = DomeCall.createProfile(profile);
 
-            Assert.IsTrue(res.statusId == 0);*/
+            Assert.IsTrue(res.statusId == 0);
         }
     }
 }
