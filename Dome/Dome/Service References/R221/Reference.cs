@@ -110,6 +110,10 @@ namespace Dome.R221 {
         
         private bool intervenantProfileIDFieldSpecified;
         
+        private int benefProfileIdField;
+        
+        private bool benefProfileIdFieldSpecified;
+        
         private int eventStateField;
         
         private bool eventStateFieldSpecified;
@@ -344,6 +348,30 @@ namespace Dome.R221 {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=11)]
+        public int benefProfileId {
+            get {
+                return this.benefProfileIdField;
+            }
+            set {
+                this.benefProfileIdField = value;
+                this.RaisePropertyChanged("benefProfileId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool benefProfileIdSpecified {
+            get {
+                return this.benefProfileIdFieldSpecified;
+            }
+            set {
+                this.benefProfileIdFieldSpecified = value;
+                this.RaisePropertyChanged("benefProfileIdSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=12)]
         public int eventState {
             get {
                 return this.eventStateField;

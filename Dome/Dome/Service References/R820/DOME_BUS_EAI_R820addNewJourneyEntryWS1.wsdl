@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://webservices.partner.dome.fr/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="DOME_BUS_EAI_R823setDetailJourneyEntryWS" targetNamespace="http://webservices.partner.dome.fr/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://webservices.partner.dome.fr/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="DOME_BUS_EAI_R820addNewJourneyEntryWS" targetNamespace="http://webservices.partner.dome.fr/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xs:schema elementFormDefault="unqualified" targetNamespace="http://webservices.partner.dome.fr/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-      <xs:element name="alterCourseEntry" type="tns:alterCourseEntry" />
-      <xs:element name="alterCourseEntryResponse" type="tns:alterCourseEntryResponse" />
-      <xs:complexType name="alterCourseEntry">
+      <xs:element name="addCourseEntry" type="tns:addCourseEntry" />
+      <xs:element name="addCourseEntryResponse" type="tns:addCourseEntryResponse" />
+      <xs:complexType name="addCourseEntry">
         <xs:sequence>
-          <xs:element minOccurs="0" name="AlterCourseEntryDto" type="tns:alterCourseEntryDto" />
+          <xs:element minOccurs="0" name="addCourseEntryDto" type="tns:addCourseEntryDto" />
         </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="alterCourseEntryDto">
-        <xs:complexContent mixed="false">
-          <xs:extension base="tns:addCourseEntryDto">
-            <xs:sequence>
-              <xs:element minOccurs="0" name="parcoursPatientId" type="xs:int" />
-            </xs:sequence>
-          </xs:extension>
-        </xs:complexContent>
       </xs:complexType>
       <xs:complexType name="addCourseEntryDto">
         <xs:complexContent mixed="false">
@@ -70,10 +61,19 @@
           <xs:element minOccurs="0" name="version" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
-      <xs:complexType name="alterCourseEntryResponse">
+      <xs:complexType name="addCourseEntryResponse">
         <xs:sequence>
-          <xs:element minOccurs="0" name="alterCourseEntryResponse" type="tns:domeResponseDto" />
+          <xs:element minOccurs="0" name="addCourseEntryResponse" type="tns:addCourseEntryResponseDto" />
         </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="addCourseEntryResponseDto">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:domeResponseDto">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="parcoursId" type="xs:int" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
       </xs:complexType>
       <xs:complexType name="domeResponseDto">
         <xs:sequence>
@@ -92,33 +92,33 @@
       </xs:complexType>
     </xs:schema>
   </wsdl:types>
-  <wsdl:message name="alterCourseEntry">
-    <wsdl:part name="parameters" element="tns:alterCourseEntry" />
+  <wsdl:message name="addCourseEntry">
+    <wsdl:part name="parameters" element="tns:addCourseEntry" />
   </wsdl:message>
-  <wsdl:message name="alterCourseEntryResponse">
-    <wsdl:part name="parameters" element="tns:alterCourseEntryResponse" />
+  <wsdl:message name="addCourseEntryResponse">
+    <wsdl:part name="parameters" element="tns:addCourseEntryResponse" />
   </wsdl:message>
-  <wsdl:portType name="DOME_BUS_EAI_R823setDetailJourneyEntryWS">
-    <wsdl:operation name="alterCourseEntry">
-      <wsdl:input name="alterCourseEntry" message="tns:alterCourseEntry" />
-      <wsdl:output name="alterCourseEntryResponse" message="tns:alterCourseEntryResponse" />
+  <wsdl:portType name="DOME_BUS_EAI_R820addNewJourneyEntryWS">
+    <wsdl:operation name="addCourseEntry">
+      <wsdl:input name="addCourseEntry" message="tns:addCourseEntry" />
+      <wsdl:output name="addCourseEntryResponse" message="tns:addCourseEntryResponse" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="DOME_BUS_EAI_R823setDetailJourneyEntryWSSoapBinding" type="tns:DOME_BUS_EAI_R823setDetailJourneyEntryWS">
+  <wsdl:binding name="DOME_BUS_EAI_R820addNewJourneyEntryWSSoapBinding" type="tns:DOME_BUS_EAI_R820addNewJourneyEntryWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="alterCourseEntry">
+    <wsdl:operation name="addCourseEntry">
       <soap:operation soapAction="" style="document" />
-      <wsdl:input name="alterCourseEntry">
+      <wsdl:input name="addCourseEntry">
         <soap:body use="literal" />
       </wsdl:input>
-      <wsdl:output name="alterCourseEntryResponse">
+      <wsdl:output name="addCourseEntryResponse">
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="DOME_BUS_EAI_R823setDetailJourneyEntryWS">
-    <wsdl:port name="AlterCourseEntryWebServiceImplPort" binding="tns:DOME_BUS_EAI_R823setDetailJourneyEntryWSSoapBinding">
-      <soap:address location="http://159.122.2.36/soap/DOME_BUS_EAI_R823setDetailJourneyEntryWS" />
+  <wsdl:service name="DOME_BUS_EAI_R820addNewJourneyEntryWS">
+    <wsdl:port name="AddCourseEntryWebServiceImplPort" binding="tns:DOME_BUS_EAI_R820addNewJourneyEntryWSSoapBinding">
+      <soap:address location="http://localhost:8080/dome-partner/soap/DOME_BUS_EAI_R820addNewJourneyEntryWS" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

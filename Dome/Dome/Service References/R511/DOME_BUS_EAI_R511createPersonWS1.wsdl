@@ -140,7 +140,7 @@
   </wsdl:binding>
   <wsdl:service name="DOME_BUS_EAI_R511createPersonWS">
     <wsdl:port name="CreatePersonWebServiceImplPort" binding="tns:DOME_BUS_EAI_R511createPersonWSSoapBinding">
-      <soap:address location="http://159.122.2.36/soap/DOME_BUS_EAI_R511createPersonWS" />
+      <soap:address location="http://localhost:8080/dome-partner/soap/DOME_BUS_EAI_R511createPersonWS" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

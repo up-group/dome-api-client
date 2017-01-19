@@ -19,10 +19,10 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://159.122.2.36/soap/DOME_BUS_EAI_R590getMultimediaFile?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://dev.mondome.fr/soap/DOME_BUS_EAI_R590getMultimediaFile?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="DOME_BUS_EAI_R590getMultimediaFile.wsdl" MetadataType="Wsdl" ID="e7f38755-6d89-4f32-9336-e996a9644913" SourceId="1" SourceUrl="http://159.122.2.36/soap/DOME_BUS_EAI_R590getMultimediaFile?wsdl" />
+    <MetadataFile FileName="DOME_BUS_EAI_R590getMultimediaFile1.wsdl" MetadataType="Wsdl" ID="6770a296-3e5a-4164-92a3-ec8d0ed0cbdf" SourceId="1" SourceUrl="http://dev.mondome.fr/soap/DOME_BUS_EAI_R590getMultimediaFile?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

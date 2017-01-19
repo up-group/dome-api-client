@@ -147,7 +147,7 @@
   </wsdl:binding>
   <wsdl:service name="DOME_BUS_EAI_R541cGetProfileDetailWS">
     <wsdl:port name="DetailProfileWebServiceImplPort" binding="tns:DOME_BUS_EAI_R541cGetProfileDetailWSSoapBinding">
-      <soap:address location="http://159.122.2.36/soap/DOME_BUS_EAI_R541cGetProfileDetailWS" />
+      <soap:address location="http://localhost:8080/dome-partner/soap/DOME_BUS_EAI_R541cGetProfileDetailWS" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

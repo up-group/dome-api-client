@@ -44,14 +44,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuthentificationHelper.cs" />
+    <Compile Include="DomeCall.cs" />
     <Compile Include="DomeCallHelper.cs" />
     <Compile Include="Entourage.cs" />
+    <Compile Include="Enum\Civilite.cs" />
+    <Compile Include="Enum\DeviceType.cs" />
+    <Compile Include="Enum\Profile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\Authentification\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Service References\R101\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -184,191 +183,184 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Service References\Authentification\Dome.Authentification.authenticationDto.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\Authentification\Dome.Authentification.loginResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\Authentification\DOME_BUS_EAI_R001loginWS.wsdl" />
     <None Include="Service References\R101\Dome.R101.createContactResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\R101\Dome.R101.createContactResponseDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\R101\DOME_BUS_EAI_R101contactCreateWS.wsdl" />
+    <None Include="Service References\R101\DOME_BUS_EAI_R101contactCreateWS1.wsdl" />
     <None Include="Service References\R201\Dome.R201.createEventResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\R201\Dome.R201.createEventResponseDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\R201\DOME_BUS_EAI_R201eventCreateWS.wsdl" />
+    <None Include="Service References\R201\DOME_BUS_EAI_R201eventCreateWS1.wsdl" />
     <None Include="Service References\R213b\Dome.R213b.eventGetNotificationStructureResponseDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\R213b\Dome.R213b.getNotificationsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\R213b\DOME_BUS_EAI_R213beventGetNotificationStructureWS.wsdl" />
+    <None Include="Service References\R213b\DOME_BUS_EAI_R213beventGetNotificationStructureWS1.wsdl" />
     <None Include="Service References\R221s\Dome.R221s.eventUpdateStateResponseDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\R221s\Dome.R221s.updateEventStateResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\R221s\DOME_BUS_EAI_R221eventUpdateStateWS.wsdl" />
+    <None Include="Service References\R221s\DOME_BUS_EAI_R221eventUpdateStateWS1.wsdl" />
     <None Include="Service References\R221\Dome.R221.domeResponseDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\R221\Dome.R221.updateEventResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\R221\DOME_BUS_EAI_R221eventUpdateWS.wsdl" />
+    <None Include="Service References\R221\DOME_BUS_EAI_R221eventUpdateWS1.wsdl" />
     <None Include="Service References\R231\Dome.R231.deleteEventResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\R231\Dome.R231.domeResponseDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\R231\DOME_BUS_EAI_R231eventDeleteWS.wsdl" />
+    <None Include="Service References\R231\DOME_BUS_EAI_R231eventDeleteWS1.wsdl" />
     <None Include="Service References\R401a\Dome.R401a.addDocumentResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\R401a\Dome.R401a.addDocumentResponseDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\R401a\DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS.wsdl" />
+    <None Include="Service References\R401a\DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS1.wsdl" />
     <None Include="Service References\R511\Dome.R511.createPersonResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\R511\Dome.R511.CreatePersonResponseDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\R511\DOME_BUS_EAI_R511createPersonWS.wsdl" />
+    <None Include="Service References\R511\DOME_BUS_EAI_R511createPersonWS1.wsdl">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\R521\Dome.R521.createProfileResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\R521\Dome.R521.createProfileResponseDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\R521\DOME_BUS_EAI_R521createProfileWS.wsdl" />
+    <None Include="Service References\R521\DOME_BUS_EAI_R521createProfileWS1.wsdl" />
     <None Include="Service References\R523\Dome.R523.subscriptionPersonStructureResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\R523\Dome.R523.subscriptionStructureResponseDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\R523\DOME_BUS_EAI_R523benefSubscriptionWS.wsdl" />
+    <None Include="Service References\R523\DOME_BUS_EAI_R523benefSubscriptionWS1.wsdl" />
     <None Include="Service References\R525\Dome.R525.linkIntervenantToBenefResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\R525\Dome.R525.linkIntervenantToBenefResponseDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\R525\DOME_BUS_EAI_R525linkIntervenantToBenefWS.wsdl" />
+    <None Include="Service References\R525\DOME_BUS_EAI_R525linkIntervenantToBenefWS1.wsdl" />
     <None Include="Service References\R532\Dome.R532.selectProfileResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\R532\Dome.R532.selectProfileResponseDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\R532\DOME_BUS_EAI_R532selectProfileWS.wsdl" />
+    <None Include="Service References\R532\DOME_BUS_EAI_R532selectProfileWS1.wsdl" />
     <None Include="Service References\R541b\Dome.R541b.authentificationResponseDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\R541b\Dome.R541b.getProfileListWSResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\R541b\DOME_BUS_EAI_R541bGetProfileListWS.wsdl" />
+    <None Include="Service References\R541b\DOME_BUS_EAI_R541bGetProfileListWS1.wsdl" />
     <None Include="Service References\R541c\Dome.R541c.profileDetailResponseDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\R541c\Dome.R541c.profileDetailsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\R541c\DOME_BUS_EAI_R541cGetProfileDetailWS.wsdl" />
+    <None Include="Service References\R541c\DOME_BUS_EAI_R541cGetProfileDetailWS1.wsdl" />
     <None Include="Service References\R542a\Dome.R542a.updatePersonResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\R542a\Dome.R542a.UpdatePersonResponseDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\R542a\DOME_BUS_EAI_R542aUpdatePersonWS.wsdl" />
+    <None Include="Service References\R542a\DOME_BUS_EAI_R542aUpdatePersonWS1.wsdl" />
     <None Include="Service References\R543b\Dome.R543b.domeResponseDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\R543b\Dome.R543b.updatereferentResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\R543b\DOME_BUS_EAI_R543bSwitchReferentWS.wsdl" />
+    <None Include="Service References\R543b\DOME_BUS_EAI_R543bSwitchReferentWS1.wsdl" />
     <None Include="Service References\R590\Dome.R590.createdMediaResponseDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\R590\Dome.R590.uploadFileWsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\R590\DOME_BUS_EAI_R590getMultimediaFile.wsdl" />
+    <None Include="Service References\R590\DOME_BUS_EAI_R590getMultimediaFile1.wsdl" />
     <None Include="Service References\R820\Dome.R820.addCourseEntryResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\R820\Dome.R820.addCourseEntryResponseDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\R820\DOME_BUS_EAI_R820addNewJourneyEntryWS.wsdl" />
+    <None Include="Service References\R820\DOME_BUS_EAI_R820addNewJourneyEntryWS1.wsdl" />
     <None Include="Service References\R821\Dome.R821.getListCourseEntryResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\R821\Dome.R821.getListCourseEntryResponseDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\R821\DOME_BUS_EAI_R821getListJourneyEntryWS.wsdl" />
+    <None Include="Service References\R821\DOME_BUS_EAI_R821getListJourneyEntryWS1.wsdl" />
     <None Include="Service References\R822\Dome.R822.getCourseEntryDetailsResponseDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\R822\Dome.R822.getDetailsCourseEntryResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\R822\DOME_BUS_EAI_R822getDetailJourneyEntryWS.wsdl" />
+    <None Include="Service References\R822\DOME_BUS_EAI_R822getDetailJourneyEntryWS1.wsdl" />
     <None Include="Service References\R823\Dome.R823.alterCourseEntryResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\R823\Dome.R823.domeResponseDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\R823\DOME_BUS_EAI_R823setDetailJourneyEntryWS.wsdl" />
+    <None Include="Service References\R823\DOME_BUS_EAI_R823setDetailJourneyEntryWS1.wsdl" />
     <None Include="Service References\R824\Dome.R824.deleteCourseEntryResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\R824\Dome.R824.domeResponseDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\R824\DOME_BUS_EAI_R824deleteJourneyEntryWS.wsdl" />
+    <None Include="Service References\R824\DOME_BUS_EAI_R824deleteJourneyEntryWS1.wsdl" />
     <None Include="Service References\R830a\Dome.R830a.addNewAGGIRResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\R830a\Dome.R830a.addNewAGGIRResponseDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\R830a\DOME_BUS_EAI_R830aAddNewAGGIRWS.wsdl" />
+    <None Include="Service References\R830a\DOME_BUS_EAI_R830aAddNewAGGIRWS1.wsdl" />
     <None Include="Service References\R831a\Dome.R831a.getListAGGIRResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\R831a\Dome.R831a.getListAGGIRResponseDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\R831a\DOME_BUS_EAI_R831aGetListAGGIRWS.wsdl" />
+    <None Include="Service References\R831a\DOME_BUS_EAI_R831aGetListAGGIRWS1.wsdl" />
     <None Include="Service References\R833a\Dome.R833a.alterAggirResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\R833a\Dome.R833a.domeResponseDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\R833a\DOME_BUS_EAI_R833aSetDetailAGGIRWS.wsdl" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\Authentification\" />
     <WCFMetadataStorage Include="Service References\R101\" />
     <WCFMetadataStorage Include="Service References\R201\" />
     <WCFMetadataStorage Include="Service References\R213b\" />
@@ -394,18 +386,6 @@
     <WCFMetadataStorage Include="Service References\R830a\" />
     <WCFMetadataStorage Include="Service References\R831a\" />
     <WCFMetadataStorage Include="Service References\R833a\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\Authentification\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\Authentification\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\Authentification\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\R511\configuration91.svcinfo" />
@@ -678,6 +658,7 @@
     <None Include="Service References\R833a\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\R833a\DOME_BUS_EAI_R833aSetDetailAGGIRWS1.wsdl" />
     <None Include="Service References\R833a\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -707,6 +688,7 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

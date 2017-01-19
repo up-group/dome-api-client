@@ -19,10 +19,10 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://159.122.2.36/soap/DOME_BUS_EAI_R213beventGetNotificationStructureWS?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://dev.mondome.fr/soap/DOME_BUS_EAI_R213beventGetNotificationStructureWS?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="DOME_BUS_EAI_R213beventGetNotificationStructureWS.wsdl" MetadataType="Wsdl" ID="132b36da-8580-405f-8017-1bb4b53055cb" SourceId="1" SourceUrl="http://159.122.2.36/soap/DOME_BUS_EAI_R213beventGetNotificationStructureWS?wsdl" />
+    <MetadataFile FileName="DOME_BUS_EAI_R213beventGetNotificationStructureWS1.wsdl" MetadataType="Wsdl" ID="805f2f4f-dd9e-43e4-a0c3-ff0a37a06eff" SourceId="1" SourceUrl="http://dev.mondome.fr/soap/DOME_BUS_EAI_R213beventGetNotificationStructureWS?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

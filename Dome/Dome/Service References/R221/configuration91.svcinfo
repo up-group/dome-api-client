@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="Wu4Nr9lZHmv3siDjufsbqB1p7JU=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="1e14g2o9EVxIGnghpp4pD95Tapc=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="DOME_BUS_EAI_R221eventUpdateWSSoapBinding">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="ModifyEventWebServiceImplPort" contract="R221.DOME_BUS_EAI_R221eventUpdateWS" bindingType="basicHttpBinding" address="http://159.122.2.36/soap/DOME_BUS_EAI_R221eventUpdateWS" bindingConfiguration="DOME_BUS_EAI_R221eventUpdateWSSoapBinding">
+    <endpoint name="ModifyEventWebServiceImplPort" contract="R221.DOME_BUS_EAI_R221eventUpdateWS" bindingType="basicHttpBinding" address="http://localhost:8080/dome-partner/soap/DOME_BUS_EAI_R221eventUpdateWS" bindingConfiguration="DOME_BUS_EAI_R221eventUpdateWSSoapBinding">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://159.122.2.36/soap/DOME_BUS_EAI_R221eventUpdateWS</serializedValue>
+          <serializedValue>http://localhost:8080/dome-partner/soap/DOME_BUS_EAI_R221eventUpdateWS</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

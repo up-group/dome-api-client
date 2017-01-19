@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://webservices.partner.dome.fr/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="DOME_BUS_EAI_R221eventUpdateStateWS" targetNamespace="http://webservices.partner.dome.fr/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://webservices.partner.dome.fr/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="DOME_BUS_EAI_R590getMultimediaFile" targetNamespace="http://webservices.partner.dome.fr/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xs:schema elementFormDefault="unqualified" targetNamespace="http://webservices.partner.dome.fr/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-      <xs:element name="updateEventState" type="tns:updateEventState" />
-      <xs:element name="updateEventStateResponse" type="tns:updateEventStateResponse" />
-      <xs:complexType name="updateEventState">
+      <xs:element name="uploadFileWs" type="tns:uploadFileWs" />
+      <xs:element name="uploadFileWsResponse" type="tns:uploadFileWsResponse" />
+      <xs:complexType name="uploadFileWs">
         <xs:sequence>
-          <xs:element minOccurs="0" name="eventUpdateStateDto" type="tns:eventUpdateStateDto" />
+          <xs:element minOccurs="0" name="arg0" type="tns:uploadFileWSDto" />
         </xs:sequence>
       </xs:complexType>
-      <xs:complexType name="eventUpdateStateDto">
+      <xs:complexType name="uploadFileWSDto">
         <xs:complexContent mixed="false">
           <xs:extension base="tns:domeDto">
             <xs:sequence>
-              <xs:element minOccurs="0" maxOccurs="unbounded" name="DOME_eventDatasUpdate" type="tns:eventUpdateStateInnerDto" />
+              <xs:element minOccurs="0" name="fileName" type="xs:string" />
+              <xs:element minOccurs="0" name="file" type="xs:string" />
             </xs:sequence>
           </xs:extension>
         </xs:complexContent>
@@ -21,12 +22,6 @@
       <xs:complexType name="domeDto">
         <xs:sequence>
           <xs:element minOccurs="0" name="DOME_header" type="tns:domeHeaderDto" />
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="eventUpdateStateInnerDto">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="eventId" type="xs:int" />
-          <xs:element minOccurs="0" name="eventState" type="xs:int" />
         </xs:sequence>
       </xs:complexType>
       <xs:complexType name="domeHeaderDto">
@@ -45,15 +40,17 @@
           <xs:element minOccurs="0" name="version" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
-      <xs:complexType name="updateEventStateResponse">
+      <xs:complexType name="uploadFileWsResponse">
         <xs:sequence>
-          <xs:element minOccurs="0" name="eventUpdateStateResponse" type="tns:eventUpdateStateResponseDto" />
+          <xs:element minOccurs="0" name="createdMediaResponse" type="tns:createdMediaResponseDto" />
         </xs:sequence>
       </xs:complexType>
-      <xs:complexType name="eventUpdateStateResponseDto">
+      <xs:complexType name="createdMediaResponseDto">
         <xs:complexContent mixed="false">
           <xs:extension base="tns:domeResponseDto">
-            <xs:sequence />
+            <xs:sequence>
+              <xs:element minOccurs="0" name="fileId" type="xs:int" />
+            </xs:sequence>
           </xs:extension>
         </xs:complexContent>
       </xs:complexType>
@@ -74,33 +71,33 @@
       </xs:complexType>
     </xs:schema>
   </wsdl:types>
-  <wsdl:message name="updateEventStateResponse">
-    <wsdl:part name="parameters" element="tns:updateEventStateResponse" />
+  <wsdl:message name="uploadFileWsResponse">
+    <wsdl:part name="parameters" element="tns:uploadFileWsResponse" />
   </wsdl:message>
-  <wsdl:message name="updateEventState">
-    <wsdl:part name="parameters" element="tns:updateEventState" />
+  <wsdl:message name="uploadFileWs">
+    <wsdl:part name="parameters" element="tns:uploadFileWs" />
   </wsdl:message>
-  <wsdl:portType name="DOME_BUS_EAI_R221eventUpdateStateWS">
-    <wsdl:operation name="updateEventState">
-      <wsdl:input name="updateEventState" message="tns:updateEventState" />
-      <wsdl:output name="updateEventStateResponse" message="tns:updateEventStateResponse" />
+  <wsdl:portType name="DOME_BUS_EAI_R590getMultimediaFile">
+    <wsdl:operation name="uploadFileWs">
+      <wsdl:input name="uploadFileWs" message="tns:uploadFileWs" />
+      <wsdl:output name="uploadFileWsResponse" message="tns:uploadFileWsResponse" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="DOME_BUS_EAI_R221eventUpdateStateWSSoapBinding" type="tns:DOME_BUS_EAI_R221eventUpdateStateWS">
+  <wsdl:binding name="DOME_BUS_EAI_R590getMultimediaFileSoapBinding" type="tns:DOME_BUS_EAI_R590getMultimediaFile">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="updateEventState">
+    <wsdl:operation name="uploadFileWs">
       <soap:operation soapAction="" style="document" />
-      <wsdl:input name="updateEventState">
+      <wsdl:input name="uploadFileWs">
         <soap:body use="literal" />
       </wsdl:input>
-      <wsdl:output name="updateEventStateResponse">
+      <wsdl:output name="uploadFileWsResponse">
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="DOME_BUS_EAI_R221eventUpdateStateWS">
-    <wsdl:port name="EventUpdateStateWebServiceImplPort" binding="tns:DOME_BUS_EAI_R221eventUpdateStateWSSoapBinding">
-      <soap:address location="http://159.122.2.36/soap/DOME_BUS_EAI_R221eventUpdateStateWS" />
+  <wsdl:service name="DOME_BUS_EAI_R590getMultimediaFile">
+    <wsdl:port name="UploadWebSoapServiceImplPort" binding="tns:DOME_BUS_EAI_R590getMultimediaFileSoapBinding">
+      <soap:address location="http://localhost:8080/dome-partner/soap/DOME_BUS_EAI_R590getMultimediaFile" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
