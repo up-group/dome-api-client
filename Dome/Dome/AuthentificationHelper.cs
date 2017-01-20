@@ -22,11 +22,7 @@ namespace Dome
             {
                 get
                 {
-                    var h = new DateTime(2017, 1, 19, 14, 44, 52);
-                    var t = DateTime.Now;
-                    var a = new DateTimeOffset(t.Ticks, TimeSpan.Zero).DateTime;
-                    a.AddMilliseconds (-a.Millisecond);
-                    return h;
+                    return new DateTimeOffset(DateTime.Now.Ticks, TimeSpan.Zero).DateTime;
                 }
 
             }
