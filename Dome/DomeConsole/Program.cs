@@ -40,7 +40,7 @@ namespace DomeConsole
                 personCedex = "",
                 personCityName = "Lyon",
                 personCityZipCode = "69003",
-                personCivilityId = (int)civilite.Monsieur,
+                personCivilityId = (int)Civilite.Monsieur,
                 personCivilityIdSpecified = true,
                 personComment = "personne test",
                 personEmail1 = "test@test.fr",

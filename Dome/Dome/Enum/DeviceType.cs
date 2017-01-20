@@ -9,7 +9,5 @@
         LogicielMétier = 5,
         LogicielUrgence = 6,
         Intranet = 7,
-
-
     }
 }

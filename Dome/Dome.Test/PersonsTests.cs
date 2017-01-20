@@ -4,6 +4,7 @@ using System.Configuration;
 using Dome.R511;
 using Dome.R521;
 using Dome.R542a;
+using Dome.R525;
 using Dome.Enum;
 
 namespace Dome.Test
@@ -11,6 +12,10 @@ namespace Dome.Test
     [TestClass]
     public class PersonsTests
     {
+        private int createdAccountId = 0;
+        private int createdPatientId = 0;
+        private int createdIntervenantId = 0;
+
         [ClassInitialize()]
         public static void ClassInit(TestContext context)
         {
@@ -31,7 +36,7 @@ namespace Dome.Test
                 personBirthName = "person",
                 personCityName = "Lyon",
                 personCityZipCode = "69001",
-                personCivilityId = (int)civilite.Monsieur,
+                personCivilityId = (int)Civilite.Monsieur,
                 personCivilityIdSpecified = true,
                 personFirstName = "person",
                 personLastName = "person",
@@ -43,11 +48,15 @@ namespace Dome.Test
 
             CreatePersonResponseDto resp = DomeCall.createPerson(person);
             Assert.IsTrue(resp.statusId == 0);
+
+            createdAccountId = resp.accountId;
         }
 
         [TestMethod]
         public void UpdatePersonShouldSucceed()
         {
+            Assert.IsTrue(createdAccountId > 0);
+
             UpdatePersonDto person = new UpdatePersonDto()
             {
                 accountId = 15,
@@ -59,7 +68,7 @@ namespace Dome.Test
                     personBirthName = "person",
                     personCityName = "PARIS",
                     personCityZipCode = "75000",
-                    personCivilityId = (int)civilite.Madame,
+                    personCivilityId = (int)Civilite.Madame,
                     personCivilityIdSpecified = true,
                     personFirstName = "person",
                     personLastName = "person",
@@ -87,7 +96,7 @@ namespace Dome.Test
                 personCedex = "",
                 personCityName = "Lyon",
                 personCityZipCode = "69002",
-                personCivilityId = (int)civilite.Monsieur,
+                personCivilityId = (int)Civilite.Monsieur,
                 personCivilityIdSpecified = true,
                 personComment = "patient test",
                 personEmail1 = "test@test.fr",
@@ -110,6 +119,8 @@ namespace Dome.Test
 
             CreatePersonResponseDto resp = DomeCall.createPerson(person);
             Assert.IsTrue(resp.statusId == 0);
+
+            createdPatientId = resp.accountId;
 
             createProfileDto profile = new createProfileDto()
             {
@@ -137,7 +148,7 @@ namespace Dome.Test
                 personCedex = "",
                 personCityName = "Lyon",
                 personCityZipCode = "69003",
-                personCivilityId = (int)civilite.Monsieur,
+                personCivilityId = (int)Civilite.Monsieur,
                 personCivilityIdSpecified = true,
                 personComment = "proche test",
                 personEmail1 = "test@test.fr",
@@ -187,7 +198,7 @@ namespace Dome.Test
                 personCedex = "",
                 personCityName = "Lyon",
                 personCityZipCode = "69004",
-                personCivilityId = (int)civilite.Monsieur,
+                personCivilityId = (int)Civilite.Monsieur,
                 personCivilityIdSpecified = true,
                 personComment = "salarie test",
                 personEmail1 = "test@test.fr",
@@ -211,6 +222,8 @@ namespace Dome.Test
             CreatePersonResponseDto resp = DomeCall.createPerson(person);
             Assert.IsTrue(resp.statusId == 0);
 
+            createdIntervenantId = resp.accountId;
+
             createProfileDto profile = new createProfileDto()
             {
                 accountId = resp.accountId,
@@ -222,6 +235,24 @@ namespace Dome.Test
             var res = DomeCall.createProfile(profile);
 
             Assert.IsTrue(res.statusId == 0);
+        }
+
+        [TestMethod]
+        public void AssociationIntervenantPatientShouldSucceed()
+        {
+            Assert.IsTrue(createdPatientId > 0);
+            Assert.IsTrue(createdIntervenantId > 0);
+
+            linkIntervenantToBenefDto link = new linkIntervenantToBenefDto()
+            {
+                intervenantProfileIdSpecified = true,
+                intervenantProfileId = createdIntervenantId,
+                benefProfileIdSpecified = true,
+                benefProfileId = createdPatientId
+            };
+
+            linkIntervenantToBenefResponseDto resp = DomeCall.linkIntervenantToBenef(link);
+            Assert.IsTrue(resp.statusId == 0);
         }
 
         [TestMethod]
@@ -237,7 +268,7 @@ namespace Dome.Test
                 personCedex = "",
                 personCityName = "Lyon",
                 personCityZipCode = "69005",
-                personCivilityId = (int)civilite.Monsieur,
+                personCivilityId = (int)Civilite.Monsieur,
                 personCivilityIdSpecified = true,
                 personComment = "structure test",
                 personEmail1 = "test@test.fr",
