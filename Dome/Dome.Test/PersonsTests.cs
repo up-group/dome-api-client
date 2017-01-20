@@ -9,7 +9,7 @@ using Dome.Enum;
 namespace Dome.Test
 {
     [TestClass]
-    public class DomeTests
+    public class PersonsTests
     {
         [ClassInitialize()]
         public static void ClassInit(TestContext context)
@@ -21,7 +21,6 @@ namespace Dome.Test
             AuthentificationHelper.Instance.connect(settings.username, settings.password);
         }
 
-        #region Person
         [TestMethod]
         public void CreationPersonShouldSucceed()
         {
@@ -74,7 +73,6 @@ namespace Dome.Test
             UpdatePersonResponseDto resp = DomeCall.updatePerson(person);
             Assert.IsTrue(resp.statusId == 0);
         }
-        #endregion
 
         [TestMethod]
         public void CreationPatientShouldSucceed()
