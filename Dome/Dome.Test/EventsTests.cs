@@ -71,7 +71,7 @@ namespace Dome.Test
         {
             Assert.IsTrue(createdEventId > 0);
 
-            var update = new eventUpdateStateInnerDto
+            eventUpdateStateInnerDto update = new eventUpdateStateInnerDto
             {
                 eventId = createdEventId,
                 eventState = (int)EventState.Realise
