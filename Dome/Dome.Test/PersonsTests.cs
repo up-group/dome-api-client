@@ -19,8 +19,6 @@ namespace Dome.Test
         [ClassInitialize()]
         public static void ClassInit(TestContext context)
         {
-        }
-
             AuthentificationHelper.Instance.connect(settings.username, settings.password);
         }
 
