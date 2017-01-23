@@ -16,11 +16,7 @@ namespace Dome.Test
 
         [ClassInitialize()]
         public static void ClassInit(TestContext context)
-        {
-            settings.password = ConfigurationManager.AppSettings["password"];
-            settings.urlbase = ConfigurationManager.AppSettings["urlbase"];
-            settings.username = ConfigurationManager.AppSettings["username"];
-
+        {            
             AuthentificationHelper.Instance.connect(settings.username, settings.password);
         }
 
