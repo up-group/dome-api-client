@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
@@ -46,7 +47,6 @@
     <Compile Include="AuthentificationHelper.cs" />
     <Compile Include="DomeCall.cs" />
     <Compile Include="DomeCallHelper.cs" />
-    <Compile Include="Entourage.cs" />
     <Compile Include="Enum\Civilite.cs" />
     <Compile Include="Enum\DeviceType.cs" />
     <Compile Include="Enum\Profile.cs" />

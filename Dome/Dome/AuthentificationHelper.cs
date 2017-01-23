@@ -71,6 +71,12 @@ namespace Dome
             }
         }
 
+
+        public void connect()
+        {
+            connect(settings.username, settings.password);
+        }
+
         public void connect(string username, string pass)
         {
             using (var client = new HttpClient())
