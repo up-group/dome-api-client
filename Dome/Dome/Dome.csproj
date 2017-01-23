@@ -47,6 +47,7 @@
     <Compile Include="AuthentificationHelper.cs" />
     <Compile Include="DomeCall.cs" />
     <Compile Include="DomeCallHelper.cs" />
+    <Compile Include="DomeInterface.cs" />
     <Compile Include="Enum\Civilite.cs" />
     <Compile Include="Enum\Contact.cs" />
     <Compile Include="Enum\DeviceType.cs" />
