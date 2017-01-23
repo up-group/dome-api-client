@@ -9,8 +9,10 @@ namespace Dome
 {
     public static class settings
     {
-        public static string urlbase { get { return ConfigurationManager.AppSettings["urlbase"]; } }
-        public static string username { get { return ConfigurationManager.AppSettings["username"]; } }
-        public static string password { get { return ConfigurationManager.AppSettings["password"]; } }
+
+
+        public static string urlbase { get { return ConfigurationManager.AppSettings["Dome_urlBase"]; } }
+        public static string username { get { return ConfigurationManager.AppSettings["Dome_username"]; } }
+        public static string password { get { return ConfigurationManager.AppSettings["Dome_password"]; } }
     }
 }
