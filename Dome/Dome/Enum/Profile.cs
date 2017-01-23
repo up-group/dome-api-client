@@ -13,7 +13,5 @@
         StructureMedicale = 30,
         Urgentiste = 31,
         OperateurStructureUrgence = 32,
-
     }
-
 }

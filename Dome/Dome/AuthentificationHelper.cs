@@ -1,20 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.ServiceModel;
 using System.Text;
-using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 
 namespace Dome
 {
 
-
-
     public class AuthentificationHelper
     {
-
         public class DOME_header
         {
             public string version { get; set; }
@@ -22,11 +16,7 @@ namespace Dome
             {
                 get
                 {
-                    var h = new DateTime(2017, 1, 19, 14, 44, 52);
-                    var t = DateTime.Now;
-                    var a = new DateTimeOffset(t.Ticks, TimeSpan.Zero).DateTime;
-                    a.AddMilliseconds (-a.Millisecond);
-                    return h;
+                    return new DateTimeOffset(DateTime.Now.Ticks, TimeSpan.Zero).DateTime;
                 }
 
             }
@@ -34,7 +24,6 @@ namespace Dome
 
         public class AuthentificationResultDto
         {
-
             public int? statusId { get; set; }
             public string token { get; set; }
             public string statusUserMessage { get; set; }
@@ -45,11 +34,7 @@ namespace Dome
             public string firstname { get; set; }
             public string lastname { get; set; }
             public int? accountId { get; set; }
-
         }
-
-
-
 
 
         private static AuthentificationHelper instance;
@@ -82,24 +67,22 @@ namespace Dome
             using (var client = new HttpClient())
             {
                 var values = new Dictionary<string, string>
-                                {
+                {
                        { "username", username },
                        { "rememberMe", "false" },
                        { "password", CreateMD5(pass).ToLower() }
-                    };
+                };
+
                 var j = new JavaScriptSerializer();
                 var httpContent = new StringContent(j.Serialize(values), Encoding.UTF8, "application/json");
 
-
                 var response = client.PostAsync("http://dev.mondome.fr/oauth/token", httpContent).Result;
-
 
                 var responseString = response.Content.ReadAsStringAsync();
 
                 auth = (AuthentificationResultDto)j.Deserialize(responseString.Result, typeof(AuthentificationResultDto));
 
                 isConnected = (String.IsNullOrWhiteSpace(auth.statusErrorMessage));
-                //throw new System.Exception(auth.statusErrorMessage);
             }
         }
 
@@ -120,55 +103,5 @@ namespace Dome
                 return sb.ToString();
             }
         }
-
-
     }
-
-
-    //public static class AuthaentificationHelper
-    //{
-
-    //    public static void connect(string username, string pass)
-    //    {
-    //        using (var client = new HttpClient())
-    //        {
-    //            var values = new Dictionary<string, string>
-    //                            {
-    //                   { "usernam", username },
-    //                   { "rememberMe", "false" },
-    //                   { "password", CreateMD5(pass).ToLower() }
-    //                };
-    //            var j = new JavaScriptSerializer();
-    //            var httpContent = new StringContent(j.Serialize(values), Encoding.UTF8, "application/json");
-
-
-    //            var response = client.PostAsync("http://dev.mondome.fr/oauth/token", httpContent).Result;
-
-
-    //            var responseString = response.Content.ReadAsStringAsync();
-
-    //            auth = (testAuth)j.Deserialize(responseString.Result, typeof(testAuth));
-
-    //            if (String.IsNullOrWhiteSpace(auth.statusErrorMessage) == false)
-    //            {
-    //                isConnect = false;
-    //                //throw new System.Exception(auth.statusErrorMessage);
-    //            }
-    //            isConnect = true;
-    //        }
-    //    }
-
-
-
-
-
-
-
-
-
-
-    //}
-
-
-
 }

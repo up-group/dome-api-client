@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Dome.R101;
+﻿using Dome.R101;
 using Dome.R201;
 using Dome.R213b;
 using Dome.R221;
@@ -59,8 +54,6 @@ namespace Dome
         ///830a <see cref="addNewAGGIR"/>
         ///831a <see cref="getListAGGIR"/>
         ///833a <see cref="alterAggir"/>
-
-
 
 
         public static createContactResponseDto createContact(createContactDto createContactDto)
@@ -159,10 +152,6 @@ namespace Dome
 
         public static profileDetailResponseDto profileDetails(int profileid)
         {
-
-
-
-
             var profileDetailDto = new R541c.profileDetailDto()
             {
                 profileId = profileid,
@@ -173,13 +162,8 @@ namespace Dome
                     deviceType = 5,
                     date = AuthentificationHelper.Instance.auth.DOME_header.date.Value,
                     version = AuthentificationHelper.Instance.auth.DOME_header.version,
-
                 }
             };
-
-
-
-
 
             return DomeCallHelper.call2<DOME_BUS_EAI_R541cGetProfileDetailWSClient, DOME_BUS_EAI_R541cGetProfileDetailWS, profileDetailResponseDto>
                 ((client) => { return client.profileDetails(profileDetailDto); });
@@ -187,10 +171,8 @@ namespace Dome
 
         public static authentificationResponseDto GetProfileList(int accountId)
         {
-
             var authentificationInputDto = new authentificationInputDto()
             {
-
                 accountIdSpecified = true,
                 accountId = accountId,
                 DOME_header = new R541b.domeHeaderDto()
@@ -199,11 +181,8 @@ namespace Dome
                     deviceType = 5,
                     date = AuthentificationHelper.Instance.auth.DOME_header.date.Value,
                     version = AuthentificationHelper.Instance.auth.DOME_header.version,
-
                 }
             };
-
-
 
             var data = DomeCallHelper.call2<DOME_BUS_EAI_R541bGetProfileListWSClient, DOME_BUS_EAI_R541bGetProfileListWS, authentificationResponseDto>(
                 (x) =>
@@ -239,8 +218,6 @@ namespace Dome
             return DomeCallHelper.call2<DOME_BUS_EAI_R820addNewJourneyEntryWSClient, DOME_BUS_EAI_R820addNewJourneyEntryWS, addCourseEntryResponseDto>
                 ((client) => { return client.addCourseEntry(addCourseEntryDto); });
         }
-
-
 
         public static getListCourseEntryResponseDto getListCourseEntry(getListCourseEntryDto getListCourseEntryDto)
         {
@@ -283,8 +260,5 @@ namespace Dome
             return DomeCallHelper.call2<DOME_BUS_EAI_R833aSetDetailAGGIRWSClient, DOME_BUS_EAI_R833aSetDetailAGGIRWS, R833a.domeResponseDto>
                 ((client) => { return client.alterAggir(alterAGGIRDto); });
         }
-
     }
-
-
 }

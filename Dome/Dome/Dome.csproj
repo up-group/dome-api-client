@@ -48,7 +48,9 @@
     <Compile Include="DomeCall.cs" />
     <Compile Include="DomeCallHelper.cs" />
     <Compile Include="Enum\Civilite.cs" />
+    <Compile Include="Enum\Contact.cs" />
     <Compile Include="Enum\DeviceType.cs" />
+    <Compile Include="Enum\EventCategory.cs" />
     <Compile Include="Enum\Profile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\R101\Reference.cs">

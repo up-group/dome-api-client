@@ -51,7 +51,11 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="DomeTests.cs" />
+    <Compile Include="AggirTests.cs" />
+    <Compile Include="AuthTests.cs" />
+    <Compile Include="ContactsTests.cs" />
+    <Compile Include="PersonsTests.cs" />
+    <Compile Include="EventsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -62,6 +66,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="OrderedTest1.orderedtest">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
