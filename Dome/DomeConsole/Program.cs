@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Dome.R511;
-
-using System.Configuration;
-using Dome;
-using Dome.Enum;
+﻿using Dome;
 
 namespace DomeConsole
 {
@@ -15,10 +6,8 @@ namespace DomeConsole
     {
         public static void Main()
         {
-
+      
             AuthentificationHelper.Instance.connect();
-
-
 
 
 

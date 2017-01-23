@@ -9,10 +9,8 @@ namespace Dome
 {
     public static class settings
     {
-        internal static string token;
         public static string urlbase { get { return ConfigurationManager.AppSettings["urlbase"]; } }
         public static string username { get { return ConfigurationManager.AppSettings["username"]; } }
         public static string password { get { return ConfigurationManager.AppSettings["password"]; } }
-
     }
 }
