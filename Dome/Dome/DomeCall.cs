@@ -273,13 +273,13 @@ namespace Dome
 
             if (data.statusId == 0)
             {
-                return new ActionResult<UpdatePersonResultDTO (true, new UpdatePersonResultDTO(data));
+                return new ActionResult<UpdatePersonResultDTO>(true, new UpdatePersonResultDTO(data));
             }
-            return new ActionResult<UpdatePersonResultDTO (false, new UpdatePersonResultDTO(data), new Message(MessageType.Error, data.statusErrorMessage));
+            return new ActionResult<UpdatePersonResultDTO>(false, new UpdatePersonResultDTO(data), new Message(MessageType.Error, data.statusErrorMessage));
 
         }
 
-        public ActionResult LinkIntervenantToBenef(int benefProfileIdField, int intervenantProfileIdField)
+        public ActionResult LinkIntervenantToBenef(int patientProfileId, int intervenantProfileId)
         {
             var data = DomeCallSoap.linkIntervenantToBenef(new R525.linkIntervenantToBenefDto()
             {
@@ -293,9 +293,9 @@ namespace Dome
                     version = AuthentificationHelper.Instance.auth.DOME_header.version,
                 },
 
-                benefProfileId = benefProfileIdField,
+                benefProfileId = patientProfileId,
                 benefProfileIdSpecified = true,
-                intervenantProfileId = intervenantProfileIdField,
+                intervenantProfileId = intervenantProfileId,
                 intervenantProfileIdSpecified = true
             });
 
@@ -306,6 +306,39 @@ namespace Dome
             return new ActionResult(false, new Message(MessageType.Error, data.statusErrorMessage));
 
         }
+
+        public ActionResult SubscriptionPersonStructure(int patientProfileId, int structureProfileId)
+        {
+            var data = DomeCallSoap.subscriptionPersonStructure(new R523.subscriptionStructureDto()
+            {
+                DOME_header = new R523.domeHeaderDto()
+                {
+                    langue = "fr",
+                    deviceTypeSpecified = true,
+                    deviceType = (int)DeviceType.LogicielMétier,
+                    dateSpecified = true,
+                    date = AuthentificationHelper.Instance.auth.DOME_header.date.Value,
+                    version = AuthentificationHelper.Instance.auth.DOME_header.version,
+                },
+
+                profileStructureId = structureProfileId,
+                profileStructureIdSpecified = true,
+
+                profileBenefId = patientProfileId,
+                profileBenefIdSpecified = true
+            });
+
+
+            if (data.statusId == 0)
+            {
+                return new ActionResult(true);
+            }
+            return new ActionResult(false, new Message(MessageType.Error, data.statusErrorMessage));
+
+        }
+
+
+
 
 
         public ActionResult<int?> CreateAggir(int beneficiareProfileId, CreateAggirDto createAggirDto)

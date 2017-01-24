@@ -594,7 +594,9 @@ namespace Dome
 
         ActionResult<UpdatePersonResultDTO> UpdatePerson(int accountId, CreatePerson createPerson);
 
-        ActionResult LinkIntervenantToBenef(int benefProfileIdField, int intervenantProfileIdField);
+        ActionResult LinkIntervenantToBenef(int patientProfileId, int intervenantProfileId);
+        ActionResult SubscriptionPersonStructure(int patientProfileId, int structureProfileId);
+
 
         ActionResult<int?> CreateAggir(int ProfileId, CreateAggirDto createAggirDto);
         ActionResult UpdateAggir(CreateAggirDto createAggirDto);
