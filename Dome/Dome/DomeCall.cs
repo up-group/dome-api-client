@@ -269,20 +269,62 @@ namespace Dome
                 }
 
             };
-            var UpdatePersonDomeResult = DomeCallSoap.updatePerson(UpdatePersonDto);
+            var data = DomeCallSoap.updatePerson(UpdatePersonDto);
 
-            //return new UpdatePersonResultDTO(UpdatePersonDomeResult);
-            return null;
+            if (data.statusId == 0)
+            {
+                return new ActionResult<UpdatePersonResultDTO (true, new UpdatePersonResultDTO(data));
+            }
+            return new ActionResult<UpdatePersonResultDTO (false, new UpdatePersonResultDTO(data), new Message(MessageType.Error, data.statusErrorMessage));
+
+        }
+
+        public ActionResult LinkIntervenantToBenef(int benefProfileIdField, int intervenantProfileIdField)
+        {
+            var data = DomeCallSoap.linkIntervenantToBenef(new R525.linkIntervenantToBenefDto()
+            {
+                DOME_header = new R525.domeHeaderDto()
+                {
+                    langue = "fr",
+                    deviceTypeSpecified = true,
+                    deviceType = (int)DeviceType.LogicielMétier,
+                    dateSpecified = true,
+                    date = AuthentificationHelper.Instance.auth.DOME_header.date.Value,
+                    version = AuthentificationHelper.Instance.auth.DOME_header.version,
+                },
+
+                benefProfileId = benefProfileIdField,
+                benefProfileIdSpecified = true,
+                intervenantProfileId = intervenantProfileIdField,
+                intervenantProfileIdSpecified = true
+            });
+
+            if (data.statusId == 0)
+            {
+                return new ActionResult(true);
+            }
+            return new ActionResult(false, new Message(MessageType.Error, data.statusErrorMessage));
+
         }
 
 
-
-
-        public ActionResult<int> CreateAggir(int beneficiareProfileId, CreateAggirDto createAggirDto)
+        public ActionResult<int?> CreateAggir(int beneficiareProfileId, CreateAggirDto createAggirDto)
         {
             var data = DomeCallSoap.addNewAGGIR(new R830a.addNewAGGIRDto()
             {
+
+                DOME_header = new R830a.domeHeaderDto()
+                {
+                    langue = "fr",
+                    deviceTypeSpecified = true,
+                    deviceType = (int)DeviceType.LogicielMétier,
+                    dateSpecified = true,
+                    date = AuthentificationHelper.Instance.auth.DOME_header.date.Value,
+                    version = AuthentificationHelper.Instance.auth.DOME_header.version,
+                },
+
                 benefProfileId = beneficiareProfileId,
+                benefProfileIdSpecified = true,
                 DOME_medAGGIR = new R830a.addNewAggirInnerDto()
                 {
                     AGGIRAchats = createAggirDto.AGGIRAchats,
@@ -337,14 +379,19 @@ namespace Dome
                 }
             });
 
-            //return data.AGGIRGridId;
-            return null;
+            if (data.statusId == 0)
+            {
+                return new ActionResult<int?>(true, data.AGGIRGridId);
+            }
+            return new ActionResult<int?>(false, null, new Message(MessageType.Error, data.statusErrorMessage));
+
         }
 
         public ActionResult UpdateAggir(CreateAggirDto createPatientDto)
         {
             throw new NotImplementedException();
         }
+
 
     }
 }

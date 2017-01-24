@@ -436,13 +436,13 @@ namespace Dome
 
         public int structureProfileId { get; set; }
 
-        public System.DateTime AGGIREvaluationDate { get; set; }
+        public DateTime AGGIREvaluationDate { get; set; }
 
         public int AGGIRCreationProfileId { get; set; }
 
         public string AGGIRCreatorName { get; set; }
 
-        public System.DateTime AGGIRCreationDate { get; set; }
+        public DateTime AGGIRCreationDate { get; set; }
 
         public string AGGIRCreatorEntityName { get; set; }
 
@@ -594,8 +594,9 @@ namespace Dome
 
         ActionResult<UpdatePersonResultDTO> UpdatePerson(int accountId, CreatePerson createPerson);
 
+        ActionResult LinkIntervenantToBenef(int benefProfileIdField, int intervenantProfileIdField);
 
-        ActionResult<int> CreateAggir(int ProfileId,CreateAggirDto createAggirDto);
+        ActionResult<int?> CreateAggir(int ProfileId, CreateAggirDto createAggirDto);
         ActionResult UpdateAggir(CreateAggirDto createAggirDto);
 
 
