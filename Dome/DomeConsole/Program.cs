@@ -1,4 +1,5 @@
 ﻿using Dome;
+using System.Diagnostics;
 
 namespace DomeConsole
 {
@@ -6,8 +7,8 @@ namespace DomeConsole
     {
         public static void Main()
         {
-      
-            AuthentificationHelper.Instance.connect();
+
+            //AuthentificationHelper.Instance.connect();
 
 
 
@@ -49,10 +50,13 @@ namespace DomeConsole
 
             // var a = DomeCall.createPerson(data);
 
+            Debugger.Break();
 
-            var t = DomeCall.GetProfileList(40);
+            var d = new DomeCall();
 
-            var a = DomeCall.profileDetails(15);
+            var t = d.GetProfileList(40);
+
+            var a = d.profileDetails(15);
 
 
 

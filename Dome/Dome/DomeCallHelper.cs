@@ -12,6 +12,7 @@ namespace Dome
     {
         public static T3 call2<T1, T2, T3>(Func<T1, T3> test) where T2 : class where T1 : ClientBase<T2>
         {
+
             var url = settings.urlbase + "/soap/" + typeof(T2).Name;
             var binding = new BasicHttpBinding();
             var endpoint = new EndpointAddress(url);

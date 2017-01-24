@@ -31,7 +31,7 @@ namespace Dome.Test
                     contactRelationShipIdSpecified = true,
                 }
             };
-
+            var DomeCall = new DomeCall();
             createContactResponseDto res = DomeCall.createContact(contact);
             Assert.IsTrue(res.statusId == 0);
 

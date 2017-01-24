@@ -24,11 +24,22 @@ using Dome.R830a;
 using Dome.R831a;
 using Dome.R833a;
 using Dome.Enum;
+using System;
 
 namespace Dome
 {
-    public static class DomeCall
+    public class DomeCall : IDomeInterface
     {
+
+        public DomeCall()
+        {
+            if (AuthentificationHelper.Instance.auth == null)
+            {
+                AuthentificationHelper.Instance.connect();
+            }
+        }
+
+
         ///101 <see cref="createContact"/>
         ///201 <see cref="createEvent"/>
         ///213b <see cref="getNotifications"/>
@@ -56,65 +67,53 @@ namespace Dome
         ///833a <see cref="alterAggir"/>
 
 
-        public static createContactResponseDto createContact(createContactDto createContactDto)
+        public createContactResponseDto createContact(createContactDto createContactDto)
         {
             return DomeCallHelper.call2<DOME_BUS_EAI_R101contactCreateWSClient, DOME_BUS_EAI_R101contactCreateWS, createContactResponseDto>
                 ((client) => { return client.createContact(createContactDto); });
         }
 
-        public static createEventResponseDto createEvent(createEventDto createEventDto)
+        public createEventResponseDto createEvent(createEventDto createEventDto)
         {
             return DomeCallHelper.call2<DOME_BUS_EAI_R201eventCreateWSClient, DOME_BUS_EAI_R201eventCreateWS, createEventResponseDto>
                 ((client) => { return client.createEvent(createEventDto); });
         }
 
-        public static eventGetNotificationStructureResponseDto getNotifications(eventGetNotificationStructureDto eventGetNotificationStructureDto)
+        public eventGetNotificationStructureResponseDto getNotifications(eventGetNotificationStructureDto eventGetNotificationStructureDto)
         {
             return DomeCallHelper.call2<DOME_BUS_EAI_R213beventGetNotificationStructureWSClient, DOME_BUS_EAI_R213beventGetNotificationStructureWS, eventGetNotificationStructureResponseDto>
                 ((client) => { return client.getNotifications(eventGetNotificationStructureDto); });
         }
 
 
-        public static R221.domeResponseDto updateEvent(eventUpdateDto eventUpdateDto)
+        public R221.domeResponseDto updateEvent(eventUpdateDto eventUpdateDto)
         {
             return DomeCallHelper.call2<DOME_BUS_EAI_R221eventUpdateWSClient, DOME_BUS_EAI_R221eventUpdateWS, R221.domeResponseDto>
                 ((client) => { return client.updateEvent(eventUpdateDto); });
         }
 
-        public static eventUpdateStateResponseDto updateEventState(eventUpdateStateDto eventUpdateStateDto)
+        public eventUpdateStateResponseDto updateEventState(eventUpdateStateDto eventUpdateStateDto)
         {
             return DomeCallHelper.call2<DOME_BUS_EAI_R221eventUpdateStateWSClient, DOME_BUS_EAI_R221eventUpdateStateWS, eventUpdateStateResponseDto>
                 ((client) => { return client.updateEventState(eventUpdateStateDto); });
         }
 
 
-        public static R231.domeResponseDto deleteEvent(deleteEventDto deleteEventDto)
+        public R231.domeResponseDto deleteEvent(deleteEventDto deleteEventDto)
         {
             return DomeCallHelper.call2<DOME_BUS_EAI_R231eventDeleteWSClient, DOME_BUS_EAI_R231eventDeleteWS, R231.domeResponseDto>
                 ((client) => { return client.deleteEvent(deleteEventDto); });
         }
 
-        public static addDocumentResponseDto addDocument(addDocumentInputDto addDocumentInputDto)
+        public addDocumentResponseDto addDocument(addDocumentInputDto addDocumentInputDto)
         {
             return DomeCallHelper.call2<DOME_BUS_EAI_R401aDocProvisionningAcquisitionWSClient, DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS, addDocumentResponseDto>
                 ((client) => { return client.addDocument(addDocumentInputDto); });
         }
 
-        public static CreatePersonResponseDto createPerson(R511.CreatePersonInnerDto CreatePersonInnerDto)
+        public CreatePersonResponseDto createPerson(R511.CreatePersonDto CreatePersonDto)
         {
-            var CreatePersonDto = new CreatePersonDto()
-            {
-                DOME_createPerson = CreatePersonInnerDto,
-                DOME_header = new R511.domeHeaderDto()
-                {
-                    langue = "fr",
-                    deviceTypeSpecified = true,
-                    deviceType = (int)DeviceType.LogicielMétier,
-                    dateSpecified = true,
-                    date = AuthentificationHelper.Instance.auth.DOME_header.date.Value,
-                    version = AuthentificationHelper.Instance.auth.DOME_header.version,
-                }
-            };
+
 
             var data = DomeCallHelper.call2<DOME_BUS_EAI_R511createPersonWSClient, DOME_BUS_EAI_R511createPersonWS, CreatePersonResponseDto>(
                 (x) =>
@@ -126,31 +125,31 @@ namespace Dome
             return data;
         }
 
-        public static createProfileResponseDto createProfile(createProfileDto createProfileDto)
+        public createProfileResponseDto createProfile(createProfileDto createProfileDto)
         {
             return DomeCallHelper.call2<DOME_BUS_EAI_R521createProfileWSClient, DOME_BUS_EAI_R521createProfileWS, createProfileResponseDto>
                 ((client) => { return client.createProfile(createProfileDto); });
         }
 
-        public static subscriptionStructureResponseDto subscriptionPersonStructure(subscriptionStructureDto subscriptionStructureDto)
+        public subscriptionStructureResponseDto subscriptionPersonStructure(subscriptionStructureDto subscriptionStructureDto)
         {
             return DomeCallHelper.call2<DOME_BUS_EAI_R523benefSubscriptionWSClient, DOME_BUS_EAI_R523benefSubscriptionWS, subscriptionStructureResponseDto>
                 ((client) => { return client.subscriptionPersonStructure(subscriptionStructureDto); });
         }
 
-        public static linkIntervenantToBenefResponseDto linkIntervenantToBenef(linkIntervenantToBenefDto linkIntervenantToBenefDto)
+        public linkIntervenantToBenefResponseDto linkIntervenantToBenef(linkIntervenantToBenefDto linkIntervenantToBenefDto)
         {
             return DomeCallHelper.call2<DOME_BUS_EAI_R525linkIntervenantToBenefWSClient, DOME_BUS_EAI_R525linkIntervenantToBenefWS, linkIntervenantToBenefResponseDto>
                 ((client) => { return client.linkIntervenantToBenef(linkIntervenantToBenefDto); });
         }
 
-        public static selectProfileResponseDto selectProfile(selectProfileDto selectProfileDto)
+        public selectProfileResponseDto selectProfile(selectProfileDto selectProfileDto)
         {
             return DomeCallHelper.call2<DOME_BUS_EAI_R532selectProfileWSClient, DOME_BUS_EAI_R532selectProfileWS, selectProfileResponseDto>
                 ((client) => { return client.selectProfile(selectProfileDto); });
         }
 
-        public static profileDetailResponseDto profileDetails(int profileid)
+        public profileDetailResponseDto profileDetails(int profileid)
         {
             var profileDetailDto = new R541c.profileDetailDto()
             {
@@ -169,7 +168,7 @@ namespace Dome
                 ((client) => { return client.profileDetails(profileDetailDto); });
         }
 
-        public static authentificationResponseDto GetProfileList(int accountId)
+        public authentificationResponseDto GetProfileList(int accountId)
         {
             var authentificationInputDto = new authentificationInputDto()
             {
@@ -195,70 +194,311 @@ namespace Dome
             return data;
         }
 
-        public static UpdatePersonResponseDto updatePerson(UpdatePersonDto UpdatePersonDto)
+        public UpdatePersonResponseDto updatePerson(UpdatePersonDto UpdatePersonDto)
         {
             return DomeCallHelper.call2<DOME_BUS_EAI_R542aUpdatePersonWSClient, DOME_BUS_EAI_R542aUpdatePersonWS, UpdatePersonResponseDto>
                 ((client) => { return client.updatePerson(UpdatePersonDto); });
         }
 
-        public static R543b.domeResponseDto updatereferent(updateReferentDto updateReferentDto)
+        public R543b.domeResponseDto updatereferent(updateReferentDto updateReferentDto)
         {
             return DomeCallHelper.call2<DOME_BUS_EAI_R543bSwitchReferentWSClient, DOME_BUS_EAI_R543bSwitchReferentWS, R543b.domeResponseDto>
                 ((client) => { return client.updatereferent(updateReferentDto); });
         }
 
-        public static createdMediaResponseDto uploadFileWs(uploadFileWSDto uploadFileWSDto)
+        public createdMediaResponseDto uploadFileWs(uploadFileWSDto uploadFileWSDto)
         {
             return DomeCallHelper.call2<DOME_BUS_EAI_R590getMultimediaFileClient, DOME_BUS_EAI_R590getMultimediaFile, createdMediaResponseDto>
                 ((client) => { return client.uploadFileWs(uploadFileWSDto); });
         }
 
-        public static addCourseEntryResponseDto addCourseEntry(R820.addCourseEntryDto addCourseEntryDto)
+        public addCourseEntryResponseDto addCourseEntry(R820.addCourseEntryDto addCourseEntryDto)
         {
             return DomeCallHelper.call2<DOME_BUS_EAI_R820addNewJourneyEntryWSClient, DOME_BUS_EAI_R820addNewJourneyEntryWS, addCourseEntryResponseDto>
                 ((client) => { return client.addCourseEntry(addCourseEntryDto); });
         }
 
-        public static getListCourseEntryResponseDto getListCourseEntry(getListCourseEntryDto getListCourseEntryDto)
+        public getListCourseEntryResponseDto getListCourseEntry(getListCourseEntryDto getListCourseEntryDto)
         {
             return DomeCallHelper.call2<DOME_BUS_EAI_R821getListJourneyEntryWSClient, DOME_BUS_EAI_R821getListJourneyEntryWS, getListCourseEntryResponseDto>
                 ((client) => { return client.getListCourseEntry(getListCourseEntryDto); });
         }
 
-        public static getCourseEntryDetailsResponseDto getDetailsCourseEntry(getCourseEntryDetailsDto getCourseEntryDetailsDto)
+        public getCourseEntryDetailsResponseDto getDetailsCourseEntry(getCourseEntryDetailsDto getCourseEntryDetailsDto)
         {
             return DomeCallHelper.call2<DOME_BUS_EAI_R822getDetailJourneyEntryWSClient, DOME_BUS_EAI_R822getDetailJourneyEntryWS, getCourseEntryDetailsResponseDto>
                 ((client) => { return client.getDetailsCourseEntry(getCourseEntryDetailsDto); });
         }
 
-        public static R823.domeResponseDto alterCourseEntry(alterCourseEntryDto alterCourseEntryDto)
+        public R823.domeResponseDto alterCourseEntry(alterCourseEntryDto alterCourseEntryDto)
         {
             return DomeCallHelper.call2<DOME_BUS_EAI_R823setDetailJourneyEntryWSClient, DOME_BUS_EAI_R823setDetailJourneyEntryWS, R823.domeResponseDto>
                 ((client) => { return client.alterCourseEntry(alterCourseEntryDto); });
         }
 
-        public static R824.domeResponseDto deleteCourseEntry(deleteCourseEntryDto deleteCourseEntryDto)
+        public R824.domeResponseDto deleteCourseEntry(deleteCourseEntryDto deleteCourseEntryDto)
         {
             return DomeCallHelper.call2<DOME_BUS_EAI_R824deleteJourneyEntryWSClient, DOME_BUS_EAI_R824deleteJourneyEntryWS, R824.domeResponseDto>
                 ((client) => { return client.deleteCourseEntry(deleteCourseEntryDto); });
         }
 
-        public static addNewAGGIRResponseDto addNewAGGIR(addNewAGGIRDto addNewAGGIRDto)
+        public addNewAGGIRResponseDto addNewAGGIR(addNewAGGIRDto addNewAGGIRDto)
         {
             return DomeCallHelper.call2<DOME_BUS_EAI_R830aAddNewAGGIRWSClient, DOME_BUS_EAI_R830aAddNewAGGIRWS, addNewAGGIRResponseDto>
                 ((client) => { return client.addNewAGGIR(addNewAGGIRDto); });
         }
 
-        public static getListAGGIRResponseDto getListAGGIR(getListAGGIRDto getListAGGIRDto)
+        public getListAGGIRResponseDto getListAGGIR(getListAGGIRDto getListAGGIRDto)
         {
             return DomeCallHelper.call2<DOME_BUS_EAI_R831aGetListAGGIRWSClient, DOME_BUS_EAI_R831aGetListAGGIRWS, getListAGGIRResponseDto>
                 ((client) => { return client.getListAGGIR(getListAGGIRDto); });
         }
 
-        public static R833a.domeResponseDto alterAggir(alterAGGIRDto alterAGGIRDto)
+        public R833a.domeResponseDto alterAggir(alterAGGIRDto alterAGGIRDto)
         {
             return DomeCallHelper.call2<DOME_BUS_EAI_R833aSetDetailAGGIRWSClient, DOME_BUS_EAI_R833aSetDetailAGGIRWS, R833a.domeResponseDto>
                 ((client) => { return client.alterAggir(alterAGGIRDto); });
+        }
+
+
+
+
+
+
+
+
+
+        public CreatePersonResultDTO CreatePerson(ICreatePerson createPerson)
+        {
+            var CreatePersonDto = new CreatePersonDto()
+            {
+                DOME_createPerson = new R511.CreatePersonInnerDto()
+                {
+                    personBirthDateSpecified = true,
+                    personCivilityIdSpecified = true,
+
+                    personAddressComp1 = createPerson.personAddressComp1,
+                    personAddressComp2 = createPerson.personAddressComp2,
+                    personBirthDate = createPerson.personBirthDate,
+                    personBirthName = createPerson.personBirthName,
+                    personCedex = createPerson.personCedex,
+                    personCityName = createPerson.personCityName,
+                    personCityZipCode = createPerson.personCityZipCode,
+                    personCivilityId = (int)createPerson.personCivility,
+                    personComment = createPerson.personComment,
+                    personEmail1 = createPerson.personEmail1,
+                    personEmail2 = createPerson.personEmail2,
+                    personFirstName = createPerson.personFirstName,
+                    personINSA = createPerson.personINSA,
+                    personINSC = createPerson.personINSC,
+                    personJob = createPerson.personJob,
+                    personLastName = createPerson.personLastName,
+                    personLieuDit = createPerson.personLieuDit,
+                    personMobilePhoneNumber = createPerson.personMobilePhoneNumber,
+                    personNIR = createPerson.personNIR,
+                    personPhoneNumber = createPerson.personPhoneNumber,
+                    personPostBox = createPerson.personPostBox,
+                    personRoadName = createPerson.personRoadName,
+                    personRoadNumber = createPerson.personRoadNumber,
+                    personRoadType = createPerson.personRoadType,
+                    personRPPS = createPerson.personRPPS,
+                    specialCriteria = createPerson.specialCriteria,
+                },
+                DOME_header = new R511.domeHeaderDto()
+                {
+                    langue = "fr",
+                    deviceTypeSpecified = true,
+                    deviceType = (int)DeviceType.LogicielMétier,
+                    dateSpecified = true,
+                    date = AuthentificationHelper.Instance.auth.DOME_header.date.Value,
+                    version = AuthentificationHelper.Instance.auth.DOME_header.version,
+                }
+            };
+
+            var createPersonDomeResult = this.createPerson(CreatePersonDto);
+
+            return new CreatePersonResultDTO(createPersonDomeResult);
+        }
+
+        public CreateProfileResultDTO CreateProfile(ICreateProfile createProfil)
+        {
+            var createProfileDto = new createProfileDto()
+            {
+                DOME_header = new R521.domeHeaderDto()
+                {
+                    langue = "fr",
+                    deviceTypeSpecified = true,
+                    deviceType = (int)DeviceType.LogicielMétier,
+                    dateSpecified = true,
+                    date = AuthentificationHelper.Instance.auth.DOME_header.date.Value,
+                    version = AuthentificationHelper.Instance.auth.DOME_header.version,
+                },
+
+                accountId = createProfil.accountId.Value,
+                accountIdSpecified = true,
+
+                personIdMetier = createProfil.personIdMetier,
+
+                profileCibleType = (int)Profile.Beneficiaire,
+                profileCibleTypeSpecified = true,
+
+                personSocietyRole = (int)createProfil.personSocietyRole,
+                personSocietyRoleSpecified = false,
+
+
+                profileParentId = createProfil.profileParentId,
+                profileParentIdSpecified = false,
+
+
+                profileAvatar = createProfil.profileAvatar,
+                profileAvatarSpecified = true,
+
+
+                prestationListId = createProfil.prestationListId,
+
+
+                profileSectoring = createProfil.profileSectoring,
+
+                profileSpecialCriteria = createProfil.profileSpecialCriteria
+            };
+
+
+            var createProfileDomeResult = this.createProfile(createProfileDto);
+
+            return new CreateProfileResultDTO(createProfileDomeResult);
+
+
+        }
+
+
+
+
+
+
+        private CreateProfileResultDTO _CreatePersonAndProfil(CreatePerson createPerson, ICreateProfile createPatient)
+        {
+            if (createPatient.accountId.HasValue == false)
+            {
+                var person = this.CreatePerson(createPerson);
+                createPatient.accountId = person.accountId;
+            }
+
+            var profile = this.CreateProfile(createPatient);
+            return profile;
+
+        }
+
+
+
+
+
+        public CreateProfileResultDTO CreatePatient(CreatePerson createPerson, CreatePatient createPatient)
+        {
+            return _CreatePersonAndProfil(createPerson, createPatient);
+        }
+
+        public CreateProfileResultDTO CreateEntouge(CreatePerson createPerson, CreateEntourage createEntourage)
+        {
+            return _CreatePersonAndProfil(createPerson, createEntourage);
+
+        }
+
+        public CreateProfileResultDTO CreateSalarie(CreatePerson createPerson, CreateSalarie createSalarie)
+        {
+            return _CreatePersonAndProfil(createPerson, createSalarie);
+        }
+
+        public CreateProfileResultDTO CreateStructure(CreatePerson createPerson, CreateStructure createStructure)
+        {
+            return _CreatePersonAndProfil(createPerson, createStructure);
+
+        }
+
+        public CreateProfileResultDTO CreateIntervenant(CreatePerson createPerson, CreateIntervenant createIntervenant)
+        {
+            return _CreatePersonAndProfil(createPerson, createIntervenant);
+        }
+
+
+
+
+
+
+
+
+
+
+
+        public CreateProfileResultDTO CreatePatient(CreatePatient createPatient)
+        {
+            return CreateProfile(createPatient);
+        }
+
+        public CreateProfileResultDTO CreateEntouge(CreateEntourage createEntourage)
+        {
+            return CreateProfile(createEntourage);
+        }
+
+        public CreateProfileResultDTO CreateSalarie(CreateSalarie createSalarie)
+        {
+            return CreateProfile(createSalarie);
+        }
+
+        public CreateProfileResultDTO CreateStructure(CreateStructure createStructure)
+        {
+            return CreateProfile(createStructure);
+        }
+
+        public CreateProfileResultDTO CreateIntervenant(CreateIntervenant createIntervenant)
+        {
+            return CreateProfile(createIntervenant);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+        public UpdatePersonResult UpdatePatient(UpdatePersonn createPerson)
+        {
+            throw new NotImplementedException();
+        }
+
+        public UpdatePersonResult UpdateEntourage(UpdatePersonn createPerson)
+        {
+            throw new NotImplementedException();
+        }
+
+        public UpdatePersonResult UpdateSalarie(UpdatePersonn createPerson)
+        {
+            throw new NotImplementedException();
+        }
+
+        public UpdatePersonResult UpdateStructure(UpdatePersonn createPerson)
+        {
+            throw new NotImplementedException();
+        }
+
+        public UpdatePersonResult UpdateIntervenant(UpdatePersonn createPerson)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int? CreateAggir(CreateAggirDto createPatientDto)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool UpdateAggir(CreateAggirDto createPatientDto)
+        {
+            throw new NotImplementedException();
         }
     }
 }

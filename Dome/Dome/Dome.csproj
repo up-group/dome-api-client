@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Dome</RootNamespace>
     <AssemblyName>Dome</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -53,6 +54,7 @@
     <Compile Include="Enum\DeviceType.cs" />
     <Compile Include="Enum\EventCategory.cs" />
     <Compile Include="Enum\Profile.cs" />
+    <Compile Include="Enum\SocietyRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\R101\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -185,7 +187,9 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\R101\Dome.R101.createContactResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
