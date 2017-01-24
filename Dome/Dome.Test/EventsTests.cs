@@ -34,7 +34,7 @@ namespace Dome.Test
                     benefProfileId = 15,
                 }
             };
-            var DomeCall = new DomeCall();
+            var DomeCall = new DomeCallSoap();
             createEventResponseDto res = DomeCall.createEvent(e);
             Assert.IsTrue(res.statusId == 0);
 
@@ -57,7 +57,7 @@ namespace Dome.Test
                     eventTimeEnd = DateTime.Now.AddHours(2),
                 }
             };
-            var DomeCall = new DomeCall();
+            var DomeCall = new DomeCallSoap();
             R221.domeResponseDto res = DomeCall.updateEvent(e);
             Assert.IsTrue(res.statusId == 0);
         }
@@ -79,7 +79,7 @@ namespace Dome.Test
                     update
                 }
             };
-            var DomeCall = new DomeCall();
+            var DomeCall = new DomeCallSoap();
             eventUpdateStateResponseDto res = DomeCall.updateEventState(e);
             Assert.IsTrue(res.statusId == 0);
         }
@@ -93,7 +93,7 @@ namespace Dome.Test
             {
                 eventId = createdEventId,
             };
-            var DomeCall = new DomeCall();
+            var DomeCall = new DomeCallSoap();
             R231.domeResponseDto res = DomeCall.deleteEvent(e);
             Assert.IsTrue(res.statusId == 0);
         }

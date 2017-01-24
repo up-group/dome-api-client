@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Dome.R511;
 using Dome.R521;
+using Dome.R542a;
 
 namespace Dome
 {
@@ -119,14 +120,13 @@ namespace Dome
 
     public class CreatePersonResultDTO : ICreatePersonResultDTO
     {
-
         public CreatePersonResultDTO(CreatePersonResponseDto createPersonDomeResult)
         {
             this.personId = createPersonDomeResult.personId;
             this.login = createPersonDomeResult.login;
             this.password = createPersonDomeResult.password;
             this.accountId = createPersonDomeResult.accountId;
-            //this.DOME_createPersonList = createPersonDomeResult.DOME_createPersonList;
+            this.DOME_createPersonList = createPersonDomeResult.DOME_createPersonList.Select(x => new duplicatePersonDto(x)).ToArray();
 
         }
 
@@ -139,21 +139,54 @@ namespace Dome
 
     }
 
-    public partial class duplicatePersonDto
+
+    public class duplicatePersonDto
+    {
+        public duplicatePersonDto(R542a.duplicatePersonDto duplicatePersonDto)
+        {
+            this.accountId = duplicatePersonDto.accountId;
+            this.accountIdSpecified = duplicatePersonDto.accountIdSpecified;
+            this.personFirstName = duplicatePersonDto.personLastName;
+            this.personLastName = duplicatePersonDto.personLastName;
+            this.personEmail = duplicatePersonDto.personEmail;
+            this.login = duplicatePersonDto.login;
+            this.password = duplicatePersonDto.password;
+        }
+
+        public duplicatePersonDto(R511.duplicatePersonDto x)
+        {
+            this.accountId = x.accountId;
+            this.accountIdSpecified = x.accountIdSpecified;
+            this.personFirstName = x.personLastName;
+            this.personLastName = x.personLastName;
+            this.personEmail = x.personEmail;
+            this.login = x.login;
+            this.password = x.password;
+        }
+
+        public int accountId;
+        public bool accountIdSpecified;
+        public string personFirstName;
+        public string personLastName;
+        public string personEmail;
+        public string login;
+        public string password;
+        private R511.duplicatePersonDto x;
+    }
+
+    public class UpdatePersonResultDTO
     {
 
-        public int accountId { get; set; }
+        public UpdatePersonResultDTO(UpdatePersonResponseDto updatePersonResponseDto)
+        {
+            this.DOME_createPersonListField = updatePersonResponseDto.DOME_createPersonList.Select(x => new duplicatePersonDto(x)).ToArray();
+        }
 
-        public string personFirstName { get; set; }
+        public duplicatePersonDto[] DOME_createPersonListField;
 
-        public string personLastName { get; set; }
-
-        public string personEmail { get; set; }
-
-        public string login { get; set; }
-
-        public string password { get; set; }
     }
+
+
 
 
     public class CreateProfileResultDTO : ICreateProfileResultDTO
@@ -401,59 +434,57 @@ namespace Dome
     public class CreateAggirDto
     {
 
-        public int benefProfileId { get; set; }
-
         public int structureProfileId { get; set; }
 
-        public System.DateTime aGGIREvaluationDate { get; set; }
+        public System.DateTime AGGIREvaluationDate { get; set; }
 
-        public int aGGIRCreationProfileId { get; set; }
+        public int AGGIRCreationProfileId { get; set; }
 
-        public string aGGIRCreatorName { get; set; }
+        public string AGGIRCreatorName { get; set; }
 
-        public System.DateTime aGGIRCreationDate { get; set; }
+        public System.DateTime AGGIRCreationDate { get; set; }
 
-        public string aGGIRCreatorEntityName { get; set; }
+        public string AGGIRCreatorEntityName { get; set; }
 
-        public string aGGIREvaluatorName { get; set; }
+        public string AGGIREvaluatorName { get; set; }
 
-        public int aGGIRCode { get; set; }
+        public int AGGIRCode { get; set; }
 
-        public int aGGIRCoherence { get; set; }
+        public int AGGIRCoherence { get; set; }
 
-        public int aGGIROrientation { get; set; }
+        public int AGGIROrientation { get; set; }
 
-        public int aGGIRToilette { get; set; }
+        public int AGGIRToilette { get; set; }
 
-        public int aGGIRHabillage { get; set; }
+        public int AGGIRHabillage { get; set; }
 
-        public int aGGIRAlimentation { get; set; }
+        public int AGGIRAlimentation { get; set; }
 
-        public int aGGIRElimination { get; set; }
+        public int AGGIRElimination { get; set; }
 
-        public int aGGIRTransferts { get; set; }
+        public int AGGIRTransferts { get; set; }
 
-        public int aGGIRDeplacInt { get; set; }
+        public int AGGIRDeplacInt { get; set; }
 
-        public int aGGIRDeplacExt { get; set; }
+        public int AGGIRDeplacExt { get; set; }
 
-        public int aGGIRAlerter { get; set; }
+        public int AGGIRAlerter { get; set; }
 
-        public int aGGIRGestion { get; set; }
+        public int AGGIRGestion { get; set; }
 
-        public int aGGIRCuisine { get; set; }
+        public int AGGIRCuisine { get; set; }
 
-        public int aGGIRMenage { get; set; }
+        public int AGGIRMenage { get; set; }
 
-        public int aGGIRTransport { get; set; }
+        public int AGGIRTransport { get; set; }
 
-        public int aGGIRSuiviTraitement { get; set; }
+        public int AGGIRSuiviTraitement { get; set; }
 
-        public int aGGIRTempsLibre { get; set; }
+        public int AGGIRTempsLibre { get; set; }
 
-        public int aGGIRAchats { get; set; }
+        public int AGGIRAchats { get; set; }
 
-        public string aGGIRComment { get; set; }
+        public string AGGIRComment { get; set; }
 
     }
 
@@ -544,35 +575,28 @@ namespace Dome
 
     public interface IDomeInterface
     {
-        CreatePersonResultDTO CreatePerson(ICreatePerson createPerson);
-        CreateProfileResultDTO CreateProfile(ICreateProfile createProfil);
+        ActionResult<CreatePersonResultDTO> CreatePerson(ICreatePerson createPerson);
+        ActionResult<CreateProfileResultDTO> CreateProfile(ICreateProfile createProfil);
 
 
-        CreateProfileResultDTO CreatePatient(CreatePerson createPerson, CreatePatient createPatient);
-        CreateProfileResultDTO CreateEntouge(CreatePerson createPerson, CreateEntourage createEntourage);
-        CreateProfileResultDTO CreateSalarie(CreatePerson createPerson, CreateSalarie createSalarie);
-        CreateProfileResultDTO CreateStructure(CreatePerson createPerson, CreateStructure createStructure);
-        CreateProfileResultDTO CreateIntervenant(CreatePerson createPerson, CreateIntervenant createIntervenant);
+        ActionResult<CreateProfileResultDTO> CreatePatient(CreatePerson createPerson, CreatePatient createPatient);
+        ActionResult<CreateProfileResultDTO> CreateEntouge(CreatePerson createPerson, CreateEntourage createEntourage);
+        ActionResult<CreateProfileResultDTO> CreateSalarie(CreatePerson createPerson, CreateSalarie createSalarie);
+        ActionResult<CreateProfileResultDTO> CreateStructure(CreatePerson createPerson, CreateStructure createStructure);
+        ActionResult<CreateProfileResultDTO> CreateIntervenant(CreatePerson createPerson, CreateIntervenant createIntervenant);
 
 
-        CreateProfileResultDTO CreatePatient(CreatePatient createPatient);
-        CreateProfileResultDTO CreateEntouge(CreateEntourage createEntourage);
-        CreateProfileResultDTO CreateSalarie(CreateSalarie createSalarie);
-        CreateProfileResultDTO CreateStructure(CreateStructure createStructure);
-        CreateProfileResultDTO CreateIntervenant(CreateIntervenant createIntervenant);
+        ActionResult<CreateProfileResultDTO> CreatePatient(CreatePatient createPatient);
+        ActionResult<CreateProfileResultDTO> CreateEntouge(CreateEntourage createEntourage);
+        ActionResult<CreateProfileResultDTO> CreateSalarie(CreateSalarie createSalarie);
+        ActionResult<CreateProfileResultDTO> CreateStructure(CreateStructure createStructure);
+        ActionResult<CreateProfileResultDTO> CreateIntervenant(CreateIntervenant createIntervenant);
+
+        ActionResult<UpdatePersonResultDTO> UpdatePerson(int accountId, CreatePerson createPerson);
 
 
-        UpdatePersonResult UpdatePatient(UpdatePersonn createPerson);
-        UpdatePersonResult UpdateEntourage(UpdatePersonn createPerson);
-        UpdatePersonResult UpdateSalarie(UpdatePersonn createPerson);
-        UpdatePersonResult UpdateStructure(UpdatePersonn createPerson);
-        UpdatePersonResult UpdateIntervenant(UpdatePersonn createPerson);
-
-
-
-
-        int? CreateAggir(CreateAggirDto createPatientDto);
-        bool UpdateAggir(CreateAggirDto createPatientDto);
+        ActionResult<int> CreateAggir(int ProfileId,CreateAggirDto createAggirDto);
+        ActionResult UpdateAggir(CreateAggirDto createAggirDto);
 
 
     }

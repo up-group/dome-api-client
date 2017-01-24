@@ -52,7 +52,7 @@ namespace Dome
         ///541b  <see cref="GetProfileList"/>
         ///541c <see cref="profileDetails"/>
         ///542a <see cref="updatePerson"/>
-        ///543b <see cref="updatereferent"/>
+        ///543b <see cref="updateReferent"/>
         ///590 <see cref="uploadFileWs"/>
         ///820 <see cref="addCourseEntry"/>
         ///821 <see cref="getListCourseEntry"/>
@@ -110,16 +110,8 @@ namespace Dome
 
         public CreatePersonResponseDto createPerson(R511.CreatePersonDto CreatePersonDto)
         {
-
-
-            var data = DomeCallHelper.call2<DOME_BUS_EAI_R511createPersonWSClient, DOME_BUS_EAI_R511createPersonWS, CreatePersonResponseDto>(
-                (x) =>
-                {
-                    var person = x.createPerson(CreatePersonDto);
-                    return person;
-                }
-                );
-            return data;
+            return DomeCallHelper.call2<DOME_BUS_EAI_R511createPersonWSClient, DOME_BUS_EAI_R511createPersonWS, CreatePersonResponseDto>
+                 ((client) => { return client.createPerson(CreatePersonDto); });
         }
 
         public createProfileResponseDto createProfile(createProfileDto createProfileDto)
@@ -180,15 +172,8 @@ namespace Dome
                 }
             };
 
-            var data = DomeCallHelper.call2<DOME_BUS_EAI_R541bGetProfileListWSClient, DOME_BUS_EAI_R541bGetProfileListWS, authentificationResponseDto>(
-                (x) =>
-                {
-                    var t = x.getProfileListWS(authentificationInputDto);
-                    return t;
-                }
-
-                );
-            return data;
+            return DomeCallHelper.call2<DOME_BUS_EAI_R541bGetProfileListWSClient, DOME_BUS_EAI_R541bGetProfileListWS, authentificationResponseDto>
+                 ((client) => { return client.getProfileListWS(authentificationInputDto); });
         }
 
         public UpdatePersonResponseDto updatePerson(UpdatePersonDto UpdatePersonDto)
@@ -197,7 +182,7 @@ namespace Dome
                 ((client) => { return client.updatePerson(UpdatePersonDto); });
         }
 
-        public R543b.domeResponseDto updatereferent(updateReferentDto updateReferentDto)
+        public R543b.domeResponseDto updateReferent(updateReferentDto updateReferentDto)
         {
             return DomeCallHelper.call2<DOME_BUS_EAI_R543bSwitchReferentWSClient, DOME_BUS_EAI_R543bSwitchReferentWS, R543b.domeResponseDto>
                 ((client) => { return client.updatereferent(updateReferentDto); });
@@ -258,4 +243,4 @@ namespace Dome
         }
 
     }
-    }
+}

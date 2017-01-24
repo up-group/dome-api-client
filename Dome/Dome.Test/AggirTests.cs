@@ -51,7 +51,7 @@ namespace Dome.Test
                     AGGIRAchats = 1,
                 }
             };
-            var DomeCall = new DomeCall();
+            var DomeCall = new DomeCallSoap();
             addNewAGGIRResponseDto resp = DomeCall.addNewAGGIR(aggir);
 
             Assert.IsTrue(resp.statusId == 0);
@@ -95,7 +95,7 @@ namespace Dome.Test
                     AGGIRAchats = 1,
                 }
             };
-            var DomeCall = new DomeCall();
+            var DomeCall = new DomeCallSoap();
             R833a.domeResponseDto resp = DomeCall.alterAggir(aggir);
 
             Assert.IsTrue(resp.statusId == 0);

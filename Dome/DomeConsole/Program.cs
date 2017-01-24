@@ -52,11 +52,13 @@ namespace DomeConsole
 
             Debugger.Break();
 
-            var d = new DomeCall();
+            var d = new DomeCallSoap();
 
-            var t = d.GetProfileList(40);
+            var t = d.GetProfileList(41);
+            var fezt = d.GetProfileList(40);
 
-            var a = d.profileDetails(15);
+            var a = d.profileDetails(1005);
+            var af = d.profileDetails(15);
 
 
 

@@ -44,7 +44,7 @@ namespace Dome.Test
                     personRoadNumber = "1337",
                 }
             };
-            var DomeCall = new DomeCall();
+            var DomeCall = new DomeCallSoap();
             CreatePersonResponseDto resp = DomeCall.createPerson(person);
             Assert.IsTrue(resp.statusId == 0);
 
@@ -77,7 +77,7 @@ namespace Dome.Test
                     personRoadNumber = "1337",
                 }
             };
-            var DomeCall = new DomeCall();
+            var DomeCall = new DomeCallSoap();
             UpdatePersonResponseDto resp = DomeCall.updatePerson(person);
             Assert.IsTrue(resp.statusId == 0);
         }
@@ -118,7 +118,7 @@ namespace Dome.Test
                     personRPPS = ""
                 }
             };
-            var DomeCall = new DomeCall();
+            var DomeCall = new DomeCallSoap();
             CreatePersonResponseDto resp = DomeCall.createPerson(person);
             Assert.IsTrue(resp.statusId == 0);
 
@@ -173,7 +173,7 @@ namespace Dome.Test
                     personRPPS = ""
                 }
             };
-            var DomeCall = new DomeCall();
+            var DomeCall = new DomeCallSoap();
             CreatePersonResponseDto resp = DomeCall.createPerson(person);
             Assert.IsTrue(resp.statusId == 0);
 
@@ -226,7 +226,7 @@ namespace Dome.Test
                     personRPPS = ""
                 }
             };
-            var DomeCall = new DomeCall();
+            var DomeCall = new DomeCallSoap();
             CreatePersonResponseDto resp = DomeCall.createPerson(person);
             Assert.IsTrue(resp.statusId == 0);
 
@@ -258,7 +258,7 @@ namespace Dome.Test
                 benefProfileIdSpecified = true,
                 benefProfileId = createdPatientId
             };
-            var DomeCall = new DomeCall();
+            var DomeCall = new DomeCallSoap();
             linkIntervenantToBenefResponseDto resp = DomeCall.linkIntervenantToBenef(link);
             Assert.IsTrue(resp.statusId == 0);
         }
@@ -299,7 +299,7 @@ namespace Dome.Test
                     personRPPS = ""
                 }
             };
-            var DomeCall = new DomeCall();
+            var DomeCall = new DomeCallSoap();
             CreatePersonResponseDto resp = DomeCall.createPerson(person);
             Assert.IsTrue(resp.statusId == 0);
 

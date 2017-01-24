@@ -2,6 +2,7 @@
 using System;
 using Dome.R511;
 using Dome.R521;
+using Dome;
 
 namespace Dome
 {
@@ -15,7 +16,11 @@ namespace Dome
             DomeCallSoap = new DomeCallSoap();
         }
 
-        public CreatePersonResultDTO CreatePerson(ICreatePerson createPerson)
+
+
+
+
+        public ActionResult<CreatePersonResultDTO> CreatePerson(ICreatePerson createPerson)
         {
             var CreatePersonDto = new CreatePersonDto()
             {
@@ -64,10 +69,14 @@ namespace Dome
 
             var createPersonDomeResult = DomeCallSoap.createPerson(CreatePersonDto);
 
-            return new CreatePersonResultDTO(createPersonDomeResult);
+            if (createPersonDomeResult.statusId == 0)
+            {
+                return new ActionResult<CreatePersonResultDTO>(true, new CreatePersonResultDTO(createPersonDomeResult));
+            }
+            return new ActionResult<CreatePersonResultDTO>(false, new CreatePersonResultDTO(createPersonDomeResult), new Message(MessageType.Error, createPersonDomeResult.statusErrorMessage));
         }
 
-        public CreateProfileResultDTO CreateProfile(ICreateProfile createProfil)
+        public ActionResult<CreateProfileResultDTO> CreateProfile(ICreateProfile createProfil)
         {
             var createProfileDto = new createProfileDto()
             {
@@ -112,9 +121,11 @@ namespace Dome
 
             var createProfileDomeResult = DomeCallSoap.createProfile(createProfileDto);
 
-            return new CreateProfileResultDTO(createProfileDomeResult);
-
-
+            if (createProfileDomeResult.statusId == 0)
+            {
+                return new ActionResult<CreateProfileResultDTO>(true, new CreateProfileResultDTO(createProfileDomeResult));
+            }
+            return new ActionResult<CreateProfileResultDTO>(false, new CreateProfileResultDTO(createProfileDomeResult), new Message(MessageType.Error, createProfileDomeResult.statusErrorMessage));
         }
 
 
@@ -122,46 +133,47 @@ namespace Dome
 
 
 
-        private CreateProfileResultDTO _CreatePersonAndProfil(CreatePerson createPerson, ICreateProfile createPatient)
+        private ActionResult<CreateProfileResultDTO> _CreatePersonAndProfil(CreatePerson createPerson, ICreateProfile createPatient)
         {
             if (createPatient.accountId.HasValue == false)
             {
                 var person = this.CreatePerson(createPerson);
-                createPatient.accountId = person.accountId;
+                if (person.Succeeded == false)
+                {
+                    return new ActionResult<CreateProfileResultDTO>(false, null, person.Messages);
+                }
+                createPatient.accountId = person.Entity.accountId;
             }
-
-            var profile = this.CreateProfile(createPatient);
-            return profile;
-
+            return CreateProfile(createPatient);
         }
 
 
 
 
 
-        public CreateProfileResultDTO CreatePatient(CreatePerson createPerson, CreatePatient createPatient)
+        public ActionResult<CreateProfileResultDTO> CreatePatient(CreatePerson createPerson, CreatePatient createPatient)
         {
             return _CreatePersonAndProfil(createPerson, createPatient);
         }
 
-        public CreateProfileResultDTO CreateEntouge(CreatePerson createPerson, CreateEntourage createEntourage)
+        public ActionResult<CreateProfileResultDTO> CreateEntouge(CreatePerson createPerson, CreateEntourage createEntourage)
         {
             return _CreatePersonAndProfil(createPerson, createEntourage);
 
         }
 
-        public CreateProfileResultDTO CreateSalarie(CreatePerson createPerson, CreateSalarie createSalarie)
+        public ActionResult<CreateProfileResultDTO> CreateSalarie(CreatePerson createPerson, CreateSalarie createSalarie)
         {
             return _CreatePersonAndProfil(createPerson, createSalarie);
         }
 
-        public CreateProfileResultDTO CreateStructure(CreatePerson createPerson, CreateStructure createStructure)
+        public ActionResult<CreateProfileResultDTO> CreateStructure(CreatePerson createPerson, CreateStructure createStructure)
         {
             return _CreatePersonAndProfil(createPerson, createStructure);
 
         }
 
-        public CreateProfileResultDTO CreateIntervenant(CreatePerson createPerson, CreateIntervenant createIntervenant)
+        public ActionResult<CreateProfileResultDTO> CreateIntervenant(CreatePerson createPerson, CreateIntervenant createIntervenant)
         {
             return _CreatePersonAndProfil(createPerson, createIntervenant);
         }
@@ -176,27 +188,27 @@ namespace Dome
 
 
 
-        public CreateProfileResultDTO CreatePatient(CreatePatient createPatient)
+        public ActionResult<CreateProfileResultDTO> CreatePatient(CreatePatient createPatient)
         {
             return CreateProfile(createPatient);
         }
 
-        public CreateProfileResultDTO CreateEntouge(CreateEntourage createEntourage)
+        public ActionResult<CreateProfileResultDTO> CreateEntouge(CreateEntourage createEntourage)
         {
             return CreateProfile(createEntourage);
         }
 
-        public CreateProfileResultDTO CreateSalarie(CreateSalarie createSalarie)
+        public ActionResult<CreateProfileResultDTO> CreateSalarie(CreateSalarie createSalarie)
         {
             return CreateProfile(createSalarie);
         }
 
-        public CreateProfileResultDTO CreateStructure(CreateStructure createStructure)
+        public ActionResult<CreateProfileResultDTO> CreateStructure(CreateStructure createStructure)
         {
             return CreateProfile(createStructure);
         }
 
-        public CreateProfileResultDTO CreateIntervenant(CreateIntervenant createIntervenant)
+        public ActionResult<CreateProfileResultDTO> CreateIntervenant(CreateIntervenant createIntervenant)
         {
             return CreateProfile(createIntervenant);
         }
@@ -205,45 +217,131 @@ namespace Dome
 
 
 
-
-
-
-
-
-
-
-
-        public UpdatePersonResult UpdatePatient(UpdatePersonn createPerson)
+        public ActionResult<UpdatePersonResultDTO> UpdatePerson(int accountId, CreatePerson createPerson)
         {
-            throw new NotImplementedException();
+            var UpdatePersonDto = new R542a.UpdatePersonDto()
+            {
+                DOME_header = new R542a.domeHeaderDto()
+                {
+                    langue = "fr",
+                    deviceTypeSpecified = true,
+                    deviceType = (int)DeviceType.LogicielMétier,
+                    dateSpecified = true,
+                    date = AuthentificationHelper.Instance.auth.DOME_header.date.Value,
+                    version = AuthentificationHelper.Instance.auth.DOME_header.version,
+                },
+
+
+                accountId = accountId,
+                accountIdSpecified = true,
+                DOME_createPerson = new R542a.CreatePersonInnerDto()
+                {
+                    personAddressComp1 = createPerson.personAddressComp1,
+                    personAddressComp2 = createPerson.personAddressComp2,
+                    personBirthDate = createPerson.personBirthDate,
+                    //personBirthDateSpecified = createPerson.personBirthDateSpecified,
+                    personBirthName = createPerson.personBirthName,
+                    personCedex = createPerson.personCedex,
+                    personCityName = createPerson.personCityName,
+                    personCityZipCode = createPerson.personCityZipCode,
+                    personCivilityId = (int)createPerson.personCivility,
+                    //personCivilityIdSpecified = createPerson.personCivilityIdSpecified,
+                    personComment = createPerson.personComment,
+                    personEmail1 = createPerson.personEmail1,
+                    personEmail2 = createPerson.personEmail2,
+                    personFirstName = createPerson.personFirstName,
+                    personINSA = createPerson.personINSA,
+                    personINSC = createPerson.personINSC,
+                    personJob = createPerson.personJob,
+                    personLastName = createPerson.personLastName,
+                    personLieuDit = createPerson.personLieuDit,
+                    personMobilePhoneNumber = createPerson.personMobilePhoneNumber,
+                    personNIR = createPerson.personNIR,
+                    personPhoneNumber = createPerson.personPhoneNumber,
+                    personPostBox = createPerson.personPostBox,
+                    personRoadName = createPerson.personRoadName,
+                    personRoadNumber = createPerson.personRoadNumber,
+                    personRoadType = createPerson.personRoadType,
+                    personRPPS = createPerson.personRPPS,
+                    specialCriteria = createPerson.specialCriteria,
+
+
+                }
+
+            };
+            var UpdatePersonDomeResult = DomeCallSoap.updatePerson(UpdatePersonDto);
+
+            //return new UpdatePersonResultDTO(UpdatePersonDomeResult);
+            return null;
         }
 
-        public UpdatePersonResult UpdateEntourage(UpdatePersonn createPerson)
+
+
+
+        public ActionResult<int> CreateAggir(int beneficiareProfileId, CreateAggirDto createAggirDto)
         {
-            throw new NotImplementedException();
+            var data = DomeCallSoap.addNewAGGIR(new R830a.addNewAGGIRDto()
+            {
+                benefProfileId = beneficiareProfileId,
+                DOME_medAGGIR = new R830a.addNewAggirInnerDto()
+                {
+                    AGGIRAchats = createAggirDto.AGGIRAchats,
+                    AGGIRAlerter = createAggirDto.AGGIRAlerter,
+                    //AGGIRAchatsSpecified =createAggirDto.AGGIRAchatsSpecified,
+                    //AGGIRAlerterSpecified =createAggirDto.AGGIRAlerterSpecified,
+                    AGGIRAlimentation = createAggirDto.AGGIRAlimentation,
+                    //AGGIRAlimentationSpecified =createAggirDto.AGGIRAlimentationSpecified,
+                    AGGIRCode = createAggirDto.AGGIRCode,
+                    //AGGIRCodeSpecified =createAggirDto.AGGIRCodeSpecified,
+                    AGGIRCoherence = createAggirDto.AGGIRCoherence,
+                    //AGGIRCoherenceSpecified =createAggirDto.AGGIRCoherenceSpecified,
+                    AGGIRComment = createAggirDto.AGGIRComment,
+                    AGGIRCreationDate = createAggirDto.AGGIRCreationDate,
+                    //AGGIRCreationDateSpecified =createAggirDto.AGGIRCreationDateSpecified,
+                    AGGIRCreationProfileId = createAggirDto.AGGIRCreationProfileId,
+                    //AGGIRCreationProfileIdSpecified =createAggirDto.AGGIRCreationProfileIdSpecified,
+                    AGGIRCreatorEntityName = createAggirDto.AGGIRCreatorEntityName,
+                    AGGIRCreatorName = createAggirDto.AGGIRCreatorName,
+                    AGGIRCuisine = createAggirDto.AGGIRCuisine,
+                    //AGGIRCuisineSpecified =createAggirDto.AGGIRCuisineSpecified,
+                    AGGIRDeplacExt = createAggirDto.AGGIRDeplacExt,
+                    //AGGIRDeplacExtSpecified =createAggirDto.AGGIRDeplacExtSpecified,
+                    AGGIRDeplacInt = createAggirDto.AGGIRDeplacInt,
+                    //AGGIRDeplacIntSpecified =createAggirDto.AGGIRDeplacIntSpecified,
+                    AGGIRElimination = createAggirDto.AGGIRElimination,
+                    //AGGIREliminationSpecified =createAggirDto.AGGIREliminationSpecified,
+                    AGGIREvaluationDate = createAggirDto.AGGIREvaluationDate,
+                    //AGGIREvaluationDateSpecified =createAggirDto.AGGIREvaluationDateSpecified,
+                    AGGIREvaluatorName = createAggirDto.AGGIREvaluatorName,
+                    AGGIRGestion = createAggirDto.AGGIRGestion,
+                    //AGGIRGestionSpecified =createAggirDto.AGGIRGestionSpecified,
+                    AGGIRHabillage = createAggirDto.AGGIRHabillage,
+                    //AGGIRHabillageSpecified =createAggirDto.AGGIRHabillageSpecified,
+                    AGGIRMenage = createAggirDto.AGGIRMenage,
+                    //AGGIRMenageSpecified =createAggirDto.AGGIRMenageSpecified,
+                    AGGIROrientation = createAggirDto.AGGIROrientation,
+                    //AGGIROrientationSpecified =createAggirDto.AGGIROrientationSpecified,
+                    AGGIRSuiviTraitement = createAggirDto.AGGIRSuiviTraitement,
+                    //AGGIRSuiviTraitementSpecified =createAggirDto.AGGIRSuiviTraitementSpecified,
+                    AGGIRTempsLibre = createAggirDto.AGGIRTempsLibre,
+                    //AGGIRTempsLibreSpecified =createAggirDto.AGGIRTempsLibreSpecified,
+                    AGGIRToilette = createAggirDto.AGGIRToilette,
+                    //AGGIRToiletteSpecified = createAggirDto.AGGIRToiletteSpecified,
+                    AGGIRTransferts = createAggirDto.AGGIRTransferts,
+                    //AGGIRTransfertsSpecified = createAggirDto.AGGIRTransfertsSpecified,
+                    AGGIRTransport = createAggirDto.AGGIRTransport,
+                    //AGGIRTransportSpecified = createAggirDto.AGGIRTransportSpecified,
+                    structureProfileId = createAggirDto.structureProfileId,
+                    //structureProfileIdSpecified = createAggirDto.structureProfileIdSpecified,
+
+                }
+            });
+
+            //return data.AGGIRGridId;
+            return null;
         }
 
-        public UpdatePersonResult UpdateSalarie(UpdatePersonn createPerson)
-        {
-            throw new NotImplementedException();
-        }
-
-        public UpdatePersonResult UpdateStructure(UpdatePersonn createPerson)
-        {
-            throw new NotImplementedException();
-        }
-
-        public UpdatePersonResult UpdateIntervenant(UpdatePersonn createPerson)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int? CreateAggir(CreateAggirDto createPatientDto)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool UpdateAggir(CreateAggirDto createPatientDto)
+        public ActionResult UpdateAggir(CreateAggirDto createPatientDto)
         {
             throw new NotImplementedException();
         }
