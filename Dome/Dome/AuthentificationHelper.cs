@@ -92,6 +92,7 @@ namespace Dome
                     if (account.Succeeded && account.Entity.DOME_profileList.Length == 1)
                     {
                         MainProfilId = account.Entity.DOME_profileList[0].profileId;
+                        DomeCall.SelectProfil(MainProfilId.Value);
                     }
                 }
 
