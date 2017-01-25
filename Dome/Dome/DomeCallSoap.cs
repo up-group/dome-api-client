@@ -138,42 +138,16 @@ namespace Dome
                 ((client) => { return client.selectProfile(selectProfileDto); });
         }
 
-        public profileDetailResponseDto profileDetails(int profileid)
+        public profileDetailResponseDto profileDetails(profileDetailDto profileDetailDto)
         {
-            var profileDetailDto = new R541c.profileDetailDto()
-            {
-                profileId = profileid,
-                profileIdSpecified = true,
-                DOME_header = new R541c.domeHeaderDto()
-                {
-                    deviceTypeSpecified = true,
-                    deviceType = 5,
-                    date = AuthentificationHelper.Instance.auth.DOME_header.date.Value,
-                    version = AuthentificationHelper.Instance.auth.DOME_header.version,
-                }
-            };
-
             return DomeCallHelper.call2<DOME_BUS_EAI_R541cGetProfileDetailWSClient, DOME_BUS_EAI_R541cGetProfileDetailWS, profileDetailResponseDto>
                 ((client) => { return client.profileDetails(profileDetailDto); });
         }
 
-        public authentificationResponseDto GetProfileList(int accountId)
+        public authentificationResponseDto GetProfileList(authentificationInputDto authentificationInputDto)
         {
-            var authentificationInputDto = new authentificationInputDto()
-            {
-                accountIdSpecified = true,
-                accountId = accountId,
-                DOME_header = new R541b.domeHeaderDto()
-                {
-                    deviceTypeSpecified = true,
-                    deviceType = 5,
-                    date = AuthentificationHelper.Instance.auth.DOME_header.date.Value,
-                    version = AuthentificationHelper.Instance.auth.DOME_header.version,
-                }
-            };
-
             return DomeCallHelper.call2<DOME_BUS_EAI_R541bGetProfileListWSClient, DOME_BUS_EAI_R541bGetProfileListWS, authentificationResponseDto>
-                 ((client) => { return client.getProfileListWS(authentificationInputDto); });
+                ((client) => { return client.getProfileListWS(authentificationInputDto); });
         }
 
         public UpdatePersonResponseDto updatePerson(UpdatePersonDto UpdatePersonDto)

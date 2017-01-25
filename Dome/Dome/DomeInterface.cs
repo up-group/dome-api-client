@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Dome.R511;
 using Dome.R521;
 using Dome.R542a;
+using Dome.R541b;
+using Dome.R541c;
 
 namespace Dome
 {
@@ -114,10 +116,7 @@ namespace Dome
         int profileId { get; set; }
     }
 
-
-
-
-
+    
     public class CreatePersonResultDTO : ICreatePersonResultDTO
     {
         public CreatePersonResultDTO(CreatePersonResponseDto createPersonDomeResult)
@@ -575,8 +574,8 @@ namespace Dome
 
     public interface IDomeInterface
     {
-        ActionResult<CreatePersonResultDTO> CreatePerson(ICreatePerson createPerson);
-        ActionResult<CreateProfileResultDTO> CreateProfile(ICreateProfile createProfil);
+        ActionResult<CreatePersonResultDTO> CreatePerson(CreatePerson createPerson);
+        ActionResult<CreateProfileResultDTO> CreateProfile(CreateProfile createProfil);
 
 
         ActionResult<CreateProfileResultDTO> CreatePatient(CreatePerson createPerson, CreatePatient createPatient);
@@ -596,6 +595,12 @@ namespace Dome
 
         ActionResult LinkIntervenantToBenef(int patientProfileId, int intervenantProfileId);
         ActionResult SubscriptionPersonStructure(int patientProfileId, int structureProfileId);
+
+
+
+        ActionResult<profileDetailResponseDto> GetProfile(int profileId);
+        ActionResult<authentificationResponseDto> GetAccount(int accountId);
+        ActionResult SelectProfil(int profileId);
 
 
         ActionResult<int?> CreateAggir(int ProfileId, CreateAggirDto createAggirDto);

@@ -3,6 +3,8 @@ using System;
 using Dome.R511;
 using Dome.R521;
 using Dome;
+using Dome.R541b;
+using Dome.R541c;
 
 namespace Dome
 {
@@ -20,7 +22,7 @@ namespace Dome
 
 
 
-        public ActionResult<CreatePersonResultDTO> CreatePerson(ICreatePerson createPerson)
+        public ActionResult<CreatePersonResultDTO> CreatePerson(CreatePerson createPerson)
         {
             var CreatePersonDto = new CreatePersonDto()
             {
@@ -76,7 +78,7 @@ namespace Dome
             return new ActionResult<CreatePersonResultDTO>(false, new CreatePersonResultDTO(createPersonDomeResult), new Message(MessageType.Error, createPersonDomeResult.statusErrorMessage));
         }
 
-        public ActionResult<CreateProfileResultDTO> CreateProfile(ICreateProfile createProfil)
+        public ActionResult<CreateProfileResultDTO> CreateProfile(CreateProfile createProfil)
         {
             var createProfileDto = new createProfileDto()
             {
@@ -133,7 +135,7 @@ namespace Dome
 
 
 
-        private ActionResult<CreateProfileResultDTO> _CreatePersonAndProfil(CreatePerson createPerson, ICreateProfile createPatient)
+        private ActionResult<CreateProfileResultDTO> _CreatePersonAndProfil(CreatePerson createPerson, CreateProfile createPatient)
         {
             if (createPatient.accountId.HasValue == false)
             {
@@ -271,11 +273,27 @@ namespace Dome
             };
             var data = DomeCallSoap.updatePerson(UpdatePersonDto);
 
+            //var aaa = testREs<ActionResult<UpdatePersonResultDTO>>(data, new UpdatePersonResultDTO(data));
+
             if (data.statusId == 0)
             {
                 return new ActionResult<UpdatePersonResultDTO>(true, new UpdatePersonResultDTO(data));
             }
             return new ActionResult<UpdatePersonResultDTO>(false, new UpdatePersonResultDTO(data), new Message(MessageType.Error, data.statusErrorMessage));
+
+        }
+
+
+        //public T testREs<T>(returnData data , object d)
+        //{
+
+        //    return null;
+        //}
+
+        public interface returnData
+        {
+            int statusId { get; }
+            string statusErrorMessage { get; }
 
         }
 
@@ -425,6 +443,81 @@ namespace Dome
             throw new NotImplementedException();
         }
 
+        public ActionResult<profileDetailResponseDto> GetProfile(int profileId)
+        {
+            var data = DomeCallSoap.profileDetails(new profileDetailDto()
+            {
+                profileId = profileId,
+                profileIdSpecified = true,
+                DOME_header = new R541c.domeHeaderDto()
+                {
+                    deviceTypeSpecified = true,
+                    deviceType = 5,
+                    date = AuthentificationHelper.Instance.auth.DOME_header.date.Value,
+                    version = AuthentificationHelper.Instance.auth.DOME_header.version,
+                }
+            });
 
+            if (data.statusId == 0)
+            {
+                return new ActionResult<profileDetailResponseDto>(true, data);
+            }
+            return new ActionResult<profileDetailResponseDto>(false, data, new Message(MessageType.Error, data.statusErrorMessage));
+
+
+        }
+
+        public ActionResult<authentificationResponseDto> GetAccount(int accountId)
+        {
+
+            var data = DomeCallSoap.GetProfileList(new authentificationInputDto()
+            {
+                accountIdSpecified = true,
+                accountId = accountId,
+                DOME_header = new R541b.domeHeaderDto()
+                {
+                    deviceTypeSpecified = true,
+                    deviceType = 5,
+                    date = AuthentificationHelper.Instance.auth.DOME_header.date.Value,
+                    version = AuthentificationHelper.Instance.auth.DOME_header.version,
+                }
+            });
+
+            if (data.statusId == 0)
+            {
+                return new ActionResult<authentificationResponseDto>(true, data);
+            }
+            return new ActionResult<authentificationResponseDto>(false, data, new Message(MessageType.Error, data.statusErrorMessage));
+
+
+
+        }
+
+        public ActionResult SelectProfil(int profileId)
+        {
+            var data = DomeCallSoap.selectProfile(new Dome.R532.selectProfileDto()
+            {
+                DOME_header = new Dome.R532.domeHeaderDto()
+                {
+                    langue = "fr",
+                    deviceTypeSpecified = true,
+                    deviceType = (int)DeviceType.LogicielMétier,
+                    dateSpecified = true,
+                    date = AuthentificationHelper.Instance.auth.DOME_header.date.Value,
+                    version = AuthentificationHelper.Instance.auth.DOME_header.version,
+                },
+                profileId = profileId,
+                profileIdSpecified = true
+            });
+
+
+            if (data.statusId == 0)
+            {
+                return new ActionResult(true);
+            }
+            return new ActionResult(false, new Message(MessageType.Error, data.statusErrorMessage));
+
+
+        }
     }
 }
