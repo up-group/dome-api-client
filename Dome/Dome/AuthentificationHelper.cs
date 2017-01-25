@@ -12,7 +12,7 @@ namespace Dome
         public class DOME_header
         {
             public string version { get; set; }
-            public DateTime? date
+            public DateTime date
             {
                 get
                 {
@@ -33,7 +33,7 @@ namespace Dome
             public int? expires_in { get; set; }
             public string firstname { get; set; }
             public string lastname { get; set; }
-            public int? accountId { get; set; }
+            public int accountId { get; set; }
         }
 
 
@@ -43,6 +43,7 @@ namespace Dome
 
         public Boolean isConnected { get; set; }
         public AuthentificationResultDto auth { get; set; }
+        public int? MainProfilId { get; set; }
 
         public static AuthentificationHelper Instance
         {
@@ -82,7 +83,19 @@ namespace Dome
 
                 auth = (AuthentificationResultDto)j.Deserialize(responseString.Result, typeof(AuthentificationResultDto));
 
-                isConnected = (String.IsNullOrWhiteSpace(auth.statusErrorMessage));
+                isConnected = auth.statusId == 0;
+
+                if (isConnected)
+                {
+                    var DomeCall = new DomeCall();
+                    var account = DomeCall.GetAccount(auth.accountId);
+                    if (account.Succeeded && account.Entity.DOME_profileList.Length == 1)
+                    {
+                        MainProfilId = account.Entity.DOME_profileList[0].profileId;
+                    }
+                }
+
+
             }
         }
 

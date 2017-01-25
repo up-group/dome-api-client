@@ -64,7 +64,7 @@ namespace Dome
                     deviceTypeSpecified = true,
                     deviceType = (int)DeviceType.LogicielMétier,
                     dateSpecified = true,
-                    date = AuthentificationHelper.Instance.auth.DOME_header.date.Value,
+                    date = AuthentificationHelper.Instance.auth.DOME_header.date,
                     version = AuthentificationHelper.Instance.auth.DOME_header.version,
                 }
             };
@@ -88,7 +88,7 @@ namespace Dome
                     deviceTypeSpecified = true,
                     deviceType = (int)DeviceType.LogicielMétier,
                     dateSpecified = true,
-                    date = AuthentificationHelper.Instance.auth.DOME_header.date.Value,
+                    date = AuthentificationHelper.Instance.auth.DOME_header.date,
                     version = AuthentificationHelper.Instance.auth.DOME_header.version,
                 },
 
@@ -229,7 +229,7 @@ namespace Dome
                     deviceTypeSpecified = true,
                     deviceType = (int)DeviceType.LogicielMétier,
                     dateSpecified = true,
-                    date = AuthentificationHelper.Instance.auth.DOME_header.date.Value,
+                    date = AuthentificationHelper.Instance.auth.DOME_header.date,
                     version = AuthentificationHelper.Instance.auth.DOME_header.version,
                 },
 
@@ -307,7 +307,7 @@ namespace Dome
                     deviceTypeSpecified = true,
                     deviceType = (int)DeviceType.LogicielMétier,
                     dateSpecified = true,
-                    date = AuthentificationHelper.Instance.auth.DOME_header.date.Value,
+                    date = AuthentificationHelper.Instance.auth.DOME_header.date,
                     version = AuthentificationHelper.Instance.auth.DOME_header.version,
                 },
 
@@ -335,7 +335,7 @@ namespace Dome
                     deviceTypeSpecified = true,
                     deviceType = (int)DeviceType.LogicielMétier,
                     dateSpecified = true,
-                    date = AuthentificationHelper.Instance.auth.DOME_header.date.Value,
+                    date = AuthentificationHelper.Instance.auth.DOME_header.date,
                     version = AuthentificationHelper.Instance.auth.DOME_header.version,
                 },
 
@@ -370,7 +370,7 @@ namespace Dome
                     deviceTypeSpecified = true,
                     deviceType = (int)DeviceType.LogicielMétier,
                     dateSpecified = true,
-                    date = AuthentificationHelper.Instance.auth.DOME_header.date.Value,
+                    date = AuthentificationHelper.Instance.auth.DOME_header.date,
                     version = AuthentificationHelper.Instance.auth.DOME_header.version,
                 },
 
@@ -453,7 +453,7 @@ namespace Dome
                 {
                     deviceTypeSpecified = true,
                     deviceType = 5,
-                    date = AuthentificationHelper.Instance.auth.DOME_header.date.Value,
+                    date = AuthentificationHelper.Instance.auth.DOME_header.date,
                     version = AuthentificationHelper.Instance.auth.DOME_header.version,
                 }
             });
@@ -478,7 +478,7 @@ namespace Dome
                 {
                     deviceTypeSpecified = true,
                     deviceType = 5,
-                    date = AuthentificationHelper.Instance.auth.DOME_header.date.Value,
+                    date = AuthentificationHelper.Instance.auth.DOME_header.date,
                     version = AuthentificationHelper.Instance.auth.DOME_header.version,
                 }
             });
@@ -503,7 +503,7 @@ namespace Dome
                     deviceTypeSpecified = true,
                     deviceType = (int)DeviceType.LogicielMétier,
                     dateSpecified = true,
-                    date = AuthentificationHelper.Instance.auth.DOME_header.date.Value,
+                    date = AuthentificationHelper.Instance.auth.DOME_header.date,
                     version = AuthentificationHelper.Instance.auth.DOME_header.version,
                 },
                 profileId = profileId,
