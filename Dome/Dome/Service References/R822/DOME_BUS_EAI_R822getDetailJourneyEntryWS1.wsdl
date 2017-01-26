@@ -131,7 +131,7 @@
   </wsdl:binding>
   <wsdl:service name="DOME_BUS_EAI_R822getDetailJourneyEntryWS">
     <wsdl:port name="GetCourseEntryDetailsWebServiceImplPort" binding="tns:DOME_BUS_EAI_R822getDetailJourneyEntryWSSoapBinding">
-      <soap:address location="http://localhost:8080/dome-partner/soap/DOME_BUS_EAI_R822getDetailJourneyEntryWS" />
+      <soap:address location="http://dev.mondome.fr/soap/DOME_BUS_EAI_R822getDetailJourneyEntryWS" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

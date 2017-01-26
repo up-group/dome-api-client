@@ -1,8 +1,5 @@
-﻿using Dome;
-using Dome.Enum;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System;
+using Dome.Client.dto.createPerson.basic;
 
 namespace DomeConsole
 {
@@ -13,45 +10,42 @@ namespace DomeConsole
 
             //AuthentificationHelper.Instance.connect();
 
-            Debugger.Break();
+           
+            //var data = new CreatePerson()
+            //{
 
+            //    PersonCivility = Dome.Enum.Civilite.Monsieur,
+            //    PersonAddressComp1 = "63 avenue lacassgne",
+            //    PersonAddressComp2 = "",
+            //    PersonBirthDate = new DateTime(1993, 9, 16),
+            //    //personBirthDateSpecified = true,
+            //    PersonBirthName = "",
+            //    PersonCedex = "",
+            //    PersonCityName = "Lyon",
+            //    PersonCityZipCode = "69003",
+            //    PersonComment = "personne test",
+            //    PersonEmail1 = "test@test.fr",
+            //    PersonEmail2 = "",
+            //    PersonFirstName = "guillaume",
+            //    PersonInsc = "",
+            //    PersonInsa = "",
+            //    PersonJob = "",
+            //    PersonLastName = "dumont",
+            //    PersonLieuDit = "",
+            //    PersonMobilePhoneNumber = "",
+            //    PersonNir = "",
+            //    PersonPhoneNumber = "",
+            //    PersonPostBox = "",
+            //    PersonRoadName = "test",
+            //    PersonRoadType = "",
+            //    PersonRoadNumber = "",
+            //    PersonRpps = "",
+            //    SpecialCriteria = "",
 
+            //};
 
-            var data = new CreatePerson()
-            {
-
-                personCivility = Dome.Enum.Civilite.Monsieur,
-                personAddressComp1 = "63 avenue lacassgne",
-                personAddressComp2 = "",
-                personBirthDate = new DateTime(1993, 9, 16),
-                //personBirthDateSpecified = true,
-                personBirthName = "",
-                personCedex = "",
-                personCityName = "Lyon",
-                personCityZipCode = "69003",
-                personComment = "personne test",
-                personEmail1 = "test@test.fr",
-                personEmail2 = "",
-                personFirstName = "guillaume",
-                personINSC = "",
-                personINSA = "",
-                personJob = "",
-                personLastName = "dumont",
-                personLieuDit = "",
-                personMobilePhoneNumber = "",
-                personNIR = "",
-                personPhoneNumber = "",
-                personPostBox = "",
-                personRoadName = "test",
-                personRoadType = "",
-                personRoadNumber = "",
-                personRPPS = "",
-                specialCriteria = "",
-
-            };
-
-            var d = new DomeCallSoap();
-            var d2 = new DomeCall();
+            //var d = new DomeClientSoap();
+            //var d2 = new DomeCall();
 
             //var l1 = new List<object>();
             //for (int i = 35; i < 45; i++)
@@ -96,8 +90,8 @@ namespace DomeConsole
             //    profileId = 15,
             //    profileIdSpecified = true
             //});
-            var a = d2.SelectProfil(15);
-            var a2 = d2.CreatePerson(data);
+            //var a = d2.SelectProfil(15);
+            //var a2 = d2.CreatePerson(data);
 
 
 

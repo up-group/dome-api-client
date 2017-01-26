@@ -129,7 +129,7 @@
   </wsdl:binding>
   <wsdl:service name="DOME_BUS_EAI_R833aSetDetailAGGIRWS">
     <wsdl:port name="AlterAGGIRWebServiceImplPort" binding="tns:DOME_BUS_EAI_R833aSetDetailAGGIRWSSoapBinding">
-      <soap:address location="http://localhost:8080/dome-partner/soap/DOME_BUS_EAI_R833aSetDetailAGGIRWS" />
+      <soap:address location="http://dev.mondome.fr/soap/DOME_BUS_EAI_R833aSetDetailAGGIRWS" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

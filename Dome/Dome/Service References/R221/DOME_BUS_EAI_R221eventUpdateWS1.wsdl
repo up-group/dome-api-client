@@ -110,7 +110,7 @@
   </wsdl:binding>
   <wsdl:service name="DOME_BUS_EAI_R221eventUpdateWS">
     <wsdl:port name="ModifyEventWebServiceImplPort" binding="tns:DOME_BUS_EAI_R221eventUpdateWSSoapBinding">
-      <soap:address location="http://localhost:8080/dome-partner/soap/DOME_BUS_EAI_R221eventUpdateWS" />
+      <soap:address location="http://dev.mondome.fr/soap/DOME_BUS_EAI_R221eventUpdateWS" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

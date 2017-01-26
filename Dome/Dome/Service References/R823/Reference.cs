@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dome.R823 {
+namespace Dome.Service_References.R823 {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -21,10 +21,10 @@ namespace Dome.R823 {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeCommonDto))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="alterCourseEntryResponse")]
-        Dome.R823.alterCourseEntryResponse alterCourseEntry(Dome.R823.alterCourseEntry request);
+        alterCourseEntryResponse alterCourseEntry(alterCourseEntry request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<Dome.R823.alterCourseEntryResponse> alterCourseEntryAsync(Dome.R823.alterCourseEntry request);
+        System.Threading.Tasks.Task<alterCourseEntryResponse> alterCourseEntryAsync(alterCourseEntry request);
     }
     
     /// <remarks/>
@@ -694,12 +694,12 @@ namespace Dome.R823 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public Dome.R823.alterCourseEntryDto AlterCourseEntryDto;
+        public alterCourseEntryDto AlterCourseEntryDto;
         
         public alterCourseEntry() {
         }
         
-        public alterCourseEntry(Dome.R823.alterCourseEntryDto AlterCourseEntryDto) {
+        public alterCourseEntry(alterCourseEntryDto AlterCourseEntryDto) {
             this.AlterCourseEntryDto = AlterCourseEntryDto;
         }
     }
@@ -712,23 +712,23 @@ namespace Dome.R823 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="alterCourseEntryResponse", Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public Dome.R823.domeResponseDto alterCourseEntryResponse1;
+        public domeResponseDto alterCourseEntryResponse1;
         
         public alterCourseEntryResponse() {
         }
         
-        public alterCourseEntryResponse(Dome.R823.domeResponseDto alterCourseEntryResponse1) {
+        public alterCourseEntryResponse(domeResponseDto alterCourseEntryResponse1) {
             this.alterCourseEntryResponse1 = alterCourseEntryResponse1;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DOME_BUS_EAI_R823setDetailJourneyEntryWSChannel : Dome.R823.DOME_BUS_EAI_R823setDetailJourneyEntryWS, System.ServiceModel.IClientChannel {
+    public interface DOME_BUS_EAI_R823setDetailJourneyEntryWSChannel : DOME_BUS_EAI_R823setDetailJourneyEntryWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DOME_BUS_EAI_R823setDetailJourneyEntryWSClient : System.ServiceModel.ClientBase<Dome.R823.DOME_BUS_EAI_R823setDetailJourneyEntryWS>, Dome.R823.DOME_BUS_EAI_R823setDetailJourneyEntryWS {
+    public partial class DOME_BUS_EAI_R823setDetailJourneyEntryWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R823setDetailJourneyEntryWS>, DOME_BUS_EAI_R823setDetailJourneyEntryWS {
         
         public DOME_BUS_EAI_R823setDetailJourneyEntryWSClient() {
         }
@@ -750,26 +750,26 @@ namespace Dome.R823 {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Dome.R823.alterCourseEntryResponse Dome.R823.DOME_BUS_EAI_R823setDetailJourneyEntryWS.alterCourseEntry(Dome.R823.alterCourseEntry request) {
+        alterCourseEntryResponse DOME_BUS_EAI_R823setDetailJourneyEntryWS.alterCourseEntry(alterCourseEntry request) {
             return base.Channel.alterCourseEntry(request);
         }
         
-        public Dome.R823.domeResponseDto alterCourseEntry(Dome.R823.alterCourseEntryDto AlterCourseEntryDto) {
-            Dome.R823.alterCourseEntry inValue = new Dome.R823.alterCourseEntry();
+        public domeResponseDto alterCourseEntry(alterCourseEntryDto AlterCourseEntryDto) {
+            alterCourseEntry inValue = new alterCourseEntry();
             inValue.AlterCourseEntryDto = AlterCourseEntryDto;
-            Dome.R823.alterCourseEntryResponse retVal = ((Dome.R823.DOME_BUS_EAI_R823setDetailJourneyEntryWS)(this)).alterCourseEntry(inValue);
+            alterCourseEntryResponse retVal = ((DOME_BUS_EAI_R823setDetailJourneyEntryWS)(this)).alterCourseEntry(inValue);
             return retVal.alterCourseEntryResponse1;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Dome.R823.alterCourseEntryResponse> Dome.R823.DOME_BUS_EAI_R823setDetailJourneyEntryWS.alterCourseEntryAsync(Dome.R823.alterCourseEntry request) {
+        System.Threading.Tasks.Task<alterCourseEntryResponse> DOME_BUS_EAI_R823setDetailJourneyEntryWS.alterCourseEntryAsync(alterCourseEntry request) {
             return base.Channel.alterCourseEntryAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Dome.R823.alterCourseEntryResponse> alterCourseEntryAsync(Dome.R823.alterCourseEntryDto AlterCourseEntryDto) {
-            Dome.R823.alterCourseEntry inValue = new Dome.R823.alterCourseEntry();
+        public System.Threading.Tasks.Task<alterCourseEntryResponse> alterCourseEntryAsync(alterCourseEntryDto AlterCourseEntryDto) {
+            alterCourseEntry inValue = new alterCourseEntry();
             inValue.AlterCourseEntryDto = AlterCourseEntryDto;
-            return ((Dome.R823.DOME_BUS_EAI_R823setDetailJourneyEntryWS)(this)).alterCourseEntryAsync(inValue);
+            return ((DOME_BUS_EAI_R823setDetailJourneyEntryWS)(this)).alterCourseEntryAsync(inValue);
         }
     }
 }

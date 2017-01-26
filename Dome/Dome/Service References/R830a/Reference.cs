@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dome.R830a {
+namespace Dome.Service_References.R830a {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -22,10 +22,10 @@ namespace Dome.R830a {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeCommonDto))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        Dome.R830a.addNewAGGIRResponse addNewAGGIR(Dome.R830a.addNewAGGIR request);
+        addNewAGGIRResponse addNewAGGIR(addNewAGGIR request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<Dome.R830a.addNewAGGIRResponse> addNewAGGIRAsync(Dome.R830a.addNewAGGIR request);
+        System.Threading.Tasks.Task<addNewAGGIRResponse> addNewAGGIRAsync(addNewAGGIR request);
     }
     
     /// <remarks/>
@@ -1058,12 +1058,12 @@ namespace Dome.R830a {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public Dome.R830a.addNewAGGIRDto arg0;
+        public addNewAGGIRDto arg0;
         
         public addNewAGGIR() {
         }
         
-        public addNewAGGIR(Dome.R830a.addNewAGGIRDto arg0) {
+        public addNewAGGIR(addNewAGGIRDto arg0) {
             this.arg0 = arg0;
         }
     }
@@ -1076,23 +1076,23 @@ namespace Dome.R830a {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public Dome.R830a.addNewAGGIRResponseDto @return;
+        public addNewAGGIRResponseDto @return;
         
         public addNewAGGIRResponse() {
         }
         
-        public addNewAGGIRResponse(Dome.R830a.addNewAGGIRResponseDto @return) {
+        public addNewAGGIRResponse(addNewAGGIRResponseDto @return) {
             this.@return = @return;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DOME_BUS_EAI_R830aAddNewAGGIRWSChannel : Dome.R830a.DOME_BUS_EAI_R830aAddNewAGGIRWS, System.ServiceModel.IClientChannel {
+    public interface DOME_BUS_EAI_R830aAddNewAGGIRWSChannel : DOME_BUS_EAI_R830aAddNewAGGIRWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DOME_BUS_EAI_R830aAddNewAGGIRWSClient : System.ServiceModel.ClientBase<Dome.R830a.DOME_BUS_EAI_R830aAddNewAGGIRWS>, Dome.R830a.DOME_BUS_EAI_R830aAddNewAGGIRWS {
+    public partial class DOME_BUS_EAI_R830aAddNewAGGIRWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R830aAddNewAGGIRWS>, DOME_BUS_EAI_R830aAddNewAGGIRWS {
         
         public DOME_BUS_EAI_R830aAddNewAGGIRWSClient() {
         }
@@ -1114,26 +1114,26 @@ namespace Dome.R830a {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Dome.R830a.addNewAGGIRResponse Dome.R830a.DOME_BUS_EAI_R830aAddNewAGGIRWS.addNewAGGIR(Dome.R830a.addNewAGGIR request) {
+        addNewAGGIRResponse DOME_BUS_EAI_R830aAddNewAGGIRWS.addNewAGGIR(addNewAGGIR request) {
             return base.Channel.addNewAGGIR(request);
         }
         
-        public Dome.R830a.addNewAGGIRResponseDto addNewAGGIR(Dome.R830a.addNewAGGIRDto arg0) {
-            Dome.R830a.addNewAGGIR inValue = new Dome.R830a.addNewAGGIR();
+        public addNewAGGIRResponseDto addNewAGGIR(addNewAGGIRDto arg0) {
+            addNewAGGIR inValue = new addNewAGGIR();
             inValue.arg0 = arg0;
-            Dome.R830a.addNewAGGIRResponse retVal = ((Dome.R830a.DOME_BUS_EAI_R830aAddNewAGGIRWS)(this)).addNewAGGIR(inValue);
+            addNewAGGIRResponse retVal = ((DOME_BUS_EAI_R830aAddNewAGGIRWS)(this)).addNewAGGIR(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Dome.R830a.addNewAGGIRResponse> Dome.R830a.DOME_BUS_EAI_R830aAddNewAGGIRWS.addNewAGGIRAsync(Dome.R830a.addNewAGGIR request) {
+        System.Threading.Tasks.Task<addNewAGGIRResponse> DOME_BUS_EAI_R830aAddNewAGGIRWS.addNewAGGIRAsync(addNewAGGIR request) {
             return base.Channel.addNewAGGIRAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Dome.R830a.addNewAGGIRResponse> addNewAGGIRAsync(Dome.R830a.addNewAGGIRDto arg0) {
-            Dome.R830a.addNewAGGIR inValue = new Dome.R830a.addNewAGGIR();
+        public System.Threading.Tasks.Task<addNewAGGIRResponse> addNewAGGIRAsync(addNewAGGIRDto arg0) {
+            addNewAGGIR inValue = new addNewAGGIR();
             inValue.arg0 = arg0;
-            return ((Dome.R830a.DOME_BUS_EAI_R830aAddNewAGGIRWS)(this)).addNewAGGIRAsync(inValue);
+            return ((DOME_BUS_EAI_R830aAddNewAGGIRWS)(this)).addNewAGGIRAsync(inValue);
         }
     }
 }

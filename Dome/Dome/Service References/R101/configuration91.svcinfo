@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="qmPfb4jiDvnjsAhrDotatSx3z8U=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="K6nI2V/vjEKxS2UV7fDuh3Iyvjc=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="DOME_BUS_EAI_R101contactCreateWSSoapBinding">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="CreateContactWebServiceImplPort" contract="R101.DOME_BUS_EAI_R101contactCreateWS" bindingType="basicHttpBinding" address="http://localhost:8080/dome-partner/soap/DOME_BUS_EAI_R101contactCreateWS" bindingConfiguration="DOME_BUS_EAI_R101contactCreateWSSoapBinding">
+    <endpoint name="CreateContactWebServiceImplPort" contract="R101.DOME_BUS_EAI_R101contactCreateWS" bindingType="basicHttpBinding" address="http://dev.mondome.fr/soap/DOME_BUS_EAI_R101contactCreateWS" bindingConfiguration="DOME_BUS_EAI_R101contactCreateWSSoapBinding">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:8080/dome-partner/soap/DOME_BUS_EAI_R101contactCreateWS</serializedValue>
+          <serializedValue>http://dev.mondome.fr/soap/DOME_BUS_EAI_R101contactCreateWS</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
