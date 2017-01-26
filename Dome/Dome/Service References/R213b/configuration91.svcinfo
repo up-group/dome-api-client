@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="DAfa8i0CsgEwtlXEIPnKRi+F5p0=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="7xeo3rdtHAjrk8Q8uO/IuGoF9/w=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="DOME_BUS_EAI_R213beventGetNotificationStructureWSSoapBinding">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="EventGetNotificationStructureWebServiceImplPort" contract="R213b.DOME_BUS_EAI_R213beventGetNotificationStructureWS" bindingType="basicHttpBinding" address="http://dev.mondome.fr/soap/DOME_BUS_EAI_R213beventGetNotificationStructureWS" bindingConfiguration="DOME_BUS_EAI_R213beventGetNotificationStructureWSSoapBinding">
+    <endpoint name="EventGetNotificationStructureWebServiceImplPort" contract="R213b.DOME_BUS_EAI_R213beventGetNotificationStructureWS" bindingType="basicHttpBinding" address="http://localhost:8080/dome-partner/soap/DOME_BUS_EAI_R213beventGetNotificationStructureWS" bindingConfiguration="DOME_BUS_EAI_R213beventGetNotificationStructureWSSoapBinding">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://dev.mondome.fr/soap/DOME_BUS_EAI_R213beventGetNotificationStructureWS</serializedValue>
+          <serializedValue>http://localhost:8080/dome-partner/soap/DOME_BUS_EAI_R213beventGetNotificationStructureWS</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

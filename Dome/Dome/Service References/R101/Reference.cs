@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dome.Service_References.R101 {
+namespace Dome.R101 {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -22,10 +22,10 @@ namespace Dome.Service_References.R101 {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeCommonDto))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="createContactResponse")]
-        createContactResponse createContact(createContact request);
+        Dome.R101.createContactResponse createContact(Dome.R101.createContact request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<createContactResponse> createContactAsync(createContact request);
+        System.Threading.Tasks.Task<Dome.R101.createContactResponse> createContactAsync(Dome.R101.createContact request);
     }
     
     /// <remarks/>
@@ -862,12 +862,12 @@ namespace Dome.Service_References.R101 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public createContactDto createContactDto;
+        public Dome.R101.createContactDto createContactDto;
         
         public createContact() {
         }
         
-        public createContact(createContactDto createContactDto) {
+        public createContact(Dome.R101.createContactDto createContactDto) {
             this.createContactDto = createContactDto;
         }
     }
@@ -880,23 +880,23 @@ namespace Dome.Service_References.R101 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="createContactResponse", Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public createContactResponseDto createContactResponse1;
+        public Dome.R101.createContactResponseDto createContactResponse1;
         
         public createContactResponse() {
         }
         
-        public createContactResponse(createContactResponseDto createContactResponse1) {
+        public createContactResponse(Dome.R101.createContactResponseDto createContactResponse1) {
             this.createContactResponse1 = createContactResponse1;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DOME_BUS_EAI_R101contactCreateWSChannel : DOME_BUS_EAI_R101contactCreateWS, System.ServiceModel.IClientChannel {
+    public interface DOME_BUS_EAI_R101contactCreateWSChannel : Dome.R101.DOME_BUS_EAI_R101contactCreateWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DOME_BUS_EAI_R101contactCreateWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R101contactCreateWS>, DOME_BUS_EAI_R101contactCreateWS {
+    public partial class DOME_BUS_EAI_R101contactCreateWSClient : System.ServiceModel.ClientBase<Dome.R101.DOME_BUS_EAI_R101contactCreateWS>, Dome.R101.DOME_BUS_EAI_R101contactCreateWS {
         
         public DOME_BUS_EAI_R101contactCreateWSClient() {
         }
@@ -918,26 +918,26 @@ namespace Dome.Service_References.R101 {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        createContactResponse DOME_BUS_EAI_R101contactCreateWS.createContact(createContact request) {
+        Dome.R101.createContactResponse Dome.R101.DOME_BUS_EAI_R101contactCreateWS.createContact(Dome.R101.createContact request) {
             return base.Channel.createContact(request);
         }
         
-        public createContactResponseDto createContact(createContactDto createContactDto) {
-            createContact inValue = new createContact();
+        public Dome.R101.createContactResponseDto createContact(Dome.R101.createContactDto createContactDto) {
+            Dome.R101.createContact inValue = new Dome.R101.createContact();
             inValue.createContactDto = createContactDto;
-            createContactResponse retVal = ((DOME_BUS_EAI_R101contactCreateWS)(this)).createContact(inValue);
+            Dome.R101.createContactResponse retVal = ((Dome.R101.DOME_BUS_EAI_R101contactCreateWS)(this)).createContact(inValue);
             return retVal.createContactResponse1;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<createContactResponse> DOME_BUS_EAI_R101contactCreateWS.createContactAsync(createContact request) {
+        System.Threading.Tasks.Task<Dome.R101.createContactResponse> Dome.R101.DOME_BUS_EAI_R101contactCreateWS.createContactAsync(Dome.R101.createContact request) {
             return base.Channel.createContactAsync(request);
         }
         
-        public System.Threading.Tasks.Task<createContactResponse> createContactAsync(createContactDto createContactDto) {
-            createContact inValue = new createContact();
+        public System.Threading.Tasks.Task<Dome.R101.createContactResponse> createContactAsync(Dome.R101.createContactDto createContactDto) {
+            Dome.R101.createContact inValue = new Dome.R101.createContact();
             inValue.createContactDto = createContactDto;
-            return ((DOME_BUS_EAI_R101contactCreateWS)(this)).createContactAsync(inValue);
+            return ((Dome.R101.DOME_BUS_EAI_R101contactCreateWS)(this)).createContactAsync(inValue);
         }
     }
 }

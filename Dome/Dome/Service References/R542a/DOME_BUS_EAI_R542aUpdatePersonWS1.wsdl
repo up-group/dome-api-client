@@ -137,7 +137,7 @@
   </wsdl:binding>
   <wsdl:service name="DOME_BUS_EAI_R542aUpdatePersonWS">
     <wsdl:port name="UpdatePersonWebServiceImplPort" binding="tns:DOME_BUS_EAI_R542aUpdatePersonWSSoapBinding">
-      <soap:address location="http://dev.mondome.fr/soap/DOME_BUS_EAI_R542aUpdatePersonWS" />
+      <soap:address location="http://localhost:8080/dome-partner/soap/DOME_BUS_EAI_R542aUpdatePersonWS" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dome.Service_References.R231 {
+namespace Dome.R231 {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -21,10 +21,10 @@ namespace Dome.Service_References.R231 {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeCommonDto))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="deleteEventResponse")]
-        deleteEventResponse deleteEvent(deleteEvent request);
+        Dome.R231.deleteEventResponse deleteEvent(Dome.R231.deleteEvent request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<deleteEventResponse> deleteEventAsync(deleteEvent request);
+        System.Threading.Tasks.Task<Dome.R231.deleteEventResponse> deleteEventAsync(Dome.R231.deleteEvent request);
     }
     
     /// <remarks/>
@@ -385,12 +385,12 @@ namespace Dome.Service_References.R231 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public deleteEventDto deleteEventDto;
+        public Dome.R231.deleteEventDto deleteEventDto;
         
         public deleteEvent() {
         }
         
-        public deleteEvent(deleteEventDto deleteEventDto) {
+        public deleteEvent(Dome.R231.deleteEventDto deleteEventDto) {
             this.deleteEventDto = deleteEventDto;
         }
     }
@@ -403,23 +403,23 @@ namespace Dome.Service_References.R231 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="deleteEventResponse", Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public domeResponseDto deleteEventResponse1;
+        public Dome.R231.domeResponseDto deleteEventResponse1;
         
         public deleteEventResponse() {
         }
         
-        public deleteEventResponse(domeResponseDto deleteEventResponse1) {
+        public deleteEventResponse(Dome.R231.domeResponseDto deleteEventResponse1) {
             this.deleteEventResponse1 = deleteEventResponse1;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DOME_BUS_EAI_R231eventDeleteWSChannel : DOME_BUS_EAI_R231eventDeleteWS, System.ServiceModel.IClientChannel {
+    public interface DOME_BUS_EAI_R231eventDeleteWSChannel : Dome.R231.DOME_BUS_EAI_R231eventDeleteWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DOME_BUS_EAI_R231eventDeleteWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R231eventDeleteWS>, DOME_BUS_EAI_R231eventDeleteWS {
+    public partial class DOME_BUS_EAI_R231eventDeleteWSClient : System.ServiceModel.ClientBase<Dome.R231.DOME_BUS_EAI_R231eventDeleteWS>, Dome.R231.DOME_BUS_EAI_R231eventDeleteWS {
         
         public DOME_BUS_EAI_R231eventDeleteWSClient() {
         }
@@ -441,26 +441,26 @@ namespace Dome.Service_References.R231 {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        deleteEventResponse DOME_BUS_EAI_R231eventDeleteWS.deleteEvent(deleteEvent request) {
+        Dome.R231.deleteEventResponse Dome.R231.DOME_BUS_EAI_R231eventDeleteWS.deleteEvent(Dome.R231.deleteEvent request) {
             return base.Channel.deleteEvent(request);
         }
         
-        public domeResponseDto deleteEvent(deleteEventDto deleteEventDto) {
-            deleteEvent inValue = new deleteEvent();
+        public Dome.R231.domeResponseDto deleteEvent(Dome.R231.deleteEventDto deleteEventDto) {
+            Dome.R231.deleteEvent inValue = new Dome.R231.deleteEvent();
             inValue.deleteEventDto = deleteEventDto;
-            deleteEventResponse retVal = ((DOME_BUS_EAI_R231eventDeleteWS)(this)).deleteEvent(inValue);
+            Dome.R231.deleteEventResponse retVal = ((Dome.R231.DOME_BUS_EAI_R231eventDeleteWS)(this)).deleteEvent(inValue);
             return retVal.deleteEventResponse1;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<deleteEventResponse> DOME_BUS_EAI_R231eventDeleteWS.deleteEventAsync(deleteEvent request) {
+        System.Threading.Tasks.Task<Dome.R231.deleteEventResponse> Dome.R231.DOME_BUS_EAI_R231eventDeleteWS.deleteEventAsync(Dome.R231.deleteEvent request) {
             return base.Channel.deleteEventAsync(request);
         }
         
-        public System.Threading.Tasks.Task<deleteEventResponse> deleteEventAsync(deleteEventDto deleteEventDto) {
-            deleteEvent inValue = new deleteEvent();
+        public System.Threading.Tasks.Task<Dome.R231.deleteEventResponse> deleteEventAsync(Dome.R231.deleteEventDto deleteEventDto) {
+            Dome.R231.deleteEvent inValue = new Dome.R231.deleteEvent();
             inValue.deleteEventDto = deleteEventDto;
-            return ((DOME_BUS_EAI_R231eventDeleteWS)(this)).deleteEventAsync(inValue);
+            return ((Dome.R231.DOME_BUS_EAI_R231eventDeleteWS)(this)).deleteEventAsync(inValue);
         }
     }
 }

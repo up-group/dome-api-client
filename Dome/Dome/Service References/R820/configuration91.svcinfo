@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="5BBWTKXwc+7pwF9Iwsq7gctLdz0=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="UeOWt9Eoy3/pgLjLdEcnOSmICeg=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="DOME_BUS_EAI_R820addNewJourneyEntryWSSoapBinding">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="AddCourseEntryWebServiceImplPort" contract="R820.DOME_BUS_EAI_R820addNewJourneyEntryWS" bindingType="basicHttpBinding" address="http://dev.mondome.fr/soap/DOME_BUS_EAI_R820addNewJourneyEntryWS" bindingConfiguration="DOME_BUS_EAI_R820addNewJourneyEntryWSSoapBinding">
+    <endpoint name="AddCourseEntryWebServiceImplPort" contract="R820.DOME_BUS_EAI_R820addNewJourneyEntryWS" bindingType="basicHttpBinding" address="http://localhost:8080/dome-partner/soap/DOME_BUS_EAI_R820addNewJourneyEntryWS" bindingConfiguration="DOME_BUS_EAI_R820addNewJourneyEntryWSSoapBinding">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://dev.mondome.fr/soap/DOME_BUS_EAI_R820addNewJourneyEntryWS</serializedValue>
+          <serializedValue>http://localhost:8080/dome-partner/soap/DOME_BUS_EAI_R820addNewJourneyEntryWS</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

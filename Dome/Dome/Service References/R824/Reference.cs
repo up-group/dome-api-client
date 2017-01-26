@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dome.Service_References.R824 {
+namespace Dome.R824 {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -19,11 +19,11 @@ namespace Dome.Service_References.R824 {
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeCommonDto))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
-        deleteCourseEntryResponse deleteCourseEntry(deleteCourseEntry request);
+        Dome.R824.deleteCourseEntryResponse deleteCourseEntry(Dome.R824.deleteCourseEntry request);
         
         // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<deleteCourseEntryResponse> deleteCourseEntryAsync(deleteCourseEntry request);
+        System.Threading.Tasks.Task<Dome.R824.deleteCourseEntryResponse> deleteCourseEntryAsync(Dome.R824.deleteCourseEntry request);
     }
     
     /// <remarks/>
@@ -341,12 +341,12 @@ namespace Dome.Service_References.R824 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="deleteCourseEntry", Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public deleteCourseEntryDto deleteCourseEntry1;
+        public Dome.R824.deleteCourseEntryDto deleteCourseEntry1;
         
         public deleteCourseEntry() {
         }
         
-        public deleteCourseEntry(deleteCourseEntryDto deleteCourseEntry1) {
+        public deleteCourseEntry(Dome.R824.deleteCourseEntryDto deleteCourseEntry1) {
             this.deleteCourseEntry1 = deleteCourseEntry1;
         }
     }
@@ -358,23 +358,23 @@ namespace Dome.Service_References.R824 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public domeResponseDto deleteCourseEntry;
+        public Dome.R824.domeResponseDto deleteCourseEntry;
         
         public deleteCourseEntryResponse() {
         }
         
-        public deleteCourseEntryResponse(domeResponseDto deleteCourseEntry) {
+        public deleteCourseEntryResponse(Dome.R824.domeResponseDto deleteCourseEntry) {
             this.deleteCourseEntry = deleteCourseEntry;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DOME_BUS_EAI_R824deleteJourneyEntryWSChannel : DOME_BUS_EAI_R824deleteJourneyEntryWS, System.ServiceModel.IClientChannel {
+    public interface DOME_BUS_EAI_R824deleteJourneyEntryWSChannel : Dome.R824.DOME_BUS_EAI_R824deleteJourneyEntryWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DOME_BUS_EAI_R824deleteJourneyEntryWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R824deleteJourneyEntryWS>, DOME_BUS_EAI_R824deleteJourneyEntryWS {
+    public partial class DOME_BUS_EAI_R824deleteJourneyEntryWSClient : System.ServiceModel.ClientBase<Dome.R824.DOME_BUS_EAI_R824deleteJourneyEntryWS>, Dome.R824.DOME_BUS_EAI_R824deleteJourneyEntryWS {
         
         public DOME_BUS_EAI_R824deleteJourneyEntryWSClient() {
         }
@@ -396,18 +396,18 @@ namespace Dome.Service_References.R824 {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        deleteCourseEntryResponse DOME_BUS_EAI_R824deleteJourneyEntryWS.deleteCourseEntry(deleteCourseEntry request) {
+        Dome.R824.deleteCourseEntryResponse Dome.R824.DOME_BUS_EAI_R824deleteJourneyEntryWS.deleteCourseEntry(Dome.R824.deleteCourseEntry request) {
             return base.Channel.deleteCourseEntry(request);
         }
         
-        public domeResponseDto deleteCourseEntry(deleteCourseEntryDto deleteCourseEntry1) {
-            deleteCourseEntry inValue = new deleteCourseEntry();
+        public Dome.R824.domeResponseDto deleteCourseEntry(Dome.R824.deleteCourseEntryDto deleteCourseEntry1) {
+            Dome.R824.deleteCourseEntry inValue = new Dome.R824.deleteCourseEntry();
             inValue.deleteCourseEntry1 = deleteCourseEntry1;
-            deleteCourseEntryResponse retVal = ((DOME_BUS_EAI_R824deleteJourneyEntryWS)(this)).deleteCourseEntry(inValue);
+            Dome.R824.deleteCourseEntryResponse retVal = ((Dome.R824.DOME_BUS_EAI_R824deleteJourneyEntryWS)(this)).deleteCourseEntry(inValue);
             return retVal.deleteCourseEntry;
         }
         
-        public System.Threading.Tasks.Task<deleteCourseEntryResponse> deleteCourseEntryAsync(deleteCourseEntry request) {
+        public System.Threading.Tasks.Task<Dome.R824.deleteCourseEntryResponse> deleteCourseEntryAsync(Dome.R824.deleteCourseEntry request) {
             return base.Channel.deleteCourseEntryAsync(request);
         }
     }

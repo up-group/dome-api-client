@@ -88,7 +88,7 @@
   </wsdl:binding>
   <wsdl:service name="DOME_BUS_EAI_R543bSwitchReferentWS">
     <wsdl:port name="ReferentWebServiceImplPort" binding="tns:DOME_BUS_EAI_R543bSwitchReferentWSSoapBinding">
-      <soap:address location="http://dev.mondome.fr/soap/DOME_BUS_EAI_R543bSwitchReferentWS" />
+      <soap:address location="http://localhost:8080/dome-partner/soap/DOME_BUS_EAI_R543bSwitchReferentWS" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

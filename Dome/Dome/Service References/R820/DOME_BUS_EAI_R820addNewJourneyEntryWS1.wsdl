@@ -118,7 +118,7 @@
   </wsdl:binding>
   <wsdl:service name="DOME_BUS_EAI_R820addNewJourneyEntryWS">
     <wsdl:port name="AddCourseEntryWebServiceImplPort" binding="tns:DOME_BUS_EAI_R820addNewJourneyEntryWSSoapBinding">
-      <soap:address location="http://dev.mondome.fr/soap/DOME_BUS_EAI_R820addNewJourneyEntryWS" />
+      <soap:address location="http://localhost:8080/dome-partner/soap/DOME_BUS_EAI_R820addNewJourneyEntryWS" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

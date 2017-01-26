@@ -168,7 +168,7 @@
   </wsdl:binding>
   <wsdl:service name="DOME_BUS_EAI_R541bGetProfileListWS">
     <wsdl:port name="AuthentificationWebServiceImplPort" binding="tns:DOME_BUS_EAI_R541bGetProfileListWSSoapBinding">
-      <soap:address location="http://dev.mondome.fr/soap/DOME_BUS_EAI_R541bGetProfileListWS" />
+      <soap:address location="http://localhost:8080/dome-partner/soap/DOME_BUS_EAI_R541bGetProfileListWS" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

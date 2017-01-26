@@ -2,8 +2,8 @@
 {
     public enum DeviceType
     {
-        IPad = 1,
-        IPhone = 2,
+        iPad = 1,
+        iPhone = 2,
         Android = 3,
         Extranet = 4,
         LogicielMétier = 5,

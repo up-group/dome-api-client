@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Dome
 {
@@ -70,13 +72,13 @@ namespace Dome
     {
         internal ActionResult()
         {
-            Messages = new Message[0];
+            this.Messages = new Message[0];
         }
 
         public ActionResult(bool succeeded)
         {
             Succeeded = succeeded;
-            Messages = new Message[0];
+            this.Messages = new Message[0];
         }
 
         public ActionResult(bool succeeded, IEnumerable<Message> messages)
@@ -97,7 +99,7 @@ namespace Dome
 
         public override string ToString()
         {
-            return string.Join(Environment.NewLine, (object[])Messages);
+            return string.Join(Environment.NewLine, (object[])this.Messages);
         }
     }
     public class ActionResult<T> : ActionResult

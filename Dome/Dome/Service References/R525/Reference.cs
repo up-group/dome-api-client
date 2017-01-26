@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dome.Service_References.R525 {
+namespace Dome.R525 {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -22,10 +22,10 @@ namespace Dome.Service_References.R525 {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeCommonDto))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="linkIntervenantToBenefResponse")]
-        linkIntervenantToBenefResponse linkIntervenantToBenef(linkIntervenantToBenef request);
+        Dome.R525.linkIntervenantToBenefResponse linkIntervenantToBenef(Dome.R525.linkIntervenantToBenef request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<linkIntervenantToBenefResponse> linkIntervenantToBenefAsync(linkIntervenantToBenef request);
+        System.Threading.Tasks.Task<Dome.R525.linkIntervenantToBenefResponse> linkIntervenantToBenefAsync(Dome.R525.linkIntervenantToBenef request);
     }
     
     /// <remarks/>
@@ -354,12 +354,12 @@ namespace Dome.Service_References.R525 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public linkIntervenantToBenefDto linkIntervenantToBenefDto;
+        public Dome.R525.linkIntervenantToBenefDto linkIntervenantToBenefDto;
         
         public linkIntervenantToBenef() {
         }
         
-        public linkIntervenantToBenef(linkIntervenantToBenefDto linkIntervenantToBenefDto) {
+        public linkIntervenantToBenef(Dome.R525.linkIntervenantToBenefDto linkIntervenantToBenefDto) {
             this.linkIntervenantToBenefDto = linkIntervenantToBenefDto;
         }
     }
@@ -372,23 +372,23 @@ namespace Dome.Service_References.R525 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="linkIntervenantToBenefResponse", Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public linkIntervenantToBenefResponseDto linkIntervenantToBenefResponse1;
+        public Dome.R525.linkIntervenantToBenefResponseDto linkIntervenantToBenefResponse1;
         
         public linkIntervenantToBenefResponse() {
         }
         
-        public linkIntervenantToBenefResponse(linkIntervenantToBenefResponseDto linkIntervenantToBenefResponse1) {
+        public linkIntervenantToBenefResponse(Dome.R525.linkIntervenantToBenefResponseDto linkIntervenantToBenefResponse1) {
             this.linkIntervenantToBenefResponse1 = linkIntervenantToBenefResponse1;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DOME_BUS_EAI_R525linkIntervenantToBenefWSChannel : DOME_BUS_EAI_R525linkIntervenantToBenefWS, System.ServiceModel.IClientChannel {
+    public interface DOME_BUS_EAI_R525linkIntervenantToBenefWSChannel : Dome.R525.DOME_BUS_EAI_R525linkIntervenantToBenefWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DOME_BUS_EAI_R525linkIntervenantToBenefWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R525linkIntervenantToBenefWS>, DOME_BUS_EAI_R525linkIntervenantToBenefWS {
+    public partial class DOME_BUS_EAI_R525linkIntervenantToBenefWSClient : System.ServiceModel.ClientBase<Dome.R525.DOME_BUS_EAI_R525linkIntervenantToBenefWS>, Dome.R525.DOME_BUS_EAI_R525linkIntervenantToBenefWS {
         
         public DOME_BUS_EAI_R525linkIntervenantToBenefWSClient() {
         }
@@ -410,26 +410,26 @@ namespace Dome.Service_References.R525 {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        linkIntervenantToBenefResponse DOME_BUS_EAI_R525linkIntervenantToBenefWS.linkIntervenantToBenef(linkIntervenantToBenef request) {
+        Dome.R525.linkIntervenantToBenefResponse Dome.R525.DOME_BUS_EAI_R525linkIntervenantToBenefWS.linkIntervenantToBenef(Dome.R525.linkIntervenantToBenef request) {
             return base.Channel.linkIntervenantToBenef(request);
         }
         
-        public linkIntervenantToBenefResponseDto linkIntervenantToBenef(linkIntervenantToBenefDto linkIntervenantToBenefDto) {
-            linkIntervenantToBenef inValue = new linkIntervenantToBenef();
+        public Dome.R525.linkIntervenantToBenefResponseDto linkIntervenantToBenef(Dome.R525.linkIntervenantToBenefDto linkIntervenantToBenefDto) {
+            Dome.R525.linkIntervenantToBenef inValue = new Dome.R525.linkIntervenantToBenef();
             inValue.linkIntervenantToBenefDto = linkIntervenantToBenefDto;
-            linkIntervenantToBenefResponse retVal = ((DOME_BUS_EAI_R525linkIntervenantToBenefWS)(this)).linkIntervenantToBenef(inValue);
+            Dome.R525.linkIntervenantToBenefResponse retVal = ((Dome.R525.DOME_BUS_EAI_R525linkIntervenantToBenefWS)(this)).linkIntervenantToBenef(inValue);
             return retVal.linkIntervenantToBenefResponse1;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<linkIntervenantToBenefResponse> DOME_BUS_EAI_R525linkIntervenantToBenefWS.linkIntervenantToBenefAsync(linkIntervenantToBenef request) {
+        System.Threading.Tasks.Task<Dome.R525.linkIntervenantToBenefResponse> Dome.R525.DOME_BUS_EAI_R525linkIntervenantToBenefWS.linkIntervenantToBenefAsync(Dome.R525.linkIntervenantToBenef request) {
             return base.Channel.linkIntervenantToBenefAsync(request);
         }
         
-        public System.Threading.Tasks.Task<linkIntervenantToBenefResponse> linkIntervenantToBenefAsync(linkIntervenantToBenefDto linkIntervenantToBenefDto) {
-            linkIntervenantToBenef inValue = new linkIntervenantToBenef();
+        public System.Threading.Tasks.Task<Dome.R525.linkIntervenantToBenefResponse> linkIntervenantToBenefAsync(Dome.R525.linkIntervenantToBenefDto linkIntervenantToBenefDto) {
+            Dome.R525.linkIntervenantToBenef inValue = new Dome.R525.linkIntervenantToBenef();
             inValue.linkIntervenantToBenefDto = linkIntervenantToBenefDto;
-            return ((DOME_BUS_EAI_R525linkIntervenantToBenefWS)(this)).linkIntervenantToBenefAsync(inValue);
+            return ((Dome.R525.DOME_BUS_EAI_R525linkIntervenantToBenefWS)(this)).linkIntervenantToBenefAsync(inValue);
         }
     }
 }

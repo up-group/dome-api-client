@@ -46,25 +46,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionResult.cs" />
-    <Compile Include="Client\dto\createPerson\basic\CreateEntity.cs" />
-    <Compile Include="Client\dto\createPerson\basic\CreatePerson.cs" />
-    <Compile Include="Client\dto\createPerson\basic\CreateProfile.cs" />
-    <Compile Include="Client\dto\createPerson\CreateEntourage.cs" />
-    <Compile Include="Client\dto\createPerson\CreateIntervenant.cs" />
-    <Compile Include="Client\dto\createPerson\CreatePatient.cs" />
-    <Compile Include="Client\dto\createPerson\result\CreatePersonProfilResult.cs" />
-    <Compile Include="Client\dto\createPerson\CreateSalarie.cs" />
-    <Compile Include="Client\dto\createPerson\CreateStructure.cs" />
-    <Compile Include="Client\dto\updatePerson\UpdatePerson.cs" />
-    <Compile Include="Client\interfaces\ICreatePerson.cs" />
-    <Compile Include="Client\interfaces\ICreateProfile.cs" />
-    <Compile Include="Client\interfaces\IUpdatePerson.cs" />
-    <Compile Include="DomeProxy\AuthentificationHelper.cs" />
-    <Compile Include="Client\DomeClient.cs" />
-    <Compile Include="DomeProxy\soap\DomeClientSoapCallHelper.cs" />
-    <Compile Include="Client\interfaces\IDomeClient.cs" />
-    <Compile Include="DomeProxy\soap\DomeClientSoap.cs" />
-    <Compile Include="Client\dto\DomeInterface.cs" />
+    <Compile Include="AuthentificationHelper.cs" />
+    <Compile Include="DomeCall.cs" />
+    <Compile Include="DomeCallHelper.cs" />
+    <Compile Include="DomeCallSoap.cs" />
+    <Compile Include="DomeInterface.cs" />
     <Compile Include="Enum\Civilite.cs" />
     <Compile Include="Enum\Contact.cs" />
     <Compile Include="Enum\DeviceType.cs" />
@@ -710,9 +696,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DomeProxy\rest\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

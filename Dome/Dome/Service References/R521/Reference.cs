@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dome.Service_References.R521 {
+namespace Dome.R521 {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -22,10 +22,10 @@ namespace Dome.Service_References.R521 {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeCommonDto))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="createProfileResponse")]
-        createProfileResponse createProfile(createProfile request);
+        Dome.R521.createProfileResponse createProfile(Dome.R521.createProfile request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<createProfileResponse> createProfileAsync(createProfile request);
+        System.Threading.Tasks.Task<Dome.R521.createProfileResponse> createProfileAsync(Dome.R521.createProfile request);
     }
     
     /// <remarks/>
@@ -522,12 +522,12 @@ namespace Dome.Service_References.R521 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public createProfileDto profileDto;
+        public Dome.R521.createProfileDto profileDto;
         
         public createProfile() {
         }
         
-        public createProfile(createProfileDto profileDto) {
+        public createProfile(Dome.R521.createProfileDto profileDto) {
             this.profileDto = profileDto;
         }
     }
@@ -540,23 +540,23 @@ namespace Dome.Service_References.R521 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="createProfileResponse", Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public createProfileResponseDto createProfileResponse1;
+        public Dome.R521.createProfileResponseDto createProfileResponse1;
         
         public createProfileResponse() {
         }
         
-        public createProfileResponse(createProfileResponseDto createProfileResponse1) {
+        public createProfileResponse(Dome.R521.createProfileResponseDto createProfileResponse1) {
             this.createProfileResponse1 = createProfileResponse1;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DOME_BUS_EAI_R521createProfileWSChannel : DOME_BUS_EAI_R521createProfileWS, System.ServiceModel.IClientChannel {
+    public interface DOME_BUS_EAI_R521createProfileWSChannel : Dome.R521.DOME_BUS_EAI_R521createProfileWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DOME_BUS_EAI_R521createProfileWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R521createProfileWS>, DOME_BUS_EAI_R521createProfileWS {
+    public partial class DOME_BUS_EAI_R521createProfileWSClient : System.ServiceModel.ClientBase<Dome.R521.DOME_BUS_EAI_R521createProfileWS>, Dome.R521.DOME_BUS_EAI_R521createProfileWS {
         
         public DOME_BUS_EAI_R521createProfileWSClient() {
         }
@@ -578,26 +578,26 @@ namespace Dome.Service_References.R521 {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        createProfileResponse DOME_BUS_EAI_R521createProfileWS.createProfile(createProfile request) {
+        Dome.R521.createProfileResponse Dome.R521.DOME_BUS_EAI_R521createProfileWS.createProfile(Dome.R521.createProfile request) {
             return base.Channel.createProfile(request);
         }
         
-        public createProfileResponseDto createProfile(createProfileDto profileDto) {
-            createProfile inValue = new createProfile();
+        public Dome.R521.createProfileResponseDto createProfile(Dome.R521.createProfileDto profileDto) {
+            Dome.R521.createProfile inValue = new Dome.R521.createProfile();
             inValue.profileDto = profileDto;
-            createProfileResponse retVal = ((DOME_BUS_EAI_R521createProfileWS)(this)).createProfile(inValue);
+            Dome.R521.createProfileResponse retVal = ((Dome.R521.DOME_BUS_EAI_R521createProfileWS)(this)).createProfile(inValue);
             return retVal.createProfileResponse1;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<createProfileResponse> DOME_BUS_EAI_R521createProfileWS.createProfileAsync(createProfile request) {
+        System.Threading.Tasks.Task<Dome.R521.createProfileResponse> Dome.R521.DOME_BUS_EAI_R521createProfileWS.createProfileAsync(Dome.R521.createProfile request) {
             return base.Channel.createProfileAsync(request);
         }
         
-        public System.Threading.Tasks.Task<createProfileResponse> createProfileAsync(createProfileDto profileDto) {
-            createProfile inValue = new createProfile();
+        public System.Threading.Tasks.Task<Dome.R521.createProfileResponse> createProfileAsync(Dome.R521.createProfileDto profileDto) {
+            Dome.R521.createProfile inValue = new Dome.R521.createProfile();
             inValue.profileDto = profileDto;
-            return ((DOME_BUS_EAI_R521createProfileWS)(this)).createProfileAsync(inValue);
+            return ((Dome.R521.DOME_BUS_EAI_R521createProfileWS)(this)).createProfileAsync(inValue);
         }
     }
 }

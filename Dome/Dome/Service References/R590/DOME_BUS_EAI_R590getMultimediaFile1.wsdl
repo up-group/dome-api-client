@@ -97,7 +97,7 @@
   </wsdl:binding>
   <wsdl:service name="DOME_BUS_EAI_R590getMultimediaFile">
     <wsdl:port name="UploadWebSoapServiceImplPort" binding="tns:DOME_BUS_EAI_R590getMultimediaFileSoapBinding">
-      <soap:address location="http://dev.mondome.fr/soap/DOME_BUS_EAI_R590getMultimediaFile" />
+      <soap:address location="http://localhost:8080/dome-partner/soap/DOME_BUS_EAI_R590getMultimediaFile" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

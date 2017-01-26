@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dome.Service_References.R590 {
+namespace Dome.R590 {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -22,10 +22,10 @@ namespace Dome.Service_References.R590 {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeCommonDto))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="createdMediaResponse")]
-        uploadFileWsResponse uploadFileWs(uploadFileWs request);
+        Dome.R590.uploadFileWsResponse uploadFileWs(Dome.R590.uploadFileWs request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<uploadFileWsResponse> uploadFileWsAsync(uploadFileWs request);
+        System.Threading.Tasks.Task<Dome.R590.uploadFileWsResponse> uploadFileWsAsync(Dome.R590.uploadFileWs request);
     }
     
     /// <remarks/>
@@ -354,12 +354,12 @@ namespace Dome.Service_References.R590 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public uploadFileWSDto arg0;
+        public Dome.R590.uploadFileWSDto arg0;
         
         public uploadFileWs() {
         }
         
-        public uploadFileWs(uploadFileWSDto arg0) {
+        public uploadFileWs(Dome.R590.uploadFileWSDto arg0) {
             this.arg0 = arg0;
         }
     }
@@ -372,23 +372,23 @@ namespace Dome.Service_References.R590 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public createdMediaResponseDto createdMediaResponse;
+        public Dome.R590.createdMediaResponseDto createdMediaResponse;
         
         public uploadFileWsResponse() {
         }
         
-        public uploadFileWsResponse(createdMediaResponseDto createdMediaResponse) {
+        public uploadFileWsResponse(Dome.R590.createdMediaResponseDto createdMediaResponse) {
             this.createdMediaResponse = createdMediaResponse;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DOME_BUS_EAI_R590getMultimediaFileChannel : DOME_BUS_EAI_R590getMultimediaFile, System.ServiceModel.IClientChannel {
+    public interface DOME_BUS_EAI_R590getMultimediaFileChannel : Dome.R590.DOME_BUS_EAI_R590getMultimediaFile, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DOME_BUS_EAI_R590getMultimediaFileClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R590getMultimediaFile>, DOME_BUS_EAI_R590getMultimediaFile {
+    public partial class DOME_BUS_EAI_R590getMultimediaFileClient : System.ServiceModel.ClientBase<Dome.R590.DOME_BUS_EAI_R590getMultimediaFile>, Dome.R590.DOME_BUS_EAI_R590getMultimediaFile {
         
         public DOME_BUS_EAI_R590getMultimediaFileClient() {
         }
@@ -410,26 +410,26 @@ namespace Dome.Service_References.R590 {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        uploadFileWsResponse DOME_BUS_EAI_R590getMultimediaFile.uploadFileWs(uploadFileWs request) {
+        Dome.R590.uploadFileWsResponse Dome.R590.DOME_BUS_EAI_R590getMultimediaFile.uploadFileWs(Dome.R590.uploadFileWs request) {
             return base.Channel.uploadFileWs(request);
         }
         
-        public createdMediaResponseDto uploadFileWs(uploadFileWSDto arg0) {
-            uploadFileWs inValue = new uploadFileWs();
+        public Dome.R590.createdMediaResponseDto uploadFileWs(Dome.R590.uploadFileWSDto arg0) {
+            Dome.R590.uploadFileWs inValue = new Dome.R590.uploadFileWs();
             inValue.arg0 = arg0;
-            uploadFileWsResponse retVal = ((DOME_BUS_EAI_R590getMultimediaFile)(this)).uploadFileWs(inValue);
+            Dome.R590.uploadFileWsResponse retVal = ((Dome.R590.DOME_BUS_EAI_R590getMultimediaFile)(this)).uploadFileWs(inValue);
             return retVal.createdMediaResponse;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<uploadFileWsResponse> DOME_BUS_EAI_R590getMultimediaFile.uploadFileWsAsync(uploadFileWs request) {
+        System.Threading.Tasks.Task<Dome.R590.uploadFileWsResponse> Dome.R590.DOME_BUS_EAI_R590getMultimediaFile.uploadFileWsAsync(Dome.R590.uploadFileWs request) {
             return base.Channel.uploadFileWsAsync(request);
         }
         
-        public System.Threading.Tasks.Task<uploadFileWsResponse> uploadFileWsAsync(uploadFileWSDto arg0) {
-            uploadFileWs inValue = new uploadFileWs();
+        public System.Threading.Tasks.Task<Dome.R590.uploadFileWsResponse> uploadFileWsAsync(Dome.R590.uploadFileWSDto arg0) {
+            Dome.R590.uploadFileWs inValue = new Dome.R590.uploadFileWs();
             inValue.arg0 = arg0;
-            return ((DOME_BUS_EAI_R590getMultimediaFile)(this)).uploadFileWsAsync(inValue);
+            return ((Dome.R590.DOME_BUS_EAI_R590getMultimediaFile)(this)).uploadFileWsAsync(inValue);
         }
     }
 }

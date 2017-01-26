@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dome.Service_References.R820 {
+namespace Dome.R820 {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -22,10 +22,10 @@ namespace Dome.Service_References.R820 {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeCommonDto))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="addCourseEntryResponse")]
-        addCourseEntryResponse addCourseEntry(addCourseEntry request);
+        Dome.R820.addCourseEntryResponse addCourseEntry(Dome.R820.addCourseEntry request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<addCourseEntryResponse> addCourseEntryAsync(addCourseEntry request);
+        System.Threading.Tasks.Task<Dome.R820.addCourseEntryResponse> addCourseEntryAsync(Dome.R820.addCourseEntry request);
     }
     
     /// <remarks/>
@@ -694,12 +694,12 @@ namespace Dome.Service_References.R820 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public addCourseEntryDto addCourseEntryDto;
+        public Dome.R820.addCourseEntryDto addCourseEntryDto;
         
         public addCourseEntry() {
         }
         
-        public addCourseEntry(addCourseEntryDto addCourseEntryDto) {
+        public addCourseEntry(Dome.R820.addCourseEntryDto addCourseEntryDto) {
             this.addCourseEntryDto = addCourseEntryDto;
         }
     }
@@ -712,23 +712,23 @@ namespace Dome.Service_References.R820 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="addCourseEntryResponse", Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public addCourseEntryResponseDto addCourseEntryResponse1;
+        public Dome.R820.addCourseEntryResponseDto addCourseEntryResponse1;
         
         public addCourseEntryResponse() {
         }
         
-        public addCourseEntryResponse(addCourseEntryResponseDto addCourseEntryResponse1) {
+        public addCourseEntryResponse(Dome.R820.addCourseEntryResponseDto addCourseEntryResponse1) {
             this.addCourseEntryResponse1 = addCourseEntryResponse1;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DOME_BUS_EAI_R820addNewJourneyEntryWSChannel : DOME_BUS_EAI_R820addNewJourneyEntryWS, System.ServiceModel.IClientChannel {
+    public interface DOME_BUS_EAI_R820addNewJourneyEntryWSChannel : Dome.R820.DOME_BUS_EAI_R820addNewJourneyEntryWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DOME_BUS_EAI_R820addNewJourneyEntryWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R820addNewJourneyEntryWS>, DOME_BUS_EAI_R820addNewJourneyEntryWS {
+    public partial class DOME_BUS_EAI_R820addNewJourneyEntryWSClient : System.ServiceModel.ClientBase<Dome.R820.DOME_BUS_EAI_R820addNewJourneyEntryWS>, Dome.R820.DOME_BUS_EAI_R820addNewJourneyEntryWS {
         
         public DOME_BUS_EAI_R820addNewJourneyEntryWSClient() {
         }
@@ -750,26 +750,26 @@ namespace Dome.Service_References.R820 {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        addCourseEntryResponse DOME_BUS_EAI_R820addNewJourneyEntryWS.addCourseEntry(addCourseEntry request) {
+        Dome.R820.addCourseEntryResponse Dome.R820.DOME_BUS_EAI_R820addNewJourneyEntryWS.addCourseEntry(Dome.R820.addCourseEntry request) {
             return base.Channel.addCourseEntry(request);
         }
         
-        public addCourseEntryResponseDto addCourseEntry(addCourseEntryDto addCourseEntryDto) {
-            addCourseEntry inValue = new addCourseEntry();
+        public Dome.R820.addCourseEntryResponseDto addCourseEntry(Dome.R820.addCourseEntryDto addCourseEntryDto) {
+            Dome.R820.addCourseEntry inValue = new Dome.R820.addCourseEntry();
             inValue.addCourseEntryDto = addCourseEntryDto;
-            addCourseEntryResponse retVal = ((DOME_BUS_EAI_R820addNewJourneyEntryWS)(this)).addCourseEntry(inValue);
+            Dome.R820.addCourseEntryResponse retVal = ((Dome.R820.DOME_BUS_EAI_R820addNewJourneyEntryWS)(this)).addCourseEntry(inValue);
             return retVal.addCourseEntryResponse1;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<addCourseEntryResponse> DOME_BUS_EAI_R820addNewJourneyEntryWS.addCourseEntryAsync(addCourseEntry request) {
+        System.Threading.Tasks.Task<Dome.R820.addCourseEntryResponse> Dome.R820.DOME_BUS_EAI_R820addNewJourneyEntryWS.addCourseEntryAsync(Dome.R820.addCourseEntry request) {
             return base.Channel.addCourseEntryAsync(request);
         }
         
-        public System.Threading.Tasks.Task<addCourseEntryResponse> addCourseEntryAsync(addCourseEntryDto addCourseEntryDto) {
-            addCourseEntry inValue = new addCourseEntry();
+        public System.Threading.Tasks.Task<Dome.R820.addCourseEntryResponse> addCourseEntryAsync(Dome.R820.addCourseEntryDto addCourseEntryDto) {
+            Dome.R820.addCourseEntry inValue = new Dome.R820.addCourseEntry();
             inValue.addCourseEntryDto = addCourseEntryDto;
-            return ((DOME_BUS_EAI_R820addNewJourneyEntryWS)(this)).addCourseEntryAsync(inValue);
+            return ((Dome.R820.DOME_BUS_EAI_R820addNewJourneyEntryWS)(this)).addCourseEntryAsync(inValue);
         }
     }
 }

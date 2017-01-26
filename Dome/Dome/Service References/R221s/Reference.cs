@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dome.Service_References.R221s {
+namespace Dome.R221s {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -22,10 +22,10 @@ namespace Dome.Service_References.R221s {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeCommonDto))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="eventUpdateStateResponse")]
-        updateEventStateResponse updateEventState(updateEventState request);
+        Dome.R221s.updateEventStateResponse updateEventState(Dome.R221s.updateEventState request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<updateEventStateResponse> updateEventStateAsync(updateEventState request);
+        System.Threading.Tasks.Task<Dome.R221s.updateEventStateResponse> updateEventStateAsync(Dome.R221s.updateEventState request);
     }
     
     /// <remarks/>
@@ -386,12 +386,12 @@ namespace Dome.Service_References.R221s {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public eventUpdateStateDto eventUpdateStateDto;
+        public Dome.R221s.eventUpdateStateDto eventUpdateStateDto;
         
         public updateEventState() {
         }
         
-        public updateEventState(eventUpdateStateDto eventUpdateStateDto) {
+        public updateEventState(Dome.R221s.eventUpdateStateDto eventUpdateStateDto) {
             this.eventUpdateStateDto = eventUpdateStateDto;
         }
     }
@@ -404,23 +404,23 @@ namespace Dome.Service_References.R221s {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public eventUpdateStateResponseDto eventUpdateStateResponse;
+        public Dome.R221s.eventUpdateStateResponseDto eventUpdateStateResponse;
         
         public updateEventStateResponse() {
         }
         
-        public updateEventStateResponse(eventUpdateStateResponseDto eventUpdateStateResponse) {
+        public updateEventStateResponse(Dome.R221s.eventUpdateStateResponseDto eventUpdateStateResponse) {
             this.eventUpdateStateResponse = eventUpdateStateResponse;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DOME_BUS_EAI_R221eventUpdateStateWSChannel : DOME_BUS_EAI_R221eventUpdateStateWS, System.ServiceModel.IClientChannel {
+    public interface DOME_BUS_EAI_R221eventUpdateStateWSChannel : Dome.R221s.DOME_BUS_EAI_R221eventUpdateStateWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DOME_BUS_EAI_R221eventUpdateStateWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R221eventUpdateStateWS>, DOME_BUS_EAI_R221eventUpdateStateWS {
+    public partial class DOME_BUS_EAI_R221eventUpdateStateWSClient : System.ServiceModel.ClientBase<Dome.R221s.DOME_BUS_EAI_R221eventUpdateStateWS>, Dome.R221s.DOME_BUS_EAI_R221eventUpdateStateWS {
         
         public DOME_BUS_EAI_R221eventUpdateStateWSClient() {
         }
@@ -442,26 +442,26 @@ namespace Dome.Service_References.R221s {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        updateEventStateResponse DOME_BUS_EAI_R221eventUpdateStateWS.updateEventState(updateEventState request) {
+        Dome.R221s.updateEventStateResponse Dome.R221s.DOME_BUS_EAI_R221eventUpdateStateWS.updateEventState(Dome.R221s.updateEventState request) {
             return base.Channel.updateEventState(request);
         }
         
-        public eventUpdateStateResponseDto updateEventState(eventUpdateStateDto eventUpdateStateDto) {
-            updateEventState inValue = new updateEventState();
+        public Dome.R221s.eventUpdateStateResponseDto updateEventState(Dome.R221s.eventUpdateStateDto eventUpdateStateDto) {
+            Dome.R221s.updateEventState inValue = new Dome.R221s.updateEventState();
             inValue.eventUpdateStateDto = eventUpdateStateDto;
-            updateEventStateResponse retVal = ((DOME_BUS_EAI_R221eventUpdateStateWS)(this)).updateEventState(inValue);
+            Dome.R221s.updateEventStateResponse retVal = ((Dome.R221s.DOME_BUS_EAI_R221eventUpdateStateWS)(this)).updateEventState(inValue);
             return retVal.eventUpdateStateResponse;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<updateEventStateResponse> DOME_BUS_EAI_R221eventUpdateStateWS.updateEventStateAsync(updateEventState request) {
+        System.Threading.Tasks.Task<Dome.R221s.updateEventStateResponse> Dome.R221s.DOME_BUS_EAI_R221eventUpdateStateWS.updateEventStateAsync(Dome.R221s.updateEventState request) {
             return base.Channel.updateEventStateAsync(request);
         }
         
-        public System.Threading.Tasks.Task<updateEventStateResponse> updateEventStateAsync(eventUpdateStateDto eventUpdateStateDto) {
-            updateEventState inValue = new updateEventState();
+        public System.Threading.Tasks.Task<Dome.R221s.updateEventStateResponse> updateEventStateAsync(Dome.R221s.eventUpdateStateDto eventUpdateStateDto) {
+            Dome.R221s.updateEventState inValue = new Dome.R221s.updateEventState();
             inValue.eventUpdateStateDto = eventUpdateStateDto;
-            return ((DOME_BUS_EAI_R221eventUpdateStateWS)(this)).updateEventStateAsync(inValue);
+            return ((Dome.R221s.DOME_BUS_EAI_R221eventUpdateStateWS)(this)).updateEventStateAsync(inValue);
         }
     }
 }

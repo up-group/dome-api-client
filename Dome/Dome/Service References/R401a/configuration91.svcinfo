@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="jkhqdxXFxZBVLcq8I3YNqjG2Plo=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="jfARqA/+LZMDBfwWhts7fv1PfyA=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="DOME_BUS_EAI_R401aDocProvisionningAcquisitionWSSoapBinding">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="AddDocumentWebServiceImplPort" contract="R401a.DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS" bindingType="basicHttpBinding" address="http://dev.mondome.fr/soap/DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS" bindingConfiguration="DOME_BUS_EAI_R401aDocProvisionningAcquisitionWSSoapBinding">
+    <endpoint name="AddDocumentWebServiceImplPort" contract="R401a.DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS" bindingType="basicHttpBinding" address="http://localhost:8080/dome-partner/soap/DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS" bindingConfiguration="DOME_BUS_EAI_R401aDocProvisionningAcquisitionWSSoapBinding">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://dev.mondome.fr/soap/DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS</serializedValue>
+          <serializedValue>http://localhost:8080/dome-partner/soap/DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
