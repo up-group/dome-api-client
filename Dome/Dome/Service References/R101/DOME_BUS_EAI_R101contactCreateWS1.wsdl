@@ -128,7 +128,7 @@
   </wsdl:binding>
   <wsdl:service name="DOME_BUS_EAI_R101contactCreateWS">
     <wsdl:port name="CreateContactWebServiceImplPort" binding="tns:DOME_BUS_EAI_R101contactCreateWSSoapBinding">
-      <soap:address location="http://localhost:8080/dome-partner/soap/DOME_BUS_EAI_R101contactCreateWS" />
+      <soap:address location="http://dev.mondome.fr/soap/DOME_BUS_EAI_R101contactCreateWS" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

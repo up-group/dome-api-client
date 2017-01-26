@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dome.R542a {
+namespace Dome.Service_References.R542a {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -22,10 +22,10 @@ namespace Dome.R542a {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeCommonDto))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="updatePersonResponse")]
-        Dome.R542a.updatePersonResponse updatePerson(Dome.R542a.updatePerson request);
+        updatePersonResponse updatePerson(updatePerson request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<Dome.R542a.updatePersonResponse> updatePersonAsync(Dome.R542a.updatePerson request);
+        System.Threading.Tasks.Task<updatePersonResponse> updatePersonAsync(updatePerson request);
     }
     
     /// <remarks/>
@@ -880,12 +880,12 @@ namespace Dome.R542a {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public Dome.R542a.UpdatePersonDto updatePersonDto;
+        public UpdatePersonDto updatePersonDto;
         
         public updatePerson() {
         }
         
-        public updatePerson(Dome.R542a.UpdatePersonDto updatePersonDto) {
+        public updatePerson(UpdatePersonDto updatePersonDto) {
             this.updatePersonDto = updatePersonDto;
         }
     }
@@ -898,23 +898,23 @@ namespace Dome.R542a {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="updatePersonResponse", Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public Dome.R542a.UpdatePersonResponseDto updatePersonResponse1;
+        public UpdatePersonResponseDto updatePersonResponse1;
         
         public updatePersonResponse() {
         }
         
-        public updatePersonResponse(Dome.R542a.UpdatePersonResponseDto updatePersonResponse1) {
+        public updatePersonResponse(UpdatePersonResponseDto updatePersonResponse1) {
             this.updatePersonResponse1 = updatePersonResponse1;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DOME_BUS_EAI_R542aUpdatePersonWSChannel : Dome.R542a.DOME_BUS_EAI_R542aUpdatePersonWS, System.ServiceModel.IClientChannel {
+    public interface DOME_BUS_EAI_R542aUpdatePersonWSChannel : DOME_BUS_EAI_R542aUpdatePersonWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DOME_BUS_EAI_R542aUpdatePersonWSClient : System.ServiceModel.ClientBase<Dome.R542a.DOME_BUS_EAI_R542aUpdatePersonWS>, Dome.R542a.DOME_BUS_EAI_R542aUpdatePersonWS {
+    public partial class DOME_BUS_EAI_R542aUpdatePersonWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R542aUpdatePersonWS>, DOME_BUS_EAI_R542aUpdatePersonWS {
         
         public DOME_BUS_EAI_R542aUpdatePersonWSClient() {
         }
@@ -936,26 +936,26 @@ namespace Dome.R542a {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Dome.R542a.updatePersonResponse Dome.R542a.DOME_BUS_EAI_R542aUpdatePersonWS.updatePerson(Dome.R542a.updatePerson request) {
+        updatePersonResponse DOME_BUS_EAI_R542aUpdatePersonWS.updatePerson(updatePerson request) {
             return base.Channel.updatePerson(request);
         }
         
-        public Dome.R542a.UpdatePersonResponseDto updatePerson(Dome.R542a.UpdatePersonDto updatePersonDto) {
-            Dome.R542a.updatePerson inValue = new Dome.R542a.updatePerson();
+        public UpdatePersonResponseDto updatePerson(UpdatePersonDto updatePersonDto) {
+            updatePerson inValue = new updatePerson();
             inValue.updatePersonDto = updatePersonDto;
-            Dome.R542a.updatePersonResponse retVal = ((Dome.R542a.DOME_BUS_EAI_R542aUpdatePersonWS)(this)).updatePerson(inValue);
+            updatePersonResponse retVal = ((DOME_BUS_EAI_R542aUpdatePersonWS)(this)).updatePerson(inValue);
             return retVal.updatePersonResponse1;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Dome.R542a.updatePersonResponse> Dome.R542a.DOME_BUS_EAI_R542aUpdatePersonWS.updatePersonAsync(Dome.R542a.updatePerson request) {
+        System.Threading.Tasks.Task<updatePersonResponse> DOME_BUS_EAI_R542aUpdatePersonWS.updatePersonAsync(updatePerson request) {
             return base.Channel.updatePersonAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Dome.R542a.updatePersonResponse> updatePersonAsync(Dome.R542a.UpdatePersonDto updatePersonDto) {
-            Dome.R542a.updatePerson inValue = new Dome.R542a.updatePerson();
+        public System.Threading.Tasks.Task<updatePersonResponse> updatePersonAsync(UpdatePersonDto updatePersonDto) {
+            updatePerson inValue = new updatePerson();
             inValue.updatePersonDto = updatePersonDto;
-            return ((Dome.R542a.DOME_BUS_EAI_R542aUpdatePersonWS)(this)).updatePersonAsync(inValue);
+            return ((DOME_BUS_EAI_R542aUpdatePersonWS)(this)).updatePersonAsync(inValue);
         }
     }
 }

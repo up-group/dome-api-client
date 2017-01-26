@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dome.R822 {
+namespace Dome.Service_References.R822 {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -23,10 +23,10 @@ namespace Dome.R822 {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeCommonDto))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="getDetailsResponse")]
-        Dome.R822.getDetailsCourseEntryResponse getDetailsCourseEntry(Dome.R822.getDetailsCourseEntry request);
+        getDetailsCourseEntryResponse getDetailsCourseEntry(getDetailsCourseEntry request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<Dome.R822.getDetailsCourseEntryResponse> getDetailsCourseEntryAsync(Dome.R822.getDetailsCourseEntry request);
+        System.Threading.Tasks.Task<getDetailsCourseEntryResponse> getDetailsCourseEntryAsync(getDetailsCourseEntry request);
     }
     
     /// <remarks/>
@@ -831,12 +831,12 @@ namespace Dome.R822 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public Dome.R822.getCourseEntryDetailsDto GetCourseEntryDetailsDto;
+        public getCourseEntryDetailsDto GetCourseEntryDetailsDto;
         
         public getDetailsCourseEntry() {
         }
         
-        public getDetailsCourseEntry(Dome.R822.getCourseEntryDetailsDto GetCourseEntryDetailsDto) {
+        public getDetailsCourseEntry(getCourseEntryDetailsDto GetCourseEntryDetailsDto) {
             this.GetCourseEntryDetailsDto = GetCourseEntryDetailsDto;
         }
     }
@@ -849,23 +849,23 @@ namespace Dome.R822 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public Dome.R822.getCourseEntryDetailsResponseDto getDetailsResponse;
+        public getCourseEntryDetailsResponseDto getDetailsResponse;
         
         public getDetailsCourseEntryResponse() {
         }
         
-        public getDetailsCourseEntryResponse(Dome.R822.getCourseEntryDetailsResponseDto getDetailsResponse) {
+        public getDetailsCourseEntryResponse(getCourseEntryDetailsResponseDto getDetailsResponse) {
             this.getDetailsResponse = getDetailsResponse;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DOME_BUS_EAI_R822getDetailJourneyEntryWSChannel : Dome.R822.DOME_BUS_EAI_R822getDetailJourneyEntryWS, System.ServiceModel.IClientChannel {
+    public interface DOME_BUS_EAI_R822getDetailJourneyEntryWSChannel : DOME_BUS_EAI_R822getDetailJourneyEntryWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DOME_BUS_EAI_R822getDetailJourneyEntryWSClient : System.ServiceModel.ClientBase<Dome.R822.DOME_BUS_EAI_R822getDetailJourneyEntryWS>, Dome.R822.DOME_BUS_EAI_R822getDetailJourneyEntryWS {
+    public partial class DOME_BUS_EAI_R822getDetailJourneyEntryWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R822getDetailJourneyEntryWS>, DOME_BUS_EAI_R822getDetailJourneyEntryWS {
         
         public DOME_BUS_EAI_R822getDetailJourneyEntryWSClient() {
         }
@@ -887,26 +887,26 @@ namespace Dome.R822 {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Dome.R822.getDetailsCourseEntryResponse Dome.R822.DOME_BUS_EAI_R822getDetailJourneyEntryWS.getDetailsCourseEntry(Dome.R822.getDetailsCourseEntry request) {
+        getDetailsCourseEntryResponse DOME_BUS_EAI_R822getDetailJourneyEntryWS.getDetailsCourseEntry(getDetailsCourseEntry request) {
             return base.Channel.getDetailsCourseEntry(request);
         }
         
-        public Dome.R822.getCourseEntryDetailsResponseDto getDetailsCourseEntry(Dome.R822.getCourseEntryDetailsDto GetCourseEntryDetailsDto) {
-            Dome.R822.getDetailsCourseEntry inValue = new Dome.R822.getDetailsCourseEntry();
+        public getCourseEntryDetailsResponseDto getDetailsCourseEntry(getCourseEntryDetailsDto GetCourseEntryDetailsDto) {
+            getDetailsCourseEntry inValue = new getDetailsCourseEntry();
             inValue.GetCourseEntryDetailsDto = GetCourseEntryDetailsDto;
-            Dome.R822.getDetailsCourseEntryResponse retVal = ((Dome.R822.DOME_BUS_EAI_R822getDetailJourneyEntryWS)(this)).getDetailsCourseEntry(inValue);
+            getDetailsCourseEntryResponse retVal = ((DOME_BUS_EAI_R822getDetailJourneyEntryWS)(this)).getDetailsCourseEntry(inValue);
             return retVal.getDetailsResponse;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Dome.R822.getDetailsCourseEntryResponse> Dome.R822.DOME_BUS_EAI_R822getDetailJourneyEntryWS.getDetailsCourseEntryAsync(Dome.R822.getDetailsCourseEntry request) {
+        System.Threading.Tasks.Task<getDetailsCourseEntryResponse> DOME_BUS_EAI_R822getDetailJourneyEntryWS.getDetailsCourseEntryAsync(getDetailsCourseEntry request) {
             return base.Channel.getDetailsCourseEntryAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Dome.R822.getDetailsCourseEntryResponse> getDetailsCourseEntryAsync(Dome.R822.getCourseEntryDetailsDto GetCourseEntryDetailsDto) {
-            Dome.R822.getDetailsCourseEntry inValue = new Dome.R822.getDetailsCourseEntry();
+        public System.Threading.Tasks.Task<getDetailsCourseEntryResponse> getDetailsCourseEntryAsync(getCourseEntryDetailsDto GetCourseEntryDetailsDto) {
+            getDetailsCourseEntry inValue = new getDetailsCourseEntry();
             inValue.GetCourseEntryDetailsDto = GetCourseEntryDetailsDto;
-            return ((Dome.R822.DOME_BUS_EAI_R822getDetailJourneyEntryWS)(this)).getDetailsCourseEntryAsync(inValue);
+            return ((DOME_BUS_EAI_R822getDetailJourneyEntryWS)(this)).getDetailsCourseEntryAsync(inValue);
         }
     }
 }

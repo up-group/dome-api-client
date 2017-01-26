@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dome.R511 {
+namespace Dome.Service_References.R511 {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -22,10 +22,10 @@ namespace Dome.R511 {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeCommonDto))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="createPersonResponse")]
-        Dome.R511.createPersonResponse createPerson(Dome.R511.createPerson request);
+        createPersonResponse createPerson(createPerson request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<Dome.R511.createPersonResponse> createPersonAsync(Dome.R511.createPerson request);
+        System.Threading.Tasks.Task<createPersonResponse> createPersonAsync(createPerson request);
     }
     
     /// <remarks/>
@@ -936,12 +936,12 @@ namespace Dome.R511 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public Dome.R511.CreatePersonDto createPersonDto;
+        public CreatePersonDto createPersonDto;
         
         public createPerson() {
         }
         
-        public createPerson(Dome.R511.CreatePersonDto createPersonDto) {
+        public createPerson(CreatePersonDto createPersonDto) {
             this.createPersonDto = createPersonDto;
         }
     }
@@ -954,23 +954,23 @@ namespace Dome.R511 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="createPersonResponse", Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public Dome.R511.CreatePersonResponseDto createPersonResponse1;
+        public CreatePersonResponseDto createPersonResponse1;
         
         public createPersonResponse() {
         }
         
-        public createPersonResponse(Dome.R511.CreatePersonResponseDto createPersonResponse1) {
+        public createPersonResponse(CreatePersonResponseDto createPersonResponse1) {
             this.createPersonResponse1 = createPersonResponse1;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DOME_BUS_EAI_R511createPersonWSChannel : Dome.R511.DOME_BUS_EAI_R511createPersonWS, System.ServiceModel.IClientChannel {
+    public interface DOME_BUS_EAI_R511createPersonWSChannel : DOME_BUS_EAI_R511createPersonWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DOME_BUS_EAI_R511createPersonWSClient : System.ServiceModel.ClientBase<Dome.R511.DOME_BUS_EAI_R511createPersonWS>, Dome.R511.DOME_BUS_EAI_R511createPersonWS {
+    public partial class DOME_BUS_EAI_R511createPersonWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R511createPersonWS>, DOME_BUS_EAI_R511createPersonWS {
         
         public DOME_BUS_EAI_R511createPersonWSClient() {
         }
@@ -992,26 +992,26 @@ namespace Dome.R511 {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Dome.R511.createPersonResponse Dome.R511.DOME_BUS_EAI_R511createPersonWS.createPerson(Dome.R511.createPerson request) {
+        createPersonResponse DOME_BUS_EAI_R511createPersonWS.createPerson(createPerson request) {
             return base.Channel.createPerson(request);
         }
         
-        public Dome.R511.CreatePersonResponseDto createPerson(Dome.R511.CreatePersonDto createPersonDto) {
-            Dome.R511.createPerson inValue = new Dome.R511.createPerson();
+        public CreatePersonResponseDto createPerson(CreatePersonDto createPersonDto) {
+            createPerson inValue = new createPerson();
             inValue.createPersonDto = createPersonDto;
-            Dome.R511.createPersonResponse retVal = ((Dome.R511.DOME_BUS_EAI_R511createPersonWS)(this)).createPerson(inValue);
+            createPersonResponse retVal = ((DOME_BUS_EAI_R511createPersonWS)(this)).createPerson(inValue);
             return retVal.createPersonResponse1;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Dome.R511.createPersonResponse> Dome.R511.DOME_BUS_EAI_R511createPersonWS.createPersonAsync(Dome.R511.createPerson request) {
+        System.Threading.Tasks.Task<createPersonResponse> DOME_BUS_EAI_R511createPersonWS.createPersonAsync(createPerson request) {
             return base.Channel.createPersonAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Dome.R511.createPersonResponse> createPersonAsync(Dome.R511.CreatePersonDto createPersonDto) {
-            Dome.R511.createPerson inValue = new Dome.R511.createPerson();
+        public System.Threading.Tasks.Task<createPersonResponse> createPersonAsync(CreatePersonDto createPersonDto) {
+            createPerson inValue = new createPerson();
             inValue.createPersonDto = createPersonDto;
-            return ((Dome.R511.DOME_BUS_EAI_R511createPersonWS)(this)).createPersonAsync(inValue);
+            return ((DOME_BUS_EAI_R511createPersonWS)(this)).createPersonAsync(inValue);
         }
     }
 }

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dome.R201 {
+namespace Dome.Service_References.R201 {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -22,10 +22,10 @@ namespace Dome.R201 {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeCommonDto))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="createEventResponse")]
-        Dome.R201.createEventResponse createEvent(Dome.R201.createEvent request);
+        createEventResponse createEvent(createEvent request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<Dome.R201.createEventResponse> createEventAsync(Dome.R201.createEvent request);
+        System.Threading.Tasks.Task<createEventResponse> createEventAsync(createEvent request);
     }
     
     /// <remarks/>
@@ -754,12 +754,12 @@ namespace Dome.R201 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public Dome.R201.createEventDto createEventDto;
+        public createEventDto createEventDto;
         
         public createEvent() {
         }
         
-        public createEvent(Dome.R201.createEventDto createEventDto) {
+        public createEvent(createEventDto createEventDto) {
             this.createEventDto = createEventDto;
         }
     }
@@ -772,23 +772,23 @@ namespace Dome.R201 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="createEventResponse", Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public Dome.R201.createEventResponseDto createEventResponse1;
+        public createEventResponseDto createEventResponse1;
         
         public createEventResponse() {
         }
         
-        public createEventResponse(Dome.R201.createEventResponseDto createEventResponse1) {
+        public createEventResponse(createEventResponseDto createEventResponse1) {
             this.createEventResponse1 = createEventResponse1;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DOME_BUS_EAI_R201eventCreateWSChannel : Dome.R201.DOME_BUS_EAI_R201eventCreateWS, System.ServiceModel.IClientChannel {
+    public interface DOME_BUS_EAI_R201eventCreateWSChannel : DOME_BUS_EAI_R201eventCreateWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DOME_BUS_EAI_R201eventCreateWSClient : System.ServiceModel.ClientBase<Dome.R201.DOME_BUS_EAI_R201eventCreateWS>, Dome.R201.DOME_BUS_EAI_R201eventCreateWS {
+    public partial class DOME_BUS_EAI_R201eventCreateWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R201eventCreateWS>, DOME_BUS_EAI_R201eventCreateWS {
         
         public DOME_BUS_EAI_R201eventCreateWSClient() {
         }
@@ -810,26 +810,26 @@ namespace Dome.R201 {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Dome.R201.createEventResponse Dome.R201.DOME_BUS_EAI_R201eventCreateWS.createEvent(Dome.R201.createEvent request) {
+        createEventResponse DOME_BUS_EAI_R201eventCreateWS.createEvent(createEvent request) {
             return base.Channel.createEvent(request);
         }
         
-        public Dome.R201.createEventResponseDto createEvent(Dome.R201.createEventDto createEventDto) {
-            Dome.R201.createEvent inValue = new Dome.R201.createEvent();
+        public createEventResponseDto createEvent(createEventDto createEventDto) {
+            createEvent inValue = new createEvent();
             inValue.createEventDto = createEventDto;
-            Dome.R201.createEventResponse retVal = ((Dome.R201.DOME_BUS_EAI_R201eventCreateWS)(this)).createEvent(inValue);
+            createEventResponse retVal = ((DOME_BUS_EAI_R201eventCreateWS)(this)).createEvent(inValue);
             return retVal.createEventResponse1;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Dome.R201.createEventResponse> Dome.R201.DOME_BUS_EAI_R201eventCreateWS.createEventAsync(Dome.R201.createEvent request) {
+        System.Threading.Tasks.Task<createEventResponse> DOME_BUS_EAI_R201eventCreateWS.createEventAsync(createEvent request) {
             return base.Channel.createEventAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Dome.R201.createEventResponse> createEventAsync(Dome.R201.createEventDto createEventDto) {
-            Dome.R201.createEvent inValue = new Dome.R201.createEvent();
+        public System.Threading.Tasks.Task<createEventResponse> createEventAsync(createEventDto createEventDto) {
+            createEvent inValue = new createEvent();
             inValue.createEventDto = createEventDto;
-            return ((Dome.R201.DOME_BUS_EAI_R201eventCreateWS)(this)).createEventAsync(inValue);
+            return ((DOME_BUS_EAI_R201eventCreateWS)(this)).createEventAsync(inValue);
         }
     }
 }

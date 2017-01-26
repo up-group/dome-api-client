@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dome.R532 {
+namespace Dome.Service_References.R532 {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -22,10 +22,10 @@ namespace Dome.R532 {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeCommonDto))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="selectProfileResponse")]
-        Dome.R532.selectProfileResponse selectProfile(Dome.R532.selectProfile request);
+        selectProfileResponse selectProfile(selectProfile request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<Dome.R532.selectProfileResponse> selectProfileAsync(Dome.R532.selectProfile request);
+        System.Threading.Tasks.Task<selectProfileResponse> selectProfileAsync(selectProfile request);
     }
     
     /// <remarks/>
@@ -326,12 +326,12 @@ namespace Dome.R532 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public Dome.R532.selectProfileDto selectProfileDto;
+        public selectProfileDto selectProfileDto;
         
         public selectProfile() {
         }
         
-        public selectProfile(Dome.R532.selectProfileDto selectProfileDto) {
+        public selectProfile(selectProfileDto selectProfileDto) {
             this.selectProfileDto = selectProfileDto;
         }
     }
@@ -344,23 +344,23 @@ namespace Dome.R532 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="selectProfileResponse", Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public Dome.R532.selectProfileResponseDto selectProfileResponse1;
+        public selectProfileResponseDto selectProfileResponse1;
         
         public selectProfileResponse() {
         }
         
-        public selectProfileResponse(Dome.R532.selectProfileResponseDto selectProfileResponse1) {
+        public selectProfileResponse(selectProfileResponseDto selectProfileResponse1) {
             this.selectProfileResponse1 = selectProfileResponse1;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DOME_BUS_EAI_R532selectProfileWSChannel : Dome.R532.DOME_BUS_EAI_R532selectProfileWS, System.ServiceModel.IClientChannel {
+    public interface DOME_BUS_EAI_R532selectProfileWSChannel : DOME_BUS_EAI_R532selectProfileWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DOME_BUS_EAI_R532selectProfileWSClient : System.ServiceModel.ClientBase<Dome.R532.DOME_BUS_EAI_R532selectProfileWS>, Dome.R532.DOME_BUS_EAI_R532selectProfileWS {
+    public partial class DOME_BUS_EAI_R532selectProfileWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R532selectProfileWS>, DOME_BUS_EAI_R532selectProfileWS {
         
         public DOME_BUS_EAI_R532selectProfileWSClient() {
         }
@@ -382,26 +382,26 @@ namespace Dome.R532 {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Dome.R532.selectProfileResponse Dome.R532.DOME_BUS_EAI_R532selectProfileWS.selectProfile(Dome.R532.selectProfile request) {
+        selectProfileResponse DOME_BUS_EAI_R532selectProfileWS.selectProfile(selectProfile request) {
             return base.Channel.selectProfile(request);
         }
         
-        public Dome.R532.selectProfileResponseDto selectProfile(Dome.R532.selectProfileDto selectProfileDto) {
-            Dome.R532.selectProfile inValue = new Dome.R532.selectProfile();
+        public selectProfileResponseDto selectProfile(selectProfileDto selectProfileDto) {
+            selectProfile inValue = new selectProfile();
             inValue.selectProfileDto = selectProfileDto;
-            Dome.R532.selectProfileResponse retVal = ((Dome.R532.DOME_BUS_EAI_R532selectProfileWS)(this)).selectProfile(inValue);
+            selectProfileResponse retVal = ((DOME_BUS_EAI_R532selectProfileWS)(this)).selectProfile(inValue);
             return retVal.selectProfileResponse1;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Dome.R532.selectProfileResponse> Dome.R532.DOME_BUS_EAI_R532selectProfileWS.selectProfileAsync(Dome.R532.selectProfile request) {
+        System.Threading.Tasks.Task<selectProfileResponse> DOME_BUS_EAI_R532selectProfileWS.selectProfileAsync(selectProfile request) {
             return base.Channel.selectProfileAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Dome.R532.selectProfileResponse> selectProfileAsync(Dome.R532.selectProfileDto selectProfileDto) {
-            Dome.R532.selectProfile inValue = new Dome.R532.selectProfile();
+        public System.Threading.Tasks.Task<selectProfileResponse> selectProfileAsync(selectProfileDto selectProfileDto) {
+            selectProfile inValue = new selectProfile();
             inValue.selectProfileDto = selectProfileDto;
-            return ((Dome.R532.DOME_BUS_EAI_R532selectProfileWS)(this)).selectProfileAsync(inValue);
+            return ((DOME_BUS_EAI_R532selectProfileWS)(this)).selectProfileAsync(inValue);
         }
     }
 }

@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Web.Script.Serialization;
+using Dome.Client;
 
-namespace Dome
+namespace Dome.DomeProxy
 {
 
     public class AuthentificationHelper
     {
-        public class DOME_header
+        public class DomeHeader
         {
-            public string version { get; set; }
-            public DateTime date
+            public string Version { get; set; }
+            public DateTime Date
             {
                 get
                 {
@@ -24,46 +25,46 @@ namespace Dome
 
         public class AuthentificationResultDto
         {
-            public int? statusId { get; set; }
-            public string token { get; set; }
-            public string statusUserMessage { get; set; }
-            public string statusErrorMessage { get; set; }
-            public string refresh_token { get; set; }
-            public DOME_header DOME_header { get; set; }
-            public int? expires_in { get; set; }
-            public string firstname { get; set; }
-            public string lastname { get; set; }
-            public int accountId { get; set; }
+            public int? StatusId { get; set; }
+            public string Token { get; set; }
+            public string StatusUserMessage { get; set; }
+            public string StatusErrorMessage { get; set; }
+            public string RefreshToken { get; set; }
+            public DomeHeader DomeHeader { get; set; }
+            public int? ExpiresIn { get; set; }
+            public string Firstname { get; set; }
+            public string Lastname { get; set; }
+            public int AccountId { get; set; }
         }
 
 
-        private static AuthentificationHelper instance;
+        private static AuthentificationHelper _instance;
 
         private AuthentificationHelper() { }
 
-        public Boolean isConnected { get; set; }
-        public AuthentificationResultDto auth { get; set; }
+        public Boolean IsConnected { get; set; }
+        public AuthentificationResultDto Auth { get; set; }
         public int? MainProfilId { get; set; }
 
         public static AuthentificationHelper Instance
         {
             get
             {
-                if (instance == null)
+                if (_instance == null)
                 {
-                    instance = new AuthentificationHelper();
+                    _instance = new AuthentificationHelper();
                 }
-                return instance;
+                return _instance;
             }
         }
 
 
-        public void connect()
+        public void Connect()
         {
-            connect(settings.username, settings.password);
+            Connect(Settings.Username, Settings.Password);
         }
 
-        public void connect(string username, string pass)
+        public void Connect(string username, string pass)
         {
             using (var client = new HttpClient())
             {
@@ -71,7 +72,7 @@ namespace Dome
                 {
                        { "username", username },
                        { "rememberMe", "false" },
-                       { "password", CreateMD5(pass).ToLower() }
+                       { "password", CreateMd5(pass).ToLower() }
                 };
 
                 var j = new JavaScriptSerializer();
@@ -81,18 +82,18 @@ namespace Dome
 
                 var responseString = response.Content.ReadAsStringAsync();
 
-                auth = (AuthentificationResultDto)j.Deserialize(responseString.Result, typeof(AuthentificationResultDto));
+                Auth = (AuthentificationResultDto)j.Deserialize(responseString.Result, typeof(AuthentificationResultDto));
 
-                isConnected = auth.statusId == 0;
+                IsConnected = Auth.StatusId == 0;
 
-                if (isConnected)
+                if (IsConnected)
                 {
-                    var DomeCall = new DomeCall();
-                    var account = DomeCall.GetAccount(auth.accountId);
+                    var domeCall = new DomeClient();
+                    var account = domeCall.GetAccount(Auth.AccountId);
                     if (account.Succeeded && account.Entity.DOME_profileList.Length == 1)
                     {
                         MainProfilId = account.Entity.DOME_profileList[0].profileId;
-                        DomeCall.SelectProfil(MainProfilId.Value);
+                        domeCall._SelectProfil(MainProfilId.Value);
                     }
                 }
 
@@ -100,12 +101,12 @@ namespace Dome
             }
         }
 
-        private static string CreateMD5(string input)
+        private static string CreateMd5(string input)
         {
             // Use input string to calculate MD5 hash
             using (System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create())
             {
-                byte[] inputBytes = System.Text.Encoding.UTF8.GetBytes(input);
+                byte[] inputBytes = Encoding.UTF8.GetBytes(input);
                 byte[] hashBytes = md5.ComputeHash(inputBytes);
 
                 // Convert the byte array to hexadecimal string

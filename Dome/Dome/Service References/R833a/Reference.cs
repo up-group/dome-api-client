@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dome.R833a {
+namespace Dome.Service_References.R833a {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -22,10 +22,10 @@ namespace Dome.R833a {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeCommonDto))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        Dome.R833a.alterAggirResponse alterAggir(Dome.R833a.alterAggir request);
+        alterAggirResponse alterAggir(alterAggir request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<Dome.R833a.alterAggirResponse> alterAggirAsync(Dome.R833a.alterAggir request);
+        System.Threading.Tasks.Task<alterAggirResponse> alterAggirAsync(alterAggir request);
     }
     
     /// <remarks/>
@@ -1100,12 +1100,12 @@ namespace Dome.R833a {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public Dome.R833a.alterAGGIRDto arg0;
+        public alterAGGIRDto arg0;
         
         public alterAggir() {
         }
         
-        public alterAggir(Dome.R833a.alterAGGIRDto arg0) {
+        public alterAggir(alterAGGIRDto arg0) {
             this.arg0 = arg0;
         }
     }
@@ -1118,23 +1118,23 @@ namespace Dome.R833a {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public Dome.R833a.domeResponseDto @return;
+        public domeResponseDto @return;
         
         public alterAggirResponse() {
         }
         
-        public alterAggirResponse(Dome.R833a.domeResponseDto @return) {
+        public alterAggirResponse(domeResponseDto @return) {
             this.@return = @return;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DOME_BUS_EAI_R833aSetDetailAGGIRWSChannel : Dome.R833a.DOME_BUS_EAI_R833aSetDetailAGGIRWS, System.ServiceModel.IClientChannel {
+    public interface DOME_BUS_EAI_R833aSetDetailAGGIRWSChannel : DOME_BUS_EAI_R833aSetDetailAGGIRWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DOME_BUS_EAI_R833aSetDetailAGGIRWSClient : System.ServiceModel.ClientBase<Dome.R833a.DOME_BUS_EAI_R833aSetDetailAGGIRWS>, Dome.R833a.DOME_BUS_EAI_R833aSetDetailAGGIRWS {
+    public partial class DOME_BUS_EAI_R833aSetDetailAGGIRWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R833aSetDetailAGGIRWS>, DOME_BUS_EAI_R833aSetDetailAGGIRWS {
         
         public DOME_BUS_EAI_R833aSetDetailAGGIRWSClient() {
         }
@@ -1156,26 +1156,26 @@ namespace Dome.R833a {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Dome.R833a.alterAggirResponse Dome.R833a.DOME_BUS_EAI_R833aSetDetailAGGIRWS.alterAggir(Dome.R833a.alterAggir request) {
+        alterAggirResponse DOME_BUS_EAI_R833aSetDetailAGGIRWS.alterAggir(alterAggir request) {
             return base.Channel.alterAggir(request);
         }
         
-        public Dome.R833a.domeResponseDto alterAggir(Dome.R833a.alterAGGIRDto arg0) {
-            Dome.R833a.alterAggir inValue = new Dome.R833a.alterAggir();
+        public domeResponseDto alterAggir(alterAGGIRDto arg0) {
+            alterAggir inValue = new alterAggir();
             inValue.arg0 = arg0;
-            Dome.R833a.alterAggirResponse retVal = ((Dome.R833a.DOME_BUS_EAI_R833aSetDetailAGGIRWS)(this)).alterAggir(inValue);
+            alterAggirResponse retVal = ((DOME_BUS_EAI_R833aSetDetailAGGIRWS)(this)).alterAggir(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Dome.R833a.alterAggirResponse> Dome.R833a.DOME_BUS_EAI_R833aSetDetailAGGIRWS.alterAggirAsync(Dome.R833a.alterAggir request) {
+        System.Threading.Tasks.Task<alterAggirResponse> DOME_BUS_EAI_R833aSetDetailAGGIRWS.alterAggirAsync(alterAggir request) {
             return base.Channel.alterAggirAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Dome.R833a.alterAggirResponse> alterAggirAsync(Dome.R833a.alterAGGIRDto arg0) {
-            Dome.R833a.alterAggir inValue = new Dome.R833a.alterAggir();
+        public System.Threading.Tasks.Task<alterAggirResponse> alterAggirAsync(alterAGGIRDto arg0) {
+            alterAggir inValue = new alterAggir();
             inValue.arg0 = arg0;
-            return ((Dome.R833a.DOME_BUS_EAI_R833aSetDetailAGGIRWS)(this)).alterAggirAsync(inValue);
+            return ((DOME_BUS_EAI_R833aSetDetailAGGIRWS)(this)).alterAggirAsync(inValue);
         }
     }
 }

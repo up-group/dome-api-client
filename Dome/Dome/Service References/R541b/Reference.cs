@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dome.R541b {
+namespace Dome.Service_References.R541b {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -22,10 +22,10 @@ namespace Dome.R541b {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeCommonDto))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="authentificationResponse")]
-        Dome.R541b.getProfileListWSResponse getProfileListWS(Dome.R541b.getProfileListWS request);
+        getProfileListWSResponse getProfileListWS(getProfileListWS request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<Dome.R541b.getProfileListWSResponse> getProfileListWSAsync(Dome.R541b.getProfileListWS request);
+        System.Threading.Tasks.Task<getProfileListWSResponse> getProfileListWSAsync(getProfileListWS request);
     }
     
     /// <remarks/>
@@ -1486,12 +1486,12 @@ namespace Dome.R541b {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public Dome.R541b.authentificationInputDto arg0;
+        public authentificationInputDto arg0;
         
         public getProfileListWS() {
         }
         
-        public getProfileListWS(Dome.R541b.authentificationInputDto arg0) {
+        public getProfileListWS(authentificationInputDto arg0) {
             this.arg0 = arg0;
         }
     }
@@ -1504,23 +1504,23 @@ namespace Dome.R541b {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public Dome.R541b.authentificationResponseDto authentificationResponse;
+        public authentificationResponseDto authentificationResponse;
         
         public getProfileListWSResponse() {
         }
         
-        public getProfileListWSResponse(Dome.R541b.authentificationResponseDto authentificationResponse) {
+        public getProfileListWSResponse(authentificationResponseDto authentificationResponse) {
             this.authentificationResponse = authentificationResponse;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DOME_BUS_EAI_R541bGetProfileListWSChannel : Dome.R541b.DOME_BUS_EAI_R541bGetProfileListWS, System.ServiceModel.IClientChannel {
+    public interface DOME_BUS_EAI_R541bGetProfileListWSChannel : DOME_BUS_EAI_R541bGetProfileListWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DOME_BUS_EAI_R541bGetProfileListWSClient : System.ServiceModel.ClientBase<Dome.R541b.DOME_BUS_EAI_R541bGetProfileListWS>, Dome.R541b.DOME_BUS_EAI_R541bGetProfileListWS {
+    public partial class DOME_BUS_EAI_R541bGetProfileListWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R541bGetProfileListWS>, DOME_BUS_EAI_R541bGetProfileListWS {
         
         public DOME_BUS_EAI_R541bGetProfileListWSClient() {
         }
@@ -1542,26 +1542,26 @@ namespace Dome.R541b {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Dome.R541b.getProfileListWSResponse Dome.R541b.DOME_BUS_EAI_R541bGetProfileListWS.getProfileListWS(Dome.R541b.getProfileListWS request) {
+        getProfileListWSResponse DOME_BUS_EAI_R541bGetProfileListWS.getProfileListWS(getProfileListWS request) {
             return base.Channel.getProfileListWS(request);
         }
         
-        public Dome.R541b.authentificationResponseDto getProfileListWS(Dome.R541b.authentificationInputDto arg0) {
-            Dome.R541b.getProfileListWS inValue = new Dome.R541b.getProfileListWS();
+        public authentificationResponseDto getProfileListWS(authentificationInputDto arg0) {
+            getProfileListWS inValue = new getProfileListWS();
             inValue.arg0 = arg0;
-            Dome.R541b.getProfileListWSResponse retVal = ((Dome.R541b.DOME_BUS_EAI_R541bGetProfileListWS)(this)).getProfileListWS(inValue);
+            getProfileListWSResponse retVal = ((DOME_BUS_EAI_R541bGetProfileListWS)(this)).getProfileListWS(inValue);
             return retVal.authentificationResponse;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Dome.R541b.getProfileListWSResponse> Dome.R541b.DOME_BUS_EAI_R541bGetProfileListWS.getProfileListWSAsync(Dome.R541b.getProfileListWS request) {
+        System.Threading.Tasks.Task<getProfileListWSResponse> DOME_BUS_EAI_R541bGetProfileListWS.getProfileListWSAsync(getProfileListWS request) {
             return base.Channel.getProfileListWSAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Dome.R541b.getProfileListWSResponse> getProfileListWSAsync(Dome.R541b.authentificationInputDto arg0) {
-            Dome.R541b.getProfileListWS inValue = new Dome.R541b.getProfileListWS();
+        public System.Threading.Tasks.Task<getProfileListWSResponse> getProfileListWSAsync(authentificationInputDto arg0) {
+            getProfileListWS inValue = new getProfileListWS();
             inValue.arg0 = arg0;
-            return ((Dome.R541b.DOME_BUS_EAI_R541bGetProfileListWS)(this)).getProfileListWSAsync(inValue);
+            return ((DOME_BUS_EAI_R541bGetProfileListWS)(this)).getProfileListWSAsync(inValue);
         }
     }
 }
