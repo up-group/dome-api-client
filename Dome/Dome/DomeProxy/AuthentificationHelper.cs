@@ -1,19 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Web.Script.Serialization;
 using Dome.Client;
+using Dome.Enum;
 
 namespace Dome.DomeProxy
 {
-
     public class AuthentificationHelper
     {
+
+        [SuppressMessage("ReSharper", "InconsistentNaming")]
         public class DomeHeader
         {
-            public string Version { get; set; }
-            public DateTime Date
+            public string version { get; set; }
+            public DateTime date
             {
                 get
                 {
@@ -23,18 +27,19 @@ namespace Dome.DomeProxy
             }
         }
 
+        [SuppressMessage("ReSharper", "InconsistentNaming")]
         public class AuthentificationResultDto
         {
-            public int? StatusId { get; set; }
-            public string Token { get; set; }
-            public string StatusUserMessage { get; set; }
-            public string StatusErrorMessage { get; set; }
-            public string RefreshToken { get; set; }
-            public DomeHeader DomeHeader { get; set; }
-            public int? ExpiresIn { get; set; }
-            public string Firstname { get; set; }
-            public string Lastname { get; set; }
-            public int AccountId { get; set; }
+            public int? statusId { get; set; }
+            public string token { get; set; }
+            public string statusUserMessage { get; set; }
+            public string statusErrorMessage { get; set; }
+            public string refresh_token { get; set; }
+            public DomeHeader DOME_header { get; set; }
+            public int? expires_in { get; set; }
+            public string firstname { get; set; }
+            public string lastname { get; set; }
+            public int accountId { get; set; }
         }
 
 
@@ -44,7 +49,8 @@ namespace Dome.DomeProxy
 
         public Boolean IsConnected { get; set; }
         public AuthentificationResultDto Auth { get; set; }
-        public int? MainProfilId { get; set; }
+        public int? OperateurProfilId { get; set; }
+        public int? StructureProfilId { get; set; }
 
         public static AuthentificationHelper Instance
         {
@@ -84,16 +90,23 @@ namespace Dome.DomeProxy
 
                 Auth = (AuthentificationResultDto)j.Deserialize(responseString.Result, typeof(AuthentificationResultDto));
 
-                IsConnected = Auth.StatusId == 0;
+                IsConnected = Auth.statusId == 0;
 
                 if (IsConnected)
                 {
                     var domeCall = new DomeClient();
-                    var account = domeCall.GetAccount(Auth.AccountId);
+                    var account = domeCall.GetAccount(Auth.accountId);
                     if (account.Succeeded && account.Entity.DOME_profileList.Length == 1)
                     {
-                        MainProfilId = account.Entity.DOME_profileList[0].profileId;
-                        domeCall._SelectProfil(MainProfilId.Value);
+                        var operateurStructure =
+                            account.Entity.DOME_profileList.Single(
+                                profile => profile.typeProfileConstanteId == (int) Profile.OperateurStructure);
+
+                        OperateurProfilId = operateurStructure.profileId;
+                        StructureProfilId = operateurStructure.parentProfileId;
+
+
+                        domeCall._SelectProfil(OperateurProfilId.Value);
                     }
                 }
 
@@ -119,4 +132,5 @@ namespace Dome.DomeProxy
             }
         }
     }
+
 }

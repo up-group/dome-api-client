@@ -17,7 +17,7 @@ namespace Dome.DomeProxy.soap
             using (new OperationContextScope(client.InnerChannel))
             {
                 HttpRequestMessageProperty request = new HttpRequestMessageProperty();
-                request.Headers["Authorization"] = "Bearer " + AuthentificationHelper.Instance.Auth.Token;
+                request.Headers["Authorization"] = "Bearer " + AuthentificationHelper.Instance.Auth.token;
 
                 OperationContext.Current.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = request;
                 var data = test(client);
