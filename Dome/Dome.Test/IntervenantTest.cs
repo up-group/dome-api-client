@@ -1,8 +1,6 @@
 using System;
-using System.Linq;
 using Dome.Client;
 using Dome.Client.dto.createPerson;
-using Dome.Client.dto.updatePerson;
 using Dome.Enum;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

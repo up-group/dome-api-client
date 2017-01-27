@@ -1,5 +1,4 @@
-﻿using Dome.Client.dto;
-using Dome.Client.dto.aggir;
+﻿using Dome.Client.dto.aggir;
 using Dome.Client.dto.createPerson;
 using Dome.Client.dto.createPerson.result;
 using Dome.Client.dto.updatePerson;
@@ -21,7 +20,7 @@ namespace Dome.Client.interfaces
         ActionResult<UpdatePersonResponseDto> UpdatePerson(int accountId, UpdatePerson createPerson);
 
         ActionResult LinkIntervenantToBenef(int patientProfileId, int intervenantProfileId);
-        ActionResult SubscriptionPersonStructure(int patientProfileId, int structureProfileId);
+        ActionResult SubscriptionPatientStructure(int patientProfileId, int structureProfileId);
 
 
 

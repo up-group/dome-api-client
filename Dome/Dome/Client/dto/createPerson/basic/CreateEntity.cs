@@ -7,7 +7,7 @@ namespace Dome.Client.dto.createPerson.basic
     public abstract class CreateEntity : ICreatePerson, ICreateProfile
     {
 
-        protected CreateEntity(Profile profileCibleType)
+       protected CreateEntity(Profile profileCibleType)
         {
             ProfileCibleType = profileCibleType;
         }

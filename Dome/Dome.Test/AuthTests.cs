@@ -1,10 +1,6 @@
-﻿using System;
-using System.Configuration;
+﻿using System.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Dome.Client;
-using Dome.Client.dto.createPerson;
-using Dome.Client.dto.createPerson.basic;
-using Dome.DomeProxy;
 
 namespace Dome.Test
 {

@@ -49,8 +49,8 @@ namespace Dome.DomeProxy
 
         public Boolean IsConnected { get; set; }
         public AuthentificationResultDto Auth { get; set; }
-        public int? OperateurProfilId { get; set; }
-        public int? StructureProfilId { get; set; }
+        public int OperateurProfilId { get; set; }
+        public int StructureProfilId { get; set; }
 
         public static AuthentificationHelper Instance
         {
@@ -106,7 +106,7 @@ namespace Dome.DomeProxy
                         StructureProfilId = operateurStructure.parentProfileId;
 
 
-                        domeCall._SelectProfil(OperateurProfilId.Value);
+                        domeCall._SelectProfil(OperateurProfilId);
                     }
                 }
 

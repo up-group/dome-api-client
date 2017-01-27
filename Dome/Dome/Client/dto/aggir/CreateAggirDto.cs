@@ -19,8 +19,14 @@ namespace Dome.Client.dto.aggir
 
         public string AggirEvaluatorName { get; set; }
 
+
+
+        ///1-6
         public int? AggirCode { get; set; }
 
+
+
+        ///1-3
         public int? AggirCoherence { get; set; }
 
         public int? AggirOrientation { get; set; }
@@ -54,6 +60,10 @@ namespace Dome.Client.dto.aggir
         public int? AggirTempsLibre { get; set; }
 
         public int? AggirAchats { get; set; }
+
+
+
+
 
         public string AggirComment { get; set; }
 

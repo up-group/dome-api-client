@@ -1,7 +1,4 @@
-﻿using System;
-using Dome.Client.dto.createPerson.basic;
-
-namespace DomeConsole
+﻿namespace DomeConsole
 {
     class Program
     {

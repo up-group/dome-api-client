@@ -11,7 +11,7 @@ namespace Dome.Client
 
     public class OperateurStructureConnected
     {
-        public int? AccountId { get { return AuthentificationHelper.Instance.OperateurProfilId; } }
-        public int? StructureProfilId { get { return AuthentificationHelper.Instance.StructureProfilId; } }
+        public int AccountId { get { return AuthentificationHelper.Instance.OperateurProfilId; } }
+        public int StructureProfilId { get { return AuthentificationHelper.Instance.StructureProfilId; } }
     }
 }

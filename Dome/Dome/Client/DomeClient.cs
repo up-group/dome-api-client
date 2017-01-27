@@ -255,11 +255,7 @@ namespace Dome.Client
 
         }
 
-
-
-
-
-
+        
 
         public ActionResult<CreatePersonProfilResult> CreatePatient(CreatePatient createPatient)
         {
@@ -270,7 +266,7 @@ namespace Dome.Client
                 return patient;
             }
 
-            var link = SubscriptionPersonStructure(patient.Entity.ProfileId, createPatient.ProfileStructureId);
+            var link = SubscriptionPatientStructure(patient.Entity.ProfileId, createPatient.ProfileStructureId);
 
             if (link.Succeeded == false)
             {
@@ -397,7 +393,7 @@ namespace Dome.Client
 
         }
 
-        public ActionResult SubscriptionPersonStructure(int patientProfileId, int structureProfileId)
+        public ActionResult SubscriptionPatientStructure(int patientProfileId, int structureProfileId)
         {
             var data = DomeCallSoap.SubscriptionPersonStructure(new subscriptionStructureDto()
             {

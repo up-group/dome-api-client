@@ -1,107 +1,97 @@
-﻿//using System;
-//using Dome.Client;
-//using Microsoft.VisualStudio.TestTools.UnitTesting;
-//using Dome.DomeProxy;
-//using Dome.Service_References.R830a;
-//using Dome.Service_References.R833a;
-//using addNewAggirInnerDto = Dome.Service_References.R830a.addNewAggirInnerDto;
-//using domeResponseDto = Dome.Service_References.R833a.domeResponseDto;
+﻿using System;
+using Dome.Client;
+using Dome.Client.dto.aggir;
+using Dome.Client.dto.createPerson;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-//namespace Dome.Test
-//{
-//    [TestClass]
-//    public class AggirTests
-//    {
-//        private int createdAggirGridId = 0;
+namespace Dome.Test
+{
+    [TestClass]
+    public class AggirTests
+    {
 
-//        [ClassInitialize()]
-//        public static void ClassInit(TestContext context)
-//        {
-//            AuthentificationHelper.Instance.Connect(Settings.Username, Settings.Password);
-//        }
 
-//        [TestMethod]
-//        public void CreationGrilleAGGIRShouldSucceed()
-//        {
-//            addNewAGGIRDto aggir = new addNewAGGIRDto()
-//            {
-//                benefProfileIdSpecified = true,
-//                benefProfileId = 15,
-//                DOME_medAGGIR = new addNewAggirInnerDto()
-//                {
-//                    AGGIREvaluationDate = DateTime.Now.Date,
-//                    AGGIRCreationProfileId = 40,
-//                    AGGIRCreatorName = "moi",
-//                    AGGIRCreationDate = DateTime.Now.Date,
-//                    AGGIRCreatorEntityName = "Structure",
-//                    AGGIRCode = 1,
-//                    AGGIRCoherence = 1,
-//                    AGGIROrientation = 1,
-//                    AGGIRToilette = 1,
-//                    AGGIRHabillage = 1,
-//                    AGGIRAlimentation = 1,
-//                    AGGIRElimination = 1,
-//                    AGGIRTransferts = 1,
-//                    AGGIRDeplacInt = 1,
-//                    AGGIRDeplacExt = 1,
-//                    AGGIRAlerter = 1,
-//                    AGGIRGestion = 1,
-//                    AGGIRCuisine = 1,
-//                    AGGIRMenage = 1,
-//                    AGGIRTransport = 1,
-//                    AGGIRSuiviTraitement = 1,
-//                    AGGIRTempsLibre = 1,
-//                    AGGIRAchats = 1,
-//                }
-//            };
-//            var DomeCall = new DomeClient();
-//            var resp = DomeCall.CreateAggir(aggir);
+        [TestMethod]
+        public void CreationAggir()
+        {
 
-//            Assert.IsTrue(resp.statusId == 0);
+            var fakeId = Guid.NewGuid().ToString();
+            var domeClient = new DomeClient();
 
-//            createdAggirGridId = resp.AGGIRGridId;
-//        }
+            var createPatient = new CreatePatient()
+            {
+                PersonCityName = "Bron",
+                PersonCityZipCode = "69500",
+                PersonFirstName = "FirstName" + fakeId,
+                PersonLastName = "LastName" + fakeId,
+                PersonRoadName = "rue edison",
+                PersonEmail1 = "testdome@yopmail.com",
+                ProfileStructureId = domeClient.OpenData.OperateurStructureConnected.StructureProfilId
+            };
 
-//        [TestMethod]
-//        public void ModificationGrilleAGGIRShouldSucceed()
-//        {
-//            Assert.IsTrue(createdAggirGridId > 0);
 
-//            alterAGGIRDto aggir = new alterAGGIRDto()
-//            {
-//                AGGIRGridId = createdAggirGridId,
-//                AGGIRGridIdSpecified = true,
-//                DOME_medAGGIRdetail = new alterAGGIRInnerDto()
-//                {
-//                    AGGIREvaluationDate = DateTime.Now.Date,
-//                    AGGIRCreationProfileId = 40,
-//                    AGGIRCreatorName = "moi",
-//                    AGGIRCreationDate = DateTime.Now.Date,
-//                    AGGIRCreatorEntityName = "Structure",
-//                    AGGIRCode = 1,
-//                    AGGIRCoherence = 1,
-//                    AGGIROrientation = 1,
-//                    AGGIRToilette = 1,
-//                    AGGIRHabillage = 1,
-//                    AGGIRAlimentation = 1,
-//                    AGGIRElimination = 1,
-//                    AGGIRTransferts = 1,
-//                    AGGIRDeplacInt = 1,
-//                    AGGIRDeplacExt = 1,
-//                    AGGIRAlerter = 1,
-//                    AGGIRGestion = 1,
-//                    AGGIRCuisine = 1,
-//                    AGGIRMenage = 1,
-//                    AGGIRTransport = 1,
-//                    AGGIRSuiviTraitement = 1,
-//                    AGGIRTempsLibre = 1,
-//                    AGGIRAchats = 1,
-//                }
-//            };
-//            var DomeCall = new DomeClientSoap();
-//            domeResponseDto resp = DomeCall.alterAggir(aggir);
+            var patient = domeClient.CreatePatient(createPatient);
 
-//            Assert.IsTrue(resp.statusId == 0);
-//        }
-//    }
-//}
+            Assert.IsTrue(patient.Succeeded);
+
+            var createAggir = new CreateAggirDto()
+            {
+                AggirCreatorName = "AggirCreatorName",
+                AggirCreationDate = DateTime.Now,
+                AggirEvaluationDate = DateTime.Now,
+                AggirCode = 6,
+
+
+                AggirCreatorEntityName = "AggirCreatorEntityName",
+                StructureProfileId =  domeClient.OpenData.OperateurStructureConnected.StructureProfilId,
+                
+
+
+                AggirCoherence = 2,
+
+                AggirOrientation = 3,
+
+                AggirToilette = 2,
+
+                AggirHabillage = 1,
+
+                AggirAlimentation = 1,
+
+                AggirElimination = 1,
+
+                AggirTransferts = 1,
+
+                AggirDeplacInt = 1,
+
+                AggirDeplacExt = 1,
+
+                AggirAlerter = 1,
+
+                AggirGestion = 1,
+
+                AggirCuisine = 1,
+
+                AggirMenage = 1,
+
+                AggirTransport = 1,
+
+                AggirSuiviTraitement = 1,
+
+                AggirTempsLibre = 1,
+
+                AggirAchats = 1,
+
+
+
+
+
+            };
+
+            var agir = domeClient.CreateAggir(patient.Entity.ProfileId, createAggir);
+
+            Assert.IsTrue(agir.Succeeded);
+        }
+
+
+    }
+}
