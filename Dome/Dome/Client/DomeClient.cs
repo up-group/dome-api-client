@@ -8,6 +8,7 @@ using Dome.Client.interfaces;
 using Dome.DomeProxy;
 using Dome.DomeProxy.soap;
 using Dome.Enum;
+using Dome.infrastructure;
 using Dome.Service_References.R511;
 using Dome.Service_References.R521;
 using Dome.Service_References.R523;
@@ -30,8 +31,12 @@ namespace Dome.Client
 
         private DomeClientSoap DomeCallSoap { get; set; }
 
+
+        public OpenData OpenData { get; private set; }
+
         public DomeClient()
         {
+            OpenData = new OpenData();
             DomeCallSoap = new DomeClientSoap();
             DeviceType = DeviceType.LogicielMétier;
 
@@ -43,17 +48,18 @@ namespace Dome.Client
             {
                 DOME_createPerson = new CreatePersonInnerDto()
                 {
-                    personBirthDateSpecified = true,
-                    personCivilityIdSpecified = true,
+                    personCivilityId = (int?)createPerson.PersonCivility ?? -1,
+                    personCivilityIdSpecified = createPerson.PersonCivility.HasValue,
+
+                    personBirthDate = (DateTime?)createPerson.PersonBirthDate ?? DateTime.MinValue.Date,
+                    personBirthDateSpecified = createPerson.PersonBirthDate.HasValue,
 
                     personAddressComp1 = createPerson.PersonAddressComp1,
                     personAddressComp2 = createPerson.PersonAddressComp2,
-                    personBirthDate = createPerson.PersonBirthDate,
                     personBirthName = createPerson.PersonBirthName,
                     personCedex = createPerson.PersonCedex,
                     personCityName = createPerson.PersonCityName,
                     personCityZipCode = createPerson.PersonCityZipCode,
-                    personCivilityId = (int)createPerson.PersonCivility,
                     personComment = createPerson.PersonComment,
                     personEmail1 = createPerson.PersonEmail1,
                     personEmail2 = createPerson.PersonEmail2,
@@ -72,6 +78,7 @@ namespace Dome.Client
                     personRoadType = createPerson.PersonRoadType,
                     personRPPS = createPerson.PersonRpps,
                     specialCriteria = createPerson.SpecialCriteria,
+
                 },
                 DOME_header = new domeHeaderDto()
                 {
@@ -79,8 +86,8 @@ namespace Dome.Client
                     deviceTypeSpecified = true,
                     deviceType = (int)DeviceType,
                     dateSpecified = true,
-                    date = AuthentificationHelper.Instance.Auth.DomeHeader.Date,
-                    version = AuthentificationHelper.Instance.Auth.DomeHeader.Version,
+                    date = AuthentificationHelper.Instance.Auth.DOME_header.date,
+                    version = AuthentificationHelper.Instance.Auth.DOME_header.version,
                 }
             };
 
@@ -103,26 +110,26 @@ namespace Dome.Client
                     deviceTypeSpecified = true,
                     deviceType = (int)DeviceType,
                     dateSpecified = true,
-                    date = AuthentificationHelper.Instance.Auth.DomeHeader.Date,
-                    version = AuthentificationHelper.Instance.Auth.DomeHeader.Version,
+                    date = AuthentificationHelper.Instance.Auth.DOME_header.date,
+                    version = AuthentificationHelper.Instance.Auth.DOME_header.version,
                 },
 
-                accountId = createProfil.AccountId.Value,
-                accountIdSpecified = true,
+                accountId = createProfil.AccountId ?? -1,
+                accountIdSpecified = createProfil.AccountId.HasValue,
 
                 personIdMetier = createProfil.PersonIdMetier,
 
-                profileCibleType = (int)Profile.Beneficiaire,
-                profileCibleTypeSpecified = true,
+                profileCibleType = ((int?)createProfil.ProfileCibleType) ?? -1,
+                profileCibleTypeSpecified = createProfil.ProfileCibleType.HasValue,
 
-                personSocietyRole = (int)createProfil.PersonSocietyRole,
-                personSocietyRoleSpecified = false,
+                personSocietyRole = ((int?)createProfil.PersonSocietyRole) ?? -1,
+                personSocietyRoleSpecified = createProfil.PersonSocietyRole.HasValue,
 
-                profileParentId = createProfil.ProfileParentId,
-                profileParentIdSpecified = false,
+                profileParentId = createProfil.ProfileParentId ?? -1,
+                profileParentIdSpecified = createProfil.ProfileParentId.HasValue,
 
-                profileAvatar = createProfil.ProfileAvatar,
-                profileAvatarSpecified = true,
+                profileAvatar = createProfil.ProfileAvatar ?? -1,
+                profileAvatarSpecified = createProfil.ProfileAvatar.HasValue,
 
                 prestationListId = createProfil.PrestationListId,
 
@@ -161,7 +168,26 @@ namespace Dome.Client
 
             var profile = _CreateProfile(createProfile);
             createPersonProfilResult.SetFromProfilResult(profile.Entity);
+
+
+            if (profile.Succeeded == false)
+            {
+                return new ActionResult<CreatePersonProfilResult>(profile.Succeeded, createPersonProfilResult, profile.Messages);
+            }
+
+            if (createEntity.ProfileStructureId.HasValue)
+            {
+                var link = SubscriptionPersonStructure(profile.Entity.profileId, createEntity.ProfileStructureId.Value);
+
+                if (link.Succeeded == false)
+                {
+                    return new ActionResult<CreatePersonProfilResult>(link.Succeeded, createPersonProfilResult, link.Messages);
+                }
+            }
+
+
             return new ActionResult<CreatePersonProfilResult>(profile.Succeeded, createPersonProfilResult, profile.Messages);
+
         }
 
         internal ActionResult _SelectProfil(int profileId)
@@ -174,8 +200,8 @@ namespace Dome.Client
                     deviceTypeSpecified = true,
                     deviceType = (int)DeviceType,
                     dateSpecified = true,
-                    date = AuthentificationHelper.Instance.Auth.DomeHeader.Date,
-                    version = AuthentificationHelper.Instance.Auth.DomeHeader.Version,
+                    date = AuthentificationHelper.Instance.Auth.DOME_header.date,
+                    version = AuthentificationHelper.Instance.Auth.DOME_header.version,
                 },
                 profileId = profileId,
                 profileIdSpecified = true
@@ -191,7 +217,7 @@ namespace Dome.Client
 
         }
 
-        internal ActionResult<authentificationResponseDto> GetAccount(int accountId)
+        public ActionResult<authentificationResponseDto> GetAccount(int accountId)
         {
 
             var data = DomeCallSoap.GetProfileList(new authentificationInputDto()
@@ -202,8 +228,8 @@ namespace Dome.Client
                 {
                     deviceTypeSpecified = true,
                     deviceType = 5,
-                    date = AuthentificationHelper.Instance.Auth.DomeHeader.Date,
-                    version = AuthentificationHelper.Instance.Auth.DomeHeader.Version,
+                    date = AuthentificationHelper.Instance.Auth.DOME_header.date,
+                    version = AuthentificationHelper.Instance.Auth.DOME_header.version,
                 }
             });
 
@@ -215,7 +241,7 @@ namespace Dome.Client
 
         }
 
-        internal ActionResult<profileDetailResponseDto> GetProfile(int profileId)
+        public ActionResult<profileDetailResponseDto> GetProfile(int profileId)
         {
             var data = DomeCallSoap.ProfileDetails(new profileDetailDto()
             {
@@ -225,8 +251,8 @@ namespace Dome.Client
                 {
                     deviceTypeSpecified = true,
                     deviceType = 5,
-                    date = AuthentificationHelper.Instance.Auth.DomeHeader.Date,
-                    version = AuthentificationHelper.Instance.Auth.DomeHeader.Version,
+                    date = AuthentificationHelper.Instance.Auth.DOME_header.date,
+                    version = AuthentificationHelper.Instance.Auth.DOME_header.version,
                 }
             });
 
@@ -282,23 +308,26 @@ namespace Dome.Client
                     deviceTypeSpecified = true,
                     deviceType = (int)DeviceType,
                     dateSpecified = true,
-                    date = AuthentificationHelper.Instance.Auth.DomeHeader.Date,
-                    version = AuthentificationHelper.Instance.Auth.DomeHeader.Version,
+                    date = AuthentificationHelper.Instance.Auth.DOME_header.date,
+                    version = AuthentificationHelper.Instance.Auth.DOME_header.version,
                 },
                 accountId = accountId,
                 accountIdSpecified = true,
                 DOME_createPerson = new Service_References.R542a.CreatePersonInnerDto()
                 {
+
+                    personCivilityId = (int?)updatePerson.PersonCivility ?? -1,
+                    personCivilityIdSpecified = updatePerson.PersonCivility.HasValue,
+
+                    personBirthDate = (DateTime?)updatePerson.PersonBirthDate ?? DateTime.MinValue.Date,
+                    personBirthDateSpecified = updatePerson.PersonBirthDate.HasValue,
+
                     personAddressComp1 = updatePerson.PersonAddressComp1,
                     personAddressComp2 = updatePerson.PersonAddressComp2,
-                    personBirthDate = updatePerson.PersonBirthDate,
-                    //personBirthDateSpecified = createPerson.personBirthDateSpecified,
                     personBirthName = updatePerson.PersonBirthName,
                     personCedex = updatePerson.PersonCedex,
                     personCityName = updatePerson.PersonCityName,
                     personCityZipCode = updatePerson.PersonCityZipCode,
-                    personCivilityId = (int)updatePerson.PersonCivilityId,
-                    //personCivilityIdSpecified = createPerson.personCivilityIdSpecified,
                     personComment = updatePerson.PersonComment,
                     personEmail1 = updatePerson.PersonEmail1,
                     personEmail2 = updatePerson.PersonEmail2,
@@ -345,8 +374,8 @@ namespace Dome.Client
                     deviceTypeSpecified = true,
                     deviceType = (int)DeviceType,
                     dateSpecified = true,
-                    date = AuthentificationHelper.Instance.Auth.DomeHeader.Date,
-                    version = AuthentificationHelper.Instance.Auth.DomeHeader.Version,
+                    date = AuthentificationHelper.Instance.Auth.DOME_header.date,
+                    version = AuthentificationHelper.Instance.Auth.DOME_header.version,
                 },
 
                 benefProfileId = patientProfileId,
@@ -373,8 +402,8 @@ namespace Dome.Client
                     deviceTypeSpecified = true,
                     deviceType = (int)DeviceType,
                     dateSpecified = true,
-                    date = AuthentificationHelper.Instance.Auth.DomeHeader.Date,
-                    version = AuthentificationHelper.Instance.Auth.DomeHeader.Version,
+                    date = AuthentificationHelper.Instance.Auth.DOME_header.date,
+                    version = AuthentificationHelper.Instance.Auth.DOME_header.version,
                 },
 
                 profileStructureId = structureProfileId,
@@ -396,6 +425,7 @@ namespace Dome.Client
 
 
 
+
         public ActionResult<int> CreateAggir(int beneficiareProfileId, CreateAggirDto createAggirDto)
         {
             var data = DomeCallSoap.AddNewAggir(new addNewAGGIRDto()
@@ -407,62 +437,87 @@ namespace Dome.Client
                     deviceTypeSpecified = true,
                     deviceType = (int)DeviceType,
                     dateSpecified = true,
-                    date = AuthentificationHelper.Instance.Auth.DomeHeader.Date,
-                    version = AuthentificationHelper.Instance.Auth.DomeHeader.Version,
+                    date = AuthentificationHelper.Instance.Auth.DOME_header.date,
+                    version = AuthentificationHelper.Instance.Auth.DOME_header.version,
                 },
 
                 benefProfileId = beneficiareProfileId,
                 benefProfileIdSpecified = true,
                 DOME_medAGGIR = new addNewAggirInnerDto()
                 {
-                    AGGIRAchats = createAggirDto.AggirAchats,
-                    AGGIRAlerter = createAggirDto.AggirAlerter,
-                    //AGGIRAchatsSpecified =createAggirDto.AGGIRAchatsSpecified,
-                    //AGGIRAlerterSpecified =createAggirDto.AGGIRAlerterSpecified,
-                    AGGIRAlimentation = createAggirDto.AggirAlimentation,
-                    //AGGIRAlimentationSpecified =createAggirDto.AGGIRAlimentationSpecified,
-                    AGGIRCode = createAggirDto.AggirCode,
-                    //AGGIRCodeSpecified =createAggirDto.AGGIRCodeSpecified,
-                    AGGIRCoherence = createAggirDto.AggirCoherence,
-                    //AGGIRCoherenceSpecified =createAggirDto.AGGIRCoherenceSpecified,
+                    AGGIRAchats = createAggirDto.AggirAchats ?? -1,
+                    AGGIRAchatsSpecified = createAggirDto.AggirAchats.HasValue,
+
+                    AGGIRAlerter = createAggirDto.AggirAlerter ?? -1,
+                    AGGIRAlerterSpecified = createAggirDto.AggirAlerter.HasValue,
+
+                    AGGIRAlimentation = createAggirDto.AggirAlimentation ?? -1,
+                    AGGIRAlimentationSpecified = createAggirDto.AggirAlimentation.HasValue,
+
+                    AGGIRCode = createAggirDto.AggirCode ?? -1,
+                    AGGIRCodeSpecified = createAggirDto.AggirCode.HasValue,
+
+                    AGGIRCoherence = createAggirDto.AggirCoherence ?? -1,
+                    AGGIRCoherenceSpecified = createAggirDto.AggirCoherence.HasValue,
+
                     AGGIRComment = createAggirDto.AggirComment,
-                    AGGIRCreationDate = createAggirDto.AggirCreationDate,
-                    //AGGIRCreationDateSpecified =createAggirDto.AGGIRCreationDateSpecified,
-                    AGGIRCreationProfileId = createAggirDto.AggirCreationProfileId,
-                    //AGGIRCreationProfileIdSpecified =createAggirDto.AGGIRCreationProfileIdSpecified,
+
+                    AGGIRCreationDate = createAggirDto.AggirCreationDate ?? DateTime.MinValue.Date,
+                    AGGIRCreationDateSpecified = createAggirDto.AggirCreationDate.HasValue,
+
+                    AGGIRCreationProfileId = createAggirDto.AggirCreationProfileId ?? -1,
+                    AGGIRCreationProfileIdSpecified = createAggirDto.AggirCreationProfileId.HasValue,
+
                     AGGIRCreatorEntityName = createAggirDto.AggirCreatorEntityName,
+
                     AGGIRCreatorName = createAggirDto.AggirCreatorName,
-                    AGGIRCuisine = createAggirDto.AggirCuisine,
-                    //AGGIRCuisineSpecified =createAggirDto.AGGIRCuisineSpecified,
-                    AGGIRDeplacExt = createAggirDto.AggirDeplacExt,
-                    //AGGIRDeplacExtSpecified =createAggirDto.AGGIRDeplacExtSpecified,
-                    AGGIRDeplacInt = createAggirDto.AggirDeplacInt,
-                    //AGGIRDeplacIntSpecified =createAggirDto.AGGIRDeplacIntSpecified,
-                    AGGIRElimination = createAggirDto.AggirElimination,
-                    //AGGIREliminationSpecified =createAggirDto.AGGIREliminationSpecified,
-                    AGGIREvaluationDate = createAggirDto.AggirEvaluationDate,
-                    //AGGIREvaluationDateSpecified =createAggirDto.AGGIREvaluationDateSpecified,
+
+                    AGGIRCuisine = createAggirDto.AggirCuisine ?? -1,
+                    AGGIRCuisineSpecified = createAggirDto.AggirCuisine.HasValue,
+
+                    AGGIRDeplacExt = createAggirDto.AggirDeplacExt ?? -1,
+                    AGGIRDeplacExtSpecified = createAggirDto.AggirDeplacExt.HasValue,
+
+                    AGGIRDeplacInt = createAggirDto.AggirDeplacInt ?? -1,
+                    AGGIRDeplacIntSpecified = createAggirDto.AggirDeplacInt.HasValue,
+
+                    AGGIRElimination = createAggirDto.AggirElimination ?? -1,
+                    AGGIREliminationSpecified = createAggirDto.AggirElimination.HasValue,
+
+                    AGGIREvaluationDate = createAggirDto.AggirEvaluationDate ?? DateTime.MinValue.Date,
+                    AGGIREvaluationDateSpecified = createAggirDto.AggirEvaluationDate.HasValue,
+
                     AGGIREvaluatorName = createAggirDto.AggirEvaluatorName,
-                    AGGIRGestion = createAggirDto.AggirGestion,
-                    //AGGIRGestionSpecified =createAggirDto.AGGIRGestionSpecified,
-                    AGGIRHabillage = createAggirDto.AggirHabillage,
-                    //AGGIRHabillageSpecified =createAggirDto.AGGIRHabillageSpecified,
-                    AGGIRMenage = createAggirDto.AggirMenage,
-                    //AGGIRMenageSpecified =createAggirDto.AGGIRMenageSpecified,
-                    AGGIROrientation = createAggirDto.AggirOrientation,
-                    //AGGIROrientationSpecified =createAggirDto.AGGIROrientationSpecified,
-                    AGGIRSuiviTraitement = createAggirDto.AggirSuiviTraitement,
-                    //AGGIRSuiviTraitementSpecified =createAggirDto.AGGIRSuiviTraitementSpecified,
-                    AGGIRTempsLibre = createAggirDto.AggirTempsLibre,
-                    //AGGIRTempsLibreSpecified =createAggirDto.AGGIRTempsLibreSpecified,
-                    AGGIRToilette = createAggirDto.AggirToilette,
-                    //AGGIRToiletteSpecified = createAggirDto.AGGIRToiletteSpecified,
-                    AGGIRTransferts = createAggirDto.AggirTransferts,
-                    //AGGIRTransfertsSpecified = createAggirDto.AGGIRTransfertsSpecified,
-                    AGGIRTransport = createAggirDto.AggirTransport,
-                    //AGGIRTransportSpecified = createAggirDto.AGGIRTransportSpecified,
-                    structureProfileId = createAggirDto.StructureProfileId,
-                    //structureProfileIdSpecified = createAggirDto.structureProfileIdSpecified,
+
+                    AGGIRGestion = createAggirDto.AggirGestion ?? -1,
+                    AGGIRGestionSpecified = createAggirDto.AggirGestion.HasValue,
+
+                    AGGIRHabillage = createAggirDto.AggirHabillage ?? -1,
+                    AGGIRHabillageSpecified = createAggirDto.AggirHabillage.HasValue,
+
+                    AGGIRMenage = createAggirDto.AggirMenage ?? -1,
+                    AGGIRMenageSpecified = createAggirDto.AggirMenage.HasValue,
+
+                    AGGIROrientation = createAggirDto.AggirOrientation ?? -1,
+                    AGGIROrientationSpecified = createAggirDto.AggirOrientation.HasValue,
+
+                    AGGIRSuiviTraitement = createAggirDto.AggirSuiviTraitement ?? -1,
+                    AGGIRSuiviTraitementSpecified = createAggirDto.AggirSuiviTraitement.HasValue,
+
+                    AGGIRTempsLibre = createAggirDto.AggirTempsLibre ?? -1,
+                    AGGIRTempsLibreSpecified = createAggirDto.AggirTempsLibre.HasValue,
+
+                    AGGIRToilette = createAggirDto.AggirToilette ?? -1,
+                    AGGIRToiletteSpecified = createAggirDto.AggirToilette.HasValue,
+
+                    AGGIRTransferts = createAggirDto.AggirTransferts ?? -1,
+                    AGGIRTransfertsSpecified = createAggirDto.AggirTransferts.HasValue,
+
+                    AGGIRTransport = createAggirDto.AggirTransport ?? -1,
+                    AGGIRTransportSpecified = createAggirDto.AggirTransport.HasValue,
+
+                    structureProfileId = createAggirDto.StructureProfileId ?? -1,
+                    structureProfileIdSpecified = createAggirDto.StructureProfileId.HasValue,
 
                 }
             });
@@ -475,7 +530,7 @@ namespace Dome.Client
 
         }
 
-        public ActionResult UpdateAggir(int AGGIRGridId, CreateAggirDto alterAggir)
+        public ActionResult UpdateAggir(int AGGIRGridId, UpdateAggirDto alterAggir)
         {
             var data = DomeCallSoap.AlterAggir(new alterAGGIRDto()
             {
@@ -486,61 +541,95 @@ namespace Dome.Client
                     deviceTypeSpecified = true,
                     deviceType = (int)DeviceType,
                     dateSpecified = true,
-                    date = AuthentificationHelper.Instance.Auth.DomeHeader.Date,
-                    version = AuthentificationHelper.Instance.Auth.DomeHeader.Version,
+                    date = AuthentificationHelper.Instance.Auth.DOME_header.date,
+                    version = AuthentificationHelper.Instance.Auth.DOME_header.version,
                 },
                 AGGIRGridId = AGGIRGridId,
                 AGGIRGridIdSpecified = true,
                 DOME_medAGGIRdetail = new alterAGGIRInnerDto()
                 {
-                    AGGIRAchats = alterAggir.AggirAchats,
-                    AGGIRAlerter = alterAggir.AggirAlerter,
-                    //AGGIRAchatsSpecified =alterAggir.AGGIRAchatsSpecified,
-                    //AGGIRAlerterSpecified =alterAggir.AGGIRAlerterSpecified,
-                    AGGIRAlimentation = alterAggir.AggirAlimentation,
-                    //AGGIRAlimentationSpecified =alterAggir.AGGIRAlimentationSpecified,
-                    AGGIRCode = alterAggir.AggirCode,
-                    //AGGIRCodeSpecified =alterAggir.AGGIRCodeSpecified,
-                    AGGIRCoherence = alterAggir.AggirCoherence,
-                    //AGGIRCoherenceSpecified =alterAggir.AGGIRCoherenceSpecified,
+                    AGGIRAchats = alterAggir.AggirAchats ?? -1,
+                    AGGIRAchatsSpecified = alterAggir.AggirAchats.HasValue,
+
+                    AGGIRAlerter = alterAggir.AggirAlerter ?? -1,
+                    AGGIRAlerterSpecified = alterAggir.AggirAlerter.HasValue,
+
+                    AGGIRAlimentation = alterAggir.AggirAlimentation ?? -1,
+                    AGGIRAlimentationSpecified = alterAggir.AggirAlimentation.HasValue,
+
+                    AGGIRCode = alterAggir.AggirCode ?? -1,
+                    AGGIRCodeSpecified = alterAggir.AggirCode.HasValue,
+
+                    AGGIRCoherence = alterAggir.AggirCoherence ?? -1,
+                    AGGIRCoherenceSpecified = alterAggir.AggirCoherence.HasValue,
+
                     AGGIRComment = alterAggir.AggirComment,
-                    AGGIRCreationDate = alterAggir.AggirCreationDate,
-                    //AGGIRCreationDateSpecified =alterAggir.AGGIRCreationDateSpecified,
-                    AGGIRCreationProfileId = alterAggir.AggirCreationProfileId,
-                    //AGGIRCreationProfileIdSpecified =alterAggir.AGGIRCreationProfileIdSpecified,
+
+                    AGGIRCreationDate = alterAggir.AggirCreationDate ?? DateTime.MinValue.Date,
+                    AGGIRCreationDateSpecified = alterAggir.AggirCreationDate.HasValue,
+
+                    AGGIRCreationProfileId = alterAggir.AggirCreationProfileId ?? -1,
+                    AGGIRCreationProfileIdSpecified = alterAggir.AggirCreationProfileId.HasValue,
+
                     AGGIRCreatorEntityName = alterAggir.AggirCreatorEntityName,
+
                     AGGIRCreatorName = alterAggir.AggirCreatorName,
-                    AGGIRCuisine = alterAggir.AggirCuisine,
-                    //AGGIRCuisineSpecified =alterAggir.AGGIRCuisineSpecified,
-                    AGGIRDeplacExt = alterAggir.AggirDeplacExt,
-                    //AGGIRDeplacExtSpecified =alterAggir.AGGIRDeplacExtSpecified,
-                    AGGIRDeplacInt = alterAggir.AggirDeplacInt,
-                    //AGGIRDeplacIntSpecified =alterAggir.AGGIRDeplacIntSpecified,
-                    AGGIRElimination = alterAggir.AggirElimination,
-                    //AGGIREliminationSpecified =alterAggir.AGGIREliminationSpecified,
-                    AGGIREvaluationDate = alterAggir.AggirEvaluationDate,
-                    //AGGIREvaluationDateSpecified =alterAggir.AGGIREvaluationDateSpecified,
+
+                    AGGIRCuisine = alterAggir.AggirCuisine ?? -1,
+                    AGGIRCuisineSpecified = alterAggir.AggirCuisine.HasValue,
+
+                    AGGIRDeplacExt = alterAggir.AggirDeplacExt ?? -1,
+                    AGGIRDeplacExtSpecified = alterAggir.AggirDeplacExt.HasValue,
+
+                    AGGIRDeplacInt = alterAggir.AggirDeplacInt ?? -1,
+                    AGGIRDeplacIntSpecified = alterAggir.AggirDeplacInt.HasValue,
+
+                    AGGIRElimination = alterAggir.AggirElimination ?? -1,
+                    AGGIREliminationSpecified = alterAggir.AggirElimination.HasValue,
+
+                    AGGIREvaluationDate = alterAggir.AggirEvaluationDate ?? DateTime.MinValue.Date,
+                    AGGIREvaluationDateSpecified = alterAggir.AggirEvaluationDate.HasValue,
+
                     AGGIREvaluatorName = alterAggir.AggirEvaluatorName,
-                    AGGIRGestion = alterAggir.AggirGestion,
-                    //AGGIRGestionSpecified =alterAggir.AGGIRGestionSpecified,
-                    AGGIRHabillage = alterAggir.AggirHabillage,
-                    //AGGIRHabillageSpecified =alterAggir.AGGIRHabillageSpecified,
-                    AGGIRMenage = alterAggir.AggirMenage,
-                    //AGGIRMenageSpecified =alterAggir.AGGIRMenageSpecified,
-                    AGGIROrientation = alterAggir.AggirOrientation,
-                    //AGGIROrientationSpecified =alterAggir.AGGIROrientationSpecified,
-                    AGGIRSuiviTraitement = alterAggir.AggirSuiviTraitement,
-                    //AGGIRSuiviTraitementSpecified =alterAggir.AGGIRSuiviTraitementSpecified,
-                    AGGIRTempsLibre = alterAggir.AggirTempsLibre,
-                    //AGGIRTempsLibreSpecified =alterAggir.AGGIRTempsLibreSpecified,
-                    AGGIRToilette = alterAggir.AggirToilette,
-                    //AGGIRToiletteSpecified = alterAggir.AGGIRToiletteSpecified,
-                    AGGIRTransferts = alterAggir.AggirTransferts,
-                    //AGGIRTransfertsSpecified = alterAggir.AGGIRTransfertsSpecified,
-                    AGGIRTransport = alterAggir.AggirTransport,
-                    //AGGIRTransportSpecified = alterAggir.AGGIRTransportSpecified,
-                    structureProfileId = alterAggir.StructureProfileId,
-                    //structureProfileIdSpecified = alterAggir.structureProfileIdSpecified,
+
+                    AGGIRGestion = alterAggir.AggirGestion ?? -1,
+                    AGGIRGestionSpecified = alterAggir.AggirGestion.HasValue,
+
+                    AGGIRHabillage = alterAggir.AggirHabillage ?? -1,
+                    AGGIRHabillageSpecified = alterAggir.AggirHabillage.HasValue,
+
+                    AGGIRMenage = alterAggir.AggirMenage ?? -1,
+                    AGGIRMenageSpecified = alterAggir.AggirMenage.HasValue,
+
+                    AGGIROrientation = alterAggir.AggirOrientation ?? -1,
+                    AGGIROrientationSpecified = alterAggir.AggirOrientation.HasValue,
+
+                    AGGIRSuiviTraitement = alterAggir.AggirSuiviTraitement ?? -1,
+                    AGGIRSuiviTraitementSpecified = alterAggir.AggirSuiviTraitement.HasValue,
+
+                    AGGIRTempsLibre = alterAggir.AggirTempsLibre ?? -1,
+                    AGGIRTempsLibreSpecified = alterAggir.AggirTempsLibre.HasValue,
+
+                    AGGIRToilette = alterAggir.AggirToilette ?? -1,
+                    AGGIRToiletteSpecified = alterAggir.AggirToilette.HasValue,
+
+                    AGGIRTransferts = alterAggir.AggirTransferts ?? -1,
+                    AGGIRTransfertsSpecified = alterAggir.AggirTransferts.HasValue,
+
+                    AGGIRTransport = alterAggir.AggirTransport ?? -1,
+                    AGGIRTransportSpecified = alterAggir.AggirTransport.HasValue,
+
+                    structureProfileId = alterAggir.StructureProfileId ?? -1,
+                    structureProfileIdSpecified = alterAggir.StructureProfileId.HasValue,
+
+                    AGGIRArchivedDate = alterAggir.AggirArchivedDate ?? DateTime.MinValue.Date,
+                    AGGIRArchivedDateSpecified = alterAggir.AggirArchivedDate.HasValue,
+
+                    AGGIRArchivedName = alterAggir.AggirArchivedName,
+
+                    AGGIRArchivedProfileId = alterAggir.AggirArchivedProfileId ?? -1,
+                    AGGIRArchivedProfileIdSpecified = alterAggir.AggirArchivedProfileId.HasValue,
+
 
                 }
             });
@@ -552,6 +641,9 @@ namespace Dome.Client
             return new ActionResult(false, new Message(MessageType.Error, data.statusErrorMessage));
 
         }
+
+
+
 
 
 
