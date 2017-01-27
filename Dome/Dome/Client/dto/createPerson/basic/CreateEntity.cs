@@ -12,9 +12,6 @@ namespace Dome.Client.dto.createPerson.basic
             ProfileCibleType = profileCibleType;
         }
 
-        public int? ProfileStructureId { get; set; }
-
-
         #region Person
 
         public Civilite? PersonCivility { get; set; }

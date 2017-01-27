@@ -9,5 +9,7 @@ namespace Dome.Client.dto.createPerson
         {
         }
 
+        public int ProfileStructureId { get; set; }
+
     }
 }

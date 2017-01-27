@@ -175,15 +175,6 @@ namespace Dome.Client
                 return new ActionResult<CreatePersonProfilResult>(profile.Succeeded, createPersonProfilResult, profile.Messages);
             }
 
-            if (createEntity.ProfileStructureId.HasValue)
-            {
-                var link = SubscriptionPersonStructure(profile.Entity.profileId, createEntity.ProfileStructureId.Value);
-
-                if (link.Succeeded == false)
-                {
-                    return new ActionResult<CreatePersonProfilResult>(link.Succeeded, createPersonProfilResult, link.Messages);
-                }
-            }
 
 
             return new ActionResult<CreatePersonProfilResult>(profile.Succeeded, createPersonProfilResult, profile.Messages);
@@ -272,7 +263,21 @@ namespace Dome.Client
 
         public ActionResult<CreatePersonProfilResult> CreatePatient(CreatePatient createPatient)
         {
-            return _CreatePersonAndProfil(createPatient);
+            var patient = _CreatePersonAndProfil(createPatient);
+
+            if (patient.Succeeded == false)
+            {
+                return patient;
+            }
+
+            var link = SubscriptionPersonStructure(patient.Entity.ProfileId, createPatient.ProfileStructureId);
+
+            if (link.Succeeded == false)
+            {
+                return new ActionResult<CreatePersonProfilResult>(link.Succeeded, patient.Entity, link.Messages);
+            }
+
+            return patient;
         }
 
         public ActionResult<CreatePersonProfilResult> CreateEntourage(CreateEntourage createEntourage)
