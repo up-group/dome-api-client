@@ -1,3 +1,4 @@
+using System;
 using Dome.Client.interfaces;
 using Dome.Enum;
 
@@ -6,9 +7,7 @@ namespace Dome.Client.dto.updatePerson
     public class UpdatePerson : IUpdatePerson
     {
 
-        public Civilite PersonCivilityId { get; set; }
-
-        public bool PersonCivilityIdFieldSpecified { get; set; }
+        public Civilite? PersonCivility { get; set; }
 
         public string PersonLastName { get; set; }
 
@@ -22,9 +21,7 @@ namespace Dome.Client.dto.updatePerson
 
         public string PersonEmail2 { get; set; }
 
-        public System.DateTime PersonBirthDate { get; set; }
-
-        public bool PersonBirthDateFieldSpecified { get; set; }
+        public DateTime? PersonBirthDate { get; set; }
 
         public string PersonRoadType { get; set; }
 

@@ -1,7 +1,9 @@
 ﻿using Dome.Client.dto;
+using Dome.Client.dto.aggir;
 using Dome.Client.dto.createPerson;
 using Dome.Client.dto.createPerson.result;
 using Dome.Client.dto.updatePerson;
+using Dome.infrastructure;
 using Dome.Service_References.R542a;
 
 namespace Dome.Client.interfaces
@@ -24,7 +26,10 @@ namespace Dome.Client.interfaces
 
 
         ActionResult<int> CreateAggir(int profileId, CreateAggirDto createAggirDto);
-        ActionResult UpdateAggir(int AGGIRGridId, CreateAggirDto alterAggir);
+        ActionResult UpdateAggir(int AGGIRGridId, UpdateAggirDto alterAggir);
+
+
+
 
 
     }

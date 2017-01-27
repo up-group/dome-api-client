@@ -12,9 +12,12 @@ namespace Dome.Client.dto.createPerson.basic
             ProfileCibleType = profileCibleType;
         }
 
+        public int? ProfileStructureId { get; set; }
+
+
         #region Person
 
-        public Civilite PersonCivility { get; set; }
+        public Civilite? PersonCivility { get; set; }
 
         public string PersonLastName { get; set; }
 
@@ -28,7 +31,7 @@ namespace Dome.Client.dto.createPerson.basic
 
         public string PersonEmail2 { get; set; }
 
-        public DateTime PersonBirthDate { get; set; }
+        public DateTime? PersonBirthDate { get; set; }
 
         public string PersonRoadType { get; set; }
 
@@ -71,23 +74,13 @@ namespace Dome.Client.dto.createPerson.basic
         #region  Profile
         public int? AccountId { get; set; }
 
-        public bool AccountIdFieldSpecified { get; set; }
+        public Profile? ProfileCibleType { get; set; }
 
-        public Profile ProfileCibleType { get; set; }
+        public int? ProfileParentId { get; set; }
 
-        public bool ProfileCibleTypeFieldSpecified { get; set; }
+        public int? ProfileAvatar { get; set; }
 
-        public int ProfileParentId { get; set; }
-
-        public bool ProfileParentIdFieldSpecified { get; set; }
-
-        public int ProfileAvatar { get; set; }
-
-        public bool ProfileAvatarFieldSpecified { get; set; }
-
-        public virtual SocietyRole PersonSocietyRole { get; set; }
-
-        public bool PersonSocietyRoleFieldSpecified { get; set; }
+        public virtual SocietyRole? PersonSocietyRole { get; set; }
 
         public string PersonIdMetier { get; set; }
 

@@ -63,7 +63,7 @@ namespace Dome.Client.dto.createPerson.basic
         }
 
 
-        public Civilite PersonCivility { get; set; }
+        public Civilite? PersonCivility { get; set; }
 
         public string PersonLastName { get; set; }
 
@@ -77,7 +77,7 @@ namespace Dome.Client.dto.createPerson.basic
 
         public string PersonEmail2 { get; set; }
 
-        public DateTime PersonBirthDate { get; set; }
+        public DateTime? PersonBirthDate { get; set; }
 
         public string PersonRoadType { get; set; }
 

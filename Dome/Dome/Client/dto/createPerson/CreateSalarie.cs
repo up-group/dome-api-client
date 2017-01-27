@@ -18,6 +18,6 @@ namespace Dome.Client.dto.createPerson
 
         }
 
-        public override SocietyRole PersonSocietyRole { get { return SocietyRole.IntervenantInterne; } }
+        public override SocietyRole? PersonSocietyRole { get { return SocietyRole.IntervenantInterne; } }
     }
 }

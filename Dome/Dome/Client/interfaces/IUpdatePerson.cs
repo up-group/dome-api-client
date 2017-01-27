@@ -1,13 +1,12 @@
+using System;
 using Dome.Enum;
 
 namespace Dome.Client.interfaces
 {
-    public interface IUpdatePerson
+    internal interface IUpdatePerson
     {
 
-        Civilite PersonCivilityId { get; set; }
-
-        bool PersonCivilityIdFieldSpecified { get; set; }
+        Civilite? PersonCivility { get; set; }
 
         string PersonLastName { get; set; }
 
@@ -21,9 +20,7 @@ namespace Dome.Client.interfaces
 
         string PersonEmail2 { get; set; }
 
-        System.DateTime PersonBirthDate { get; set; }
-
-        bool PersonBirthDateFieldSpecified { get; set; }
+        DateTime? PersonBirthDate { get; set; }
 
         string PersonRoadType { get; set; }
 

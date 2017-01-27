@@ -3,9 +3,9 @@ using Dome.Enum;
 
 namespace Dome.Client.interfaces
 {
-    public interface ICreatePerson
+    internal interface ICreatePerson
     {
-        Civilite PersonCivility { get; set; }
+        Civilite? PersonCivility { get; set; }
 
         string PersonLastName { get; set; }
 
@@ -19,7 +19,7 @@ namespace Dome.Client.interfaces
 
         string PersonEmail2 { get; set; }
 
-        DateTime PersonBirthDate { get; set; }
+        DateTime? PersonBirthDate { get; set; }
 
         string PersonRoadType { get; set; }
 

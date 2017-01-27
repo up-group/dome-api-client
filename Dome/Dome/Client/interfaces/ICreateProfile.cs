@@ -6,23 +6,13 @@ namespace Dome.Client.interfaces
     {
         int? AccountId { get; set; }
 
-        bool AccountIdFieldSpecified { get; set; }
+        Profile? ProfileCibleType { get; set; }
 
-        Profile ProfileCibleType { get; set; }
+        int? ProfileParentId { get; set; }
 
-        bool ProfileCibleTypeFieldSpecified { get; set; }
+        int? ProfileAvatar { get; set; }
 
-        int ProfileParentId { get; set; }
-
-        bool ProfileParentIdFieldSpecified { get; set; }
-
-        int ProfileAvatar { get; set; }
-
-        bool ProfileAvatarFieldSpecified { get; set; }
-
-        SocietyRole PersonSocietyRole { get; set; }
-
-        bool PersonSocietyRoleFieldSpecified { get; set; }
+        SocietyRole? PersonSocietyRole { get; set; }
 
         string PersonIdMetier { get; set; }
 
