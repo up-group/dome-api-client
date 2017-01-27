@@ -2,7 +2,7 @@
 
 namespace Dome
 {
-    public static class Settings
+    internal static class Settings
     {
 
 
