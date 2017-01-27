@@ -1,5 +1,5 @@
 ﻿using System;
-using Dome.Client.dto;
+using Dome.Client.dto.aggir;
 using Dome.Client.dto.createPerson;
 using Dome.Client.dto.createPerson.basic;
 using Dome.Client.dto.createPerson.result;
