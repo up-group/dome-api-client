@@ -45,7 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActionResult.cs" />
+    <Compile Include="Client\dto\aggir\CreateAggirDto.cs" />
+    <Compile Include="Client\OpenData.cs" />
+    <Compile Include="infrastructure\ActionResult.cs" />
     <Compile Include="Client\dto\createPerson\basic\CreateEntity.cs" />
     <Compile Include="Client\dto\createPerson\basic\CreatePerson.cs" />
     <Compile Include="Client\dto\createPerson\basic\CreateProfile.cs" />
@@ -64,7 +66,7 @@
     <Compile Include="DomeProxy\soap\DomeClientSoapCallHelper.cs" />
     <Compile Include="Client\interfaces\IDomeClient.cs" />
     <Compile Include="DomeProxy\soap\DomeClientSoap.cs" />
-    <Compile Include="Client\dto\DomeInterface.cs" />
+    <Compile Include="Client\dto\aggir\UpdateAggirDto.cs" />
     <Compile Include="Enum\Civilite.cs" />
     <Compile Include="Enum\Contact.cs" />
     <Compile Include="Enum\DeviceType.cs" />
