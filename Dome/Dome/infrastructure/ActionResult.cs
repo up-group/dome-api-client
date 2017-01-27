@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Dome
+namespace Dome.infrastructure
 {
 
     public enum MessageType
