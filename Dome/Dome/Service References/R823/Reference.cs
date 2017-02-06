@@ -13,7 +13,7 @@ namespace Dome.Service_References.R823 {
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://webservices.partner.dome.fr/", ConfigurationName="R823.DOME_BUS_EAI_R823setDetailJourneyEntryWS")]
-    public interface DOME_BUS_EAI_R823setDetailJourneyEntryWS {
+    internal interface DOME_BUS_EAI_R823setDetailJourneyEntryWS {
         
         // CODEGEN: Parameter 'alterCourseEntryResponse' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
@@ -22,9 +22,6 @@ namespace Dome.Service_References.R823 {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="alterCourseEntryResponse")]
         alterCourseEntryResponse alterCourseEntry(alterCourseEntry request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<alterCourseEntryResponse> alterCourseEntryAsync(alterCourseEntry request);
     }
     
     /// <remarks/>
@@ -690,7 +687,7 @@ namespace Dome.Service_References.R823 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="alterCourseEntry", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class alterCourseEntry {
+    internal partial class alterCourseEntry {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -708,7 +705,7 @@ namespace Dome.Service_References.R823 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="alterCourseEntryResponse", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class alterCourseEntryResponse {
+    internal partial class alterCourseEntryResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="alterCourseEntryResponse", Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -723,12 +720,12 @@ namespace Dome.Service_References.R823 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DOME_BUS_EAI_R823setDetailJourneyEntryWSChannel : DOME_BUS_EAI_R823setDetailJourneyEntryWS, System.ServiceModel.IClientChannel {
+    internal interface DOME_BUS_EAI_R823setDetailJourneyEntryWSChannel : DOME_BUS_EAI_R823setDetailJourneyEntryWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DOME_BUS_EAI_R823setDetailJourneyEntryWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R823setDetailJourneyEntryWS>, DOME_BUS_EAI_R823setDetailJourneyEntryWS {
+    internal partial class DOME_BUS_EAI_R823setDetailJourneyEntryWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R823setDetailJourneyEntryWS>, DOME_BUS_EAI_R823setDetailJourneyEntryWS {
         
         public DOME_BUS_EAI_R823setDetailJourneyEntryWSClient() {
         }
@@ -759,17 +756,6 @@ namespace Dome.Service_References.R823 {
             inValue.AlterCourseEntryDto = AlterCourseEntryDto;
             alterCourseEntryResponse retVal = ((DOME_BUS_EAI_R823setDetailJourneyEntryWS)(this)).alterCourseEntry(inValue);
             return retVal.alterCourseEntryResponse1;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<alterCourseEntryResponse> DOME_BUS_EAI_R823setDetailJourneyEntryWS.alterCourseEntryAsync(alterCourseEntry request) {
-            return base.Channel.alterCourseEntryAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<alterCourseEntryResponse> alterCourseEntryAsync(alterCourseEntryDto AlterCourseEntryDto) {
-            alterCourseEntry inValue = new alterCourseEntry();
-            inValue.AlterCourseEntryDto = AlterCourseEntryDto;
-            return ((DOME_BUS_EAI_R823setDetailJourneyEntryWS)(this)).alterCourseEntryAsync(inValue);
         }
     }
 }

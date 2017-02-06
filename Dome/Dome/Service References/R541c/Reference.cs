@@ -13,7 +13,7 @@ namespace Dome.Service_References.R541c {
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://webservices.partner.dome.fr/", ConfigurationName="R541c.DOME_BUS_EAI_R541cGetProfileDetailWS")]
-    public interface DOME_BUS_EAI_R541cGetProfileDetailWS {
+    internal interface DOME_BUS_EAI_R541cGetProfileDetailWS {
         
         // CODEGEN: Parameter 'profileDetailResponse' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
@@ -23,9 +23,6 @@ namespace Dome.Service_References.R541c {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="profileDetailResponse")]
         profileDetailsResponse profileDetails(profileDetails request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<profileDetailsResponse> profileDetailsAsync(profileDetails request);
     }
     
     /// <remarks/>
@@ -1168,7 +1165,7 @@ namespace Dome.Service_References.R541c {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="profileDetails", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class profileDetails {
+    internal partial class profileDetails {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -1186,7 +1183,7 @@ namespace Dome.Service_References.R541c {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="profileDetailsResponse", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class profileDetailsResponse {
+    internal partial class profileDetailsResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -1201,12 +1198,12 @@ namespace Dome.Service_References.R541c {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DOME_BUS_EAI_R541cGetProfileDetailWSChannel : DOME_BUS_EAI_R541cGetProfileDetailWS, System.ServiceModel.IClientChannel {
+    internal interface DOME_BUS_EAI_R541cGetProfileDetailWSChannel : DOME_BUS_EAI_R541cGetProfileDetailWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DOME_BUS_EAI_R541cGetProfileDetailWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R541cGetProfileDetailWS>, DOME_BUS_EAI_R541cGetProfileDetailWS {
+    internal partial class DOME_BUS_EAI_R541cGetProfileDetailWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R541cGetProfileDetailWS>, DOME_BUS_EAI_R541cGetProfileDetailWS {
         
         public DOME_BUS_EAI_R541cGetProfileDetailWSClient() {
         }
@@ -1237,17 +1234,6 @@ namespace Dome.Service_References.R541c {
             inValue.updateReferentDto = updateReferentDto;
             profileDetailsResponse retVal = ((DOME_BUS_EAI_R541cGetProfileDetailWS)(this)).profileDetails(inValue);
             return retVal.profileDetailResponse;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<profileDetailsResponse> DOME_BUS_EAI_R541cGetProfileDetailWS.profileDetailsAsync(profileDetails request) {
-            return base.Channel.profileDetailsAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<profileDetailsResponse> profileDetailsAsync(profileDetailDto updateReferentDto) {
-            profileDetails inValue = new profileDetails();
-            inValue.updateReferentDto = updateReferentDto;
-            return ((DOME_BUS_EAI_R541cGetProfileDetailWS)(this)).profileDetailsAsync(inValue);
         }
     }
 }

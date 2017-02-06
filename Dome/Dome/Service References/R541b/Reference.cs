@@ -13,7 +13,7 @@ namespace Dome.Service_References.R541b {
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://webservices.partner.dome.fr/", ConfigurationName="R541b.DOME_BUS_EAI_R541bGetProfileListWS")]
-    public interface DOME_BUS_EAI_R541bGetProfileListWS {
+    internal interface DOME_BUS_EAI_R541bGetProfileListWS {
         
         // CODEGEN: Parameter 'authentificationResponse' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
@@ -23,9 +23,6 @@ namespace Dome.Service_References.R541b {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="authentificationResponse")]
         getProfileListWSResponse getProfileListWS(getProfileListWS request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<getProfileListWSResponse> getProfileListWSAsync(getProfileListWS request);
     }
     
     /// <remarks/>
@@ -1482,7 +1479,7 @@ namespace Dome.Service_References.R541b {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="getProfileListWS", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class getProfileListWS {
+    internal partial class getProfileListWS {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -1500,7 +1497,7 @@ namespace Dome.Service_References.R541b {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="getProfileListWSResponse", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class getProfileListWSResponse {
+    internal partial class getProfileListWSResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -1515,12 +1512,12 @@ namespace Dome.Service_References.R541b {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DOME_BUS_EAI_R541bGetProfileListWSChannel : DOME_BUS_EAI_R541bGetProfileListWS, System.ServiceModel.IClientChannel {
+    internal interface DOME_BUS_EAI_R541bGetProfileListWSChannel : DOME_BUS_EAI_R541bGetProfileListWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DOME_BUS_EAI_R541bGetProfileListWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R541bGetProfileListWS>, DOME_BUS_EAI_R541bGetProfileListWS {
+    internal partial class DOME_BUS_EAI_R541bGetProfileListWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R541bGetProfileListWS>, DOME_BUS_EAI_R541bGetProfileListWS {
         
         public DOME_BUS_EAI_R541bGetProfileListWSClient() {
         }
@@ -1551,17 +1548,6 @@ namespace Dome.Service_References.R541b {
             inValue.arg0 = arg0;
             getProfileListWSResponse retVal = ((DOME_BUS_EAI_R541bGetProfileListWS)(this)).getProfileListWS(inValue);
             return retVal.authentificationResponse;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<getProfileListWSResponse> DOME_BUS_EAI_R541bGetProfileListWS.getProfileListWSAsync(getProfileListWS request) {
-            return base.Channel.getProfileListWSAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<getProfileListWSResponse> getProfileListWSAsync(authentificationInputDto arg0) {
-            getProfileListWS inValue = new getProfileListWS();
-            inValue.arg0 = arg0;
-            return ((DOME_BUS_EAI_R541bGetProfileListWS)(this)).getProfileListWSAsync(inValue);
         }
     }
 }

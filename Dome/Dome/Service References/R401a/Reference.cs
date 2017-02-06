@@ -13,7 +13,7 @@ namespace Dome.Service_References.R401a {
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://webservices.partner.dome.fr/", ConfigurationName="R401a.DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS")]
-    public interface DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS {
+    internal interface DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS {
         
         // CODEGEN: Parameter 'domeResponseDto' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
@@ -23,9 +23,6 @@ namespace Dome.Service_References.R401a {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="domeResponseDto")]
         addDocumentResponse addDocument(addDocument request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<addDocumentResponse> addDocumentAsync(addDocument request);
     }
     
     /// <remarks/>
@@ -540,7 +537,7 @@ namespace Dome.Service_References.R401a {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="addDocument", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class addDocument {
+    internal partial class addDocument {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -558,7 +555,7 @@ namespace Dome.Service_References.R401a {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="addDocumentResponse", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class addDocumentResponse {
+    internal partial class addDocumentResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -573,12 +570,12 @@ namespace Dome.Service_References.R401a {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DOME_BUS_EAI_R401aDocProvisionningAcquisitionWSChannel : DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS, System.ServiceModel.IClientChannel {
+    internal interface DOME_BUS_EAI_R401aDocProvisionningAcquisitionWSChannel : DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DOME_BUS_EAI_R401aDocProvisionningAcquisitionWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS>, DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS {
+    internal partial class DOME_BUS_EAI_R401aDocProvisionningAcquisitionWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS>, DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS {
         
         public DOME_BUS_EAI_R401aDocProvisionningAcquisitionWSClient() {
         }
@@ -609,17 +606,6 @@ namespace Dome.Service_References.R401a {
             inValue.AddDocumentInput = AddDocumentInput;
             addDocumentResponse retVal = ((DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS)(this)).addDocument(inValue);
             return retVal.domeResponseDto;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<addDocumentResponse> DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS.addDocumentAsync(addDocument request) {
-            return base.Channel.addDocumentAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<addDocumentResponse> addDocumentAsync(addDocumentInputDto AddDocumentInput) {
-            addDocument inValue = new addDocument();
-            inValue.AddDocumentInput = AddDocumentInput;
-            return ((DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS)(this)).addDocumentAsync(inValue);
         }
     }
 }

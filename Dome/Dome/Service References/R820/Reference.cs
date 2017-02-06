@@ -13,7 +13,7 @@ namespace Dome.Service_References.R820 {
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://webservices.partner.dome.fr/", ConfigurationName="R820.DOME_BUS_EAI_R820addNewJourneyEntryWS")]
-    public interface DOME_BUS_EAI_R820addNewJourneyEntryWS {
+    internal interface DOME_BUS_EAI_R820addNewJourneyEntryWS {
         
         // CODEGEN: Parameter 'addCourseEntryResponse' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
@@ -23,9 +23,6 @@ namespace Dome.Service_References.R820 {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="addCourseEntryResponse")]
         addCourseEntryResponse addCourseEntry(addCourseEntry request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<addCourseEntryResponse> addCourseEntryAsync(addCourseEntry request);
     }
     
     /// <remarks/>
@@ -690,7 +687,7 @@ namespace Dome.Service_References.R820 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="addCourseEntry", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class addCourseEntry {
+    internal partial class addCourseEntry {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -708,7 +705,7 @@ namespace Dome.Service_References.R820 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="addCourseEntryResponse", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class addCourseEntryResponse {
+    internal partial class addCourseEntryResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="addCourseEntryResponse", Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -723,12 +720,12 @@ namespace Dome.Service_References.R820 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DOME_BUS_EAI_R820addNewJourneyEntryWSChannel : DOME_BUS_EAI_R820addNewJourneyEntryWS, System.ServiceModel.IClientChannel {
+    internal interface DOME_BUS_EAI_R820addNewJourneyEntryWSChannel : DOME_BUS_EAI_R820addNewJourneyEntryWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DOME_BUS_EAI_R820addNewJourneyEntryWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R820addNewJourneyEntryWS>, DOME_BUS_EAI_R820addNewJourneyEntryWS {
+    internal partial class DOME_BUS_EAI_R820addNewJourneyEntryWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R820addNewJourneyEntryWS>, DOME_BUS_EAI_R820addNewJourneyEntryWS {
         
         public DOME_BUS_EAI_R820addNewJourneyEntryWSClient() {
         }
@@ -759,17 +756,6 @@ namespace Dome.Service_References.R820 {
             inValue.addCourseEntryDto = addCourseEntryDto;
             addCourseEntryResponse retVal = ((DOME_BUS_EAI_R820addNewJourneyEntryWS)(this)).addCourseEntry(inValue);
             return retVal.addCourseEntryResponse1;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<addCourseEntryResponse> DOME_BUS_EAI_R820addNewJourneyEntryWS.addCourseEntryAsync(addCourseEntry request) {
-            return base.Channel.addCourseEntryAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<addCourseEntryResponse> addCourseEntryAsync(addCourseEntryDto addCourseEntryDto) {
-            addCourseEntry inValue = new addCourseEntry();
-            inValue.addCourseEntryDto = addCourseEntryDto;
-            return ((DOME_BUS_EAI_R820addNewJourneyEntryWS)(this)).addCourseEntryAsync(inValue);
         }
     }
 }

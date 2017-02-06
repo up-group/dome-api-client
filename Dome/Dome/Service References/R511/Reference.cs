@@ -13,7 +13,7 @@ namespace Dome.Service_References.R511 {
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://webservices.partner.dome.fr/", ConfigurationName="R511.DOME_BUS_EAI_R511createPersonWS")]
-    public interface DOME_BUS_EAI_R511createPersonWS {
+    internal interface DOME_BUS_EAI_R511createPersonWS {
         
         // CODEGEN: Parameter 'createPersonResponse' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
@@ -23,9 +23,6 @@ namespace Dome.Service_References.R511 {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="createPersonResponse")]
         createPersonResponse createPerson(createPerson request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<createPersonResponse> createPersonAsync(createPerson request);
     }
     
     /// <remarks/>
@@ -932,7 +929,7 @@ namespace Dome.Service_References.R511 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="createPerson", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class createPerson {
+    internal partial class createPerson {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -950,7 +947,7 @@ namespace Dome.Service_References.R511 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="createPersonResponse", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class createPersonResponse {
+    internal partial class createPersonResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="createPersonResponse", Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -965,12 +962,12 @@ namespace Dome.Service_References.R511 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DOME_BUS_EAI_R511createPersonWSChannel : DOME_BUS_EAI_R511createPersonWS, System.ServiceModel.IClientChannel {
+    internal interface DOME_BUS_EAI_R511createPersonWSChannel : DOME_BUS_EAI_R511createPersonWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DOME_BUS_EAI_R511createPersonWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R511createPersonWS>, DOME_BUS_EAI_R511createPersonWS {
+    internal partial class DOME_BUS_EAI_R511createPersonWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R511createPersonWS>, DOME_BUS_EAI_R511createPersonWS {
         
         public DOME_BUS_EAI_R511createPersonWSClient() {
         }
@@ -1001,17 +998,6 @@ namespace Dome.Service_References.R511 {
             inValue.createPersonDto = createPersonDto;
             createPersonResponse retVal = ((DOME_BUS_EAI_R511createPersonWS)(this)).createPerson(inValue);
             return retVal.createPersonResponse1;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<createPersonResponse> DOME_BUS_EAI_R511createPersonWS.createPersonAsync(createPerson request) {
-            return base.Channel.createPersonAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<createPersonResponse> createPersonAsync(CreatePersonDto createPersonDto) {
-            createPerson inValue = new createPerson();
-            inValue.createPersonDto = createPersonDto;
-            return ((DOME_BUS_EAI_R511createPersonWS)(this)).createPersonAsync(inValue);
         }
     }
 }

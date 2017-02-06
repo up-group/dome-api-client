@@ -13,7 +13,7 @@ namespace Dome.Service_References.R542a {
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://webservices.partner.dome.fr/", ConfigurationName="R542a.DOME_BUS_EAI_R542aUpdatePersonWS")]
-    public interface DOME_BUS_EAI_R542aUpdatePersonWS {
+    internal interface DOME_BUS_EAI_R542aUpdatePersonWS {
         
         // CODEGEN: Parameter 'updatePersonResponse' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
@@ -23,9 +23,6 @@ namespace Dome.Service_References.R542a {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="updatePersonResponse")]
         updatePersonResponse updatePerson(updatePerson request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<updatePersonResponse> updatePersonAsync(updatePerson request);
     }
     
     /// <remarks/>
@@ -876,7 +873,7 @@ namespace Dome.Service_References.R542a {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="updatePerson", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class updatePerson {
+    internal partial class updatePerson {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -894,7 +891,7 @@ namespace Dome.Service_References.R542a {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="updatePersonResponse", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class updatePersonResponse {
+    internal partial class updatePersonResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="updatePersonResponse", Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -909,12 +906,12 @@ namespace Dome.Service_References.R542a {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DOME_BUS_EAI_R542aUpdatePersonWSChannel : DOME_BUS_EAI_R542aUpdatePersonWS, System.ServiceModel.IClientChannel {
+    internal interface DOME_BUS_EAI_R542aUpdatePersonWSChannel : DOME_BUS_EAI_R542aUpdatePersonWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DOME_BUS_EAI_R542aUpdatePersonWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R542aUpdatePersonWS>, DOME_BUS_EAI_R542aUpdatePersonWS {
+    internal partial class DOME_BUS_EAI_R542aUpdatePersonWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R542aUpdatePersonWS>, DOME_BUS_EAI_R542aUpdatePersonWS {
         
         public DOME_BUS_EAI_R542aUpdatePersonWSClient() {
         }
@@ -945,17 +942,6 @@ namespace Dome.Service_References.R542a {
             inValue.updatePersonDto = updatePersonDto;
             updatePersonResponse retVal = ((DOME_BUS_EAI_R542aUpdatePersonWS)(this)).updatePerson(inValue);
             return retVal.updatePersonResponse1;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<updatePersonResponse> DOME_BUS_EAI_R542aUpdatePersonWS.updatePersonAsync(updatePerson request) {
-            return base.Channel.updatePersonAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<updatePersonResponse> updatePersonAsync(UpdatePersonDto updatePersonDto) {
-            updatePerson inValue = new updatePerson();
-            inValue.updatePersonDto = updatePersonDto;
-            return ((DOME_BUS_EAI_R542aUpdatePersonWS)(this)).updatePersonAsync(inValue);
         }
     }
 }

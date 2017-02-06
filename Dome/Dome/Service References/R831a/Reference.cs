@@ -13,7 +13,7 @@ namespace Dome.Service_References.R831a {
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://webservices.partner.dome.fr/", ConfigurationName="R831a.DOME_BUS_EAI_R831aGetListAGGIRWS")]
-    public interface DOME_BUS_EAI_R831aGetListAGGIRWS {
+    internal interface DOME_BUS_EAI_R831aGetListAGGIRWS {
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
@@ -23,9 +23,6 @@ namespace Dome.Service_References.R831a {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         getListAGGIRResponse getListAGGIR(getListAGGIR request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<getListAGGIRResponse> getListAGGIRAsync(getListAGGIR request);
     }
     
     /// <remarks/>
@@ -1096,7 +1093,7 @@ namespace Dome.Service_References.R831a {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="getListAGGIR", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class getListAGGIR {
+    internal partial class getListAGGIR {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -1114,7 +1111,7 @@ namespace Dome.Service_References.R831a {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="getListAGGIRResponse", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class getListAGGIRResponse {
+    internal partial class getListAGGIRResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -1129,12 +1126,12 @@ namespace Dome.Service_References.R831a {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DOME_BUS_EAI_R831aGetListAGGIRWSChannel : DOME_BUS_EAI_R831aGetListAGGIRWS, System.ServiceModel.IClientChannel {
+    internal interface DOME_BUS_EAI_R831aGetListAGGIRWSChannel : DOME_BUS_EAI_R831aGetListAGGIRWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DOME_BUS_EAI_R831aGetListAGGIRWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R831aGetListAGGIRWS>, DOME_BUS_EAI_R831aGetListAGGIRWS {
+    internal partial class DOME_BUS_EAI_R831aGetListAGGIRWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R831aGetListAGGIRWS>, DOME_BUS_EAI_R831aGetListAGGIRWS {
         
         public DOME_BUS_EAI_R831aGetListAGGIRWSClient() {
         }
@@ -1165,17 +1162,6 @@ namespace Dome.Service_References.R831a {
             inValue.arg0 = arg0;
             getListAGGIRResponse retVal = ((DOME_BUS_EAI_R831aGetListAGGIRWS)(this)).getListAGGIR(inValue);
             return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<getListAGGIRResponse> DOME_BUS_EAI_R831aGetListAGGIRWS.getListAGGIRAsync(getListAGGIR request) {
-            return base.Channel.getListAGGIRAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<getListAGGIRResponse> getListAGGIRAsync(getListAGGIRDto arg0) {
-            getListAGGIR inValue = new getListAGGIR();
-            inValue.arg0 = arg0;
-            return ((DOME_BUS_EAI_R831aGetListAGGIRWS)(this)).getListAGGIRAsync(inValue);
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Dome.Service_References.R523 {
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://webservices.partner.dome.fr/", ConfigurationName="R523.DOME_BUS_EAI_R523benefSubscriptionWS")]
-    public interface DOME_BUS_EAI_R523benefSubscriptionWS {
+    internal interface DOME_BUS_EAI_R523benefSubscriptionWS {
         
         // CODEGEN: Parameter 'subscriptionStructureResponse' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
@@ -23,9 +23,6 @@ namespace Dome.Service_References.R523 {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="subscriptionStructureResponse")]
         subscriptionPersonStructureResponse subscriptionPersonStructure(subscriptionPersonStructure request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<subscriptionPersonStructureResponse> subscriptionPersonStructureAsync(subscriptionPersonStructure request);
     }
     
     /// <remarks/>
@@ -350,7 +347,7 @@ namespace Dome.Service_References.R523 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="subscriptionPersonStructure", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class subscriptionPersonStructure {
+    internal partial class subscriptionPersonStructure {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -368,7 +365,7 @@ namespace Dome.Service_References.R523 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="subscriptionPersonStructureResponse", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class subscriptionPersonStructureResponse {
+    internal partial class subscriptionPersonStructureResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -383,12 +380,12 @@ namespace Dome.Service_References.R523 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DOME_BUS_EAI_R523benefSubscriptionWSChannel : DOME_BUS_EAI_R523benefSubscriptionWS, System.ServiceModel.IClientChannel {
+    internal interface DOME_BUS_EAI_R523benefSubscriptionWSChannel : DOME_BUS_EAI_R523benefSubscriptionWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DOME_BUS_EAI_R523benefSubscriptionWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R523benefSubscriptionWS>, DOME_BUS_EAI_R523benefSubscriptionWS {
+    internal partial class DOME_BUS_EAI_R523benefSubscriptionWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R523benefSubscriptionWS>, DOME_BUS_EAI_R523benefSubscriptionWS {
         
         public DOME_BUS_EAI_R523benefSubscriptionWSClient() {
         }
@@ -419,17 +416,6 @@ namespace Dome.Service_References.R523 {
             inValue.subscriptionStructureDto = subscriptionStructureDto;
             subscriptionPersonStructureResponse retVal = ((DOME_BUS_EAI_R523benefSubscriptionWS)(this)).subscriptionPersonStructure(inValue);
             return retVal.subscriptionStructureResponse;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<subscriptionPersonStructureResponse> DOME_BUS_EAI_R523benefSubscriptionWS.subscriptionPersonStructureAsync(subscriptionPersonStructure request) {
-            return base.Channel.subscriptionPersonStructureAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<subscriptionPersonStructureResponse> subscriptionPersonStructureAsync(subscriptionStructureDto subscriptionStructureDto) {
-            subscriptionPersonStructure inValue = new subscriptionPersonStructure();
-            inValue.subscriptionStructureDto = subscriptionStructureDto;
-            return ((DOME_BUS_EAI_R523benefSubscriptionWS)(this)).subscriptionPersonStructureAsync(inValue);
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Dome.Service_References.R101 {
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://webservices.partner.dome.fr/", ConfigurationName="R101.DOME_BUS_EAI_R101contactCreateWS")]
-    public interface DOME_BUS_EAI_R101contactCreateWS {
+    internal interface DOME_BUS_EAI_R101contactCreateWS {
         
         // CODEGEN: Parameter 'createContactResponse' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
@@ -23,9 +23,6 @@ namespace Dome.Service_References.R101 {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="createContactResponse")]
         createContactResponse createContact(createContact request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<createContactResponse> createContactAsync(createContact request);
     }
     
     /// <remarks/>
@@ -858,7 +855,7 @@ namespace Dome.Service_References.R101 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="createContact", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class createContact {
+    internal partial class createContact {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -876,7 +873,7 @@ namespace Dome.Service_References.R101 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="createContactResponse", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class createContactResponse {
+    internal partial class createContactResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="createContactResponse", Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -891,12 +888,12 @@ namespace Dome.Service_References.R101 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DOME_BUS_EAI_R101contactCreateWSChannel : DOME_BUS_EAI_R101contactCreateWS, System.ServiceModel.IClientChannel {
+    internal interface DOME_BUS_EAI_R101contactCreateWSChannel : DOME_BUS_EAI_R101contactCreateWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DOME_BUS_EAI_R101contactCreateWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R101contactCreateWS>, DOME_BUS_EAI_R101contactCreateWS {
+    internal partial class DOME_BUS_EAI_R101contactCreateWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R101contactCreateWS>, DOME_BUS_EAI_R101contactCreateWS {
         
         public DOME_BUS_EAI_R101contactCreateWSClient() {
         }
@@ -927,17 +924,6 @@ namespace Dome.Service_References.R101 {
             inValue.createContactDto = createContactDto;
             createContactResponse retVal = ((DOME_BUS_EAI_R101contactCreateWS)(this)).createContact(inValue);
             return retVal.createContactResponse1;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<createContactResponse> DOME_BUS_EAI_R101contactCreateWS.createContactAsync(createContact request) {
-            return base.Channel.createContactAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<createContactResponse> createContactAsync(createContactDto createContactDto) {
-            createContact inValue = new createContact();
-            inValue.createContactDto = createContactDto;
-            return ((DOME_BUS_EAI_R101contactCreateWS)(this)).createContactAsync(inValue);
         }
     }
 }

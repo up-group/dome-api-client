@@ -13,7 +13,7 @@ namespace Dome.Service_References.R213b {
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://webservices.partner.dome.fr/", ConfigurationName="R213b.DOME_BUS_EAI_R213beventGetNotificationStructureWS")]
-    public interface DOME_BUS_EAI_R213beventGetNotificationStructureWS {
+    internal interface DOME_BUS_EAI_R213beventGetNotificationStructureWS {
         
         // CODEGEN: Parameter 'eventGetNotificationStructureResponse' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
@@ -23,9 +23,6 @@ namespace Dome.Service_References.R213b {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="eventGetNotificationStructureResponse")]
         getNotificationsResponse getNotifications(getNotifications request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<getNotificationsResponse> getNotificationsAsync(getNotifications request);
     }
     
     /// <remarks/>
@@ -561,6 +558,234 @@ namespace Dome.Service_References.R213b {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://webservices.partner.dome.fr/")]
+    public partial class deleteQueryNotificationStructureDto : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private int benefProfileIdField;
+        
+        private bool benefProfileIdFieldSpecified;
+        
+        private int eventProIdMetierField;
+        
+        private bool eventProIdMetierFieldSpecified;
+        
+        private System.DateTime eventTimeStartField;
+        
+        private bool eventTimeStartFieldSpecified;
+        
+        private System.DateTime eventTimeEndField;
+        
+        private bool eventTimeEndFieldSpecified;
+        
+        private string commentaireField;
+        
+        private string motifField;
+        
+        private int eventNotifProfileIdField;
+        
+        private bool eventNotifProfileIdFieldSpecified;
+        
+        private string eventNotifProfileNameField;
+        
+        private System.DateTime eventNotifDateTimeField;
+        
+        private bool eventNotifDateTimeFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public int benefProfileId {
+            get {
+                return this.benefProfileIdField;
+            }
+            set {
+                this.benefProfileIdField = value;
+                this.RaisePropertyChanged("benefProfileId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool benefProfileIdSpecified {
+            get {
+                return this.benefProfileIdFieldSpecified;
+            }
+            set {
+                this.benefProfileIdFieldSpecified = value;
+                this.RaisePropertyChanged("benefProfileIdSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public int eventProIdMetier {
+            get {
+                return this.eventProIdMetierField;
+            }
+            set {
+                this.eventProIdMetierField = value;
+                this.RaisePropertyChanged("eventProIdMetier");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool eventProIdMetierSpecified {
+            get {
+                return this.eventProIdMetierFieldSpecified;
+            }
+            set {
+                this.eventProIdMetierFieldSpecified = value;
+                this.RaisePropertyChanged("eventProIdMetierSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public System.DateTime eventTimeStart {
+            get {
+                return this.eventTimeStartField;
+            }
+            set {
+                this.eventTimeStartField = value;
+                this.RaisePropertyChanged("eventTimeStart");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool eventTimeStartSpecified {
+            get {
+                return this.eventTimeStartFieldSpecified;
+            }
+            set {
+                this.eventTimeStartFieldSpecified = value;
+                this.RaisePropertyChanged("eventTimeStartSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public System.DateTime eventTimeEnd {
+            get {
+                return this.eventTimeEndField;
+            }
+            set {
+                this.eventTimeEndField = value;
+                this.RaisePropertyChanged("eventTimeEnd");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool eventTimeEndSpecified {
+            get {
+                return this.eventTimeEndFieldSpecified;
+            }
+            set {
+                this.eventTimeEndFieldSpecified = value;
+                this.RaisePropertyChanged("eventTimeEndSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public string commentaire {
+            get {
+                return this.commentaireField;
+            }
+            set {
+                this.commentaireField = value;
+                this.RaisePropertyChanged("commentaire");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        public string motif {
+            get {
+                return this.motifField;
+            }
+            set {
+                this.motifField = value;
+                this.RaisePropertyChanged("motif");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        public int eventNotifProfileId {
+            get {
+                return this.eventNotifProfileIdField;
+            }
+            set {
+                this.eventNotifProfileIdField = value;
+                this.RaisePropertyChanged("eventNotifProfileId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool eventNotifProfileIdSpecified {
+            get {
+                return this.eventNotifProfileIdFieldSpecified;
+            }
+            set {
+                this.eventNotifProfileIdFieldSpecified = value;
+                this.RaisePropertyChanged("eventNotifProfileIdSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
+        public string eventNotifProfileName {
+            get {
+                return this.eventNotifProfileNameField;
+            }
+            set {
+                this.eventNotifProfileNameField = value;
+                this.RaisePropertyChanged("eventNotifProfileName");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+        public System.DateTime eventNotifDateTime {
+            get {
+                return this.eventNotifDateTimeField;
+            }
+            set {
+                this.eventNotifDateTimeField = value;
+                this.RaisePropertyChanged("eventNotifDateTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool eventNotifDateTimeSpecified {
+            get {
+                return this.eventNotifDateTimeFieldSpecified;
+            }
+            set {
+                this.eventNotifDateTimeFieldSpecified = value;
+                this.RaisePropertyChanged("eventNotifDateTimeSpecified");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://webservices.partner.dome.fr/")]
     public partial class updateQueryNotificationStructureDto : object, System.ComponentModel.INotifyPropertyChanged {
         
         private int benefProfileIdField;
@@ -891,6 +1116,8 @@ namespace Dome.Service_References.R213b {
         
         private updateQueryNotificationStructureDto[] dOME_updateQuieryListField;
         
+        private deleteQueryNotificationStructureDto[] dOME_deleteQuieryListField;
+        
         private vacancyNotificationStructureDto[] dOME_vacancyListField;
         
         private miscellaneousNotificationStructureDto[] dOME_miscellaneousListField;
@@ -908,7 +1135,19 @@ namespace Dome.Service_References.R213b {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("DOME_vacancyList", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute("DOME_deleteQuieryList", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public deleteQueryNotificationStructureDto[] DOME_deleteQuieryList {
+            get {
+                return this.dOME_deleteQuieryListField;
+            }
+            set {
+                this.dOME_deleteQuieryListField = value;
+                this.RaisePropertyChanged("DOME_deleteQuieryList");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("DOME_vacancyList", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
         public vacancyNotificationStructureDto[] DOME_vacancyList {
             get {
                 return this.dOME_vacancyListField;
@@ -920,7 +1159,7 @@ namespace Dome.Service_References.R213b {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("DOME_miscellaneousList", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute("DOME_miscellaneousList", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
         public miscellaneousNotificationStructureDto[] DOME_miscellaneousList {
             get {
                 return this.dOME_miscellaneousListField;
@@ -936,7 +1175,7 @@ namespace Dome.Service_References.R213b {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="getNotifications", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class getNotifications {
+    internal partial class getNotifications {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -954,7 +1193,7 @@ namespace Dome.Service_References.R213b {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="getNotificationsResponse", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class getNotificationsResponse {
+    internal partial class getNotificationsResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -969,12 +1208,12 @@ namespace Dome.Service_References.R213b {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DOME_BUS_EAI_R213beventGetNotificationStructureWSChannel : DOME_BUS_EAI_R213beventGetNotificationStructureWS, System.ServiceModel.IClientChannel {
+    internal interface DOME_BUS_EAI_R213beventGetNotificationStructureWSChannel : DOME_BUS_EAI_R213beventGetNotificationStructureWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DOME_BUS_EAI_R213beventGetNotificationStructureWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R213beventGetNotificationStructureWS>, DOME_BUS_EAI_R213beventGetNotificationStructureWS {
+    internal partial class DOME_BUS_EAI_R213beventGetNotificationStructureWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R213beventGetNotificationStructureWS>, DOME_BUS_EAI_R213beventGetNotificationStructureWS {
         
         public DOME_BUS_EAI_R213beventGetNotificationStructureWSClient() {
         }
@@ -1005,17 +1244,6 @@ namespace Dome.Service_References.R213b {
             inValue.eventGetNotificationStructureDto = eventGetNotificationStructureDto;
             getNotificationsResponse retVal = ((DOME_BUS_EAI_R213beventGetNotificationStructureWS)(this)).getNotifications(inValue);
             return retVal.eventGetNotificationStructureResponse;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<getNotificationsResponse> DOME_BUS_EAI_R213beventGetNotificationStructureWS.getNotificationsAsync(getNotifications request) {
-            return base.Channel.getNotificationsAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<getNotificationsResponse> getNotificationsAsync(eventGetNotificationStructureDto eventGetNotificationStructureDto) {
-            getNotifications inValue = new getNotifications();
-            inValue.eventGetNotificationStructureDto = eventGetNotificationStructureDto;
-            return ((DOME_BUS_EAI_R213beventGetNotificationStructureWS)(this)).getNotificationsAsync(inValue);
         }
     }
 }

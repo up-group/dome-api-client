@@ -13,7 +13,7 @@ namespace Dome.Service_References.R532 {
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://webservices.partner.dome.fr/", ConfigurationName="R532.DOME_BUS_EAI_R532selectProfileWS")]
-    public interface DOME_BUS_EAI_R532selectProfileWS {
+    internal interface DOME_BUS_EAI_R532selectProfileWS {
         
         // CODEGEN: Parameter 'selectProfileResponse' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
@@ -23,9 +23,6 @@ namespace Dome.Service_References.R532 {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="selectProfileResponse")]
         selectProfileResponse selectProfile(selectProfile request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<selectProfileResponse> selectProfileAsync(selectProfile request);
     }
     
     /// <remarks/>
@@ -322,7 +319,7 @@ namespace Dome.Service_References.R532 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="selectProfile", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class selectProfile {
+    internal partial class selectProfile {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -340,7 +337,7 @@ namespace Dome.Service_References.R532 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="selectProfileResponse", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class selectProfileResponse {
+    internal partial class selectProfileResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="selectProfileResponse", Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -355,12 +352,12 @@ namespace Dome.Service_References.R532 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DOME_BUS_EAI_R532selectProfileWSChannel : DOME_BUS_EAI_R532selectProfileWS, System.ServiceModel.IClientChannel {
+    internal interface DOME_BUS_EAI_R532selectProfileWSChannel : DOME_BUS_EAI_R532selectProfileWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DOME_BUS_EAI_R532selectProfileWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R532selectProfileWS>, DOME_BUS_EAI_R532selectProfileWS {
+    internal partial class DOME_BUS_EAI_R532selectProfileWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R532selectProfileWS>, DOME_BUS_EAI_R532selectProfileWS {
         
         public DOME_BUS_EAI_R532selectProfileWSClient() {
         }
@@ -391,17 +388,6 @@ namespace Dome.Service_References.R532 {
             inValue.selectProfileDto = selectProfileDto;
             selectProfileResponse retVal = ((DOME_BUS_EAI_R532selectProfileWS)(this)).selectProfile(inValue);
             return retVal.selectProfileResponse1;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<selectProfileResponse> DOME_BUS_EAI_R532selectProfileWS.selectProfileAsync(selectProfile request) {
-            return base.Channel.selectProfileAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<selectProfileResponse> selectProfileAsync(selectProfileDto selectProfileDto) {
-            selectProfile inValue = new selectProfile();
-            inValue.selectProfileDto = selectProfileDto;
-            return ((DOME_BUS_EAI_R532selectProfileWS)(this)).selectProfileAsync(inValue);
         }
     }
 }

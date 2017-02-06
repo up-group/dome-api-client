@@ -13,7 +13,7 @@ namespace Dome.Service_References.R201 {
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://webservices.partner.dome.fr/", ConfigurationName="R201.DOME_BUS_EAI_R201eventCreateWS")]
-    public interface DOME_BUS_EAI_R201eventCreateWS {
+    internal interface DOME_BUS_EAI_R201eventCreateWS {
         
         // CODEGEN: Parameter 'createEventResponse' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
@@ -23,9 +23,6 @@ namespace Dome.Service_References.R201 {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="createEventResponse")]
         createEventResponse createEvent(createEvent request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<createEventResponse> createEventAsync(createEvent request);
     }
     
     /// <remarks/>
@@ -750,7 +747,7 @@ namespace Dome.Service_References.R201 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="createEvent", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class createEvent {
+    internal partial class createEvent {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -768,7 +765,7 @@ namespace Dome.Service_References.R201 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="createEventResponse", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class createEventResponse {
+    internal partial class createEventResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="createEventResponse", Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -783,12 +780,12 @@ namespace Dome.Service_References.R201 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DOME_BUS_EAI_R201eventCreateWSChannel : DOME_BUS_EAI_R201eventCreateWS, System.ServiceModel.IClientChannel {
+    internal interface DOME_BUS_EAI_R201eventCreateWSChannel : DOME_BUS_EAI_R201eventCreateWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DOME_BUS_EAI_R201eventCreateWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R201eventCreateWS>, DOME_BUS_EAI_R201eventCreateWS {
+    internal partial class DOME_BUS_EAI_R201eventCreateWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R201eventCreateWS>, DOME_BUS_EAI_R201eventCreateWS {
         
         public DOME_BUS_EAI_R201eventCreateWSClient() {
         }
@@ -819,17 +816,6 @@ namespace Dome.Service_References.R201 {
             inValue.createEventDto = createEventDto;
             createEventResponse retVal = ((DOME_BUS_EAI_R201eventCreateWS)(this)).createEvent(inValue);
             return retVal.createEventResponse1;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<createEventResponse> DOME_BUS_EAI_R201eventCreateWS.createEventAsync(createEvent request) {
-            return base.Channel.createEventAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<createEventResponse> createEventAsync(createEventDto createEventDto) {
-            createEvent inValue = new createEvent();
-            inValue.createEventDto = createEventDto;
-            return ((DOME_BUS_EAI_R201eventCreateWS)(this)).createEventAsync(inValue);
         }
     }
 }

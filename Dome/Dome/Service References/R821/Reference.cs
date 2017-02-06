@@ -13,7 +13,7 @@ namespace Dome.Service_References.R821 {
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://webservices.partner.dome.fr/", ConfigurationName="R821.DOME_BUS_EAI_R821getListJourneyEntryWS")]
-    public interface DOME_BUS_EAI_R821getListJourneyEntryWS {
+    internal interface DOME_BUS_EAI_R821getListJourneyEntryWS {
         
         // CODEGEN: Parameter 'getListCourseEntryResponse' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
@@ -23,9 +23,6 @@ namespace Dome.Service_References.R821 {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="getListCourseEntryResponse")]
         getListCourseEntryResponse getListCourseEntry(getListCourseEntry request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<getListCourseEntryResponse> getListCourseEntryAsync(getListCourseEntry request);
     }
     
     /// <remarks/>
@@ -648,7 +645,7 @@ namespace Dome.Service_References.R821 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="getListCourseEntry", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class getListCourseEntry {
+    internal partial class getListCourseEntry {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="getListCourseEntry", Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -666,7 +663,7 @@ namespace Dome.Service_References.R821 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="getListCourseEntryResponse", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class getListCourseEntryResponse {
+    internal partial class getListCourseEntryResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="getListCourseEntryResponse", Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -681,12 +678,12 @@ namespace Dome.Service_References.R821 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DOME_BUS_EAI_R821getListJourneyEntryWSChannel : DOME_BUS_EAI_R821getListJourneyEntryWS, System.ServiceModel.IClientChannel {
+    internal interface DOME_BUS_EAI_R821getListJourneyEntryWSChannel : DOME_BUS_EAI_R821getListJourneyEntryWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DOME_BUS_EAI_R821getListJourneyEntryWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R821getListJourneyEntryWS>, DOME_BUS_EAI_R821getListJourneyEntryWS {
+    internal partial class DOME_BUS_EAI_R821getListJourneyEntryWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R821getListJourneyEntryWS>, DOME_BUS_EAI_R821getListJourneyEntryWS {
         
         public DOME_BUS_EAI_R821getListJourneyEntryWSClient() {
         }
@@ -717,17 +714,6 @@ namespace Dome.Service_References.R821 {
             inValue.getListCourseEntry1 = getListCourseEntry1;
             getListCourseEntryResponse retVal = ((DOME_BUS_EAI_R821getListJourneyEntryWS)(this)).getListCourseEntry(inValue);
             return retVal.getListCourseEntryResponse1;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<getListCourseEntryResponse> DOME_BUS_EAI_R821getListJourneyEntryWS.getListCourseEntryAsync(getListCourseEntry request) {
-            return base.Channel.getListCourseEntryAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<getListCourseEntryResponse> getListCourseEntryAsync(getListCourseEntryDto getListCourseEntry1) {
-            getListCourseEntry inValue = new getListCourseEntry();
-            inValue.getListCourseEntry1 = getListCourseEntry1;
-            return ((DOME_BUS_EAI_R821getListJourneyEntryWS)(this)).getListCourseEntryAsync(inValue);
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Dome.Service_References.R830a {
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://webservices.partner.dome.fr/", ConfigurationName="R830a.DOME_BUS_EAI_R830aAddNewAGGIRWS")]
-    public interface DOME_BUS_EAI_R830aAddNewAGGIRWS {
+    internal interface DOME_BUS_EAI_R830aAddNewAGGIRWS {
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
@@ -23,9 +23,6 @@ namespace Dome.Service_References.R830a {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         addNewAGGIRResponse addNewAGGIR(addNewAGGIR request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<addNewAGGIRResponse> addNewAGGIRAsync(addNewAGGIR request);
     }
     
     /// <remarks/>
@@ -1054,7 +1051,7 @@ namespace Dome.Service_References.R830a {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="addNewAGGIR", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class addNewAGGIR {
+    internal partial class addNewAGGIR {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -1072,7 +1069,7 @@ namespace Dome.Service_References.R830a {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="addNewAGGIRResponse", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class addNewAGGIRResponse {
+    internal partial class addNewAGGIRResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -1087,12 +1084,12 @@ namespace Dome.Service_References.R830a {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DOME_BUS_EAI_R830aAddNewAGGIRWSChannel : DOME_BUS_EAI_R830aAddNewAGGIRWS, System.ServiceModel.IClientChannel {
+    internal interface DOME_BUS_EAI_R830aAddNewAGGIRWSChannel : DOME_BUS_EAI_R830aAddNewAGGIRWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DOME_BUS_EAI_R830aAddNewAGGIRWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R830aAddNewAGGIRWS>, DOME_BUS_EAI_R830aAddNewAGGIRWS {
+    internal partial class DOME_BUS_EAI_R830aAddNewAGGIRWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R830aAddNewAGGIRWS>, DOME_BUS_EAI_R830aAddNewAGGIRWS {
         
         public DOME_BUS_EAI_R830aAddNewAGGIRWSClient() {
         }
@@ -1123,17 +1120,6 @@ namespace Dome.Service_References.R830a {
             inValue.arg0 = arg0;
             addNewAGGIRResponse retVal = ((DOME_BUS_EAI_R830aAddNewAGGIRWS)(this)).addNewAGGIR(inValue);
             return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<addNewAGGIRResponse> DOME_BUS_EAI_R830aAddNewAGGIRWS.addNewAGGIRAsync(addNewAGGIR request) {
-            return base.Channel.addNewAGGIRAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<addNewAGGIRResponse> addNewAGGIRAsync(addNewAGGIRDto arg0) {
-            addNewAGGIR inValue = new addNewAGGIR();
-            inValue.arg0 = arg0;
-            return ((DOME_BUS_EAI_R830aAddNewAGGIRWS)(this)).addNewAGGIRAsync(inValue);
         }
     }
 }

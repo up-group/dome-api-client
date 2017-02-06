@@ -49,6 +49,7 @@
           <xs:extension base="tns:domeResponseDto">
             <xs:sequence>
               <xs:element minOccurs="0" maxOccurs="unbounded" name="DOME_updateQuieryList" type="tns:updateQueryNotificationStructureDto" />
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="DOME_deleteQuieryList" type="tns:deleteQueryNotificationStructureDto" />
               <xs:element minOccurs="0" maxOccurs="unbounded" name="DOME_vacancyList" type="tns:vacancyNotificationStructureDto" />
               <xs:element minOccurs="0" maxOccurs="unbounded" name="DOME_miscellaneousList" type="tns:miscellaneousNotificationStructureDto" />
             </xs:sequence>
@@ -64,6 +65,19 @@
         </xs:sequence>
       </xs:complexType>
       <xs:complexType name="updateQueryNotificationStructureDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="benefProfileId" type="xs:int" />
+          <xs:element minOccurs="0" name="eventProIdMetier" type="xs:int" />
+          <xs:element minOccurs="0" name="eventTimeStart" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="eventTimeEnd" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="commentaire" type="xs:string" />
+          <xs:element minOccurs="0" name="motif" type="xs:string" />
+          <xs:element minOccurs="0" name="eventNotifProfileId" type="xs:int" />
+          <xs:element minOccurs="0" name="eventNotifProfileName" type="xs:string" />
+          <xs:element minOccurs="0" name="eventNotifDateTime" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deleteQueryNotificationStructureDto">
         <xs:sequence>
           <xs:element minOccurs="0" name="benefProfileId" type="xs:int" />
           <xs:element minOccurs="0" name="eventProIdMetier" type="xs:int" />

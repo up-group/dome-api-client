@@ -13,7 +13,7 @@ namespace Dome.Service_References.R231 {
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://webservices.partner.dome.fr/", ConfigurationName="R231.DOME_BUS_EAI_R231eventDeleteWS")]
-    public interface DOME_BUS_EAI_R231eventDeleteWS {
+    internal interface DOME_BUS_EAI_R231eventDeleteWS {
         
         // CODEGEN: Parameter 'deleteEventResponse' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
@@ -22,9 +22,6 @@ namespace Dome.Service_References.R231 {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="deleteEventResponse")]
         deleteEventResponse deleteEvent(deleteEvent request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<deleteEventResponse> deleteEventAsync(deleteEvent request);
     }
     
     /// <remarks/>
@@ -381,7 +378,7 @@ namespace Dome.Service_References.R231 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="deleteEvent", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class deleteEvent {
+    internal partial class deleteEvent {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -399,7 +396,7 @@ namespace Dome.Service_References.R231 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="deleteEventResponse", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class deleteEventResponse {
+    internal partial class deleteEventResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="deleteEventResponse", Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -414,12 +411,12 @@ namespace Dome.Service_References.R231 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DOME_BUS_EAI_R231eventDeleteWSChannel : DOME_BUS_EAI_R231eventDeleteWS, System.ServiceModel.IClientChannel {
+    internal interface DOME_BUS_EAI_R231eventDeleteWSChannel : DOME_BUS_EAI_R231eventDeleteWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DOME_BUS_EAI_R231eventDeleteWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R231eventDeleteWS>, DOME_BUS_EAI_R231eventDeleteWS {
+    internal partial class DOME_BUS_EAI_R231eventDeleteWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R231eventDeleteWS>, DOME_BUS_EAI_R231eventDeleteWS {
         
         public DOME_BUS_EAI_R231eventDeleteWSClient() {
         }
@@ -450,17 +447,6 @@ namespace Dome.Service_References.R231 {
             inValue.deleteEventDto = deleteEventDto;
             deleteEventResponse retVal = ((DOME_BUS_EAI_R231eventDeleteWS)(this)).deleteEvent(inValue);
             return retVal.deleteEventResponse1;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<deleteEventResponse> DOME_BUS_EAI_R231eventDeleteWS.deleteEventAsync(deleteEvent request) {
-            return base.Channel.deleteEventAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<deleteEventResponse> deleteEventAsync(deleteEventDto deleteEventDto) {
-            deleteEvent inValue = new deleteEvent();
-            inValue.deleteEventDto = deleteEventDto;
-            return ((DOME_BUS_EAI_R231eventDeleteWS)(this)).deleteEventAsync(inValue);
         }
     }
 }

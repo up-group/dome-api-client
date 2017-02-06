@@ -13,7 +13,7 @@ namespace Dome.Service_References.R543b {
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://webservices.partner.dome.fr/", ConfigurationName="R543b.DOME_BUS_EAI_R543bSwitchReferentWS")]
-    public interface DOME_BUS_EAI_R543bSwitchReferentWS {
+    internal interface DOME_BUS_EAI_R543bSwitchReferentWS {
         
         // CODEGEN: Parameter 'domeResponse' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
@@ -22,9 +22,6 @@ namespace Dome.Service_References.R543b {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="domeResponse")]
         updatereferentResponse updatereferent(updatereferent request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<updatereferentResponse> updatereferentAsync(updatereferent request);
     }
     
     /// <remarks/>
@@ -339,7 +336,7 @@ namespace Dome.Service_References.R543b {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="updatereferent", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class updatereferent {
+    internal partial class updatereferent {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -357,7 +354,7 @@ namespace Dome.Service_References.R543b {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="updatereferentResponse", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class updatereferentResponse {
+    internal partial class updatereferentResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -372,12 +369,12 @@ namespace Dome.Service_References.R543b {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DOME_BUS_EAI_R543bSwitchReferentWSChannel : DOME_BUS_EAI_R543bSwitchReferentWS, System.ServiceModel.IClientChannel {
+    internal interface DOME_BUS_EAI_R543bSwitchReferentWSChannel : DOME_BUS_EAI_R543bSwitchReferentWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DOME_BUS_EAI_R543bSwitchReferentWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R543bSwitchReferentWS>, DOME_BUS_EAI_R543bSwitchReferentWS {
+    internal partial class DOME_BUS_EAI_R543bSwitchReferentWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R543bSwitchReferentWS>, DOME_BUS_EAI_R543bSwitchReferentWS {
         
         public DOME_BUS_EAI_R543bSwitchReferentWSClient() {
         }
@@ -408,17 +405,6 @@ namespace Dome.Service_References.R543b {
             inValue.updateReferentDto = updateReferentDto;
             updatereferentResponse retVal = ((DOME_BUS_EAI_R543bSwitchReferentWS)(this)).updatereferent(inValue);
             return retVal.domeResponse;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<updatereferentResponse> DOME_BUS_EAI_R543bSwitchReferentWS.updatereferentAsync(updatereferent request) {
-            return base.Channel.updatereferentAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<updatereferentResponse> updatereferentAsync(updateReferentDto updateReferentDto) {
-            updatereferent inValue = new updatereferent();
-            inValue.updateReferentDto = updateReferentDto;
-            return ((DOME_BUS_EAI_R543bSwitchReferentWS)(this)).updatereferentAsync(inValue);
         }
     }
 }

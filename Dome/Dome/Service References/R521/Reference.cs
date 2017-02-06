@@ -13,7 +13,7 @@ namespace Dome.Service_References.R521 {
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://webservices.partner.dome.fr/", ConfigurationName="R521.DOME_BUS_EAI_R521createProfileWS")]
-    public interface DOME_BUS_EAI_R521createProfileWS {
+    internal interface DOME_BUS_EAI_R521createProfileWS {
         
         // CODEGEN: Parameter 'createProfileResponse' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
@@ -23,9 +23,6 @@ namespace Dome.Service_References.R521 {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="createProfileResponse")]
         createProfileResponse createProfile(createProfile request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<createProfileResponse> createProfileAsync(createProfile request);
     }
     
     /// <remarks/>
@@ -518,7 +515,7 @@ namespace Dome.Service_References.R521 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="createProfile", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class createProfile {
+    internal partial class createProfile {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -536,7 +533,7 @@ namespace Dome.Service_References.R521 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="createProfileResponse", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class createProfileResponse {
+    internal partial class createProfileResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="createProfileResponse", Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -551,12 +548,12 @@ namespace Dome.Service_References.R521 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DOME_BUS_EAI_R521createProfileWSChannel : DOME_BUS_EAI_R521createProfileWS, System.ServiceModel.IClientChannel {
+    internal interface DOME_BUS_EAI_R521createProfileWSChannel : DOME_BUS_EAI_R521createProfileWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DOME_BUS_EAI_R521createProfileWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R521createProfileWS>, DOME_BUS_EAI_R521createProfileWS {
+    internal partial class DOME_BUS_EAI_R521createProfileWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R521createProfileWS>, DOME_BUS_EAI_R521createProfileWS {
         
         public DOME_BUS_EAI_R521createProfileWSClient() {
         }
@@ -587,17 +584,6 @@ namespace Dome.Service_References.R521 {
             inValue.profileDto = profileDto;
             createProfileResponse retVal = ((DOME_BUS_EAI_R521createProfileWS)(this)).createProfile(inValue);
             return retVal.createProfileResponse1;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<createProfileResponse> DOME_BUS_EAI_R521createProfileWS.createProfileAsync(createProfile request) {
-            return base.Channel.createProfileAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<createProfileResponse> createProfileAsync(createProfileDto profileDto) {
-            createProfile inValue = new createProfile();
-            inValue.profileDto = profileDto;
-            return ((DOME_BUS_EAI_R521createProfileWS)(this)).createProfileAsync(inValue);
         }
     }
 }

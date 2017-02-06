@@ -13,7 +13,7 @@ namespace Dome.Service_References.R822 {
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://webservices.partner.dome.fr/", ConfigurationName="R822.DOME_BUS_EAI_R822getDetailJourneyEntryWS")]
-    public interface DOME_BUS_EAI_R822getDetailJourneyEntryWS {
+    internal interface DOME_BUS_EAI_R822getDetailJourneyEntryWS {
         
         // CODEGEN: Parameter 'getDetailsResponse' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
@@ -24,9 +24,6 @@ namespace Dome.Service_References.R822 {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="getDetailsResponse")]
         getDetailsCourseEntryResponse getDetailsCourseEntry(getDetailsCourseEntry request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<getDetailsCourseEntryResponse> getDetailsCourseEntryAsync(getDetailsCourseEntry request);
     }
     
     /// <remarks/>
@@ -827,7 +824,7 @@ namespace Dome.Service_References.R822 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="getDetailsCourseEntry", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class getDetailsCourseEntry {
+    internal partial class getDetailsCourseEntry {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -845,7 +842,7 @@ namespace Dome.Service_References.R822 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="getDetailsCourseEntryResponse", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class getDetailsCourseEntryResponse {
+    internal partial class getDetailsCourseEntryResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -860,12 +857,12 @@ namespace Dome.Service_References.R822 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DOME_BUS_EAI_R822getDetailJourneyEntryWSChannel : DOME_BUS_EAI_R822getDetailJourneyEntryWS, System.ServiceModel.IClientChannel {
+    internal interface DOME_BUS_EAI_R822getDetailJourneyEntryWSChannel : DOME_BUS_EAI_R822getDetailJourneyEntryWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DOME_BUS_EAI_R822getDetailJourneyEntryWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R822getDetailJourneyEntryWS>, DOME_BUS_EAI_R822getDetailJourneyEntryWS {
+    internal partial class DOME_BUS_EAI_R822getDetailJourneyEntryWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R822getDetailJourneyEntryWS>, DOME_BUS_EAI_R822getDetailJourneyEntryWS {
         
         public DOME_BUS_EAI_R822getDetailJourneyEntryWSClient() {
         }
@@ -896,17 +893,6 @@ namespace Dome.Service_References.R822 {
             inValue.GetCourseEntryDetailsDto = GetCourseEntryDetailsDto;
             getDetailsCourseEntryResponse retVal = ((DOME_BUS_EAI_R822getDetailJourneyEntryWS)(this)).getDetailsCourseEntry(inValue);
             return retVal.getDetailsResponse;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<getDetailsCourseEntryResponse> DOME_BUS_EAI_R822getDetailJourneyEntryWS.getDetailsCourseEntryAsync(getDetailsCourseEntry request) {
-            return base.Channel.getDetailsCourseEntryAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<getDetailsCourseEntryResponse> getDetailsCourseEntryAsync(getCourseEntryDetailsDto GetCourseEntryDetailsDto) {
-            getDetailsCourseEntry inValue = new getDetailsCourseEntry();
-            inValue.GetCourseEntryDetailsDto = GetCourseEntryDetailsDto;
-            return ((DOME_BUS_EAI_R822getDetailJourneyEntryWS)(this)).getDetailsCourseEntryAsync(inValue);
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Dome.Service_References.R221 {
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://webservices.partner.dome.fr/", ConfigurationName="R221.DOME_BUS_EAI_R221eventUpdateWS")]
-    public interface DOME_BUS_EAI_R221eventUpdateWS {
+    internal interface DOME_BUS_EAI_R221eventUpdateWS {
         
         // CODEGEN: Parameter 'updateEventResponse' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
@@ -22,9 +22,6 @@ namespace Dome.Service_References.R221 {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="updateEventResponse")]
         updateEventResponse updateEvent(updateEvent request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<updateEventResponse> updateEventAsync(updateEvent request);
     }
     
     /// <remarks/>
@@ -697,7 +694,7 @@ namespace Dome.Service_References.R221 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="updateEvent", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class updateEvent {
+    internal partial class updateEvent {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -715,7 +712,7 @@ namespace Dome.Service_References.R221 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="updateEventResponse", WrapperNamespace="http://webservices.partner.dome.fr/", IsWrapped=true)]
-    public partial class updateEventResponse {
+    internal partial class updateEventResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="updateEventResponse", Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -730,12 +727,12 @@ namespace Dome.Service_References.R221 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface DOME_BUS_EAI_R221eventUpdateWSChannel : DOME_BUS_EAI_R221eventUpdateWS, System.ServiceModel.IClientChannel {
+    internal interface DOME_BUS_EAI_R221eventUpdateWSChannel : DOME_BUS_EAI_R221eventUpdateWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DOME_BUS_EAI_R221eventUpdateWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R221eventUpdateWS>, DOME_BUS_EAI_R221eventUpdateWS {
+    internal partial class DOME_BUS_EAI_R221eventUpdateWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R221eventUpdateWS>, DOME_BUS_EAI_R221eventUpdateWS {
         
         public DOME_BUS_EAI_R221eventUpdateWSClient() {
         }
@@ -766,17 +763,6 @@ namespace Dome.Service_References.R221 {
             inValue.arg0 = arg0;
             updateEventResponse retVal = ((DOME_BUS_EAI_R221eventUpdateWS)(this)).updateEvent(inValue);
             return retVal.updateEventResponse1;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<updateEventResponse> DOME_BUS_EAI_R221eventUpdateWS.updateEventAsync(updateEvent request) {
-            return base.Channel.updateEventAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<updateEventResponse> updateEventAsync(eventUpdateDto arg0) {
-            updateEvent inValue = new updateEvent();
-            inValue.arg0 = arg0;
-            return ((DOME_BUS_EAI_R221eventUpdateWS)(this)).updateEventAsync(inValue);
         }
     }
 }
