@@ -4,10 +4,10 @@ using Dome.Enum;
 
 namespace Dome.Client.dto.createPerson
 {
-    public class CreateIntervenant : CreateEntity
+    public class CreateIntervenantExterne : CreateEntity
     {
 
-        public CreateIntervenant(Profile profileCibleType) : base(profileCibleType)
+        public CreateIntervenantExterne(Profile profileCibleType) : base(profileCibleType)
         {
             if (profileCibleType != Profile.PersonnelMedical &&
                 profileCibleType != Profile.PersonnelNonMedical &&

@@ -1,6 +1,8 @@
 using System;
+using System.Linq;
 using Dome.Client.interfaces;
 using Dome.Enum;
+using Dome.Service_References.R542a;
 
 namespace Dome.Client.dto.updatePerson
 {
@@ -60,4 +62,46 @@ namespace Dome.Client.dto.updatePerson
         public string PersonComment { get; set; }
 
     }
+
+
+    public class UpdatePersonResult
+    {
+        public UpdatePersonResult(UpdatePersonResponseDto data)
+        {
+            this.dOME_createPersonListField = data.DOME_createPersonList?.Select(x => new duplicatePersonDto()
+            {
+                accountIdField = x.accountId,
+                loginField = x.login,
+                passwordField = x.password,
+                personEmailField = x.personEmail,
+                personFirstNameField = x.personFirstName,
+                personLastNameField = x.personLastName
+
+            }).ToArray();
+        }
+
+        public duplicatePersonDto[] dOME_createPersonListField { get; set; }
+
+        public class duplicatePersonDto
+        {
+
+            public int accountIdField { get; set; }
+
+            public string personFirstNameField { get; set; }
+
+            public string personLastNameField { get; set; }
+
+            public string personEmailField { get; set; }
+
+            public string loginField { get; set; }
+
+            public string passwordField { get; set; }
+        }
+
+    }
+
+
 }
+
+
+

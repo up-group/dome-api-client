@@ -18,6 +18,7 @@ using Dome.Service_References.R541b;
 using Dome.Service_References.R541c;
 using Dome.Service_References.R542a;
 using Dome.Service_References.R830a;
+using Dome.Service_References.R831a;
 using Dome.Service_References.R833a;
 using addNewAggirInnerDto = Dome.Service_References.R830a.addNewAggirInnerDto;
 using CreatePersonInnerDto = Dome.Service_References.R511.CreatePersonInnerDto;
@@ -27,19 +28,41 @@ namespace Dome.Client
 {
     public class DomeClient : IDomeClient
     {
-        private DeviceType DeviceType { get; set; }
+
+        private DeviceType DeviceType
+        {
+            get { return DeviceType.LogicielMétier; }
+        }
 
         private DomeClientSoap DomeCallSoap { get; set; }
 
 
-        public OpenData OpenData { get; private set; }
+        public int AccountId => AuthentificationHelper.OperateurProfilId;
+
+        public int StructureProfilId => AuthentificationHelper.StructureProfilId;
 
         public DomeClient()
         {
-            OpenData = new OpenData();
-            DomeCallSoap = new DomeClientSoap();
-            DeviceType = DeviceType.LogicielMétier;
+            if (AuthentificationHelper.IsConnected == false)
+            {
+                AuthentificationHelper.Connect(Settings.Username, Settings.Password, Settings.Urlbase);
+            }
 
+            DomeCallSoap = new DomeClientSoap();
+        }
+        public DomeClient(string username, string password, string urlbase)
+        {
+            if (AuthentificationHelper.IsConnected == false)
+            {
+                AuthentificationHelper.Connect(username, password, urlbase);
+            }
+
+            DomeCallSoap = new DomeClientSoap();
+        }
+
+        public void Reconnect(string username, string password, string urlbase)
+        {
+            AuthentificationHelper.Connect(username, password, urlbase);
         }
 
         private ActionResult<CreatePersonResponseDto> _CreatePerson(CreatePerson createPerson)
@@ -86,8 +109,8 @@ namespace Dome.Client
                     deviceTypeSpecified = true,
                     deviceType = (int)DeviceType,
                     dateSpecified = true,
-                    date = AuthentificationHelper.Instance.Auth.DOME_header.date,
-                    version = AuthentificationHelper.Instance.Auth.DOME_header.version,
+                    date = AuthentificationHelper.date,
+                    version = AuthentificationHelper.version,
                 }
             };
 
@@ -110,8 +133,8 @@ namespace Dome.Client
                     deviceTypeSpecified = true,
                     deviceType = (int)DeviceType,
                     dateSpecified = true,
-                    date = AuthentificationHelper.Instance.Auth.DOME_header.date,
-                    version = AuthentificationHelper.Instance.Auth.DOME_header.version,
+                    date = AuthentificationHelper.date,
+                    version = AuthentificationHelper.version,
                 },
 
                 accountId = createProfil.AccountId ?? -1,
@@ -191,8 +214,8 @@ namespace Dome.Client
                     deviceTypeSpecified = true,
                     deviceType = (int)DeviceType,
                     dateSpecified = true,
-                    date = AuthentificationHelper.Instance.Auth.DOME_header.date,
-                    version = AuthentificationHelper.Instance.Auth.DOME_header.version,
+                    date = AuthentificationHelper.date,
+                    version = AuthentificationHelper.version,
                 },
                 profileId = profileId,
                 profileIdSpecified = true
@@ -219,8 +242,8 @@ namespace Dome.Client
                 {
                     deviceTypeSpecified = true,
                     deviceType = 5,
-                    date = AuthentificationHelper.Instance.Auth.DOME_header.date,
-                    version = AuthentificationHelper.Instance.Auth.DOME_header.version,
+                    date = AuthentificationHelper.date,
+                    version = AuthentificationHelper.version,
                 }
             });
 
@@ -242,8 +265,8 @@ namespace Dome.Client
                 {
                     deviceTypeSpecified = true,
                     deviceType = 5,
-                    date = AuthentificationHelper.Instance.Auth.DOME_header.date,
-                    version = AuthentificationHelper.Instance.Auth.DOME_header.version,
+                    date = AuthentificationHelper.date,
+                    version = AuthentificationHelper.version,
                 }
             });
 
@@ -255,25 +278,25 @@ namespace Dome.Client
 
         }
 
-        
 
-        public ActionResult<CreatePersonProfilResult> CreatePatient(CreatePatient createPatient)
+
+        public ActionResult<CreatePersonProfilResult> CreateBeneficiaire(CreateBeneficiaire createBeneficiaire)
         {
-            var patient = _CreatePersonAndProfil(createPatient);
+            var beneficiaire = _CreatePersonAndProfil(createBeneficiaire);
 
-            if (patient.Succeeded == false)
+            if (beneficiaire.Succeeded == false)
             {
-                return patient;
+                return beneficiaire;
             }
 
-            var link = SubscriptionPatientStructure(patient.Entity.ProfileId, createPatient.ProfileStructureId);
+            var link = SubscriptionBeneficiaireStructure(beneficiaire.Entity.ProfileId, createBeneficiaire.ProfileStructureId);
 
             if (link.Succeeded == false)
             {
-                return new ActionResult<CreatePersonProfilResult>(link.Succeeded, patient.Entity, link.Messages);
+                return new ActionResult<CreatePersonProfilResult>(link.Succeeded, beneficiaire.Entity, link.Messages);
             }
 
-            return patient;
+            return beneficiaire;
         }
 
         public ActionResult<CreatePersonProfilResult> CreateEntourage(CreateEntourage createEntourage)
@@ -282,24 +305,22 @@ namespace Dome.Client
 
         }
 
-        public ActionResult<CreatePersonProfilResult> CreateSalarie(CreateSalarie createSalarie)
+        public ActionResult<CreatePersonProfilResult> CreateIntervenantInterne(CreateIntervenantInterne createIntervenantInterne)
         {
-            return _CreatePersonAndProfil(createSalarie);
+            return _CreatePersonAndProfil(createIntervenantInterne);
         }
 
         public ActionResult<CreatePersonProfilResult> CreateStructure(CreateStructure createStructure)
         {
             return _CreatePersonAndProfil(createStructure);
-
         }
 
-        public ActionResult<CreatePersonProfilResult> CreateIntervenant(CreateIntervenant createIntervenant)
+        public ActionResult<CreatePersonProfilResult> CreateIntervenantExterne(CreateIntervenantExterne createIntervenant)
         {
             return _CreatePersonAndProfil(createIntervenant);
         }
 
-
-        public ActionResult<UpdatePersonResponseDto> UpdatePerson(int accountId, UpdatePerson updatePerson)
+        public ActionResult<UpdatePersonResult> UpdatePerson(int accountId, UpdatePerson updatePerson)
         {
             var updatePersonDto = new UpdatePersonDto()
             {
@@ -309,8 +330,8 @@ namespace Dome.Client
                     deviceTypeSpecified = true,
                     deviceType = (int)DeviceType,
                     dateSpecified = true,
-                    date = AuthentificationHelper.Instance.Auth.DOME_header.date,
-                    version = AuthentificationHelper.Instance.Auth.DOME_header.version,
+                    date = AuthentificationHelper.date,
+                    version = AuthentificationHelper.version,
                 },
                 accountId = accountId,
                 accountIdSpecified = true,
@@ -354,18 +375,15 @@ namespace Dome.Client
             };
             var data = DomeCallSoap.UpdatePerson(updatePersonDto);
 
-            //var aaa = testREs<ActionResult<UpdatePersonResultDTO>>(data, new UpdatePersonResultDTO(data));
-
             if (data.statusId == 0)
             {
-                return new ActionResult<UpdatePersonResponseDto>(true, data);
+                return new ActionResult<UpdatePersonResult>(true, new UpdatePersonResult(data));
             }
-            return new ActionResult<UpdatePersonResponseDto>(false, data, new Message(MessageType.Error, data.statusErrorMessage));
+            return new ActionResult<UpdatePersonResult>(false, new UpdatePersonResult(data), new Message(MessageType.Error, data.statusErrorMessage));
 
         }
 
-
-        public ActionResult LinkIntervenantToBenef(int patientProfileId, int intervenantProfileId)
+        public ActionResult LinkIntervenantToBenef(int beneficiaireProfileId, int intervenantProfileId)
         {
             var data = DomeCallSoap.LinkIntervenantToBenef(new linkIntervenantToBenefDto()
             {
@@ -375,11 +393,11 @@ namespace Dome.Client
                     deviceTypeSpecified = true,
                     deviceType = (int)DeviceType,
                     dateSpecified = true,
-                    date = AuthentificationHelper.Instance.Auth.DOME_header.date,
-                    version = AuthentificationHelper.Instance.Auth.DOME_header.version,
+                    date = AuthentificationHelper.date,
+                    version = AuthentificationHelper.version,
                 },
 
-                benefProfileId = patientProfileId,
+                benefProfileId = beneficiaireProfileId,
                 benefProfileIdSpecified = true,
                 intervenantProfileId = intervenantProfileId,
                 intervenantProfileIdSpecified = true
@@ -393,7 +411,7 @@ namespace Dome.Client
 
         }
 
-        public ActionResult SubscriptionPatientStructure(int patientProfileId, int structureProfileId)
+        public ActionResult SubscriptionBeneficiaireStructure(int beneficiaireProfileId, int structureProfileId)
         {
             var data = DomeCallSoap.SubscriptionPersonStructure(new subscriptionStructureDto()
             {
@@ -403,14 +421,14 @@ namespace Dome.Client
                     deviceTypeSpecified = true,
                     deviceType = (int)DeviceType,
                     dateSpecified = true,
-                    date = AuthentificationHelper.Instance.Auth.DOME_header.date,
-                    version = AuthentificationHelper.Instance.Auth.DOME_header.version,
+                    date = AuthentificationHelper.date,
+                    version = AuthentificationHelper.version,
                 },
 
                 profileStructureId = structureProfileId,
                 profileStructureIdSpecified = true,
 
-                profileBenefId = patientProfileId,
+                profileBenefId = beneficiaireProfileId,
                 profileBenefIdSpecified = true
             });
 
@@ -423,10 +441,6 @@ namespace Dome.Client
 
         }
 
-
-
-
-
         public ActionResult<int> CreateAggir(int beneficiareProfileId, CreateAggirDto createAggirDto)
         {
             var data = DomeCallSoap.AddNewAggir(new addNewAGGIRDto()
@@ -438,8 +452,8 @@ namespace Dome.Client
                     deviceTypeSpecified = true,
                     deviceType = (int)DeviceType,
                     dateSpecified = true,
-                    date = AuthentificationHelper.Instance.Auth.DOME_header.date,
-                    version = AuthentificationHelper.Instance.Auth.DOME_header.version,
+                    date = AuthentificationHelper.date,
+                    version = AuthentificationHelper.version,
                 },
 
                 benefProfileId = beneficiareProfileId,
@@ -542,8 +556,8 @@ namespace Dome.Client
                     deviceTypeSpecified = true,
                     deviceType = (int)DeviceType,
                     dateSpecified = true,
-                    date = AuthentificationHelper.Instance.Auth.DOME_header.date,
-                    version = AuthentificationHelper.Instance.Auth.DOME_header.version,
+                    date = AuthentificationHelper.date,
+                    version = AuthentificationHelper.version,
                 },
                 AGGIRGridId = AGGIRGridId,
                 AGGIRGridIdSpecified = true,
@@ -644,9 +658,32 @@ namespace Dome.Client
         }
 
 
+        public ActionResult<GetListAggirResult> GetListAggir(int benefProfileId)
+        {
+            var data = DomeCallSoap.GetListAggir(new getListAGGIRDto()
+            {
+                DOME_header = new Service_References.R831a.domeHeaderDto()
+                {
+                    langue = "fr",
+                    deviceTypeSpecified = true,
+                    deviceType = (int)DeviceType,
+                    dateSpecified = true,
+                    date = AuthentificationHelper.date,
+                    version = AuthentificationHelper.version,
+                },
+                benefProfileId = benefProfileId,
+                benefProfileIdSpecified = true,
+                nbHistoric = 0,
+                nbHistoricSpecified = true
+            });
 
+            if (data.statusId == 0)
+            {
+                return new ActionResult<GetListAggirResult>(true, new GetListAggirResult(data));
+            }
+            return new ActionResult<GetListAggirResult>(false, new GetListAggirResult(data), new Message(MessageType.Error, data.statusErrorMessage));
 
-
+        }
 
     }
 }

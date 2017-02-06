@@ -30,15 +30,10 @@ namespace Dome.DomeProxy.soap
 {
     internal class DomeClientSoap
     {
-        public DomeClientSoap()
-        {
-            if (AuthentificationHelper.Instance.Auth == null)
-            {
-                AuthentificationHelper.Instance.Connect();
-            }
-        }
+        
+      
 
-
+    
         ///101 <see cref="CreateContact"/>
         ///201 <see cref="CreateEvent"/>
         ///213b <see cref="GetNotifications"/>

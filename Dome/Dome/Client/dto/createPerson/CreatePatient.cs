@@ -3,13 +3,13 @@ using Dome.Enum;
 
 namespace Dome.Client.dto.createPerson
 {
-    public class CreatePatient : CreateEntity
+    public class CreateBeneficiaire : CreateEntity
     {
         /// <summary>
         ///
         /// <see cref="ProfileStructureId"/> est obligatoire
         /// </summary>
-        public CreatePatient() : base(Profile.Beneficiaire)
+        public CreateBeneficiaire() : base(Profile.Beneficiaire)
         {
         }
 

@@ -10,7 +10,7 @@ using Dome.Enum;
 
 namespace Dome.DomeProxy
 {
-    public class AuthentificationHelper
+    internal class AuthentificationHelper
     {
 
         [SuppressMessage("ReSharper", "InconsistentNaming")]
@@ -45,12 +45,17 @@ namespace Dome.DomeProxy
 
         private static AuthentificationHelper _instance;
 
-        private AuthentificationHelper() { }
 
-        public Boolean IsConnected { get; set; }
-        public AuthentificationResultDto Auth { get; set; }
-        public int OperateurProfilId { get; set; }
-        public int StructureProfilId { get; set; }
+        public static Boolean IsConnected => Auth != null && string.IsNullOrWhiteSpace(Auth.token) == false;
+
+        private static AuthentificationResultDto Auth { get; set; }
+
+        public static string token => Auth.token;
+        public static DateTime date => Auth.DOME_header.date;
+        public static string version => Auth.DOME_header.version;
+
+        public static int OperateurProfilId { get; set; }
+        public static int StructureProfilId { get; set; }
 
         public static AuthentificationHelper Instance
         {
@@ -65,12 +70,7 @@ namespace Dome.DomeProxy
         }
 
 
-        public void Connect()
-        {
-            Connect(Settings.Username, Settings.Password);
-        }
-
-        public void Connect(string username, string pass)
+        public static void Connect(string username, string password, string url)
         {
             using (var client = new HttpClient())
             {
@@ -78,21 +78,19 @@ namespace Dome.DomeProxy
                 {
                        { "username", username },
                        { "rememberMe", "false" },
-                       { "password", CreateMd5(pass).ToLower() }
+                       { "password", CreateMd5(password).ToLower() }
                 };
 
                 var j = new JavaScriptSerializer();
                 var httpContent = new StringContent(j.Serialize(values), Encoding.UTF8, "application/json");
 
-                var response = client.PostAsync("http://dev.mondome.fr/oauth/token", httpContent).Result;
+                var response = client.PostAsync(url + "oauth/token", httpContent).Result;
 
                 var responseString = response.Content.ReadAsStringAsync();
 
                 Auth = (AuthentificationResultDto)j.Deserialize(responseString.Result, typeof(AuthentificationResultDto));
 
-                IsConnected = Auth.statusId == 0;
-
-                if (IsConnected)
+               if (IsConnected)
                 {
                     var domeCall = new DomeClient();
                     var account = domeCall.GetAccount(Auth.accountId);
@@ -100,7 +98,7 @@ namespace Dome.DomeProxy
                     {
                         var operateurStructure =
                             account.Entity.DOME_profileList.Single(
-                                profile => profile.typeProfileConstanteId == (int) Profile.OperateurStructure);
+                                profile => profile.typeProfileConstanteId == (int)Profile.OperateurStructure);
 
                         OperateurProfilId = operateurStructure.profileId;
                         StructureProfilId = operateurStructure.parentProfileId;
