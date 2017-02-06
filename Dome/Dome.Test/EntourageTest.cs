@@ -16,7 +16,7 @@ namespace Dome.Test
             var fakeId = Guid.NewGuid().ToString();
             var domeClient = new DomeClient();
 
-            var createPatient = new CreatePatient()
+            var createPatient = new CreateBeneficiaire()
             {
                 PersonCivility = Civilite.Monsieur,
                 PersonCityName = "Bron",
@@ -25,10 +25,10 @@ namespace Dome.Test
                 PersonLastName = "LastName" + fakeId,
                 PersonRoadName = "rue edison",
                 PersonEmail1 = "testdome@yopmail.com",
-                ProfileStructureId = domeClient.OpenData.OperateurStructureConnected.StructureProfilId
+                ProfileStructureId = domeClient.StructureProfilId
             };
 
-            var patient = domeClient.CreatePatient(createPatient);
+            var patient = domeClient.CreateBeneficiaire(createPatient);
 
 
             fakeId = Guid.NewGuid().ToString();

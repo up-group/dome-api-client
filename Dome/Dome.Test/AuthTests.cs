@@ -23,9 +23,8 @@ namespace Dome.Test
         {
             var domeClient = new DomeClient();
 
-            Assert.IsTrue(domeClient.OpenData.OperateurStructureConnected != null);
-            Assert.IsTrue(domeClient.OpenData.OperateurStructureConnected.StructureProfilId != 0);
-            Assert.IsTrue(domeClient.OpenData.OperateurStructureConnected.AccountId != 0);
+            Assert.IsTrue(domeClient.StructureProfilId != 0);
+            Assert.IsTrue(domeClient.AccountId != 0);
 
 
         }

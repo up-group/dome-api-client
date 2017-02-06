@@ -53,14 +53,12 @@
   <ItemGroup>
     <Compile Include="AggirTests.cs" />
     <Compile Include="AuthTests.cs" />
-    <Compile Include="ContactsTests.cs" />
     <Compile Include="PatientTest.cs" />
     <Compile Include="EntourageTest.cs" />
     <Compile Include="IntervenantTest.cs" />
-    <Compile Include="PersonsTests.cs" />
-    <Compile Include="EventsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SalarieTest.cs" />
+    <Compile Include="StructureTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dome\Dome.csproj">

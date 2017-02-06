@@ -18,7 +18,7 @@ namespace Dome.Test
             var fakeId = Guid.NewGuid().ToString();
             var domeClient = new DomeClient();
 
-            var createPatient = new CreatePatient()
+            var createPatient = new CreateBeneficiaire()
             {
                 PersonCityName = "Bron",
                 PersonCityZipCode = "69500",
@@ -26,11 +26,11 @@ namespace Dome.Test
                 PersonLastName = "LastName" + fakeId,
                 PersonRoadName = "rue edison",
                 PersonEmail1 = "testdome@yopmail.com",
-                ProfileStructureId = domeClient.OpenData.OperateurStructureConnected.StructureProfilId
+                ProfileStructureId = domeClient.StructureProfilId
             };
 
 
-            var data = domeClient.CreatePatient(createPatient);
+            var data = domeClient.CreateBeneficiaire(createPatient);
 
             Assert.IsTrue(data.Succeeded);
 
@@ -42,7 +42,7 @@ namespace Dome.Test
             var domeClient = new DomeClient();
             var fakeId = Guid.NewGuid().ToString();
 
-            var createPatient = new CreatePatient()
+            var createPatient = new CreateBeneficiaire()
             {
                 PersonCityName = "Bron",
                 PersonCityZipCode = "69500",
@@ -50,10 +50,10 @@ namespace Dome.Test
                 PersonLastName = "LastName" + fakeId,
                 PersonRoadName = "rue edison",
                 PersonPhoneNumber = "0671757846",
-                ProfileStructureId = domeClient.OpenData.OperateurStructureConnected.StructureProfilId
+                ProfileStructureId = domeClient.StructureProfilId
             };
 
-            var data = domeClient.CreatePatient(createPatient);
+            var data = domeClient.CreateBeneficiaire(createPatient);
 
             Assert.IsTrue(data.Succeeded);
 
@@ -65,17 +65,40 @@ namespace Dome.Test
             var domeClient = new DomeClient();
             var fakeId = Guid.NewGuid().ToString();
 
-            var createPatient = new CreatePatient()
+            var createPatient = new CreateBeneficiaire()
             {
                 PersonCityName = "Bron",
                 PersonCityZipCode = "69500",
                 PersonFirstName = "FirstName" + fakeId,
                 PersonLastName = "LastName" + fakeId,
                 PersonRoadName = "rue edison",
-                ProfileStructureId = domeClient.OpenData.OperateurStructureConnected.StructureProfilId
+                ProfileStructureId = domeClient.StructureProfilId
             };
 
-            var data = domeClient.CreatePatient(createPatient);
+            var data = domeClient.CreateBeneficiaire(createPatient);
+
+            Assert.IsFalse(data.Succeeded);
+
+        }
+
+        [TestMethod]
+        public void CreationPatientShouldFail()
+        {
+            var domeClient = new DomeClient();
+            var fakeId = Guid.NewGuid().ToString();
+
+            var createPatient = new CreateBeneficiaire()
+            {
+                AccountId = -1,
+                PersonCityName = "Bron",
+                PersonCityZipCode = "69500",
+                PersonFirstName = "FirstName" + fakeId,
+                PersonLastName = "LastName" + fakeId,
+                PersonRoadName = "rue edison",
+                ProfileStructureId = domeClient.StructureProfilId
+            };
+
+            var data = domeClient.CreateBeneficiaire(createPatient);
 
             Assert.IsFalse(data.Succeeded);
 
@@ -89,7 +112,7 @@ namespace Dome.Test
             var fakeId = Guid.NewGuid().ToString();
             var domeClient = new DomeClient();
 
-            var createPatient = new CreatePatient()
+            var createPatient = new CreateBeneficiaire()
             {
                 PersonCivility = Civilite.Monsieur,
                 PersonCityName = "Bron",
@@ -99,7 +122,7 @@ namespace Dome.Test
                 PersonRoadName = "rue edison",
                 PersonEmail1 = "testdome@yopmail.com",
             };
-            var patient = domeClient.CreatePatient(createPatient);
+            var patient = domeClient.CreateBeneficiaire(createPatient);
 
             Assert.IsFalse(patient.Succeeded);
 
@@ -113,7 +136,7 @@ namespace Dome.Test
             var fakeId = Guid.NewGuid().ToString();
             var domeClient = new DomeClient();
 
-            var createPatient = new CreatePatient()
+            var createPatient = new CreateBeneficiaire()
             {
                 PersonCityName = "Bron",
                 PersonCityZipCode = "69500",
@@ -124,7 +147,7 @@ namespace Dome.Test
             };
 
 
-            var patient = domeClient.CreatePatient(createPatient);
+            var patient = domeClient.CreateBeneficiaire(createPatient);
 
 
             var beforeUpdate = domeClient.GetAccount(patient.Entity.AccountId).Entity.DOME_profileList.Single(profil => profil.profileId == patient.Entity.ProfileId);
@@ -158,6 +181,56 @@ namespace Dome.Test
         }
 
 
+        [TestMethod]
+        public void UpdatePatientFail()
+        {
+
+            var fakeId = Guid.NewGuid().ToString();
+            var domeClient = new DomeClient();
+
+            var createPatient = new CreateBeneficiaire()
+            {
+                PersonCityName = "Bron",
+                PersonCityZipCode = "69500",
+                PersonFirstName = "FirstName" + fakeId,
+                PersonLastName = "LastName" + fakeId,
+                PersonRoadName = "rue edison",
+                PersonEmail1 = "testdome@yopmail.com"
+            };
+
+
+            var patient = domeClient.CreateBeneficiaire(createPatient);
+
+
+            var beforeUpdate = domeClient.GetAccount(patient.Entity.AccountId).Entity.DOME_profileList.Single(profil => profil.profileId == patient.Entity.ProfileId);
+
+            Assert.AreEqual(beforeUpdate.DOME_personData.personCityName, "Bron");
+            Assert.AreEqual(beforeUpdate.DOME_personData.personCityZipCode, "69500");
+
+
+            fakeId = Guid.NewGuid().ToString();
+
+            var updatePerson = new UpdatePerson()
+            {
+                PersonCityName = "Lyon",
+                PersonCityZipCode = "69003",
+                PersonFirstName = "FirstName" + fakeId,
+                PersonLastName = "LastName" + fakeId,
+                PersonRoadName = "rue edison",
+                PersonEmail1 = "testdome@yopmail.com",
+            };
+
+            var entourage = domeClient.UpdatePerson(-1, updatePerson);
+
+            Assert.IsFalse(entourage.Succeeded);
+
+            var afterUpdate = domeClient.GetAccount(patient.Entity.AccountId).Entity.DOME_profileList.Single(profil => profil.profileId == patient.Entity.ProfileId);
+
+            Assert.AreEqual(afterUpdate.DOME_personData.personCityName, "Bron");
+            Assert.AreEqual(afterUpdate.DOME_personData.personCityZipCode, "69500");
+
+
+        }
 
     }
 }

@@ -16,7 +16,7 @@ namespace Dome.Test
             var fakeId = Guid.NewGuid().ToString();
             var domeClient = new DomeClient();
 
-            var createIntervenant = new CreateIntervenant(Profile.PersonnelMedical)
+            var createIntervenant = new CreateIntervenantExterne(Profile.PersonnelMedical)
             {
                 PersonCityName = "Bron",
                 PersonCityZipCode = "69500",
@@ -24,10 +24,10 @@ namespace Dome.Test
                 PersonLastName = "LastName" + fakeId,
                 PersonRoadName = "rue edison",
                 PersonEmail1 = "testdome@yopmail.com",
-                ProfileParentId = domeClient.OpenData.OperateurStructureConnected.StructureProfilId
+                ProfileParentId = domeClient.StructureProfilId
             };
 
-            var intervenant = domeClient.CreateIntervenant(createIntervenant);
+            var intervenant = domeClient.CreateIntervenantExterne(createIntervenant);
 
             Assert.IsTrue(intervenant.Succeeded);
         }
@@ -42,7 +42,7 @@ namespace Dome.Test
             var fakeId = Guid.NewGuid().ToString();
             var domeClient = new DomeClient();
 
-            var createPatient = new CreatePatient()
+            var createPatient = new CreateBeneficiaire()
             {
                 PersonCityName = "Bron",
                 PersonCityZipCode = "69500",
@@ -50,14 +50,14 @@ namespace Dome.Test
                 PersonLastName = "LastName" + fakeId,
                 PersonRoadName = "rue edison",
                 PersonEmail1 = "testdome@yopmail.com",
-                ProfileStructureId = domeClient.OpenData.OperateurStructureConnected.StructureProfilId
+                ProfileStructureId = domeClient.StructureProfilId
             };
 
-            var patient = domeClient.CreatePatient(createPatient);
+            var patient = domeClient.CreateBeneficiaire(createPatient);
 
             fakeId = Guid.NewGuid().ToString();
 
-            var createIntervenant = new CreateIntervenant(Profile.PersonnelMedical)
+            var createIntervenant = new CreateIntervenantExterne(Profile.PersonnelMedical)
             {
                 PersonCityName = "Bron",
                 PersonCityZipCode = "69500",
@@ -65,10 +65,10 @@ namespace Dome.Test
                 PersonLastName = "LastName" + fakeId,
                 PersonRoadName = "rue edison",
                 PersonEmail1 = "testdome@yopmail.com",
-                ProfileParentId = domeClient.OpenData.OperateurStructureConnected.StructureProfilId
+                ProfileParentId = domeClient.StructureProfilId
             };
 
-            var intervenant = domeClient.CreateIntervenant(createIntervenant);
+            var intervenant = domeClient.CreateIntervenantExterne(createIntervenant);
 
             Assert.IsTrue(intervenant.Succeeded);
 

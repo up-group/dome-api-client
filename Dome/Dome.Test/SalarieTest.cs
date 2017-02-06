@@ -10,8 +10,6 @@ namespace Dome.Test
     public class SalarieTest
     {
 
-    
-
         [TestMethod]
         public void CreationSalarie()
         {
@@ -19,7 +17,7 @@ namespace Dome.Test
             var fakeId = Guid.NewGuid().ToString();
             var domeClient = new DomeClient();
 
-            var createSalarie = new CreateSalarie(Profile.PersonnelNonMedical)
+            var createSalarie = new CreateIntervenantInterne(Profile.PersonnelNonMedical)
             {
                 PersonCityName = "Bron",
                 PersonCityZipCode = "69500",
@@ -27,18 +25,14 @@ namespace Dome.Test
                 PersonLastName = "LastName" + fakeId,
                 PersonRoadName = "rue edison",
                 PersonEmail1 = "testdome@yopmail.com",
-                ProfileParentId = domeClient.OpenData.OperateurStructureConnected.StructureProfilId
+                ProfileParentId = domeClient.StructureProfilId
             };
 
-            var intervenant = domeClient.CreateSalarie(createSalarie);
+            var intervenant = domeClient.CreateIntervenantInterne(createSalarie);
 
             Assert.IsTrue(intervenant.Succeeded);
 
         }
-
-
-
-
 
     }
 }
