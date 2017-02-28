@@ -13,10 +13,27 @@ namespace Dome.Test
         public void CreationStructure()
         {
 
-            //var fakeId = Guid.NewGuid().ToString();
-            //var domeClient = new DomeClient();
+            var domeClient = new DomeClient();
 
-          
+            var fakeId = Guid.NewGuid().ToString();
+
+            CreateStructure domeStructure = new CreateStructure()
+            {
+                PersonCityName = "Bron",
+                PersonCityZipCode = "69500",
+                PersonFirstName = "FirstName" + fakeId,
+                PersonLastName = "LastName" + fakeId,
+                PersonRoadName = "rue edison",
+                PersonEmail1 = "testdome@yopmail.com",
+               // ProfileParentId = domeClient.StructureProfilId
+
+            };
+
+
+            var result = domeClient.CreateStructure(domeStructure);
+
+
+
         }
 
 
