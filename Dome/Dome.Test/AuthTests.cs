@@ -21,7 +21,7 @@ namespace Dome.Test
         [TestMethod]
         public void AuthentificationShouldSucceed()
         {
-            var domeClient = new DomeClient();
+            var domeClient = TestHelper.GetNewClient();
 
             Assert.IsTrue(domeClient.StructureProfilId != 0);
             Assert.IsTrue(domeClient.AccountId != 0);

@@ -13,7 +13,7 @@ namespace Dome.Test
         public void CreationStructure()
         {
 
-            var domeClient = new DomeClient();
+            var domeClient = TestHelper.GetNewClient();
 
             var fakeId = Guid.NewGuid().ToString();
 
@@ -42,7 +42,7 @@ namespace Dome.Test
         {
 
             //var fakeId = Guid.NewGuid().ToString();
-            //var domeClient = new DomeClient();
+            //var domeClient = TestHelper.GetNewClient();
         }
     }
 }

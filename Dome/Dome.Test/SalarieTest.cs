@@ -15,7 +15,7 @@ namespace Dome.Test
         {
 
             var fakeId = Guid.NewGuid().ToString();
-            var domeClient = new DomeClient();
+            var domeClient = TestHelper.GetNewClient();
 
             var createSalarie = new CreateIntervenantInterne(Profile.PersonnelNonMedical)
             {

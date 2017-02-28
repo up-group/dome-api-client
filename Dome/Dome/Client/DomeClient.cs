@@ -41,15 +41,7 @@ namespace Dome.Client
 
         public int StructureProfilId => AuthentificationHelper.StructureProfilId;
 
-        public DomeClient()
-        {
-            if (AuthentificationHelper.IsConnected == false)
-            {
-                AuthentificationHelper.Connect(Settings.Username, Settings.Password, Settings.Urlbase);
-            }
-
-            DomeCallSoap = new DomeClientSoap();
-        }
+      
         public DomeClient(string username, string password, string urlbase)
         {
             if (AuthentificationHelper.IsConnected == false)

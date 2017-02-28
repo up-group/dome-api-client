@@ -14,7 +14,7 @@ namespace Dome.Test
         public void CreationIntervenant()
         {
             var fakeId = Guid.NewGuid().ToString();
-            var domeClient = new DomeClient();
+            var domeClient = TestHelper.GetNewClient();
 
             var createIntervenant = new CreateIntervenantExterne(Profile.PersonnelMedical)
             {
@@ -40,7 +40,7 @@ namespace Dome.Test
         {
 
             var fakeId = Guid.NewGuid().ToString();
-            var domeClient = new DomeClient();
+            var domeClient = TestHelper.GetNewClient();
 
             var createPatient = new CreateBeneficiaire()
             {

@@ -16,7 +16,7 @@ namespace Dome.Test
         {
 
             var fakeId = Guid.NewGuid().ToString();
-            var domeClient = new DomeClient();
+            var domeClient = TestHelper.GetNewClient();
 
             var createPatient = new CreateBeneficiaire()
             {
@@ -39,7 +39,7 @@ namespace Dome.Test
         [TestMethod]
         public void CreationPatientWithPhone()
         {
-            var domeClient = new DomeClient();
+            var domeClient = TestHelper.GetNewClient();
             var fakeId = Guid.NewGuid().ToString();
 
             var createPatient = new CreateBeneficiaire()
@@ -62,7 +62,7 @@ namespace Dome.Test
         [TestMethod]
         public void CreationPatientWitoutPhoneMail()
         {
-            var domeClient = new DomeClient();
+            var domeClient = TestHelper.GetNewClient();
             var fakeId = Guid.NewGuid().ToString();
 
             var createPatient = new CreateBeneficiaire()
@@ -84,7 +84,7 @@ namespace Dome.Test
         [TestMethod]
         public void CreationPatientShouldFail()
         {
-            var domeClient = new DomeClient();
+            var domeClient = TestHelper.GetNewClient();
             var fakeId = Guid.NewGuid().ToString();
 
             var createPatient = new CreateBeneficiaire()
@@ -110,7 +110,7 @@ namespace Dome.Test
         {
 
             var fakeId = Guid.NewGuid().ToString();
-            var domeClient = new DomeClient();
+            var domeClient = TestHelper.GetNewClient();
 
             var createPatient = new CreateBeneficiaire()
             {
@@ -134,7 +134,7 @@ namespace Dome.Test
         {
 
             var fakeId = Guid.NewGuid().ToString();
-            var domeClient = new DomeClient();
+            var domeClient = TestHelper.GetNewClient();
 
             var createPatient = new CreateBeneficiaire()
             {
@@ -186,7 +186,7 @@ namespace Dome.Test
         {
 
             var fakeId = Guid.NewGuid().ToString();
-            var domeClient = new DomeClient();
+            var domeClient = TestHelper.GetNewClient();
 
             var createPatient = new CreateBeneficiaire()
             {

@@ -92,7 +92,7 @@ namespace Dome.DomeProxy
 
                if (IsConnected)
                 {
-                    var domeCall = new DomeClient();
+                    var domeCall = new DomeClient(username,password,url);
                     var account = domeCall.GetAccount(Auth.accountId);
                     if (account.Succeeded && account.Entity.DOME_profileList.Length == 1)
                     {
