@@ -41,7 +41,7 @@ namespace Dome.Client
 
         public int StructureProfilId => AuthentificationHelper.StructureProfilId;
 
-      
+
         public DomeClient(string username, string password, string urlbase)
         {
             if (AuthentificationHelper.IsConnected == false)
@@ -117,6 +117,30 @@ namespace Dome.Client
 
         private ActionResult<createProfileResponseDto> _CreateProfile(CreateProfile createProfil)
         {
+
+            int profileParentId = 0;
+            bool profileParentIdSpecified = false;
+            if (createProfil.ProfileCibleType.HasValue && (createProfil.ProfileCibleType.Value == Profile.OperateurStructure || createProfil.ProfileCibleType.Value == Profile.PersonnelMedical || createProfil.ProfileCibleType.Value == Profile.PersonnelNonMedical || createProfil.ProfileCibleType.Value == Profile.PersonnelParaMedical))
+            {
+                profileParentId = createProfil.ProfileParentId ?? this.StructureProfilId;
+                profileParentIdSpecified = true;
+            }
+            else if (createProfil.ProfileCibleType.HasValue && (createProfil.ProfileCibleType.Value == Profile.Referent || createProfil.ProfileCibleType.Value == Profile.Proche))
+            {
+                if (createProfil.ProfileParentId.HasValue == false)
+                {
+                    return new ActionResult<createProfileResponseDto>(false, null, "Pour creer un {0} il doit etre ratache un beneficiare via ProfileParentId".ToErrorMessage(createProfil.ProfileCibleType.Value.ToString()));
+                }
+                profileParentId = createProfil.ProfileParentId.Value;
+                profileParentIdSpecified = true;
+            }
+            else if (createProfil.ProfileCibleType.HasValue && (createProfil.ProfileCibleType.Value == Profile.Beneficiaire || createProfil.ProfileCibleType.Value == Profile.StructureAidePersonne || createProfil.ProfileCibleType.Value == Profile.OperateurStructureUrgence || createProfil.ProfileCibleType.Value == Profile.Urgentiste))
+            {
+                profileParentId = 0;
+                profileParentIdSpecified = false;
+            }
+
+
             var createProfileDto = new createProfileDto()
             {
                 DOME_header = new Service_References.R521.domeHeaderDto()
@@ -140,8 +164,8 @@ namespace Dome.Client
                 personSocietyRole = ((int?)createProfil.PersonSocietyRole) ?? -1,
                 personSocietyRoleSpecified = createProfil.PersonSocietyRole.HasValue,
 
-                profileParentId = createProfil.ProfileParentId ?? -1,
-                profileParentIdSpecified = createProfil.ProfileParentId.HasValue,
+                profileParentId = profileParentId,
+                profileParentIdSpecified = profileParentIdSpecified,
 
                 profileAvatar = createProfil.ProfileAvatar ?? -1,
                 profileAvatarSpecified = createProfil.ProfileAvatar.HasValue,
@@ -165,7 +189,21 @@ namespace Dome.Client
 
         private ActionResult<CreatePersonProfilResult> _CreatePersonAndProfil(CreateEntity createEntity)
         {
-            var createPerson = new CreatePerson(createEntity);
+
+            if (createEntity.ProfileCibleType.HasValue == false)
+            {
+                return new ActionResult<CreatePersonProfilResult>(false, null, "Pour creer un {0} il doit etre ratache un beneficiare via ProfileParentId".ToErrorMessage(createEntity.ProfileCibleType.ToString()));
+            }
+            if (createEntity.ProfileCibleType.HasValue && (createEntity.ProfileCibleType.Value == Profile.Referent || createEntity.ProfileCibleType.Value == Profile.Proche))
+            {
+                if (createEntity.ProfileParentId.HasValue == false)
+                {
+                    return new ActionResult<CreatePersonProfilResult>(false, null, "Pour creer un {0} il doit etre ratache un beneficiare via ProfileParentId".ToErrorMessage(createEntity.ProfileCibleType.ToString()));
+                }
+            }
+
+
+                var createPerson = new CreatePerson(createEntity);
             var createProfile = new CreateProfile(createEntity);
 
 
@@ -417,7 +455,7 @@ namespace Dome.Client
                     version = AuthentificationHelper.version,
                 },
 
-                profileStructureId = structureProfileId,
+                profileStructureId = structureProfileId == default(int) ? this.StructureProfilId : structureProfileId,
                 profileStructureIdSpecified = true,
 
                 profileBenefId = beneficiaireProfileId,
@@ -523,8 +561,8 @@ namespace Dome.Client
                     AGGIRTransport = createAggirDto.AggirTransport ?? -1,
                     AGGIRTransportSpecified = createAggirDto.AggirTransport.HasValue,
 
-                    structureProfileId = createAggirDto.StructureProfileId ?? -1,
-                    structureProfileIdSpecified = createAggirDto.StructureProfileId.HasValue,
+                    structureProfileId = createAggirDto.StructureProfileId.HasValue == false ? this.StructureProfilId : createAggirDto.StructureProfileId.Value,
+                    structureProfileIdSpecified = true,
 
                 }
             });
@@ -626,8 +664,8 @@ namespace Dome.Client
                     AGGIRTransport = alterAggir.AggirTransport ?? -1,
                     AGGIRTransportSpecified = alterAggir.AggirTransport.HasValue,
 
-                    structureProfileId = alterAggir.StructureProfileId ?? -1,
-                    structureProfileIdSpecified = alterAggir.StructureProfileId.HasValue,
+                    structureProfileId = alterAggir.StructureProfileId.HasValue == false ? this.StructureProfilId : alterAggir.StructureProfileId.Value,
+                    structureProfileIdSpecified = true,
 
                     AGGIRArchivedDate = alterAggir.AggirArchivedDate ?? DateTime.MinValue.Date,
                     AGGIRArchivedDateSpecified = alterAggir.AggirArchivedDate.HasValue,
