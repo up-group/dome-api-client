@@ -5,7 +5,7 @@ namespace Dome.Client.dto.createPerson
 {
     public class CreateStructure : CreateEntity
     {
-        public CreateStructure() : base(Profile.StructureMedicale)
+        public CreateStructure() : base(Profile.StructureAidePersonne)
         {
         }
 
