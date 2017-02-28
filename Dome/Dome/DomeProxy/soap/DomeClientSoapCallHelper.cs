@@ -10,7 +10,7 @@ namespace Dome.DomeProxy.soap
         public static T3 Call<T1, T2, T3>(Func<T1, T3> dataToReturn) where T2 : class where T1 : ClientBase<T2> where T3 : new()
         {
 
-            var url = Settings.Urlbase + "/soap/" + typeof(T2).Name;
+            var url = AuthentificationHelper.Url + "soap/" + typeof(T2).Name;
             var binding = new BasicHttpBinding();
             var endpoint = new EndpointAddress(url);
             var client = (T1)Activator.CreateInstance(typeof(T1), new object[] { binding, endpoint });

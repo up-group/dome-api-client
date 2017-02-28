@@ -69,9 +69,11 @@ namespace Dome.DomeProxy
             }
         }
 
-
+        public static string Url { get; set; }
         public static void Connect(string username, string password, string url)
         {
+            Url = url;
+
             using (var client = new HttpClient())
             {
                 var values = new Dictionary<string, string>
@@ -102,7 +104,7 @@ namespace Dome.DomeProxy
 
                         OperateurProfilId = operateurStructure.profileId;
                         StructureProfilId = operateurStructure.parentProfileId;
-
+                        Url = url;
 
                         domeCall._SelectProfil(OperateurProfilId);
                     }
