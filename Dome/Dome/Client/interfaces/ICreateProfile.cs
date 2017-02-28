@@ -6,7 +6,7 @@ namespace Dome.Client.interfaces
     {
         int? AccountId { get; set; }
 
-        Profile? ProfileCibleType { get; set; }
+        Profile ProfileCibleType { get; set; }
 
         int? ProfileParentId { get; set; }
 

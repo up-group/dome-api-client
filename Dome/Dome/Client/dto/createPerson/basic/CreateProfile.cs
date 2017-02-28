@@ -19,7 +19,7 @@ namespace Dome.Client.dto.createPerson.basic
         }
 
         public int? AccountId { get; set; }
-        public Profile? ProfileCibleType { get; set; }
+        public Profile ProfileCibleType { get; set; }
         public int? ProfileParentId { get; set; }
         public int? ProfileAvatar { get; set; }
         public SocietyRole? PersonSocietyRole { get; set; }

@@ -120,21 +120,21 @@ namespace Dome.Client
 
             int profileParentId = 0;
             bool profileParentIdSpecified = false;
-            if (createProfil.ProfileCibleType.HasValue && (createProfil.ProfileCibleType.Value == Profile.OperateurStructure || createProfil.ProfileCibleType.Value == Profile.PersonnelMedical || createProfil.ProfileCibleType.Value == Profile.PersonnelNonMedical || createProfil.ProfileCibleType.Value == Profile.PersonnelParaMedical))
+            if  (createProfil.ProfileCibleType == Profile.OperateurStructure || createProfil.ProfileCibleType == Profile.PersonnelMedical || createProfil.ProfileCibleType == Profile.PersonnelNonMedical || createProfil.ProfileCibleType == Profile.PersonnelParaMedical)
             {
                 profileParentId = createProfil.ProfileParentId ?? this.StructureProfilId;
                 profileParentIdSpecified = true;
             }
-            else if (createProfil.ProfileCibleType.HasValue && (createProfil.ProfileCibleType.Value == Profile.Referent || createProfil.ProfileCibleType.Value == Profile.Proche))
+            else if (createProfil.ProfileCibleType == Profile.Referent || createProfil.ProfileCibleType == Profile.Proche)
             {
                 if (createProfil.ProfileParentId.HasValue == false)
                 {
-                    return new ActionResult<createProfileResponseDto>(false, null, "Pour creer un {0} il doit etre ratache un beneficiare via ProfileParentId".ToErrorMessage(createProfil.ProfileCibleType.Value.ToString()));
+                    return new ActionResult<createProfileResponseDto>(false, null, "Pour creer un {0} il doit etre ratache un beneficiare via ProfileParentId".ToErrorMessage(createProfil.ProfileCibleType.ToString()));
                 }
                 profileParentId = createProfil.ProfileParentId.Value;
                 profileParentIdSpecified = true;
             }
-            else if (createProfil.ProfileCibleType.HasValue && (createProfil.ProfileCibleType.Value == Profile.Beneficiaire || createProfil.ProfileCibleType.Value == Profile.StructureAidePersonne || createProfil.ProfileCibleType.Value == Profile.OperateurStructureUrgence || createProfil.ProfileCibleType.Value == Profile.Urgentiste))
+            else if  (createProfil.ProfileCibleType == Profile.Beneficiaire || createProfil.ProfileCibleType == Profile.StructureAidePersonne || createProfil.ProfileCibleType == Profile.OperateurStructureUrgence || createProfil.ProfileCibleType == Profile.Urgentiste)
             {
                 profileParentId = 0;
                 profileParentIdSpecified = false;
@@ -158,8 +158,8 @@ namespace Dome.Client
 
                 personIdMetier = createProfil.PersonIdMetier,
 
-                profileCibleType = ((int?)createProfil.ProfileCibleType) ?? -1,
-                profileCibleTypeSpecified = createProfil.ProfileCibleType.HasValue,
+                profileCibleType = (int)createProfil.ProfileCibleType,
+                profileCibleTypeSpecified = true,
 
                 personSocietyRole = ((int?)createProfil.PersonSocietyRole) ?? -1,
                 personSocietyRoleSpecified = createProfil.PersonSocietyRole.HasValue,
@@ -189,12 +189,8 @@ namespace Dome.Client
 
         private ActionResult<CreatePersonProfilResult> _CreatePersonAndProfil(CreateEntity createEntity)
         {
-
-            if (createEntity.ProfileCibleType.HasValue == false)
-            {
-                return new ActionResult<CreatePersonProfilResult>(false, null, "Pour creer un {0} il doit etre ratache un beneficiare via ProfileParentId".ToErrorMessage(createEntity.ProfileCibleType.ToString()));
-            }
-            if (createEntity.ProfileCibleType.HasValue && (createEntity.ProfileCibleType.Value == Profile.Referent || createEntity.ProfileCibleType.Value == Profile.Proche))
+                       
+            if (createEntity.ProfileCibleType == Profile.Referent || createEntity.ProfileCibleType == Profile.Proche)
             {
                 if (createEntity.ProfileParentId.HasValue == false)
                 {
