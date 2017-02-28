@@ -9,6 +9,9 @@ namespace Dome.Client.interfaces
     public interface IDomeClient
     {
 
+        int AccountId { get; }
+        int StructureProfilId { get; }
+
         ActionResult<CreatePersonProfilResult> CreateBeneficiaire(CreateBeneficiaire createBeneficiaire);
         ActionResult<CreatePersonProfilResult> CreateEntourage(CreateEntourage createEntourage);
         ActionResult<CreatePersonProfilResult> CreateIntervenantInterne(CreateIntervenantInterne createIntervenantInterne);
