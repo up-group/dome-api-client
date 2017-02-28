@@ -315,7 +315,8 @@ namespace Dome.Client
                 return beneficiaire;
             }
 
-            var link = SubscriptionBeneficiaireStructure(beneficiaire.Entity.ProfileId, createBeneficiaire.ProfileStructureId);
+            var profileStructureId = createBeneficiaire.ProfileStructureId == default(int) ? this.StructureProfilId : createBeneficiaire.ProfileStructureId;
+            var link = SubscriptionBeneficiaireStructure(beneficiaire.Entity.ProfileId, profileStructureId);
 
             if (link.Succeeded == false)
             {
