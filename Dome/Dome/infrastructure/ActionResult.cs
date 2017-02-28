@@ -126,4 +126,34 @@ namespace Dome.infrastructure
     }
 
 
+    internal static class MessageExtension
+    {
+        public static Message ToWarningMessage(this string content, params object[] args)
+        {
+            return BuildMessage(content, args, MessageType.Warning);
+        }
+
+        public static Message ToErrorMessage(this string content, params object[] args)
+        {
+            return BuildMessage(content, args, MessageType.Error);
+        }
+
+        public static Message ToInfoMessage(this string content, params object[] args)
+        {
+            return BuildMessage(content, args, MessageType.Information);
+        }
+
+        public static Message ToSuccessMessage(this string content, params object[] args)
+        {
+            return BuildMessage(content, args, MessageType.Success);
+        }
+
+          
+
+        private static Message BuildMessage(string content, object[] args, MessageType type)
+        {
+            return new Message(type, string.Format(content, args));
+        }
+    }
+
 }
