@@ -109,6 +109,10 @@ namespace Dome.DomeProxy
                         domeCall._SelectProfil(OperateurProfilId);
                     }
                 }
+                else
+                {
+                    throw new Exception("Non connecte");
+                }
 
 
             }
