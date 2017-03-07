@@ -72,7 +72,7 @@ namespace Dome.DomeProxy
         public static string Url { get; set; }
         public static void Connect(string username, string password, string url)
         {
-            Url = url;
+            url = url + (url[url.Length - 1] == '/' ? "" : "/");
 
             using (var client = new HttpClient())
             {
