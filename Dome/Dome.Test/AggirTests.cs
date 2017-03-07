@@ -230,7 +230,8 @@ namespace Dome.Test
                 PersonFirstName = "FirstName" + fakeId,
                 PersonLastName = "LastName" + fakeId,
                 PersonRoadName = "rue edison",
-                PersonEmail1 = "testdome@yopmail.com",
+                //PersonEmail1 = "testdome@yopmail.com",
+                PersonPhoneNumber = "0102030405",
                 ProfileStructureId = domeClient.StructureProfilId
             };
 
@@ -248,7 +249,7 @@ namespace Dome.Test
                 PersonFirstName = "FirstName" + fakeId,
                 PersonLastName = "LastName" + fakeId,
                 PersonRoadName = "rue edison",
-                PersonEmail1 = "testdome@yopmail.com",
+                PersonPhoneNumber = "0102030405",
                 ProfileParentId = domeClient.StructureProfilId
             };
 

@@ -25,7 +25,7 @@ namespace Dome.Test
                 PersonLastName = "LastName" + fakeId,
                 PersonRoadName = "rue edison",
                 PersonEmail1 = "testdome@yopmail.com",
-               // ProfileParentId = domeClient.StructureProfilId
+               ProfileParentId = domeClient.StructureProfilId
 
             };
 
