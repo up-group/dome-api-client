@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dome.Service_References.R101 {
+namespace Dome.R101 {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -22,7 +22,7 @@ namespace Dome.Service_References.R101 {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeCommonDto))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="createContactResponse")]
-        createContactResponse createContact(createContact request);
+        Dome.R101.createContactResponse createContact(Dome.R101.createContact request);
     }
     
     /// <remarks/>
@@ -147,6 +147,8 @@ namespace Dome.Service_References.R101 {
         private bool contactProIdFieldSpecified;
         
         private string contactCommentField;
+        
+        private string contactSkypeIdField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
@@ -532,6 +534,18 @@ namespace Dome.Service_References.R101 {
             }
         }
         
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=26)]
+        public string contactSkypeId {
+            get {
+                return this.contactSkypeIdField;
+            }
+            set {
+                this.contactSkypeIdField = value;
+                this.RaisePropertyChanged("contactSkypeId");
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -560,6 +574,8 @@ namespace Dome.Service_References.R101 {
         private string statusUserMessageField;
         
         private string statusErrorMessageField;
+        
+        private string userMessageField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
@@ -618,6 +634,18 @@ namespace Dome.Service_References.R101 {
             set {
                 this.statusErrorMessageField = value;
                 this.RaisePropertyChanged("statusErrorMessage");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public string userMessage {
+            get {
+                return this.userMessageField;
+            }
+            set {
+                this.userMessageField = value;
+                this.RaisePropertyChanged("userMessage");
             }
         }
         
@@ -716,6 +744,8 @@ namespace Dome.Service_References.R101 {
         
         private string langueField;
         
+        private string softwareNameField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
         public int deviceType {
@@ -749,6 +779,18 @@ namespace Dome.Service_References.R101 {
             set {
                 this.langueField = value;
                 this.RaisePropertyChanged("langue");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string softwareName {
+            get {
+                return this.softwareNameField;
+            }
+            set {
+                this.softwareNameField = value;
+                this.RaisePropertyChanged("softwareName");
             }
         }
     }
@@ -859,12 +901,12 @@ namespace Dome.Service_References.R101 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public createContactDto createContactDto;
+        public Dome.R101.createContactDto createContactDto;
         
         public createContact() {
         }
         
-        public createContact(createContactDto createContactDto) {
+        public createContact(Dome.R101.createContactDto createContactDto) {
             this.createContactDto = createContactDto;
         }
     }
@@ -877,23 +919,23 @@ namespace Dome.Service_References.R101 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="createContactResponse", Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public createContactResponseDto createContactResponse1;
+        public Dome.R101.createContactResponseDto createContactResponse1;
         
         public createContactResponse() {
         }
         
-        public createContactResponse(createContactResponseDto createContactResponse1) {
+        public createContactResponse(Dome.R101.createContactResponseDto createContactResponse1) {
             this.createContactResponse1 = createContactResponse1;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    internal interface DOME_BUS_EAI_R101contactCreateWSChannel : DOME_BUS_EAI_R101contactCreateWS, System.ServiceModel.IClientChannel {
+    internal interface DOME_BUS_EAI_R101contactCreateWSChannel : Dome.R101.DOME_BUS_EAI_R101contactCreateWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    internal partial class DOME_BUS_EAI_R101contactCreateWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R101contactCreateWS>, DOME_BUS_EAI_R101contactCreateWS {
+    internal partial class DOME_BUS_EAI_R101contactCreateWSClient : System.ServiceModel.ClientBase<Dome.R101.DOME_BUS_EAI_R101contactCreateWS>, Dome.R101.DOME_BUS_EAI_R101contactCreateWS {
         
         public DOME_BUS_EAI_R101contactCreateWSClient() {
         }
@@ -915,14 +957,14 @@ namespace Dome.Service_References.R101 {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        createContactResponse DOME_BUS_EAI_R101contactCreateWS.createContact(createContact request) {
+        Dome.R101.createContactResponse Dome.R101.DOME_BUS_EAI_R101contactCreateWS.createContact(Dome.R101.createContact request) {
             return base.Channel.createContact(request);
         }
         
-        public createContactResponseDto createContact(createContactDto createContactDto) {
-            createContact inValue = new createContact();
+        public Dome.R101.createContactResponseDto createContact(Dome.R101.createContactDto createContactDto) {
+            Dome.R101.createContact inValue = new Dome.R101.createContact();
             inValue.createContactDto = createContactDto;
-            createContactResponse retVal = ((DOME_BUS_EAI_R101contactCreateWS)(this)).createContact(inValue);
+            Dome.R101.createContactResponse retVal = ((Dome.R101.DOME_BUS_EAI_R101contactCreateWS)(this)).createContact(inValue);
             return retVal.createContactResponse1;
         }
     }

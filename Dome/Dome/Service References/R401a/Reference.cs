@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dome.Service_References.R401a {
+namespace Dome.R401a {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -22,7 +22,7 @@ namespace Dome.Service_References.R401a {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeCommonDto))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="domeResponseDto")]
-        addDocumentResponse addDocument(addDocument request);
+        Dome.R401a.addDocumentResponse addDocument(Dome.R401a.addDocument request);
     }
     
     /// <remarks/>
@@ -285,6 +285,8 @@ namespace Dome.Service_References.R401a {
         
         private string statusErrorMessageField;
         
+        private string userMessageField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
         public domeResponseHeaderDto DOME_header {
@@ -342,6 +344,18 @@ namespace Dome.Service_References.R401a {
             set {
                 this.statusErrorMessageField = value;
                 this.RaisePropertyChanged("statusErrorMessage");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public string userMessage {
+            get {
+                return this.userMessageField;
+            }
+            set {
+                this.userMessageField = value;
+                this.RaisePropertyChanged("userMessage");
             }
         }
         
@@ -440,6 +454,8 @@ namespace Dome.Service_References.R401a {
         
         private string langueField;
         
+        private string softwareNameField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
         public int deviceType {
@@ -473,6 +489,18 @@ namespace Dome.Service_References.R401a {
             set {
                 this.langueField = value;
                 this.RaisePropertyChanged("langue");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string softwareName {
+            get {
+                return this.softwareNameField;
+            }
+            set {
+                this.softwareNameField = value;
+                this.RaisePropertyChanged("softwareName");
             }
         }
     }
@@ -541,12 +569,12 @@ namespace Dome.Service_References.R401a {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public addDocumentInputDto AddDocumentInput;
+        public Dome.R401a.addDocumentInputDto AddDocumentInput;
         
         public addDocument() {
         }
         
-        public addDocument(addDocumentInputDto AddDocumentInput) {
+        public addDocument(Dome.R401a.addDocumentInputDto AddDocumentInput) {
             this.AddDocumentInput = AddDocumentInput;
         }
     }
@@ -559,23 +587,23 @@ namespace Dome.Service_References.R401a {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public addDocumentResponseDto domeResponseDto;
+        public Dome.R401a.addDocumentResponseDto domeResponseDto;
         
         public addDocumentResponse() {
         }
         
-        public addDocumentResponse(addDocumentResponseDto domeResponseDto) {
+        public addDocumentResponse(Dome.R401a.addDocumentResponseDto domeResponseDto) {
             this.domeResponseDto = domeResponseDto;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    internal interface DOME_BUS_EAI_R401aDocProvisionningAcquisitionWSChannel : DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS, System.ServiceModel.IClientChannel {
+    internal interface DOME_BUS_EAI_R401aDocProvisionningAcquisitionWSChannel : Dome.R401a.DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    internal partial class DOME_BUS_EAI_R401aDocProvisionningAcquisitionWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS>, DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS {
+    internal partial class DOME_BUS_EAI_R401aDocProvisionningAcquisitionWSClient : System.ServiceModel.ClientBase<Dome.R401a.DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS>, Dome.R401a.DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS {
         
         public DOME_BUS_EAI_R401aDocProvisionningAcquisitionWSClient() {
         }
@@ -597,14 +625,14 @@ namespace Dome.Service_References.R401a {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        addDocumentResponse DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS.addDocument(addDocument request) {
+        Dome.R401a.addDocumentResponse Dome.R401a.DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS.addDocument(Dome.R401a.addDocument request) {
             return base.Channel.addDocument(request);
         }
         
-        public addDocumentResponseDto addDocument(addDocumentInputDto AddDocumentInput) {
-            addDocument inValue = new addDocument();
+        public Dome.R401a.addDocumentResponseDto addDocument(Dome.R401a.addDocumentInputDto AddDocumentInput) {
+            Dome.R401a.addDocument inValue = new Dome.R401a.addDocument();
             inValue.AddDocumentInput = AddDocumentInput;
-            addDocumentResponse retVal = ((DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS)(this)).addDocument(inValue);
+            Dome.R401a.addDocumentResponse retVal = ((Dome.R401a.DOME_BUS_EAI_R401aDocProvisionningAcquisitionWS)(this)).addDocument(inValue);
             return retVal.domeResponseDto;
         }
     }

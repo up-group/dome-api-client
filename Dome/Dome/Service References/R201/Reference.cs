@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dome.Service_References.R201 {
+namespace Dome.R201 {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -22,7 +22,7 @@ namespace Dome.Service_References.R201 {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeCommonDto))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="createEventResponse")]
-        createEventResponse createEvent(createEvent request);
+        Dome.R201.createEventResponse createEvent(Dome.R201.createEvent request);
     }
     
     /// <remarks/>
@@ -435,6 +435,8 @@ namespace Dome.Service_References.R201 {
         
         private string statusErrorMessageField;
         
+        private string userMessageField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
         public domeResponseHeaderDto DOME_header {
@@ -492,6 +494,18 @@ namespace Dome.Service_References.R201 {
             set {
                 this.statusErrorMessageField = value;
                 this.RaisePropertyChanged("statusErrorMessage");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public string userMessage {
+            get {
+                return this.userMessageField;
+            }
+            set {
+                this.userMessageField = value;
+                this.RaisePropertyChanged("userMessage");
             }
         }
         
@@ -590,6 +604,8 @@ namespace Dome.Service_References.R201 {
         
         private string langueField;
         
+        private string softwareNameField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
         public int deviceType {
@@ -623,6 +639,18 @@ namespace Dome.Service_References.R201 {
             set {
                 this.langueField = value;
                 this.RaisePropertyChanged("langue");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string softwareName {
+            get {
+                return this.softwareNameField;
+            }
+            set {
+                this.softwareNameField = value;
+                this.RaisePropertyChanged("softwareName");
             }
         }
     }
@@ -751,12 +779,12 @@ namespace Dome.Service_References.R201 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public createEventDto createEventDto;
+        public Dome.R201.createEventDto createEventDto;
         
         public createEvent() {
         }
         
-        public createEvent(createEventDto createEventDto) {
+        public createEvent(Dome.R201.createEventDto createEventDto) {
             this.createEventDto = createEventDto;
         }
     }
@@ -769,23 +797,23 @@ namespace Dome.Service_References.R201 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="createEventResponse", Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public createEventResponseDto createEventResponse1;
+        public Dome.R201.createEventResponseDto createEventResponse1;
         
         public createEventResponse() {
         }
         
-        public createEventResponse(createEventResponseDto createEventResponse1) {
+        public createEventResponse(Dome.R201.createEventResponseDto createEventResponse1) {
             this.createEventResponse1 = createEventResponse1;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    internal interface DOME_BUS_EAI_R201eventCreateWSChannel : DOME_BUS_EAI_R201eventCreateWS, System.ServiceModel.IClientChannel {
+    internal interface DOME_BUS_EAI_R201eventCreateWSChannel : Dome.R201.DOME_BUS_EAI_R201eventCreateWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    internal partial class DOME_BUS_EAI_R201eventCreateWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R201eventCreateWS>, DOME_BUS_EAI_R201eventCreateWS {
+    internal partial class DOME_BUS_EAI_R201eventCreateWSClient : System.ServiceModel.ClientBase<Dome.R201.DOME_BUS_EAI_R201eventCreateWS>, Dome.R201.DOME_BUS_EAI_R201eventCreateWS {
         
         public DOME_BUS_EAI_R201eventCreateWSClient() {
         }
@@ -807,14 +835,14 @@ namespace Dome.Service_References.R201 {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        createEventResponse DOME_BUS_EAI_R201eventCreateWS.createEvent(createEvent request) {
+        Dome.R201.createEventResponse Dome.R201.DOME_BUS_EAI_R201eventCreateWS.createEvent(Dome.R201.createEvent request) {
             return base.Channel.createEvent(request);
         }
         
-        public createEventResponseDto createEvent(createEventDto createEventDto) {
-            createEvent inValue = new createEvent();
+        public Dome.R201.createEventResponseDto createEvent(Dome.R201.createEventDto createEventDto) {
+            Dome.R201.createEvent inValue = new Dome.R201.createEvent();
             inValue.createEventDto = createEventDto;
-            createEventResponse retVal = ((DOME_BUS_EAI_R201eventCreateWS)(this)).createEvent(inValue);
+            Dome.R201.createEventResponse retVal = ((Dome.R201.DOME_BUS_EAI_R201eventCreateWS)(this)).createEvent(inValue);
             return retVal.createEventResponse1;
         }
     }

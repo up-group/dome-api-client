@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dome.Service_References.R820 {
+namespace Dome.R820 {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -22,7 +22,7 @@ namespace Dome.Service_References.R820 {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeCommonDto))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="addCourseEntryResponse")]
-        addCourseEntryResponse addCourseEntry(addCourseEntry request);
+        Dome.R820.addCourseEntryResponse addCourseEntry(Dome.R820.addCourseEntry request);
     }
     
     /// <remarks/>
@@ -421,6 +421,8 @@ namespace Dome.Service_References.R820 {
         
         private string statusErrorMessageField;
         
+        private string userMessageField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
         public domeResponseHeaderDto DOME_header {
@@ -478,6 +480,18 @@ namespace Dome.Service_References.R820 {
             set {
                 this.statusErrorMessageField = value;
                 this.RaisePropertyChanged("statusErrorMessage");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public string userMessage {
+            get {
+                return this.userMessageField;
+            }
+            set {
+                this.userMessageField = value;
+                this.RaisePropertyChanged("userMessage");
             }
         }
         
@@ -576,6 +590,8 @@ namespace Dome.Service_References.R820 {
         
         private string langueField;
         
+        private string softwareNameField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
         public int deviceType {
@@ -609,6 +625,18 @@ namespace Dome.Service_References.R820 {
             set {
                 this.langueField = value;
                 this.RaisePropertyChanged("langue");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string softwareName {
+            get {
+                return this.softwareNameField;
+            }
+            set {
+                this.softwareNameField = value;
+                this.RaisePropertyChanged("softwareName");
             }
         }
     }
@@ -691,12 +719,12 @@ namespace Dome.Service_References.R820 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public addCourseEntryDto addCourseEntryDto;
+        public Dome.R820.addCourseEntryDto addCourseEntryDto;
         
         public addCourseEntry() {
         }
         
-        public addCourseEntry(addCourseEntryDto addCourseEntryDto) {
+        public addCourseEntry(Dome.R820.addCourseEntryDto addCourseEntryDto) {
             this.addCourseEntryDto = addCourseEntryDto;
         }
     }
@@ -709,23 +737,23 @@ namespace Dome.Service_References.R820 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="addCourseEntryResponse", Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public addCourseEntryResponseDto addCourseEntryResponse1;
+        public Dome.R820.addCourseEntryResponseDto addCourseEntryResponse1;
         
         public addCourseEntryResponse() {
         }
         
-        public addCourseEntryResponse(addCourseEntryResponseDto addCourseEntryResponse1) {
+        public addCourseEntryResponse(Dome.R820.addCourseEntryResponseDto addCourseEntryResponse1) {
             this.addCourseEntryResponse1 = addCourseEntryResponse1;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    internal interface DOME_BUS_EAI_R820addNewJourneyEntryWSChannel : DOME_BUS_EAI_R820addNewJourneyEntryWS, System.ServiceModel.IClientChannel {
+    internal interface DOME_BUS_EAI_R820addNewJourneyEntryWSChannel : Dome.R820.DOME_BUS_EAI_R820addNewJourneyEntryWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    internal partial class DOME_BUS_EAI_R820addNewJourneyEntryWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R820addNewJourneyEntryWS>, DOME_BUS_EAI_R820addNewJourneyEntryWS {
+    internal partial class DOME_BUS_EAI_R820addNewJourneyEntryWSClient : System.ServiceModel.ClientBase<Dome.R820.DOME_BUS_EAI_R820addNewJourneyEntryWS>, Dome.R820.DOME_BUS_EAI_R820addNewJourneyEntryWS {
         
         public DOME_BUS_EAI_R820addNewJourneyEntryWSClient() {
         }
@@ -747,14 +775,14 @@ namespace Dome.Service_References.R820 {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        addCourseEntryResponse DOME_BUS_EAI_R820addNewJourneyEntryWS.addCourseEntry(addCourseEntry request) {
+        Dome.R820.addCourseEntryResponse Dome.R820.DOME_BUS_EAI_R820addNewJourneyEntryWS.addCourseEntry(Dome.R820.addCourseEntry request) {
             return base.Channel.addCourseEntry(request);
         }
         
-        public addCourseEntryResponseDto addCourseEntry(addCourseEntryDto addCourseEntryDto) {
-            addCourseEntry inValue = new addCourseEntry();
+        public Dome.R820.addCourseEntryResponseDto addCourseEntry(Dome.R820.addCourseEntryDto addCourseEntryDto) {
+            Dome.R820.addCourseEntry inValue = new Dome.R820.addCourseEntry();
             inValue.addCourseEntryDto = addCourseEntryDto;
-            addCourseEntryResponse retVal = ((DOME_BUS_EAI_R820addNewJourneyEntryWS)(this)).addCourseEntry(inValue);
+            Dome.R820.addCourseEntryResponse retVal = ((Dome.R820.DOME_BUS_EAI_R820addNewJourneyEntryWS)(this)).addCourseEntry(inValue);
             return retVal.addCourseEntryResponse1;
         }
     }

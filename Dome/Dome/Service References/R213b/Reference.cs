@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dome.Service_References.R213b {
+namespace Dome.R213b {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -22,7 +22,7 @@ namespace Dome.Service_References.R213b {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeCommonDto))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="eventGetNotificationStructureResponse")]
-        getNotificationsResponse getNotifications(getNotifications request);
+        Dome.R213b.getNotificationsResponse getNotifications(Dome.R213b.getNotifications request);
     }
     
     /// <remarks/>
@@ -109,6 +109,8 @@ namespace Dome.Service_References.R213b {
         
         private string langueField;
         
+        private string softwareNameField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
         public int deviceType {
@@ -142,6 +144,18 @@ namespace Dome.Service_References.R213b {
             set {
                 this.langueField = value;
                 this.RaisePropertyChanged("langue");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string softwareName {
+            get {
+                return this.softwareNameField;
+            }
+            set {
+                this.softwareNameField = value;
+                this.RaisePropertyChanged("softwareName");
             }
         }
     }
@@ -1027,6 +1041,8 @@ namespace Dome.Service_References.R213b {
         
         private string statusErrorMessageField;
         
+        private string userMessageField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
         public domeResponseHeaderDto DOME_header {
@@ -1084,6 +1100,18 @@ namespace Dome.Service_References.R213b {
             set {
                 this.statusErrorMessageField = value;
                 this.RaisePropertyChanged("statusErrorMessage");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public string userMessage {
+            get {
+                return this.userMessageField;
+            }
+            set {
+                this.userMessageField = value;
+                this.RaisePropertyChanged("userMessage");
             }
         }
         
@@ -1179,12 +1207,12 @@ namespace Dome.Service_References.R213b {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public eventGetNotificationStructureDto eventGetNotificationStructureDto;
+        public Dome.R213b.eventGetNotificationStructureDto eventGetNotificationStructureDto;
         
         public getNotifications() {
         }
         
-        public getNotifications(eventGetNotificationStructureDto eventGetNotificationStructureDto) {
+        public getNotifications(Dome.R213b.eventGetNotificationStructureDto eventGetNotificationStructureDto) {
             this.eventGetNotificationStructureDto = eventGetNotificationStructureDto;
         }
     }
@@ -1197,23 +1225,23 @@ namespace Dome.Service_References.R213b {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public eventGetNotificationStructureResponseDto eventGetNotificationStructureResponse;
+        public Dome.R213b.eventGetNotificationStructureResponseDto eventGetNotificationStructureResponse;
         
         public getNotificationsResponse() {
         }
         
-        public getNotificationsResponse(eventGetNotificationStructureResponseDto eventGetNotificationStructureResponse) {
+        public getNotificationsResponse(Dome.R213b.eventGetNotificationStructureResponseDto eventGetNotificationStructureResponse) {
             this.eventGetNotificationStructureResponse = eventGetNotificationStructureResponse;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    internal interface DOME_BUS_EAI_R213beventGetNotificationStructureWSChannel : DOME_BUS_EAI_R213beventGetNotificationStructureWS, System.ServiceModel.IClientChannel {
+    internal interface DOME_BUS_EAI_R213beventGetNotificationStructureWSChannel : Dome.R213b.DOME_BUS_EAI_R213beventGetNotificationStructureWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    internal partial class DOME_BUS_EAI_R213beventGetNotificationStructureWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R213beventGetNotificationStructureWS>, DOME_BUS_EAI_R213beventGetNotificationStructureWS {
+    internal partial class DOME_BUS_EAI_R213beventGetNotificationStructureWSClient : System.ServiceModel.ClientBase<Dome.R213b.DOME_BUS_EAI_R213beventGetNotificationStructureWS>, Dome.R213b.DOME_BUS_EAI_R213beventGetNotificationStructureWS {
         
         public DOME_BUS_EAI_R213beventGetNotificationStructureWSClient() {
         }
@@ -1235,14 +1263,14 @@ namespace Dome.Service_References.R213b {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        getNotificationsResponse DOME_BUS_EAI_R213beventGetNotificationStructureWS.getNotifications(getNotifications request) {
+        Dome.R213b.getNotificationsResponse Dome.R213b.DOME_BUS_EAI_R213beventGetNotificationStructureWS.getNotifications(Dome.R213b.getNotifications request) {
             return base.Channel.getNotifications(request);
         }
         
-        public eventGetNotificationStructureResponseDto getNotifications(eventGetNotificationStructureDto eventGetNotificationStructureDto) {
-            getNotifications inValue = new getNotifications();
+        public Dome.R213b.eventGetNotificationStructureResponseDto getNotifications(Dome.R213b.eventGetNotificationStructureDto eventGetNotificationStructureDto) {
+            Dome.R213b.getNotifications inValue = new Dome.R213b.getNotifications();
             inValue.eventGetNotificationStructureDto = eventGetNotificationStructureDto;
-            getNotificationsResponse retVal = ((DOME_BUS_EAI_R213beventGetNotificationStructureWS)(this)).getNotifications(inValue);
+            Dome.R213b.getNotificationsResponse retVal = ((Dome.R213b.DOME_BUS_EAI_R213beventGetNotificationStructureWS)(this)).getNotifications(inValue);
             return retVal.eventGetNotificationStructureResponse;
         }
     }

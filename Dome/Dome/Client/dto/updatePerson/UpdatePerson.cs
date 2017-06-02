@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using Dome.Client.interfaces;
 using Dome.Enum;
-using Dome.Service_References.R542a;
+using Dome.R542a;
 
 namespace Dome.Client.dto.updatePerson
 {

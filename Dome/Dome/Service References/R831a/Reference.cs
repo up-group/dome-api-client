@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dome.Service_References.R831a {
+namespace Dome.R831a {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -22,7 +22,7 @@ namespace Dome.Service_References.R831a {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeCommonDto))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        getListAGGIRResponse getListAGGIR(getListAGGIR request);
+        Dome.R831a.getListAGGIRResponse getListAGGIR(Dome.R831a.getListAGGIR request);
     }
     
     /// <remarks/>
@@ -137,6 +137,8 @@ namespace Dome.Service_References.R831a {
         
         private string langueField;
         
+        private string softwareNameField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
         public int deviceType {
@@ -170,6 +172,18 @@ namespace Dome.Service_References.R831a {
             set {
                 this.langueField = value;
                 this.RaisePropertyChanged("langue");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string softwareName {
+            get {
+                return this.softwareNameField;
+            }
+            set {
+                this.softwareNameField = value;
+                this.RaisePropertyChanged("softwareName");
             }
         }
     }
@@ -987,6 +1001,8 @@ namespace Dome.Service_References.R831a {
         
         private string statusErrorMessageField;
         
+        private string userMessageField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
         public domeResponseHeaderDto DOME_header {
@@ -1047,6 +1063,18 @@ namespace Dome.Service_References.R831a {
             }
         }
         
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public string userMessage {
+            get {
+                return this.userMessageField;
+            }
+            set {
+                this.userMessageField = value;
+                this.RaisePropertyChanged("userMessage");
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -1097,12 +1125,12 @@ namespace Dome.Service_References.R831a {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public getListAGGIRDto arg0;
+        public Dome.R831a.getListAGGIRDto arg0;
         
         public getListAGGIR() {
         }
         
-        public getListAGGIR(getListAGGIRDto arg0) {
+        public getListAGGIR(Dome.R831a.getListAGGIRDto arg0) {
             this.arg0 = arg0;
         }
     }
@@ -1115,23 +1143,23 @@ namespace Dome.Service_References.R831a {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public getListAGGIRResponseDto @return;
+        public Dome.R831a.getListAGGIRResponseDto @return;
         
         public getListAGGIRResponse() {
         }
         
-        public getListAGGIRResponse(getListAGGIRResponseDto @return) {
+        public getListAGGIRResponse(Dome.R831a.getListAGGIRResponseDto @return) {
             this.@return = @return;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    internal interface DOME_BUS_EAI_R831aGetListAGGIRWSChannel : DOME_BUS_EAI_R831aGetListAGGIRWS, System.ServiceModel.IClientChannel {
+    internal interface DOME_BUS_EAI_R831aGetListAGGIRWSChannel : Dome.R831a.DOME_BUS_EAI_R831aGetListAGGIRWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    internal partial class DOME_BUS_EAI_R831aGetListAGGIRWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R831aGetListAGGIRWS>, DOME_BUS_EAI_R831aGetListAGGIRWS {
+    internal partial class DOME_BUS_EAI_R831aGetListAGGIRWSClient : System.ServiceModel.ClientBase<Dome.R831a.DOME_BUS_EAI_R831aGetListAGGIRWS>, Dome.R831a.DOME_BUS_EAI_R831aGetListAGGIRWS {
         
         public DOME_BUS_EAI_R831aGetListAGGIRWSClient() {
         }
@@ -1153,14 +1181,14 @@ namespace Dome.Service_References.R831a {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        getListAGGIRResponse DOME_BUS_EAI_R831aGetListAGGIRWS.getListAGGIR(getListAGGIR request) {
+        Dome.R831a.getListAGGIRResponse Dome.R831a.DOME_BUS_EAI_R831aGetListAGGIRWS.getListAGGIR(Dome.R831a.getListAGGIR request) {
             return base.Channel.getListAGGIR(request);
         }
         
-        public getListAGGIRResponseDto getListAGGIR(getListAGGIRDto arg0) {
-            getListAGGIR inValue = new getListAGGIR();
+        public Dome.R831a.getListAGGIRResponseDto getListAGGIR(Dome.R831a.getListAGGIRDto arg0) {
+            Dome.R831a.getListAGGIR inValue = new Dome.R831a.getListAGGIR();
             inValue.arg0 = arg0;
-            getListAGGIRResponse retVal = ((DOME_BUS_EAI_R831aGetListAGGIRWS)(this)).getListAGGIR(inValue);
+            Dome.R831a.getListAGGIRResponse retVal = ((Dome.R831a.DOME_BUS_EAI_R831aGetListAGGIRWS)(this)).getListAGGIR(inValue);
             return retVal.@return;
         }
     }

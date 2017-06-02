@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dome.Service_References.R833a {
+namespace Dome.R833a {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -22,7 +22,7 @@ namespace Dome.Service_References.R833a {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeCommonDto))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        alterAggirResponse alterAggir(alterAggir request);
+        Dome.R833a.alterAggirResponse alterAggir(Dome.R833a.alterAggir request);
     }
     
     /// <remarks/>
@@ -864,6 +864,8 @@ namespace Dome.Service_References.R833a {
         
         private string statusErrorMessageField;
         
+        private string userMessageField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
         public domeResponseHeaderDto DOME_header {
@@ -921,6 +923,18 @@ namespace Dome.Service_References.R833a {
             set {
                 this.statusErrorMessageField = value;
                 this.RaisePropertyChanged("statusErrorMessage");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public string userMessage {
+            get {
+                return this.userMessageField;
+            }
+            set {
+                this.userMessageField = value;
+                this.RaisePropertyChanged("userMessage");
             }
         }
         
@@ -1019,6 +1033,8 @@ namespace Dome.Service_References.R833a {
         
         private string langueField;
         
+        private string softwareNameField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
         public int deviceType {
@@ -1052,6 +1068,18 @@ namespace Dome.Service_References.R833a {
             set {
                 this.langueField = value;
                 this.RaisePropertyChanged("langue");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string softwareName {
+            get {
+                return this.softwareNameField;
+            }
+            set {
+                this.softwareNameField = value;
+                this.RaisePropertyChanged("softwareName");
             }
         }
     }
@@ -1097,12 +1125,12 @@ namespace Dome.Service_References.R833a {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public alterAGGIRDto arg0;
+        public Dome.R833a.alterAGGIRDto arg0;
         
         public alterAggir() {
         }
         
-        public alterAggir(alterAGGIRDto arg0) {
+        public alterAggir(Dome.R833a.alterAGGIRDto arg0) {
             this.arg0 = arg0;
         }
     }
@@ -1115,23 +1143,23 @@ namespace Dome.Service_References.R833a {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public domeResponseDto @return;
+        public Dome.R833a.domeResponseDto @return;
         
         public alterAggirResponse() {
         }
         
-        public alterAggirResponse(domeResponseDto @return) {
+        public alterAggirResponse(Dome.R833a.domeResponseDto @return) {
             this.@return = @return;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    internal interface DOME_BUS_EAI_R833aSetDetailAGGIRWSChannel : DOME_BUS_EAI_R833aSetDetailAGGIRWS, System.ServiceModel.IClientChannel {
+    internal interface DOME_BUS_EAI_R833aSetDetailAGGIRWSChannel : Dome.R833a.DOME_BUS_EAI_R833aSetDetailAGGIRWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    internal partial class DOME_BUS_EAI_R833aSetDetailAGGIRWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R833aSetDetailAGGIRWS>, DOME_BUS_EAI_R833aSetDetailAGGIRWS {
+    internal partial class DOME_BUS_EAI_R833aSetDetailAGGIRWSClient : System.ServiceModel.ClientBase<Dome.R833a.DOME_BUS_EAI_R833aSetDetailAGGIRWS>, Dome.R833a.DOME_BUS_EAI_R833aSetDetailAGGIRWS {
         
         public DOME_BUS_EAI_R833aSetDetailAGGIRWSClient() {
         }
@@ -1153,14 +1181,14 @@ namespace Dome.Service_References.R833a {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        alterAggirResponse DOME_BUS_EAI_R833aSetDetailAGGIRWS.alterAggir(alterAggir request) {
+        Dome.R833a.alterAggirResponse Dome.R833a.DOME_BUS_EAI_R833aSetDetailAGGIRWS.alterAggir(Dome.R833a.alterAggir request) {
             return base.Channel.alterAggir(request);
         }
         
-        public domeResponseDto alterAggir(alterAGGIRDto arg0) {
-            alterAggir inValue = new alterAggir();
+        public Dome.R833a.domeResponseDto alterAggir(Dome.R833a.alterAGGIRDto arg0) {
+            Dome.R833a.alterAggir inValue = new Dome.R833a.alterAggir();
             inValue.arg0 = arg0;
-            alterAggirResponse retVal = ((DOME_BUS_EAI_R833aSetDetailAGGIRWS)(this)).alterAggir(inValue);
+            Dome.R833a.alterAggirResponse retVal = ((Dome.R833a.DOME_BUS_EAI_R833aSetDetailAGGIRWS)(this)).alterAggir(inValue);
             return retVal.@return;
         }
     }

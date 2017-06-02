@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dome.Service_References.R830a {
+namespace Dome.R830a {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -22,7 +22,7 @@ namespace Dome.Service_References.R830a {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeCommonDto))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        addNewAGGIRResponse addNewAGGIR(addNewAGGIR request);
+        Dome.R830a.addNewAGGIRResponse addNewAGGIR(Dome.R830a.addNewAGGIR request);
     }
     
     /// <remarks/>
@@ -785,6 +785,8 @@ namespace Dome.Service_References.R830a {
         
         private string statusErrorMessageField;
         
+        private string userMessageField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
         public domeResponseHeaderDto DOME_header {
@@ -842,6 +844,18 @@ namespace Dome.Service_References.R830a {
             set {
                 this.statusErrorMessageField = value;
                 this.RaisePropertyChanged("statusErrorMessage");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public string userMessage {
+            get {
+                return this.userMessageField;
+            }
+            set {
+                this.userMessageField = value;
+                this.RaisePropertyChanged("userMessage");
             }
         }
         
@@ -940,6 +954,8 @@ namespace Dome.Service_References.R830a {
         
         private string langueField;
         
+        private string softwareNameField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
         public int deviceType {
@@ -973,6 +989,18 @@ namespace Dome.Service_References.R830a {
             set {
                 this.langueField = value;
                 this.RaisePropertyChanged("langue");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string softwareName {
+            get {
+                return this.softwareNameField;
+            }
+            set {
+                this.softwareNameField = value;
+                this.RaisePropertyChanged("softwareName");
             }
         }
     }
@@ -1055,12 +1083,12 @@ namespace Dome.Service_References.R830a {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public addNewAGGIRDto arg0;
+        public Dome.R830a.addNewAGGIRDto arg0;
         
         public addNewAGGIR() {
         }
         
-        public addNewAGGIR(addNewAGGIRDto arg0) {
+        public addNewAGGIR(Dome.R830a.addNewAGGIRDto arg0) {
             this.arg0 = arg0;
         }
     }
@@ -1073,23 +1101,23 @@ namespace Dome.Service_References.R830a {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public addNewAGGIRResponseDto @return;
+        public Dome.R830a.addNewAGGIRResponseDto @return;
         
         public addNewAGGIRResponse() {
         }
         
-        public addNewAGGIRResponse(addNewAGGIRResponseDto @return) {
+        public addNewAGGIRResponse(Dome.R830a.addNewAGGIRResponseDto @return) {
             this.@return = @return;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    internal interface DOME_BUS_EAI_R830aAddNewAGGIRWSChannel : DOME_BUS_EAI_R830aAddNewAGGIRWS, System.ServiceModel.IClientChannel {
+    internal interface DOME_BUS_EAI_R830aAddNewAGGIRWSChannel : Dome.R830a.DOME_BUS_EAI_R830aAddNewAGGIRWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    internal partial class DOME_BUS_EAI_R830aAddNewAGGIRWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R830aAddNewAGGIRWS>, DOME_BUS_EAI_R830aAddNewAGGIRWS {
+    internal partial class DOME_BUS_EAI_R830aAddNewAGGIRWSClient : System.ServiceModel.ClientBase<Dome.R830a.DOME_BUS_EAI_R830aAddNewAGGIRWS>, Dome.R830a.DOME_BUS_EAI_R830aAddNewAGGIRWS {
         
         public DOME_BUS_EAI_R830aAddNewAGGIRWSClient() {
         }
@@ -1111,14 +1139,14 @@ namespace Dome.Service_References.R830a {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        addNewAGGIRResponse DOME_BUS_EAI_R830aAddNewAGGIRWS.addNewAGGIR(addNewAGGIR request) {
+        Dome.R830a.addNewAGGIRResponse Dome.R830a.DOME_BUS_EAI_R830aAddNewAGGIRWS.addNewAGGIR(Dome.R830a.addNewAGGIR request) {
             return base.Channel.addNewAGGIR(request);
         }
         
-        public addNewAGGIRResponseDto addNewAGGIR(addNewAGGIRDto arg0) {
-            addNewAGGIR inValue = new addNewAGGIR();
+        public Dome.R830a.addNewAGGIRResponseDto addNewAGGIR(Dome.R830a.addNewAGGIRDto arg0) {
+            Dome.R830a.addNewAGGIR inValue = new Dome.R830a.addNewAGGIR();
             inValue.arg0 = arg0;
-            addNewAGGIRResponse retVal = ((DOME_BUS_EAI_R830aAddNewAGGIRWS)(this)).addNewAGGIR(inValue);
+            Dome.R830a.addNewAGGIRResponse retVal = ((Dome.R830a.DOME_BUS_EAI_R830aAddNewAGGIRWS)(this)).addNewAGGIR(inValue);
             return retVal.@return;
         }
     }

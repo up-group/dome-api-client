@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dome.Service_References.R541c {
+namespace Dome.R541c {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -22,7 +22,7 @@ namespace Dome.Service_References.R541c {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeCommonDto))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="profileDetailResponse")]
-        profileDetailsResponse profileDetails(profileDetails request);
+        Dome.R541c.profileDetailsResponse profileDetails(Dome.R541c.profileDetails request);
     }
     
     /// <remarks/>
@@ -109,6 +109,8 @@ namespace Dome.Service_References.R541c {
         
         private string langueField;
         
+        private string softwareNameField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
         public int deviceType {
@@ -142,6 +144,18 @@ namespace Dome.Service_References.R541c {
             set {
                 this.langueField = value;
                 this.RaisePropertyChanged("langue");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string softwareName {
+            get {
+                return this.softwareNameField;
+            }
+            set {
+                this.softwareNameField = value;
+                this.RaisePropertyChanged("softwareName");
             }
         }
     }
@@ -1059,6 +1073,8 @@ namespace Dome.Service_References.R541c {
         
         private string statusErrorMessageField;
         
+        private string userMessageField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
         public domeResponseHeaderDto DOME_header {
@@ -1119,6 +1135,18 @@ namespace Dome.Service_References.R541c {
             }
         }
         
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public string userMessage {
+            get {
+                return this.userMessageField;
+            }
+            set {
+                this.userMessageField = value;
+                this.RaisePropertyChanged("userMessage");
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -1169,12 +1197,12 @@ namespace Dome.Service_References.R541c {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public profileDetailDto updateReferentDto;
+        public Dome.R541c.profileDetailDto updateReferentDto;
         
         public profileDetails() {
         }
         
-        public profileDetails(profileDetailDto updateReferentDto) {
+        public profileDetails(Dome.R541c.profileDetailDto updateReferentDto) {
             this.updateReferentDto = updateReferentDto;
         }
     }
@@ -1187,23 +1215,23 @@ namespace Dome.Service_References.R541c {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public profileDetailResponseDto profileDetailResponse;
+        public Dome.R541c.profileDetailResponseDto profileDetailResponse;
         
         public profileDetailsResponse() {
         }
         
-        public profileDetailsResponse(profileDetailResponseDto profileDetailResponse) {
+        public profileDetailsResponse(Dome.R541c.profileDetailResponseDto profileDetailResponse) {
             this.profileDetailResponse = profileDetailResponse;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    internal interface DOME_BUS_EAI_R541cGetProfileDetailWSChannel : DOME_BUS_EAI_R541cGetProfileDetailWS, System.ServiceModel.IClientChannel {
+    internal interface DOME_BUS_EAI_R541cGetProfileDetailWSChannel : Dome.R541c.DOME_BUS_EAI_R541cGetProfileDetailWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    internal partial class DOME_BUS_EAI_R541cGetProfileDetailWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R541cGetProfileDetailWS>, DOME_BUS_EAI_R541cGetProfileDetailWS {
+    internal partial class DOME_BUS_EAI_R541cGetProfileDetailWSClient : System.ServiceModel.ClientBase<Dome.R541c.DOME_BUS_EAI_R541cGetProfileDetailWS>, Dome.R541c.DOME_BUS_EAI_R541cGetProfileDetailWS {
         
         public DOME_BUS_EAI_R541cGetProfileDetailWSClient() {
         }
@@ -1225,14 +1253,14 @@ namespace Dome.Service_References.R541c {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        profileDetailsResponse DOME_BUS_EAI_R541cGetProfileDetailWS.profileDetails(profileDetails request) {
+        Dome.R541c.profileDetailsResponse Dome.R541c.DOME_BUS_EAI_R541cGetProfileDetailWS.profileDetails(Dome.R541c.profileDetails request) {
             return base.Channel.profileDetails(request);
         }
         
-        public profileDetailResponseDto profileDetails(profileDetailDto updateReferentDto) {
-            profileDetails inValue = new profileDetails();
+        public Dome.R541c.profileDetailResponseDto profileDetails(Dome.R541c.profileDetailDto updateReferentDto) {
+            Dome.R541c.profileDetails inValue = new Dome.R541c.profileDetails();
             inValue.updateReferentDto = updateReferentDto;
-            profileDetailsResponse retVal = ((DOME_BUS_EAI_R541cGetProfileDetailWS)(this)).profileDetails(inValue);
+            Dome.R541c.profileDetailsResponse retVal = ((Dome.R541c.DOME_BUS_EAI_R541cGetProfileDetailWS)(this)).profileDetails(inValue);
             return retVal.profileDetailResponse;
         }
     }

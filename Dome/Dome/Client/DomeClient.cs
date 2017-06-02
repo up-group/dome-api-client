@@ -9,20 +9,20 @@ using Dome.DomeProxy;
 using Dome.DomeProxy.soap;
 using Dome.Enum;
 using Dome.infrastructure;
-using Dome.Service_References.R511;
-using Dome.Service_References.R521;
-using Dome.Service_References.R523;
-using Dome.Service_References.R525;
-using Dome.Service_References.R532;
-using Dome.Service_References.R541b;
-using Dome.Service_References.R541c;
-using Dome.Service_References.R542a;
-using Dome.Service_References.R830a;
-using Dome.Service_References.R831a;
-using Dome.Service_References.R833a;
-using addNewAggirInnerDto = Dome.Service_References.R830a.addNewAggirInnerDto;
-using CreatePersonInnerDto = Dome.Service_References.R511.CreatePersonInnerDto;
-using domeHeaderDto = Dome.Service_References.R511.domeHeaderDto;
+using Dome.R511;
+using Dome.R521;
+using Dome.R523;
+using Dome.R525;
+using Dome.R532;
+using Dome.R541b;
+using Dome.R541c;
+using Dome.R542a;
+using Dome.R830a;
+using Dome.R831a;
+using Dome.R833a;
+using addNewAggirInnerDto = Dome.R830a.addNewAggirInnerDto;
+using CreatePersonInnerDto = Dome.R511.CreatePersonInnerDto;
+using domeHeaderDto = Dome.R511.domeHeaderDto;
 
 namespace Dome.Client
 {
@@ -143,7 +143,7 @@ namespace Dome.Client
 
             var createProfileDto = new createProfileDto()
             {
-                DOME_header = new Service_References.R521.domeHeaderDto()
+                DOME_header = new R521.domeHeaderDto()
                 {
                     langue = "fr",
                     deviceTypeSpecified = true,
@@ -234,7 +234,7 @@ namespace Dome.Client
         {
             var data = DomeCallSoap.SelectProfile(new selectProfileDto()
             {
-                DOME_header = new Service_References.R532.domeHeaderDto()
+                DOME_header = new R532.domeHeaderDto()
                 {
                     langue = "fr",
                     deviceTypeSpecified = true,
@@ -264,7 +264,7 @@ namespace Dome.Client
             {
                 accountIdSpecified = true,
                 accountId = accountId,
-                DOME_header = new Service_References.R541b.domeHeaderDto()
+                DOME_header = new R541b.domeHeaderDto()
                 {
                     deviceTypeSpecified = true,
                     deviceType = 5,
@@ -287,7 +287,7 @@ namespace Dome.Client
             {
                 profileId = profileId,
                 profileIdSpecified = true,
-                DOME_header = new Service_References.R541c.domeHeaderDto()
+                DOME_header = new R541c.domeHeaderDto()
                 {
                     deviceTypeSpecified = true,
                     deviceType = 5,
@@ -351,7 +351,7 @@ namespace Dome.Client
         {
             var updatePersonDto = new UpdatePersonDto()
             {
-                DOME_header = new Service_References.R542a.domeHeaderDto()
+                DOME_header = new R542a.domeHeaderDto()
                 {
                     langue = "fr",
                     deviceTypeSpecified = true,
@@ -362,7 +362,7 @@ namespace Dome.Client
                 },
                 accountId = accountId,
                 accountIdSpecified = true,
-                DOME_createPerson = new Service_References.R542a.CreatePersonInnerDto()
+                DOME_createPerson = new R542a.CreatePersonInnerDto()
                 {
 
                     personCivilityId = (int?)updatePerson.PersonCivility ?? -1,
@@ -414,7 +414,7 @@ namespace Dome.Client
         {
             var data = DomeCallSoap.LinkIntervenantToBenef(new linkIntervenantToBenefDto()
             {
-                DOME_header = new Service_References.R525.domeHeaderDto()
+                DOME_header = new R525.domeHeaderDto()
                 {
                     langue = "fr",
                     deviceTypeSpecified = true,
@@ -442,7 +442,7 @@ namespace Dome.Client
         {
             var data = DomeCallSoap.SubscriptionPersonStructure(new subscriptionStructureDto()
             {
-                DOME_header = new Service_References.R523.domeHeaderDto()
+                DOME_header = new R523.domeHeaderDto()
                 {
                     langue = "fr",
                     deviceTypeSpecified = true,
@@ -473,7 +473,7 @@ namespace Dome.Client
             var data = DomeCallSoap.AddNewAggir(new addNewAGGIRDto()
             {
 
-                DOME_header = new Service_References.R830a.domeHeaderDto()
+                DOME_header = new R830a.domeHeaderDto()
                 {
                     langue = "fr",
                     deviceTypeSpecified = true,
@@ -577,7 +577,7 @@ namespace Dome.Client
             var data = DomeCallSoap.AlterAggir(new alterAGGIRDto()
             {
 
-                DOME_header = new Service_References.R833a.domeHeaderDto()
+                DOME_header = new R833a.domeHeaderDto()
                 {
                     langue = "fr",
                     deviceTypeSpecified = true,
@@ -689,7 +689,7 @@ namespace Dome.Client
         {
             var data = DomeCallSoap.GetListAggir(new getListAGGIRDto()
             {
-                DOME_header = new Service_References.R831a.domeHeaderDto()
+                DOME_header = new R831a.domeHeaderDto()
                 {
                     langue = "fr",
                     deviceTypeSpecified = true,

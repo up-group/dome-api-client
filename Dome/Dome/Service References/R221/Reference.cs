@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dome.Service_References.R221 {
+namespace Dome.R221 {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -21,7 +21,7 @@ namespace Dome.Service_References.R221 {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeCommonDto))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="updateEventResponse")]
-        updateEventResponse updateEvent(updateEvent request);
+        Dome.R221.updateEventResponse updateEvent(Dome.R221.updateEvent request);
     }
     
     /// <remarks/>
@@ -114,6 +114,8 @@ namespace Dome.Service_References.R221 {
         private int eventStateField;
         
         private bool eventStateFieldSpecified;
+        
+        private string eventServiceField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
@@ -391,6 +393,18 @@ namespace Dome.Service_References.R221 {
             }
         }
         
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=13)]
+        public string eventService {
+            get {
+                return this.eventServiceField;
+            }
+            set {
+                this.eventServiceField = value;
+                this.RaisePropertyChanged("eventService");
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -418,6 +432,8 @@ namespace Dome.Service_References.R221 {
         private string statusUserMessageField;
         
         private string statusErrorMessageField;
+        
+        private string userMessageField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
@@ -476,6 +492,18 @@ namespace Dome.Service_References.R221 {
             set {
                 this.statusErrorMessageField = value;
                 this.RaisePropertyChanged("statusErrorMessage");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public string userMessage {
+            get {
+                return this.userMessageField;
+            }
+            set {
+                this.userMessageField = value;
+                this.RaisePropertyChanged("userMessage");
             }
         }
         
@@ -574,6 +602,8 @@ namespace Dome.Service_References.R221 {
         
         private string langueField;
         
+        private string softwareNameField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
         public int deviceType {
@@ -607,6 +637,18 @@ namespace Dome.Service_References.R221 {
             set {
                 this.langueField = value;
                 this.RaisePropertyChanged("langue");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string softwareName {
+            get {
+                return this.softwareNameField;
+            }
+            set {
+                this.softwareNameField = value;
+                this.RaisePropertyChanged("softwareName");
             }
         }
     }
@@ -698,12 +740,12 @@ namespace Dome.Service_References.R221 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public eventUpdateDto arg0;
+        public Dome.R221.eventUpdateDto arg0;
         
         public updateEvent() {
         }
         
-        public updateEvent(eventUpdateDto arg0) {
+        public updateEvent(Dome.R221.eventUpdateDto arg0) {
             this.arg0 = arg0;
         }
     }
@@ -716,23 +758,23 @@ namespace Dome.Service_References.R221 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="updateEventResponse", Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public domeResponseDto updateEventResponse1;
+        public Dome.R221.domeResponseDto updateEventResponse1;
         
         public updateEventResponse() {
         }
         
-        public updateEventResponse(domeResponseDto updateEventResponse1) {
+        public updateEventResponse(Dome.R221.domeResponseDto updateEventResponse1) {
             this.updateEventResponse1 = updateEventResponse1;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    internal interface DOME_BUS_EAI_R221eventUpdateWSChannel : DOME_BUS_EAI_R221eventUpdateWS, System.ServiceModel.IClientChannel {
+    internal interface DOME_BUS_EAI_R221eventUpdateWSChannel : Dome.R221.DOME_BUS_EAI_R221eventUpdateWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    internal partial class DOME_BUS_EAI_R221eventUpdateWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R221eventUpdateWS>, DOME_BUS_EAI_R221eventUpdateWS {
+    internal partial class DOME_BUS_EAI_R221eventUpdateWSClient : System.ServiceModel.ClientBase<Dome.R221.DOME_BUS_EAI_R221eventUpdateWS>, Dome.R221.DOME_BUS_EAI_R221eventUpdateWS {
         
         public DOME_BUS_EAI_R221eventUpdateWSClient() {
         }
@@ -754,14 +796,14 @@ namespace Dome.Service_References.R221 {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        updateEventResponse DOME_BUS_EAI_R221eventUpdateWS.updateEvent(updateEvent request) {
+        Dome.R221.updateEventResponse Dome.R221.DOME_BUS_EAI_R221eventUpdateWS.updateEvent(Dome.R221.updateEvent request) {
             return base.Channel.updateEvent(request);
         }
         
-        public domeResponseDto updateEvent(eventUpdateDto arg0) {
-            updateEvent inValue = new updateEvent();
+        public Dome.R221.domeResponseDto updateEvent(Dome.R221.eventUpdateDto arg0) {
+            Dome.R221.updateEvent inValue = new Dome.R221.updateEvent();
             inValue.arg0 = arg0;
-            updateEventResponse retVal = ((DOME_BUS_EAI_R221eventUpdateWS)(this)).updateEvent(inValue);
+            Dome.R221.updateEventResponse retVal = ((Dome.R221.DOME_BUS_EAI_R221eventUpdateWS)(this)).updateEvent(inValue);
             return retVal.updateEventResponse1;
         }
     }

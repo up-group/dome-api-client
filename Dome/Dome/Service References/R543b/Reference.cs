@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dome.Service_References.R543b {
+namespace Dome.R543b {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -21,7 +21,7 @@ namespace Dome.Service_References.R543b {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeCommonDto))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="domeResponse")]
-        updatereferentResponse updatereferent(updatereferent request);
+        Dome.R543b.updatereferentResponse updatereferent(Dome.R543b.updatereferent request);
     }
     
     /// <remarks/>
@@ -136,6 +136,8 @@ namespace Dome.Service_References.R543b {
         
         private string langueField;
         
+        private string softwareNameField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
         public int deviceType {
@@ -169,6 +171,18 @@ namespace Dome.Service_References.R543b {
             set {
                 this.langueField = value;
                 this.RaisePropertyChanged("langue");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string softwareName {
+            get {
+                return this.softwareNameField;
+            }
+            set {
+                this.softwareNameField = value;
+                this.RaisePropertyChanged("softwareName");
             }
         }
     }
@@ -253,6 +267,8 @@ namespace Dome.Service_References.R543b {
         
         private string statusErrorMessageField;
         
+        private string userMessageField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
         public domeResponseHeaderDto DOME_header {
@@ -313,6 +329,18 @@ namespace Dome.Service_References.R543b {
             }
         }
         
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public string userMessage {
+            get {
+                return this.userMessageField;
+            }
+            set {
+                this.userMessageField = value;
+                this.RaisePropertyChanged("userMessage");
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -340,12 +368,12 @@ namespace Dome.Service_References.R543b {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public updateReferentDto updateReferentDto;
+        public Dome.R543b.updateReferentDto updateReferentDto;
         
         public updatereferent() {
         }
         
-        public updatereferent(updateReferentDto updateReferentDto) {
+        public updatereferent(Dome.R543b.updateReferentDto updateReferentDto) {
             this.updateReferentDto = updateReferentDto;
         }
     }
@@ -358,23 +386,23 @@ namespace Dome.Service_References.R543b {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public domeResponseDto domeResponse;
+        public Dome.R543b.domeResponseDto domeResponse;
         
         public updatereferentResponse() {
         }
         
-        public updatereferentResponse(domeResponseDto domeResponse) {
+        public updatereferentResponse(Dome.R543b.domeResponseDto domeResponse) {
             this.domeResponse = domeResponse;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    internal interface DOME_BUS_EAI_R543bSwitchReferentWSChannel : DOME_BUS_EAI_R543bSwitchReferentWS, System.ServiceModel.IClientChannel {
+    internal interface DOME_BUS_EAI_R543bSwitchReferentWSChannel : Dome.R543b.DOME_BUS_EAI_R543bSwitchReferentWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    internal partial class DOME_BUS_EAI_R543bSwitchReferentWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R543bSwitchReferentWS>, DOME_BUS_EAI_R543bSwitchReferentWS {
+    internal partial class DOME_BUS_EAI_R543bSwitchReferentWSClient : System.ServiceModel.ClientBase<Dome.R543b.DOME_BUS_EAI_R543bSwitchReferentWS>, Dome.R543b.DOME_BUS_EAI_R543bSwitchReferentWS {
         
         public DOME_BUS_EAI_R543bSwitchReferentWSClient() {
         }
@@ -396,14 +424,14 @@ namespace Dome.Service_References.R543b {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        updatereferentResponse DOME_BUS_EAI_R543bSwitchReferentWS.updatereferent(updatereferent request) {
+        Dome.R543b.updatereferentResponse Dome.R543b.DOME_BUS_EAI_R543bSwitchReferentWS.updatereferent(Dome.R543b.updatereferent request) {
             return base.Channel.updatereferent(request);
         }
         
-        public domeResponseDto updatereferent(updateReferentDto updateReferentDto) {
-            updatereferent inValue = new updatereferent();
+        public Dome.R543b.domeResponseDto updatereferent(Dome.R543b.updateReferentDto updateReferentDto) {
+            Dome.R543b.updatereferent inValue = new Dome.R543b.updatereferent();
             inValue.updateReferentDto = updateReferentDto;
-            updatereferentResponse retVal = ((DOME_BUS_EAI_R543bSwitchReferentWS)(this)).updatereferent(inValue);
+            Dome.R543b.updatereferentResponse retVal = ((Dome.R543b.DOME_BUS_EAI_R543bSwitchReferentWS)(this)).updatereferent(inValue);
             return retVal.domeResponse;
         }
     }

@@ -32,6 +32,7 @@
             <xs:sequence>
               <xs:element minOccurs="0" name="deviceType" type="xs:int" />
               <xs:element minOccurs="0" name="langue" type="xs:string" />
+              <xs:element minOccurs="0" name="softwareName" type="xs:string" />
             </xs:sequence>
           </xs:extension>
         </xs:complexContent>
@@ -53,6 +54,7 @@
           <xs:element minOccurs="0" name="statusId" type="xs:int" />
           <xs:element minOccurs="0" name="statusUserMessage" type="xs:string" />
           <xs:element minOccurs="0" name="statusErrorMessage" type="xs:string" />
+          <xs:element minOccurs="0" name="userMessage" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
       <xs:complexType name="domeResponseHeaderDto">

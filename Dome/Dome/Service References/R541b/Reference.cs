@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dome.Service_References.R541b {
+namespace Dome.R541b {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -22,7 +22,7 @@ namespace Dome.Service_References.R541b {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeCommonDto))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="authentificationResponse")]
-        getProfileListWSResponse getProfileListWS(getProfileListWS request);
+        Dome.R541b.getProfileListWSResponse getProfileListWS(Dome.R541b.getProfileListWS request);
     }
     
     /// <remarks/>
@@ -109,6 +109,8 @@ namespace Dome.Service_References.R541b {
         
         private string langueField;
         
+        private string softwareNameField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
         public int deviceType {
@@ -142,6 +144,18 @@ namespace Dome.Service_References.R541b {
             set {
                 this.langueField = value;
                 this.RaisePropertyChanged("langue");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string softwareName {
+            get {
+                return this.softwareNameField;
+            }
+            set {
+                this.softwareNameField = value;
+                this.RaisePropertyChanged("softwareName");
             }
         }
     }
@@ -696,6 +710,10 @@ namespace Dome.Service_References.R541b {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://webservices.partner.dome.fr/")]
     public partial class personDataDto : object, System.ComponentModel.INotifyPropertyChanged {
         
+        private int personCivilityIdField;
+        
+        private bool personCivilityIdFieldSpecified;
+        
         private string personFirstNameField;
         
         private string personLastNameField;
@@ -756,6 +774,30 @@ namespace Dome.Service_References.R541b {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public int personCivilityId {
+            get {
+                return this.personCivilityIdField;
+            }
+            set {
+                this.personCivilityIdField = value;
+                this.RaisePropertyChanged("personCivilityId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool personCivilityIdSpecified {
+            get {
+                return this.personCivilityIdFieldSpecified;
+            }
+            set {
+                this.personCivilityIdFieldSpecified = value;
+                this.RaisePropertyChanged("personCivilityIdSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
         public string personFirstName {
             get {
                 return this.personFirstNameField;
@@ -767,7 +809,7 @@ namespace Dome.Service_References.R541b {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
         public string personLastName {
             get {
                 return this.personLastNameField;
@@ -779,7 +821,7 @@ namespace Dome.Service_References.R541b {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
         public string personPhoneNumber {
             get {
                 return this.personPhoneNumberField;
@@ -791,7 +833,7 @@ namespace Dome.Service_References.R541b {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
         public string personMobileNumber {
             get {
                 return this.personMobileNumberField;
@@ -803,7 +845,7 @@ namespace Dome.Service_References.R541b {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
         public string personRoadType {
             get {
                 return this.personRoadTypeField;
@@ -815,7 +857,7 @@ namespace Dome.Service_References.R541b {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
         public string personRoadName {
             get {
                 return this.personRoadNameField;
@@ -827,7 +869,7 @@ namespace Dome.Service_References.R541b {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
         public string personRoadNumber {
             get {
                 return this.personRoadNumberField;
@@ -839,7 +881,7 @@ namespace Dome.Service_References.R541b {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
         public string personPostBox {
             get {
                 return this.personPostBoxField;
@@ -851,7 +893,7 @@ namespace Dome.Service_References.R541b {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
         public string personLieuDit {
             get {
                 return this.personLieuDitField;
@@ -863,7 +905,7 @@ namespace Dome.Service_References.R541b {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
         public string personAddressComp1 {
             get {
                 return this.personAddressComp1Field;
@@ -875,7 +917,7 @@ namespace Dome.Service_References.R541b {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=11)]
         public string personAddressComp2 {
             get {
                 return this.personAddressComp2Field;
@@ -887,7 +929,7 @@ namespace Dome.Service_References.R541b {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=11)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=12)]
         public string personCedex {
             get {
                 return this.personCedexField;
@@ -899,7 +941,7 @@ namespace Dome.Service_References.R541b {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=12)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=13)]
         public string personCityZipCode {
             get {
                 return this.personCityZipCodeField;
@@ -911,7 +953,7 @@ namespace Dome.Service_References.R541b {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=13)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=14)]
         public string personCityName {
             get {
                 return this.personCityNameField;
@@ -923,7 +965,7 @@ namespace Dome.Service_References.R541b {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=14)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=15)]
         public string personEmail {
             get {
                 return this.personEmailField;
@@ -935,7 +977,7 @@ namespace Dome.Service_References.R541b {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, DataType="date", Order=15)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, DataType="date", Order=16)]
         public System.DateTime personBirthDate {
             get {
                 return this.personBirthDateField;
@@ -959,7 +1001,7 @@ namespace Dome.Service_References.R541b {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=16)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=17)]
         public string personBirthName {
             get {
                 return this.personBirthNameField;
@@ -971,7 +1013,7 @@ namespace Dome.Service_References.R541b {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=17)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=18)]
         public string personINSC {
             get {
                 return this.personINSCField;
@@ -983,7 +1025,7 @@ namespace Dome.Service_References.R541b {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=18)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=19)]
         public string personINSA {
             get {
                 return this.personINSAField;
@@ -995,7 +1037,7 @@ namespace Dome.Service_References.R541b {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=19)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=20)]
         public System.DateTime personCreationDate {
             get {
                 return this.personCreationDateField;
@@ -1019,7 +1061,7 @@ namespace Dome.Service_References.R541b {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=20)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=21)]
         public int personCreationProfileId {
             get {
                 return this.personCreationProfileIdField;
@@ -1043,7 +1085,7 @@ namespace Dome.Service_References.R541b {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=21)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=22)]
         public string personUpdateDate {
             get {
                 return this.personUpdateDateField;
@@ -1055,7 +1097,7 @@ namespace Dome.Service_References.R541b {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=22)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=23)]
         public int personUpdateProfileId {
             get {
                 return this.personUpdateProfileIdField;
@@ -1079,7 +1121,7 @@ namespace Dome.Service_References.R541b {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=23)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=24)]
         public int typeCivilityConstanteId {
             get {
                 return this.typeCivilityConstanteIdField;
@@ -1345,6 +1387,8 @@ namespace Dome.Service_References.R541b {
         
         private string statusErrorMessageField;
         
+        private string userMessageField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
         public domeResponseHeaderDto DOME_header {
@@ -1402,6 +1446,18 @@ namespace Dome.Service_References.R541b {
             set {
                 this.statusErrorMessageField = value;
                 this.RaisePropertyChanged("statusErrorMessage");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public string userMessage {
+            get {
+                return this.userMessageField;
+            }
+            set {
+                this.userMessageField = value;
+                this.RaisePropertyChanged("userMessage");
             }
         }
         
@@ -1483,12 +1539,12 @@ namespace Dome.Service_References.R541b {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public authentificationInputDto arg0;
+        public Dome.R541b.authentificationInputDto arg0;
         
         public getProfileListWS() {
         }
         
-        public getProfileListWS(authentificationInputDto arg0) {
+        public getProfileListWS(Dome.R541b.authentificationInputDto arg0) {
             this.arg0 = arg0;
         }
     }
@@ -1501,23 +1557,23 @@ namespace Dome.Service_References.R541b {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public authentificationResponseDto authentificationResponse;
+        public Dome.R541b.authentificationResponseDto authentificationResponse;
         
         public getProfileListWSResponse() {
         }
         
-        public getProfileListWSResponse(authentificationResponseDto authentificationResponse) {
+        public getProfileListWSResponse(Dome.R541b.authentificationResponseDto authentificationResponse) {
             this.authentificationResponse = authentificationResponse;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    internal interface DOME_BUS_EAI_R541bGetProfileListWSChannel : DOME_BUS_EAI_R541bGetProfileListWS, System.ServiceModel.IClientChannel {
+    internal interface DOME_BUS_EAI_R541bGetProfileListWSChannel : Dome.R541b.DOME_BUS_EAI_R541bGetProfileListWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    internal partial class DOME_BUS_EAI_R541bGetProfileListWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R541bGetProfileListWS>, DOME_BUS_EAI_R541bGetProfileListWS {
+    internal partial class DOME_BUS_EAI_R541bGetProfileListWSClient : System.ServiceModel.ClientBase<Dome.R541b.DOME_BUS_EAI_R541bGetProfileListWS>, Dome.R541b.DOME_BUS_EAI_R541bGetProfileListWS {
         
         public DOME_BUS_EAI_R541bGetProfileListWSClient() {
         }
@@ -1539,14 +1595,14 @@ namespace Dome.Service_References.R541b {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        getProfileListWSResponse DOME_BUS_EAI_R541bGetProfileListWS.getProfileListWS(getProfileListWS request) {
+        Dome.R541b.getProfileListWSResponse Dome.R541b.DOME_BUS_EAI_R541bGetProfileListWS.getProfileListWS(Dome.R541b.getProfileListWS request) {
             return base.Channel.getProfileListWS(request);
         }
         
-        public authentificationResponseDto getProfileListWS(authentificationInputDto arg0) {
-            getProfileListWS inValue = new getProfileListWS();
+        public Dome.R541b.authentificationResponseDto getProfileListWS(Dome.R541b.authentificationInputDto arg0) {
+            Dome.R541b.getProfileListWS inValue = new Dome.R541b.getProfileListWS();
             inValue.arg0 = arg0;
-            getProfileListWSResponse retVal = ((DOME_BUS_EAI_R541bGetProfileListWS)(this)).getProfileListWS(inValue);
+            Dome.R541b.getProfileListWSResponse retVal = ((Dome.R541b.DOME_BUS_EAI_R541bGetProfileListWS)(this)).getProfileListWS(inValue);
             return retVal.authentificationResponse;
         }
     }

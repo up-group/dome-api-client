@@ -1,30 +1,30 @@
-﻿using Dome.Service_References.R101;
-using Dome.Service_References.R201;
-using Dome.Service_References.R213b;
-using Dome.Service_References.R221;
-using Dome.Service_References.R221s;
-using Dome.Service_References.R231;
-using Dome.Service_References.R401a;
-using Dome.Service_References.R511;
-using Dome.Service_References.R521;
-using Dome.Service_References.R523;
-using Dome.Service_References.R525;
-using Dome.Service_References.R532;
-using Dome.Service_References.R541b;
-using Dome.Service_References.R541c;
-using Dome.Service_References.R542a;
-using Dome.Service_References.R543b;
-using Dome.Service_References.R590;
-using Dome.Service_References.R820;
-using Dome.Service_References.R821;
-using Dome.Service_References.R822;
-using Dome.Service_References.R823;
-using Dome.Service_References.R824;
-using Dome.Service_References.R830a;
-using Dome.Service_References.R831a;
-using Dome.Service_References.R833a;
-using addCourseEntryDto = Dome.Service_References.R820.addCourseEntryDto;
-using domeResponseDto = Dome.Service_References.R221.domeResponseDto;
+﻿using Dome.R101;
+using Dome.R201;
+using Dome.R213b;
+using Dome.R221;
+using Dome.R221s;
+using Dome.R231;
+using Dome.R401a;
+using Dome.R511;
+using Dome.R521;
+using Dome.R523;
+using Dome.R525;
+using Dome.R532;
+using Dome.R541b;
+using Dome.R541c;
+using Dome.R542a;
+using Dome.R543b;
+using Dome.R590;
+using Dome.R820;
+using Dome.R821;
+using Dome.R822;
+using Dome.R823;
+using Dome.R824;
+using Dome.R830a;
+using Dome.R831a;
+using Dome.R833a;
+using addCourseEntryDto = Dome.R820.addCourseEntryDto;
+using domeResponseDto = Dome.R221.domeResponseDto;
 
 namespace Dome.DomeProxy.soap
 {
@@ -93,9 +93,9 @@ namespace Dome.DomeProxy.soap
         }
 
 
-        public Service_References.R231.domeResponseDto DeleteEvent(deleteEventDto deleteEventDto)
+        public R231.domeResponseDto DeleteEvent(deleteEventDto deleteEventDto)
         {
-            return DomeClientSoapCallHelper.Call<DOME_BUS_EAI_R231eventDeleteWSClient, DOME_BUS_EAI_R231eventDeleteWS, Service_References.R231.domeResponseDto>
+            return DomeClientSoapCallHelper.Call<DOME_BUS_EAI_R231eventDeleteWSClient, DOME_BUS_EAI_R231eventDeleteWS, R231.domeResponseDto>
                 ((client) => { return client.deleteEvent(deleteEventDto); });
         }
 
@@ -153,9 +153,9 @@ namespace Dome.DomeProxy.soap
                 ((client) => { return client.updatePerson(updatePersonDto); });
         }
 
-        public Service_References.R543b.domeResponseDto UpdateReferent(updateReferentDto updateReferentDto)
+        public R543b.domeResponseDto UpdateReferent(updateReferentDto updateReferentDto)
         {
-            return DomeClientSoapCallHelper.Call<DOME_BUS_EAI_R543bSwitchReferentWSClient, DOME_BUS_EAI_R543bSwitchReferentWS, Service_References.R543b.domeResponseDto>
+            return DomeClientSoapCallHelper.Call<DOME_BUS_EAI_R543bSwitchReferentWSClient, DOME_BUS_EAI_R543bSwitchReferentWS, R543b.domeResponseDto>
                 ((client) => { return client.updatereferent(updateReferentDto); });
         }
 
@@ -183,15 +183,15 @@ namespace Dome.DomeProxy.soap
                 ((client) => { return client.getDetailsCourseEntry(getCourseEntryDetailsDto); });
         }
 
-        public Service_References.R823.domeResponseDto AlterCourseEntry(alterCourseEntryDto alterCourseEntryDto)
+        public R823.domeResponseDto AlterCourseEntry(alterCourseEntryDto alterCourseEntryDto)
         {
-            return DomeClientSoapCallHelper.Call<DOME_BUS_EAI_R823setDetailJourneyEntryWSClient, DOME_BUS_EAI_R823setDetailJourneyEntryWS, Service_References.R823.domeResponseDto>
+            return DomeClientSoapCallHelper.Call<DOME_BUS_EAI_R823setDetailJourneyEntryWSClient, DOME_BUS_EAI_R823setDetailJourneyEntryWS, R823.domeResponseDto>
                 ((client) => { return client.alterCourseEntry(alterCourseEntryDto); });
         }
 
-        public Service_References.R824.domeResponseDto DeleteCourseEntry(deleteCourseEntryDto deleteCourseEntryDto)
+        public R824.domeResponseDto DeleteCourseEntry(deleteCourseEntryDto deleteCourseEntryDto)
         {
-            return DomeClientSoapCallHelper.Call<DOME_BUS_EAI_R824deleteJourneyEntryWSClient, DOME_BUS_EAI_R824deleteJourneyEntryWS, Service_References.R824.domeResponseDto>
+            return DomeClientSoapCallHelper.Call<DOME_BUS_EAI_R824deleteJourneyEntryWSClient, DOME_BUS_EAI_R824deleteJourneyEntryWS, R824.domeResponseDto>
                 ((client) => { return client.deleteCourseEntry(deleteCourseEntryDto); });
         }
 
@@ -207,9 +207,9 @@ namespace Dome.DomeProxy.soap
                 ((client) => { return client.getListAGGIR(getListAggirDto); });
         }
 
-        public Service_References.R833a.domeResponseDto AlterAggir(alterAGGIRDto alterAggirDto)
+        public R833a.domeResponseDto AlterAggir(alterAGGIRDto alterAggirDto)
         {
-            return DomeClientSoapCallHelper.Call<DOME_BUS_EAI_R833aSetDetailAGGIRWSClient, DOME_BUS_EAI_R833aSetDetailAGGIRWS, Service_References.R833a.domeResponseDto>
+            return DomeClientSoapCallHelper.Call<DOME_BUS_EAI_R833aSetDetailAGGIRWSClient, DOME_BUS_EAI_R833aSetDetailAGGIRWS, R833a.domeResponseDto>
                 ((client) => { return client.alterAggir(alterAggirDto); });
         }
 

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dome.Service_References.R542a {
+namespace Dome.R542a {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -22,7 +22,7 @@ namespace Dome.Service_References.R542a {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeCommonDto))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(domeDto))]
         [return: System.ServiceModel.MessageParameterAttribute(Name="updatePersonResponse")]
-        updatePersonResponse updatePerson(updatePerson request);
+        Dome.R542a.updatePersonResponse updatePerson(Dome.R542a.updatePerson request);
     }
     
     /// <remarks/>
@@ -621,6 +621,8 @@ namespace Dome.Service_References.R542a {
         
         private string statusErrorMessageField;
         
+        private string userMessageField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
         public domeResponseHeaderDto DOME_header {
@@ -678,6 +680,18 @@ namespace Dome.Service_References.R542a {
             set {
                 this.statusErrorMessageField = value;
                 this.RaisePropertyChanged("statusErrorMessage");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public string userMessage {
+            get {
+                return this.userMessageField;
+            }
+            set {
+                this.userMessageField = value;
+                this.RaisePropertyChanged("userMessage");
             }
         }
         
@@ -776,6 +790,8 @@ namespace Dome.Service_References.R542a {
         
         private string langueField;
         
+        private string softwareNameField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
         public int deviceType {
@@ -809,6 +825,18 @@ namespace Dome.Service_References.R542a {
             set {
                 this.langueField = value;
                 this.RaisePropertyChanged("langue");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string softwareName {
+            get {
+                return this.softwareNameField;
+            }
+            set {
+                this.softwareNameField = value;
+                this.RaisePropertyChanged("softwareName");
             }
         }
     }
@@ -877,12 +905,12 @@ namespace Dome.Service_References.R542a {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public UpdatePersonDto updatePersonDto;
+        public Dome.R542a.UpdatePersonDto updatePersonDto;
         
         public updatePerson() {
         }
         
-        public updatePerson(UpdatePersonDto updatePersonDto) {
+        public updatePerson(Dome.R542a.UpdatePersonDto updatePersonDto) {
             this.updatePersonDto = updatePersonDto;
         }
     }
@@ -895,23 +923,23 @@ namespace Dome.Service_References.R542a {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="updatePersonResponse", Namespace="http://webservices.partner.dome.fr/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public UpdatePersonResponseDto updatePersonResponse1;
+        public Dome.R542a.UpdatePersonResponseDto updatePersonResponse1;
         
         public updatePersonResponse() {
         }
         
-        public updatePersonResponse(UpdatePersonResponseDto updatePersonResponse1) {
+        public updatePersonResponse(Dome.R542a.UpdatePersonResponseDto updatePersonResponse1) {
             this.updatePersonResponse1 = updatePersonResponse1;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    internal interface DOME_BUS_EAI_R542aUpdatePersonWSChannel : DOME_BUS_EAI_R542aUpdatePersonWS, System.ServiceModel.IClientChannel {
+    internal interface DOME_BUS_EAI_R542aUpdatePersonWSChannel : Dome.R542a.DOME_BUS_EAI_R542aUpdatePersonWS, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    internal partial class DOME_BUS_EAI_R542aUpdatePersonWSClient : System.ServiceModel.ClientBase<DOME_BUS_EAI_R542aUpdatePersonWS>, DOME_BUS_EAI_R542aUpdatePersonWS {
+    internal partial class DOME_BUS_EAI_R542aUpdatePersonWSClient : System.ServiceModel.ClientBase<Dome.R542a.DOME_BUS_EAI_R542aUpdatePersonWS>, Dome.R542a.DOME_BUS_EAI_R542aUpdatePersonWS {
         
         public DOME_BUS_EAI_R542aUpdatePersonWSClient() {
         }
@@ -933,14 +961,14 @@ namespace Dome.Service_References.R542a {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        updatePersonResponse DOME_BUS_EAI_R542aUpdatePersonWS.updatePerson(updatePerson request) {
+        Dome.R542a.updatePersonResponse Dome.R542a.DOME_BUS_EAI_R542aUpdatePersonWS.updatePerson(Dome.R542a.updatePerson request) {
             return base.Channel.updatePerson(request);
         }
         
-        public UpdatePersonResponseDto updatePerson(UpdatePersonDto updatePersonDto) {
-            updatePerson inValue = new updatePerson();
+        public Dome.R542a.UpdatePersonResponseDto updatePerson(Dome.R542a.UpdatePersonDto updatePersonDto) {
+            Dome.R542a.updatePerson inValue = new Dome.R542a.updatePerson();
             inValue.updatePersonDto = updatePersonDto;
-            updatePersonResponse retVal = ((DOME_BUS_EAI_R542aUpdatePersonWS)(this)).updatePerson(inValue);
+            Dome.R542a.updatePersonResponse retVal = ((Dome.R542a.DOME_BUS_EAI_R542aUpdatePersonWS)(this)).updatePerson(inValue);
             return retVal.updatePersonResponse1;
         }
     }

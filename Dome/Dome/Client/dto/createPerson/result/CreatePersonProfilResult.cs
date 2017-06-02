@@ -1,6 +1,6 @@
 ﻿using System.Linq;
-using Dome.Service_References.R511;
-using Dome.Service_References.R521;
+using Dome.R511;
+using Dome.R521;
 
 namespace Dome.Client.dto.createPerson.result
 {

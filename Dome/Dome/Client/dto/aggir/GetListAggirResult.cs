@@ -1,6 +1,6 @@
 using System;
 using System.Linq;
-using Dome.Service_References.R831a;
+using Dome.R831a;
 
 namespace Dome.Client.dto.aggir
 {
@@ -17,9 +17,9 @@ namespace Dome.Client.dto.aggir
 
         public class aggirListItemDto
         {
-            private Service_References.R831a.aggirListItemDto x;
+            private R831a.aggirListItemDto x;
 
-            public aggirListItemDto(Service_References.R831a.aggirListItemDto x)
+            public aggirListItemDto(R831a.aggirListItemDto x)
             {
                 this.x = x;
             }
