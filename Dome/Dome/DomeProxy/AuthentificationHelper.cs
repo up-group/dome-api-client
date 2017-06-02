@@ -73,6 +73,7 @@ namespace Dome.DomeProxy
         public static void Connect(string username, string password, string url)
         {
             url = url + (url[url.Length - 1] == '/' ? "" : "/");
+            AuthentificationHelper.Url = url;
 
             using (var client = new HttpClient())
             {
